@@ -1,1 +1,1 @@
-# EAT-SSU-EatSSU-iOS
+# EatSSU-iOS
