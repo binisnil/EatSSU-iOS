@@ -1,16 +1,14 @@
 //
-//  LunchViewController.swift
+//  MorningViewController.swift
 //  EatSSU-iOS
 //
-//  Created by 박윤빈 on 2023/03/03.
+//  Created by 최지우 on 2023/03/15.
 //
 
 import UIKit
-
-import Moya
 import SnapKit
 
-class LunchViewController: BaseViewController {
+class MorningViewController: BaseViewController {
     
     //MARK: - UI Component
     
