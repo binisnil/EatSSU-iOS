@@ -13,6 +13,10 @@
 		0569565929B1F5D4002E8CF2 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565829B1F5D4002E8CF2 /* DinnerViewController.swift */; };
 		0569565C29B25D40002E8CF2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 0569565B29B25D40002E8CF2 /* Tabman */; };
 		0569565F29B26338002E8CF2 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565E29B26337002E8CF2 /* ReviewViewController.swift */; };
+		056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956B729C0D6DC002E8CF2 /* UIView+.swift */; };
+		056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956BA29C0D8BF002E8CF2 /* UIFont+.swift */; };
+		056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */; };
+		056956C229C0DB55002E8CF2 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 056956C129C0DB55002E8CF2 /* Moya */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
 		7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */; };
 		7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */; };
@@ -28,6 +32,9 @@
 		0569565629B1F5A5002E8CF2 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		0569565829B1F5D4002E8CF2 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
 		0569565E29B26337002E8CF2 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		056956B729C0D6DC002E8CF2 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		056956BA29C0D8BF002E8CF2 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EatSSU-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +53,7 @@
 			files = (
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				0569565129B1F36A002E8CF2 /* PagingKit in Frameworks */,
+				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
 				0569565C29B25D40002E8CF2 /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +97,14 @@
 			path = Review;
 			sourceTree = "<group>";
 		};
+		056956BD29C0DAF9002E8CF2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		7B2BBF89299A1AC400EE0F1F = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +135,7 @@
 		7B2BBFA9299A253B00EE0F1F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				056956BD29C0DAF9002E8CF2 /* Base */,
 				7B2BBFAA299A254600EE0F1F /* Supports */,
 				7B2BBFAB299A255800EE0F1F /* Resource */,
 				7B2BBFAC299A256E00EE0F1F /* Extension */,
@@ -148,6 +165,8 @@
 			children = (
 				7B2BBFB1299A29AF00EE0F1F /* UIColor+.swift */,
 				7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */,
+				056956B729C0D6DC002E8CF2 /* UIView+.swift */,
+				056956BA29C0D8BF002E8CF2 /* UIFont+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -172,6 +191,7 @@
 				7B2BBFAF299A291A00EE0F1F /* SnapKit */,
 				0569565029B1F36A002E8CF2 /* PagingKit */,
 				0569565B29B25D40002E8CF2 /* Tabman */,
+				056956C129C0DB55002E8CF2 /* Moya */,
 			);
 			productName = "EatSSU-iOS";
 			productReference = 7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */;
@@ -205,6 +225,7 @@
 				7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0569564F29B1F36A002E8CF2 /* XCRemoteSwiftPackageReference "PagingKit" */,
 				0569565A29B25D40002E8CF2 /* XCRemoteSwiftPackageReference "Tabman" */,
+				056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 7B2BBF93299A1AC400EE0F1F /* Products */;
 			projectDirPath = "";
@@ -232,10 +253,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
 				0569565529B1F59C002E8CF2 /* MorningViewController.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
 				0569565729B1F5A5002E8CF2 /* LunchViewController.swift in Sources */,
+				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,
+				056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */,
 				0569565929B1F5D4002E8CF2 /* DinnerViewController.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
@@ -464,6 +488,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -484,6 +516,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0569565A29B25D40002E8CF2 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		056956C129C0DB55002E8CF2 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 		7B2BBFAF299A291A00EE0F1F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
