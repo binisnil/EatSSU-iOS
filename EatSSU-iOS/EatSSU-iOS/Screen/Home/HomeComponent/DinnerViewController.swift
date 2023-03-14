@@ -5,34 +5,36 @@
 //  Created by 박윤빈 on 2023/03/03.
 //
 
-import Foundation
 import UIKit
 
-class DinnerViewController : UIViewController {
+import Moya
+import SnapKit
+
+class DinnerViewController: BaseViewController {
     
     //MARK: - UI Component
     
     //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        
-        setViewHierarchy()
+        configureUI()
         setLayout()
         setButtonEvent()
     }
     
     //MARK: - Function
-    func setViewHierarchy(){
-
+    
+    override func configureUI() {
+        
     }
     
-    func setLayout(){
-
+    override func setLayout() {
+        
     }
     
-    func setButtonEvent(){
-
+    override func setButtonEvent() {
+        
     }
 }
 

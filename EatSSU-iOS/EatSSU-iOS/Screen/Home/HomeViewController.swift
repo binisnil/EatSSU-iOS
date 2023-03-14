@@ -11,7 +11,8 @@ import Tabman
 
 class HomeViewController: TabmanViewController {
 
-    //페이징할 VC
+    //MARK: - Life Cycle
+    
     var viewControllers: Array<UIViewController> = [MorningViewController(),LunchViewController(),DinnerViewController()]
 
     override func viewDidLoad() {
@@ -23,18 +24,18 @@ class HomeViewController: TabmanViewController {
         addBar(bar, dataSource: self, at: .top)
         
         view.backgroundColor = .systemBackground
-
     }
 }
 
 // MARK: - PageBoy Extension
-extension HomeViewController : PageboyViewControllerDataSource, TMBarDataSource {
+
+extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
     func numberOfViewControllers(in pageboyViewController: Pageboy.PageboyViewController) -> Int {
-        //위에서 선언한 vc array의 count를 반환합니다.
         return viewControllers.count
     }
     
-    func viewController(for pageboyViewController: Pageboy.PageboyViewController, at index: Pageboy.PageboyViewController.PageIndex) -> UIViewController? {
+    func viewController(for pageboyViewController: Pageboy.PageboyViewController,
+                        at index: Pageboy.PageboyViewController.PageIndex) -> UIViewController? {
         return viewControllers[index]
     }
     
@@ -56,7 +57,7 @@ extension HomeViewController : PageboyViewControllerDataSource, TMBarDataSource 
                }
     }
     
-    func settingTabBar (ctBar : TMBar.ButtonBar) {
+    func settingTabBar (ctBar: TMBar.ButtonBar) {
         ctBar.layout.transitionStyle = .snap
         ctBar.backgroundView.style = .blur(style: .light)
         ctBar.buttons.customize { (button) in
@@ -70,6 +71,4 @@ extension HomeViewController : PageboyViewControllerDataSource, TMBarDataSource 
         ctBar.indicator.overscrollBehavior = .compress
         ctBar.layout.contentMode = .fit
         }
-    
 }
-
