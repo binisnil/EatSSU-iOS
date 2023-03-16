@@ -9,7 +9,7 @@ import UIKit
 
 enum AppFontName: String {
     case regularFont = "AppleSDGothicNeo-Regular"
-    case mediumFont = "AppleSDGothicNeo-Medium"
+    case mediumFont = "ppleSDGothicNeo-Medium"
     case semiBoldFont = "AppleSDGothicNeo-SemiBold"
     case boldFont = "AppleSDGothicNeo-Bold"
 }
