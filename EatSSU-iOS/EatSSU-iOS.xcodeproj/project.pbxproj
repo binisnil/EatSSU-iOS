@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0569565129B1F36A002E8CF2 /* PagingKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0569565029B1F36A002E8CF2 /* PagingKit */; };
 		0569565C29B25D40002E8CF2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 0569565B29B25D40002E8CF2 /* Tabman */; };
-		0569565F29B26338002E8CF2 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565E29B26337002E8CF2 /* ReviewViewController.swift */; };
 		056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956B729C0D6DC002E8CF2 /* UIView+.swift */; };
 		056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956BA29C0D8BF002E8CF2 /* UIFont+.swift */; };
 		056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */; };
@@ -28,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0569565E29B26337002E8CF2 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		056956B729C0D6DC002E8CF2 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		056956BA29C0D8BF002E8CF2 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -75,22 +73,13 @@
 			children = (
 				7B63C45029C0FF7E0070C588 /* View */,
 				7B63C45229C0FFF50070C588 /* ViewController */,
-				0569565329B1F4E9002E8CF2 /* HomeComponent */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		0569565329B1F4E9002E8CF2 /* HomeComponent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomeComponent;
 			sourceTree = "<group>";
 		};
 		0569565D29B262F9002E8CF2 /* Review */ = {
 			isa = PBXGroup;
 			children = (
-				0569565E29B26337002E8CF2 /* ReviewViewController.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -288,7 +277,6 @@
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
-				0569565F29B26338002E8CF2 /* ReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
