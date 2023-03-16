@@ -14,6 +14,18 @@ extension UIColor {
         return UIColor(hex: "#6B6B6B")
     }
     
+    static var barGray: UIColor {
+        return UIColor(hex: "#D9D9D9")
+    }
+    
+    static var buttonGray: UIColor {
+        return UIColor(hex: "#F4F4F4")
+    }
+    
+    static var backgroundGray: UIColor {
+        return UIColor(hex: "#F9F9F9")
+    }
+    
     static var brandColor: UIColor {
         return UIColor(hex: "#DF5757")
     }
