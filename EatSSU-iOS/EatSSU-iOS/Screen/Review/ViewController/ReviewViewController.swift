@@ -14,16 +14,8 @@ class ReviewViewController: BaseViewController {
     
     //MARK: - UI Component
     
+//    let topReviewView = ReviewRateView()
     let topReviewView = ReviewRateView()
-    
-    //MARK: - Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-        setLayout()
-        setButtonEvent()
-    }
     
     //MARK: - Function
 
@@ -44,5 +36,13 @@ class ReviewViewController: BaseViewController {
     override func setButtonEvent() {
         
     }
+    
+//    func setViewShadow() {
+//        topReviewView.layer.shadowOffset = CGSize(width: 0, height: 4)
+//        topReviewView.layer.shadowColor = UIColor.black.cgColor
+//        topReviewView.layer.shadowOpacity = 0.9
+//        topReviewView.layer.shadowRadius = 20
+//        topReviewView.layer.masksToBounds = false
+//        topReviewView.layer.rasterizationScale = UIScreen.main.scale
+//    }
 }
-

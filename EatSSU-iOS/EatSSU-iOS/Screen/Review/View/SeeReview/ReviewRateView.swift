@@ -28,7 +28,7 @@ class ReviewRateView: BaseUIView {
     
     private let progressView: UIView = {
         let view = UIView()
-        view.backgroundColor = .brandColor
+        view.backgroundColor = .primary
         return view
     }()
     
@@ -60,7 +60,7 @@ class ReviewRateView: BaseUIView {
         let label = UILabel()
         label.text = "15"
         label.font = .bold(size: 14)
-        label.textColor = .brandColor
+        label.textColor = .primary
         return label
     }()
     
@@ -94,12 +94,11 @@ class ReviewRateView: BaseUIView {
     private let addReviewButton: UIButton = {
         let button = UIButton()
         button.setTitle("리뷰 작성하기", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .medium(size: 16)
-        button.backgroundColor = .buttonGray
+        button.backgroundColor = .primary
         button.layer.cornerRadius = 15
-        button.layer.borderColor = UIColor(hex: "#EAEAEA").cgColor
-        button.layer.borderWidth = 1
+        button.layer.masksToBounds = false
         return button
     }()
     
@@ -116,7 +115,6 @@ class ReviewRateView: BaseUIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        roundCorners(corners: [.bottomLeft, .bottomRight], radius: 20)
     }
     
     //MARK: - Functions
@@ -163,8 +161,9 @@ class ReviewRateView: BaseUIView {
         
         addReviewButton.snp.makeConstraints { make in
             make.top.equalTo(starStackView.snp.bottom).offset(35)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(130)
+            make.leading.equalToSuperview().offset(36)
+            make.trailing.equalToSuperview().offset(-36)
+            make.height.equalTo(30)
         }
         
         totalLabelStackView.snp.makeConstraints { make in
