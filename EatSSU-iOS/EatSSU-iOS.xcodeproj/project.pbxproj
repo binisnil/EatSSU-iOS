@@ -23,6 +23,7 @@
 		056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956FC29CB7958002E8CF2 /* ReviewTableCell.swift */; };
 		056956FF29CB81E2002E8CF2 /* setRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956FE29CB81E2002E8CF2 /* setRateViewController.swift */; };
 		0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570229CB83A1002E8CF2 /* BottomTagView.swift */; };
+		0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570929CCBC41002E8CF2 /* RateView.swift */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
 		7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */; };
 		7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */; };
@@ -47,6 +48,7 @@
 		056956FC29CB7958002E8CF2 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		056956FE29CB81E2002E8CF2 /* setRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setRateViewController.swift; sourceTree = "<group>"; };
 		0569570229CB83A1002E8CF2 /* BottomTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTagView.swift; sourceTree = "<group>"; };
+		0569570929CCBC41002E8CF2 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EatSSU-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				0569570229CB83A1002E8CF2 /* BottomTagView.swift */,
+				0569570929CCBC41002E8CF2 /* RateView.swift */,
 			);
 			path = RateReview;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
+				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,
 				0569565F29B26338002E8CF2 /* ReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

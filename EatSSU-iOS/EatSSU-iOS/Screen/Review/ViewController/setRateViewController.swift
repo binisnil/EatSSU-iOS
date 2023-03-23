@@ -39,4 +39,20 @@ class setRateViewController: BaseViewController {
         return label
     }()
     
+    private var bottomTagView = BottomTagView()
+    
+    override func configureUI() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(bottomTagView)
+    }
+    
+    override func setLayout() {
+        bottomTagView.snp.makeConstraints { make in
+            make.centerY.centerX.equalToSuperview()
+        }
+    }
+    
+    override func setButtonEvent() {
+        
+    }
 }
