@@ -91,7 +91,7 @@ class ReviewRateView: BaseUIView {
         didSet { setStarButtons() }
     }
     
-    private let addReviewButton: UIButton = {
+    let addReviewButton: UIButton = {
         let button = UIButton()
         button.setTitle("리뷰 작성하기", for: .normal)
         button.setTitleColor(.white, for: .normal)

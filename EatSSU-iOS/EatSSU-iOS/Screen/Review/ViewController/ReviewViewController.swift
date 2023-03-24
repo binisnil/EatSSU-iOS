@@ -14,7 +14,6 @@ class ReviewViewController: BaseViewController {
     
     //MARK: - UI Component
     
-//    let topReviewView = ReviewRateView()
     let topReviewView = ReviewRateView()
     
     //MARK: - Function
@@ -34,15 +33,11 @@ class ReviewViewController: BaseViewController {
     }
     
     override func setButtonEvent() {
-        
+        topReviewView.addReviewButton.addTarget(self, action: #selector(userTapReviewButton), for: .touchUpInside)
     }
     
-//    func setViewShadow() {
-//        topReviewView.layer.shadowOffset = CGSize(width: 0, height: 4)
-//        topReviewView.layer.shadowColor = UIColor.black.cgColor
-//        topReviewView.layer.shadowOpacity = 0.9
-//        topReviewView.layer.shadowRadius = 20
-//        topReviewView.layer.masksToBounds = false
-//        topReviewView.layer.rasterizationScale = UIScreen.main.scale
-//    }
+    @objc func userTapReviewButton() {
+        let nextVC = SetRateViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }

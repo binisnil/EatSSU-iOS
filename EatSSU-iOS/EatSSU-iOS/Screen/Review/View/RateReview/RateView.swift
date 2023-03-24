@@ -11,4 +11,73 @@ import SnapKit
 
 class RateView: BaseUIView {
     
+    //MARK: - Properties
+    
+    var currentStar: Int = 0
+    var starNumber: Int = 5 {
+        didSet { bind() } ///초기화할 별의 개수 (button의 개수)
+    }
+    private var buttons: [UIButton] = []
+
+    //MARK: - UI Component
+    
+    lazy var starStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.spacing = 12
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    lazy var starFillImage: UIImage? = {
+        return UIImage(named: "starFilledBig.svg")
+    }()
+    
+    lazy var starEmptyImage: UIImage? = {
+        return UIImage(named: "starEmptyBig.svg")
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        bind()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func configureUI() {
+        super.configureUI()
+        self.addSubview(starStackView)
+    }
+    
+    override func setLayout() {
+        starStackView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalToSuperview()
+        }
+    }
+    
+    ///별점 버튼 초기화. tag 생성이 핵심
+    func bind() {
+        for i in 0..<5 {
+            let button = UIButton()
+            button.setImage(starEmptyImage, for: .normal)
+            button.tag = i
+            buttons += [button]
+            starStackView.addArrangedSubview(button)
+            button.addTarget(self, action: #selector(didTapButton(sender:)), for: .touchUpInside)
+        }
+    }
+    
+    ///tag를 이용한 선택처리
+    @objc private func didTapButton(sender: UIButton) {
+        let end = sender.tag
+        for i in 0...end {
+            buttons[i].setImage(starFillImage, for: .normal)
+        }
+        for i in end + 1..<starNumber {
+            buttons[i].setImage(starEmptyImage, for: .normal)
+        }
+        currentStar = end + 1
+    }
 }

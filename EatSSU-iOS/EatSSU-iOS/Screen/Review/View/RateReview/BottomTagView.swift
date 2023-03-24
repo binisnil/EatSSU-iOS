@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 class BottomTagView: BaseUIView {
     
     var tag1: UIButton = {
@@ -14,9 +16,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("가성비가 좋아요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(140)
+        }
         return button
     }()
     
@@ -25,9 +31,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("다른 데서 먹을래요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(165)
+        }
         return button
     }()
     
@@ -36,9 +46,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("든든한 한 끼", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(113)
+        }
         return button
     }()
     
@@ -47,9 +61,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("그럭저럭해요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(117)
+        }
         return button
     }()
     
@@ -58,9 +76,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("아쉬워요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(90)
+        }
         return button
     }()
 
@@ -69,9 +91,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("매워요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(75)
+        }
         return button
     }()
     
@@ -80,9 +106,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("싱거워요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(90)
+        }
         return button
     }()
     
@@ -91,9 +121,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("제 입맛엔 짜요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(137)
+        }
         return button
     }()
     
@@ -102,9 +136,13 @@ class BottomTagView: BaseUIView {
         button.setTitle("양이 많아요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(113)
+        }
         return button
     }()
     
@@ -113,10 +151,22 @@ class BottomTagView: BaseUIView {
         button.setTitle("빠르게 먹을 수 있어요", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = .medium(size: 16)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(174)
+        }
         return button
+    }()
+    
+    private let tagLimitLabel: UILabel = {
+        let label = UILabel()
+        label.text = "태그는 최대 3개까지 선택 가능합니다"
+        label.font = .regular(size: 12)
+        label.textColor = .darkGray
+        return label
     }()
     
     lazy var topTagStackView: UIStackView = {
@@ -124,6 +174,7 @@ class BottomTagView: BaseUIView {
         stackView.axis = .horizontal
         stackView.spacing = 22
         stackView.alignment = .fill
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -132,6 +183,7 @@ class BottomTagView: BaseUIView {
         stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.alignment = .fill
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -140,6 +192,7 @@ class BottomTagView: BaseUIView {
         stackView.axis = .horizontal
         stackView.spacing = 19
         stackView.alignment = .fill
+        stackView.distribution = .fill
         return stackView
     }()
     
@@ -148,11 +201,12 @@ class BottomTagView: BaseUIView {
         stackView.axis = .horizontal
         stackView.spacing = 20
         stackView.alignment = .fill
+        stackView.distribution = .fill
         return stackView
     }()
     
     lazy var globalStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [topTagStackView, secondTagStackView, thirdTagStackView, bottomTagStackView])
+        let stackView = UIStackView(arrangedSubviews: [topTagStackView, secondTagStackView, thirdTagStackView, bottomTagStackView, tagLimitLabel])
         stackView.axis = .vertical
         stackView.spacing = 23
         stackView.alignment = .center
@@ -160,9 +214,12 @@ class BottomTagView: BaseUIView {
     }()
     
     override func configureUI() {
+        self.addSubview(globalStackView)
     }
     
     override func setLayout() {
-
+        globalStackView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalToSuperview()
+        }
     }
 }
