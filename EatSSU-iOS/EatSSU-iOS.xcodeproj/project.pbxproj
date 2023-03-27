@@ -24,6 +24,9 @@
 		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
+		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
+		7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD529D20B980076DC77 /* MorningView.swift */; };
+		7BD73CD829D215170076DC77 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD729D215170076DC77 /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,8 @@
 		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
+		7BD73CD529D20B980076DC77 /* MorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningView.swift; sourceTree = "<group>"; };
+		7BD73CD729D215170076DC77 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BD73CD429D208940076DC77 /* Then in Frameworks */,
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				0569565129B1F36A002E8CF2 /* PagingKit in Frameworks */,
 				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */,
+				7BD73CD729D215170076DC77 /* BaseView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -161,6 +168,7 @@
 		7B63C45029C0FF7E0070C588 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BD73CD529D20B980076DC77 /* MorningView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 				0569565029B1F36A002E8CF2 /* PagingKit */,
 				0569565B29B25D40002E8CF2 /* Tabman */,
 				056956C129C0DB55002E8CF2 /* Moya */,
+				7BD73CD329D208940076DC77 /* Then */,
 			);
 			productName = "EatSSU-iOS";
 			productReference = 7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */;
@@ -239,6 +248,7 @@
 				0569564F29B1F36A002E8CF2 /* XCRemoteSwiftPackageReference "PagingKit" */,
 				0569565A29B25D40002E8CF2 /* XCRemoteSwiftPackageReference "Tabman" */,
 				056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */,
+				7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 7B2BBF93299A1AC400EE0F1F /* Products */;
 			projectDirPath = "";
@@ -267,6 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
+				7BD73CD829D215170076DC77 /* BaseView.swift in Sources */,
+				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
@@ -516,6 +528,14 @@
 				kind = branch;
 			};
 		};
+		7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -538,6 +558,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		7BD73CD329D208940076DC77 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

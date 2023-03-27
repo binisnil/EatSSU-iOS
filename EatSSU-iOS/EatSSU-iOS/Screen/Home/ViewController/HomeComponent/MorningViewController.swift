@@ -7,105 +7,87 @@
 
 import UIKit
 import SnapKit
+import Then
 
 class MorningViewController: BaseViewController {
     
     //MARK: - UI Component
     
-    // title View
-    
-    let coordinateImage : UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "coordinate")
-        return imageView
+    lazy var menuItems: [UIAction] = {
+        return [
+            UIAction(title: "마이페이지", image: UIImage(systemName: "person"),handler: {_ in self.touchMyPageBtnEvent()})
+        ]
+    }()
+
+    lazy var menu : UIMenu = {
+        let menu = UIMenu(title: "title",
+                          image: UIImage(systemName: "bell"),
+                          identifier: nil,
+                          options: .displayInline,
+                          children: menuItems)
+       return menu
     }()
     
-    let studentRestaurantLabel : UILabel = {
-        let label = UILabel()
-        label.text = "학생 식당"
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        return label
-    }()
+    private let scrollView = UIScrollView().then {
+        $0.backgroundColor = .systemBackground
+        $0.showsVerticalScrollIndicator = false
+    }
     
-    // box View
+    private let contentView = UIView()
     
-    let todayMenuLabel : UILabel = {
-        let label = UILabel()
-        label.text = "오늘의 메뉴"
-        label.font = UIFont.bold(size: 12)
-        return label
-    }()
-    
-    let priceLabel : UILabel = {
-        let label = UILabel()
-        label.text = "가격"
-        label.font = UIFont.bold(size: 12)
-        return label
-    }()
-    
-    let ratingLabel : UILabel = {
-        let label = UILabel()
-        label.text = "평점"
-        label.font = UIFont.bold(size: 12)
-        return label
-    }()
-    
-    //StackView
-    
-    lazy var restaurantTitleStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [coordinateImage, studentRestaurantLabel])
-        stackView.axis = .horizontal
-        stackView.backgroundColor = .orange
-        stackView.spacing = 10
-        stackView.alignment = .leading
-        return stackView
-    }()
-    
-    lazy var basicMenuFormStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [todayMenuLabel, priceLabel, ratingLabel])
-        stackView.axis = .horizontal
-        stackView.backgroundColor = .orange
-        stackView.alignment = .leading
-        return stackView
-    }()
-    
+    private let morningView = MorningView()
     
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        setLayout()
-        setButtonEvent()
+        setnavigation()
+
     }
     
     //MARK: - Function
     
-    override func configureUI() {
-        view.addSubview(restaurantTitleStackView)
-        view.addSubview(basicMenuFormStackView)
+    func setnavigation() {
+        self.navigationController?.navigationBar.topItem?.title = "EAT SSU"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Bold", size: 25), .foregroundColor: UIColor.brandColor]
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "text.justify", style: .done, target: self, action: #selector(rightBarItemTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
+                                                                   image: UIImage(systemName: "text.justify"),
+                                                                   primaryAction: nil,
+                                                                   menu: menu)
     }
     
+    override func configureUI() {
+        view.addSubviews(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubviews(morningView)
+    }
+
     override func setLayout() {
-//        coordinateImage.snp.makeConstraints{ make in
-//            make.leading.equalToSuperview().offset(21)
-//            make.top.equalToSuperview()
-//
-//        }
-//        studentRestaurantLabel.snp.makeConstraints { make in
-//            make.leading.equalTo(coordinateImage.snp.trailing).offset(10)
-//        }
-        restaurantTitleStackView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(21)
-            make.top.equalToSuperview()
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
-        basicMenuFormStackView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
+        contentView.snp.makeConstraints {
+            $0.edges.width.height.equalToSuperview()
         }
+        morningView.snp.makeConstraints {
+            $0.width.height.equalTo(contentView)
+        }
+        
     }
     
     override func setButtonEvent() {
         
+    }
+    
+    @objc
+    func rightBarItemTapped() {
+        print("rightBarItemTapped")
+    }
+    
+    @objc
+    func touchMyPageBtnEvent() {
+        print("touchMyPageBtnEvent")
     }
 }
 

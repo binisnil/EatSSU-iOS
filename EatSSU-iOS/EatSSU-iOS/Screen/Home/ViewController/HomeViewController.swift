@@ -13,11 +13,12 @@ class HomeViewController: TabmanViewController {
 
     //MARK: - Life Cycle
     
+    public let bar = TMBar.ButtonBar()
+    
     var viewControllers: Array<UIViewController> = [MorningViewController(),LunchViewController(),DinnerViewController()]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let bar = TMBar.ButtonBar()
         
         self.dataSource = self
         settingTabBar(ctBar: bar)
