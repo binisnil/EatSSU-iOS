@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MorningView : UIView {
+class MorningView : BaseUIView {
     
     // MARK: - UI Components
     
@@ -45,11 +45,11 @@ class MorningView : UIView {
     }
     
     // MARK: - Func
-    func configureUI() {
+    override func configureUI() {
         self.addSubviews(restaurantTitleStackView)
     }
     
-    func setLayout() {
+    override func setLayout() {
         studentRestaurantLabel.snp.makeConstraints {
             $0.leading.equalTo(coordinateImage.snp.trailing).offset(10)
         }
