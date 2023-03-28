@@ -12,6 +12,7 @@ enum AppFontName: String {
     case mediumFont = "AppleSDGothicNeo-Medium"
     case semiBoldFont = "AppleSDGothicNeo-SemiBold"
     case boldFont = "AppleSDGothicNeo-Bold"
+    case extraBoldFont = "AppleSDGothicNeo-ExtraBold"
 }
 
 extension UIFont {
