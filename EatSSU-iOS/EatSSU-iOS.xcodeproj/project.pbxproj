@@ -27,8 +27,8 @@
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD529D20B980076DC77 /* MorningView.swift */; };
 		7BD73CD829D215170076DC77 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD729D215170076DC77 /* BaseView.swift */; };
-		7BD73CDD29D2E4A30076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CDC29D2E4A30076DC77 /* LoginViewController.swift */; };
-		7BD73CDF29D2E4CB0076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CDE29D2E4CB0076DC77 /* LoginView.swift */; };
+		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
+		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +49,8 @@
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
 		7BD73CD529D20B980076DC77 /* MorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningView.swift; sourceTree = "<group>"; };
 		7BD73CD729D215170076DC77 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		7BD73CDC29D2E4A30076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7BD73CDE29D2E4CB0076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 		0569564E29B1F043002E8CF2 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				7BD73CD929D2E47C0076DC77 /* Login */,
+				7BD73CE229D2F9AC0076DC77 /* Login */,
 				0569565D29B262F9002E8CF2 /* Review */,
 				0569565229B1F4B2002E8CF2 /* Home */,
 			);
@@ -197,27 +197,27 @@
 			path = HomeComponent;
 			sourceTree = "<group>";
 		};
-		7BD73CD929D2E47C0076DC77 /* Login */ = {
+		7BD73CE229D2F9AC0076DC77 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				7BD73CDB29D2E4920076DC77 /* ViewController */,
-				7BD73CDA29D2E48E0076DC77 /* View */,
+				7BD73CE429D2F9B30076DC77 /* ViewController */,
+				7BD73CE329D2F9B00076DC77 /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		7BD73CDA29D2E48E0076DC77 /* View */ = {
+		7BD73CE329D2F9B00076DC77 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BD73CDE29D2E4CB0076DC77 /* LoginView.swift */,
+				7BD73CE729D2F9D10076DC77 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		7BD73CDB29D2E4920076DC77 /* ViewController */ = {
+		7BD73CE429D2F9B30076DC77 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7BD73CDC29D2E4A30076DC77 /* LoginViewController.swift */,
+				7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -306,10 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BD73CDD29D2E4A30076DC77 /* LoginViewController.swift in Sources */,
+				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BD73CD829D215170076DC77 /* BaseView.swift in Sources */,
-				7BD73CDF29D2E4CB0076DC77 /* LoginView.swift in Sources */,
+				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,

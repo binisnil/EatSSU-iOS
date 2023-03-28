@@ -32,4 +32,8 @@ extension UIFont {
     class func bold(size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.boldFont.rawValue, size: size)!
     }
+    
+    class func extraBold(size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.extraBoldFont.rawValue, size: size)!
+    }
 }

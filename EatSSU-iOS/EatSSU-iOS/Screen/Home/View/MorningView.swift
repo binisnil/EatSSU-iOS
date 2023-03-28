@@ -35,9 +35,6 @@ class MorningView : BaseUIView {
     // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        configureUI()
-        setLayout()
     }
     
     required init?(coder: NSCoder) {
