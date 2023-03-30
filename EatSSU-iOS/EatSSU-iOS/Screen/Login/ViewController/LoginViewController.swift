@@ -17,11 +17,16 @@ class LoginViewController : BaseViewController {
     
     private let loginView = LoginView()
     
+    lazy var previewButton = loginView.previewButton.then() {
+        $0.addTarget(self, action: #selector(didTappedPreviewBtn), for: .touchUpInside)
+        $0.backgroundColor = .purple
+    }
+    
     //MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
     
     //MARK: - Function
@@ -35,9 +40,19 @@ class LoginViewController : BaseViewController {
         loginView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+       
+        
     }
     
-    override func setButtonEvent() {
-        //override Point
+    @objc func didTappedPreviewBtn() {
+        print("didTappedPreviewBtn")
     }
-}
+        
+        override func setButtonEvent() {
+            
+            
+        }
+        
+        
+    }
+

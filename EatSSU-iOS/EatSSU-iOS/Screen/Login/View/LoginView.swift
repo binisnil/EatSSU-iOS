@@ -13,6 +13,12 @@ import Then
 class LoginView : BaseUIView {
     
     // MARK: - UI Components
+    let previewButton = UIButton().then {
+        $0.titleLabel?.font = UIFont(name: AppFontName.semiBoldFont.rawValue, size: 14)
+        $0.setTitle("둘러보기", for: .normal)
+        $0.setTitleColor(UIColor.gray1, for: .normal)
+//        $0.addTarget(self, action: #selector(didTappedPreviewBtn), for: .touchUpInside)
+    }
     private let logoImage = UIImageView().then {
         $0.image = UIImage(named: "logo")
     }
@@ -35,11 +41,15 @@ class LoginView : BaseUIView {
     }()
     
     private var emailImage = UIImageView().then {
-        $0.image = UIImage(systemName: "person.fill")
+        let insets = UIEdgeInsets(top: -5, left: -5, bottom: -5, right: -5)
+        $0.image = UIImage(systemName: "person.fill")?.withAlignmentRectInsets(insets)
+//        $0.contentMode = .scaleAspectFill
+        $0.tintColor = .gray1
     }
     
     private lazy var emailTextField = UITextField().then {
         $0.placeholder = "이메일 아이디"
+        $0.font = UIFont(name: AppFontName.regularFont.rawValue, size: 14.0)
     }
     
     private lazy var emailStackView: UIStackView = {
@@ -47,15 +57,17 @@ class LoginView : BaseUIView {
         stackView.axis = .horizontal
         stackView.layer.borderColor = UIColor.brandColor.cgColor
         stackView.layer.borderWidth = 1.0
-        stackView.layer.cornerRadius = 5.0
+        stackView.layer.cornerRadius = 10.0
         return stackView
     }()
     
     private var pwImage = UIImageView().then {
         $0.image = UIImage(systemName: "lock.fill")
+        $0.tintColor = .gray1
     }
     private lazy var pwTextField = UITextField().then {
         $0.placeholder = "비밀번호"
+        $0.font = UIFont(name: AppFontName.regularFont.rawValue, size: 14.0)
     }
     
     private lazy var pwStackView: UIStackView = {
@@ -68,14 +80,54 @@ class LoginView : BaseUIView {
     
     private lazy var loginButton = UIButton().then {
         $0.titleLabel?.font = UIFont(name: AppFontName.semiBoldFont.rawValue, size: 14)
+        $0.backgroundColor = UIColor.brandColor
         $0.setTitle("로그인", for: .normal)
-        $0.setTitleColor(UIColor.brandColor, for: .normal)
+        $0.setTitleColor(UIColor.white, for: .normal)
         $0.layer.cornerRadius = 10.0
     }
     
-    private lazy var userInfoStackView: UIStackView = {
+    private lazy var userInputStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [emailStackView,pwStackView,loginButton])
         stackView.axis = .vertical
+        stackView.spacing = 17.0
+        return stackView
+    }()
+    
+    private var googleLoginButton = UIButton().then {
+        $0.setImage(UIImage(named: "google"), for: .normal)
+    }
+    
+    private var appleLoginButton = UIButton().then {
+        $0.setImage(UIImage(named: "apple"), for: .normal)
+    }
+    
+    private lazy var socialLoginStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [googleLoginButton,appleLoginButton])
+        stackView.axis = .horizontal
+        stackView.spacing = 15.0
+        return stackView
+    }()
+    
+    private let pwFindButton = UIButton().then {
+        $0.titleLabel?.font = UIFont(name: AppFontName.regularFont.rawValue, size: 14)
+        $0.setTitle("비밀번호 찾기", for: .normal)
+        $0.setTitleColor(UIColor.gray1, for: .normal)
+    }
+    
+    private let signUPButton = UIButton().then {
+        $0.titleLabel?.font = UIFont(name: AppFontName.regularFont.rawValue, size: 14)
+        $0.setTitle("회원가입", for: .normal)
+        $0.setTitleColor(UIColor.gray1, for: .normal)
+    }
+    
+    private let lineView = UIView().then {
+        $0.backgroundColor = UIColor.gray1
+    }
+    
+    private lazy var userInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [pwFindButton,lineView,signUPButton])
+        stackView.axis = .horizontal
+        stackView.spacing = 27.5
         return stackView
     }()
     
@@ -91,11 +143,18 @@ class LoginView : BaseUIView {
     
     // MARK: - Func
     override func configureUI() {
-        self.addSubviews(loginTopStackView,
+        self.addSubviews(previewButton,
+                         loginTopStackView,
+                         userInputStackView,
+                         socialLoginStackView,
                          userInfoStackView
         )
     }
     override func setLayout() {
+        previewButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(60)
+            $0.leading.equalToSuperview().offset(20)
+        }
         loginTopStackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(118)
             $0.centerX.equalToSuperview()
@@ -104,10 +163,37 @@ class LoginView : BaseUIView {
             $0.top.equalTo(logoImage.snp.bottom).offset(18)
         }
 //        loginAlertLabel.snp.makeConstraints {
-//            $0.top.equalTo(titleLabel.snp.bottom).offset(40)
+//            $0.top.equalTo(titleLabel.snp.bottom).offset(50)
 //        }
-        userInfoStackView.snp.makeConstraints {
+//        emailImage.snp.makeConstraints {
+//            $0.edges.equalToSuperview().offset(11)
+//
+//        }
+        emailTextField.snp.makeConstraints {
+            $0.height.equalTo(40)
+        }
+        pwTextField.snp.makeConstraints {
+            $0.height.equalTo(40)
+        }
+        loginButton.snp.makeConstraints {
+            $0.height.equalTo(40)
+        }
+        userInputStackView.snp.makeConstraints {
             $0.top.equalTo(loginTopStackView.snp.bottom).offset(40)
+            $0.leading.equalToSuperview().offset(72)
+            $0.centerX.equalToSuperview()
+        }
+        socialLoginStackView.snp.makeConstraints {
+            $0.top.equalTo(userInputStackView.snp.bottom).offset(42)
+            $0.centerX.equalToSuperview()
+        }
+        userInfoStackView.snp.makeConstraints {
+            $0.top.equalTo(socialLoginStackView.snp.bottom).offset(45)
+        }
+        lineView.snp.makeConstraints {
+            $0.width.equalTo(1)
+            $0.height.equalTo(16)
+            $0.centerX.equalTo(self)
         }
   
     }
