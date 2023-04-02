@@ -11,22 +11,19 @@ import SnapKit
 import Then
 
 class LoginViewController : BaseViewController {
+    
     //MARK: - Properties
     
     //MARK: - UI Components
     
     private let loginView = LoginView()
     
-    lazy var previewButton = loginView.previewButton.then() {
-        $0.addTarget(self, action: #selector(didTappedPreviewBtn), for: .touchUpInside)
-        $0.backgroundColor = .purple
-    }
-    
     //MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setButtonEvent()
+
     }
     
     //MARK: - Function
@@ -40,19 +37,14 @@ class LoginViewController : BaseViewController {
         loginView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-       
-        
+    }
+    
+    override func setButtonEvent() {
+        loginView.previewButton.addTarget(self, action: #selector(didTappedPreviewBtn), for: .touchUpInside)
     }
     
     @objc func didTappedPreviewBtn() {
         print("didTappedPreviewBtn")
     }
-        
-        override func setButtonEvent() {
-            
-            
-        }
-        
-        
-    }
+}
 
