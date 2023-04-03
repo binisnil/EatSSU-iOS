@@ -82,6 +82,7 @@ class ReviewViewController: BaseViewController {
     
     @objc func userTapReviewButton() {
         let nextVC = SetRateViewController()
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

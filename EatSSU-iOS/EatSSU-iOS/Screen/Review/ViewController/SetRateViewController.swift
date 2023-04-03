@@ -13,6 +13,7 @@ class SetRateViewController: BaseViewController {
     
     private var bottomTagView = BottomTagView()
     private var rateView = RateView()
+    private var selectedButtonCount = 0
 
     private let reviewLabel: UILabel = {
         let label = UILabel()
@@ -31,7 +32,7 @@ class SetRateViewController: BaseViewController {
     private var menuLabel: UILabel = {
         let label = UILabel()
         label.text = "김치볶음밥 & 계란국을 평가해주세요"
-        label.font = .semiBold(size: 20)
+        label.font = .bold(size: 20)
         label.textColor = .black
         return label
     }()
@@ -65,8 +66,7 @@ class SetRateViewController: BaseViewController {
                          bottomTagView,
                          menuLabel,
                          introLabel,
-                         nextButton
-        )
+                         nextButton)
     }
     
     override func setLayout() {
@@ -94,11 +94,24 @@ class SetRateViewController: BaseViewController {
             make.bottom.equalToSuperview().offset(-68)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(40)
         }
     }
     
     override func setButtonEvent() {
-//        nextButton.addTarget(self, action: #selector(<#T##@objc method#>), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(userTapNextButton), for: .touchUpInside)
+        [bottomTagView.tag1,
+         bottomTagView.tag2,
+         bottomTagView.tag3,
+         bottomTagView.tag4,
+         bottomTagView.tag5,
+         bottomTagView.tag6,
+         bottomTagView.tag7,
+         bottomTagView.tag8,
+         bottomTagView.tag9,
+         bottomTagView.tag10].forEach {
+            $0.addTarget(self, action: #selector(isTagTapped), for: .touchUpInside)
+        }
     }
     
     func customNavigationBar() {
@@ -111,5 +124,25 @@ class SetRateViewController: BaseViewController {
         
         navigationItem.title = "리뷰 남기기"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.primary, NSAttributedString.Key.font: UIFont.bold(size: 22)]
+    }
+    
+    
+    
+    @objc func userTapNextButton() {
+        let nextVC = WriteReviewViewController()
+        nextVC.personalRate = rateView.currentStar
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @objc func isTagTapped(_ sender: UIButton) {
+        if sender.layer.borderColor == UIColor.black.cgColor {
+            if selectedButtonCount < 3 {
+                sender.layer.borderColor = UIColor.primary.cgColor
+                selectedButtonCount += 1
+            }
+        } else {
+            selectedButtonCount -= 1
+            sender.layer.borderColor = UIColor.black.cgColor
+        }
     }
 }

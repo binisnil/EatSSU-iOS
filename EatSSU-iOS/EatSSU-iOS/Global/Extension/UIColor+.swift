@@ -49,5 +49,3 @@ extension UIColor {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0, alpha: alpha)
     }
 }
-
-

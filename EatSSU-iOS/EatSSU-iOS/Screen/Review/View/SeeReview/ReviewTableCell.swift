@@ -35,10 +35,6 @@ class ReviewTableCell: UITableViewCell {
         return UIImage(named: "starEmpty.svg")
     }()
     
-//    var starNumber: Int = 5 {
-//        didSet { setStarButtons() }
-//    }
-    
     private var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "2023.03.03"

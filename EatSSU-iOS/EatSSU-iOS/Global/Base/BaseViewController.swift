@@ -20,6 +20,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         configureUI()
         setLayout()
         setButtonEvent()
@@ -29,7 +30,6 @@ class BaseViewController: UIViewController {
     
     func configureUI() {
         //override Point
-        view.backgroundColor = .systemBackground
     }
     
     func setLayout() {
