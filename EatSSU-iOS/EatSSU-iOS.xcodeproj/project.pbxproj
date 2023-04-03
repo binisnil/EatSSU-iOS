@@ -21,6 +21,8 @@
 		7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7B2BBFAF299A291A00EE0F1F /* SnapKit */; };
 		7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBFB1299A29AF00EE0F1F /* UIColor+.swift */; };
 		7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */; };
+		7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9029DAF6270007603D /* MainButton.swift */; };
+		7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */; };
 		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
@@ -44,6 +46,8 @@
 		7B2BBFA3299A1AC500EE0F1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B2BBFB1299A29AF00EE0F1F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		7B2C9E9029DAF6270007603D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		7B2BBFA9299A253B00EE0F1F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				7B2C9E8F29DAF5FE0007603D /* UIComponent */,
 				056956BD29C0DAF9002E8CF2 /* Base */,
 				7B2BBFAA299A254600EE0F1F /* Supports */,
 				7B2BBFAB299A255800EE0F1F /* Resource */,
@@ -191,8 +196,17 @@
 			isa = PBXGroup;
 			children = (
 				7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */,
+				7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7B2C9E8F29DAF5FE0007603D /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				7B2C9E9029DAF6270007603D /* MainButton.swift */,
+			);
+			path = UIComponent;
 			sourceTree = "<group>";
 		};
 		7B63C45029C0FF7E0070C588 /* View */ = {
@@ -311,6 +325,7 @@
 				7BD73CD829D215170076DC77 /* BaseView.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
+				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
@@ -318,6 +333,7 @@
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,
 				056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */,
 				7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */,
+				7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
