@@ -49,7 +49,7 @@ class MorningViewController: BaseViewController {
     
     func setnavigation() {
         self.navigationController?.navigationBar.topItem?.title = "EAT SSU"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Bold", size: 25), .foregroundColor: UIColor.brandColor]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Bold", size: 25), .foregroundColor: UIColor.primary]
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "text.justify", style: .done, target: self, action: #selector(rightBarItemTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
                                                                    image: UIImage(systemName: "text.justify"),

@@ -62,13 +62,13 @@ extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
         ctBar.layout.transitionStyle = .snap
         ctBar.backgroundView.style = .blur(style: .light)
         ctBar.buttons.customize { (button) in
-            button.tintColor = .gray1
+            button.tintColor = .lightGray
             button.selectedTintColor = .black
             button.font = UIFont.systemFont(ofSize: 16)
             button.selectedFont = UIFont.systemFont(ofSize: 16, weight: .medium)
         }
         ctBar.indicator.weight = .custom(value: 2)
-        ctBar.indicator.tintColor = .brandColor
+        ctBar.indicator.tintColor = .primary
         ctBar.indicator.overscrollBehavior = .compress
         ctBar.layout.contentMode = .fit
         }
