@@ -1,8 +1,8 @@
 //
-//  MainButton.swift
+//  MainTextField.swift
 //  EatSSU-iOS
 //
-//  Created by 최지우 on 2023/04/03.
+//  Created by 최지우 on 2023/04/04.
 //
 
 import UIKit
@@ -10,25 +10,22 @@ import UIKit
 import SnapKit
 import Then
 
-class MainButton: UIButton {
+class MainTextField: UITextField {
     
     private enum Size {
         static let width: CGFloat = 358.0
         static let height: CGFloat = 40.0
     }
     
-    // MARK: - property
+    // MARK: -properties
     
-    var title: String? {
-        didSet {
-            setupTitleAttribute()
-        }
-    }
+    var placeHolder: String?
     
-    // MARK: - init
+    // MARK: -init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(_ placeHolder: String?) {
+        self.placeHolder = placeHolder
+        super.init(frame: .zero)
         configureUI()
         setLayout()
     }
@@ -40,10 +37,10 @@ class MainButton: UIButton {
     // MARK: - func
     
     func configureUI() {
-        titleLabel?.font = UIFont.semiBold(size: 14.0)
-        titleLabel?.textColor = .white
-        backgroundColor = .primary
         layer.cornerRadius = 10
+        layer.borderColor = UIColor.primary.cgColor
+        layer.borderWidth = 1.0
+        placeholder = placeHolder
     }
     
     func setLayout() {
@@ -53,9 +50,4 @@ class MainButton: UIButton {
         }
     }
     
-    func setupTitleAttribute() {
-        if let buttonTitle = title {
-            setTitle(buttonTitle, for: .normal)
-        }
-    }
 }
