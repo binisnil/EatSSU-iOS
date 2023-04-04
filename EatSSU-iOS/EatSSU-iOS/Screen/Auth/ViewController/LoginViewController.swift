@@ -45,7 +45,8 @@ class LoginViewController : BaseViewController {
     }
     
     @objc func didTappedPreviewBtn() {
-        print("didTappedPreviewBtn")
+        let nextVC = HomeViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func didTappedSignUpBtn() {
         let nextVC = SignUpViewController()
