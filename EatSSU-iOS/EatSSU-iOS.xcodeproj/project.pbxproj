@@ -181,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				7B2C9E6429DAC6BD0007603D /* ViewController */,
-				7B2C9E6329DAC6B70007603D /* View */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -197,8 +196,9 @@
 		7B2C9E6429DAC6BD0007603D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */,
 				7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */,
+				7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */,
+				7B2C9E6329DAC6B70007603D /* View */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

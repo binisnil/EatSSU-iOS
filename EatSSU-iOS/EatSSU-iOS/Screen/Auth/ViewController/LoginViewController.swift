@@ -41,10 +41,15 @@ class LoginViewController : BaseViewController {
     
     override func setButtonEvent() {
         loginView.previewButton.addTarget(self, action: #selector(didTappedPreviewBtn), for: .touchUpInside)
+        loginView.signUPButton.addTarget(self, action: #selector(didTappedSignUpBtn), for: .touchUpInside)
     }
     
     @objc func didTappedPreviewBtn() {
         print("didTappedPreviewBtn")
+    }
+    @objc func didTappedSignUpBtn() {
+        let nextVC = SignUpViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 

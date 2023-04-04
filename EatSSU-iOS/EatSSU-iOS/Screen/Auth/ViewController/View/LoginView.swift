@@ -115,7 +115,7 @@ class LoginView : BaseUIView {
         $0.setTitleColor(UIColor.darkGray, for: .normal)
     }
     
-    private let signUPButton = UIButton().then {
+    let signUPButton = UIButton().then {
         $0.titleLabel?.font = UIFont(name: AppFontName.regularFont.rawValue, size: 14)
         $0.setTitle("회원가입", for: .normal)
         $0.setTitleColor(UIColor.darkGray, for: .normal)

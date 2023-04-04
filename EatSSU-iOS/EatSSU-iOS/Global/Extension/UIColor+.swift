@@ -26,6 +26,10 @@ extension UIColor {
         return UIColor(hex: "#F9F9F9")
     }
     
+    static var blackGray: UIColor {
+        return UIColor(hex: "#565656")
+    }
+    
     static var primary: UIColor {
         return UIColor(hex: "#DF5757")
     }

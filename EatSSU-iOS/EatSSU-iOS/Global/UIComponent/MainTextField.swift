@@ -41,6 +41,12 @@ class MainTextField: UITextField {
         layer.borderColor = UIColor.primary.cgColor
         layer.borderWidth = 1.0
         placeholder = placeHolder
+        leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 0.0))
+        leftViewMode = .always
+        font = UIFont.regular(size: 16.0)
+//        attributedPlaceholder = NSAttributedString(string: "", color: .gray, font: .regularFont(ofSize: 12))
+        
+//        attributedPlaceholder.font = .regularFont(size: 12)
     }
     
     func setLayout() {
