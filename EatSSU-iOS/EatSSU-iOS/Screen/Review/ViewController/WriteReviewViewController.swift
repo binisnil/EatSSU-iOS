@@ -117,10 +117,10 @@ class WriteReviewViewController: BaseViewController {
     }
     
     override func setButtonEvent() {
-        
-        //FIXME: - 남기기 눌렀을 때, 쌓여있던 뷰 다 pop되도록 버튼 이벤트 작성하기
-        
+        updateReviewButton.addTarget(self, action: #selector(userTappedNextButton), for: .touchUpInside)
     }
+    
+    //FIXME: - TextView placeholder 커스텀 수정
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.userReviewTextView.resignFirstResponder()
@@ -161,8 +161,13 @@ class WriteReviewViewController: BaseViewController {
             starStackView.addArrangedSubview(button)
         }
     }
+    
+    @objc func userTappedNextButton() {
+        if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
+            self.navigationController?.popToViewController(reviewViewController, animated: true)
+        }
+    }
 }
-
 
 extension WriteReviewViewController: UITextViewDelegate {
     

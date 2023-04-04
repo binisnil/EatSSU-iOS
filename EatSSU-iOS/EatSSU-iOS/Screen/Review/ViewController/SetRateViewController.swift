@@ -117,32 +117,34 @@ class SetRateViewController: BaseViewController {
     func customNavigationBar() {
         navigationController?.navigationBar.tintColor = .primary
         navigationController?.navigationBar.barTintColor = .white
-        
         let backButton: UIBarButtonItem = UIBarButtonItem()
         backButton.title = ""
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        
         navigationItem.title = "리뷰 남기기"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.primary, NSAttributedString.Key.font: UIFont.bold(size: 22)]
     }
     
-    
+    // FIXME: - 별점 안남기면 버튼 안넘어가도록 수정 (alert 추가)
     
     @objc func userTapNextButton() {
-        let nextVC = WriteReviewViewController()
-        nextVC.personalRate = rateView.currentStar
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        if selectedButtonCount != 0 {
+            let nextVC = WriteReviewViewController()
+            nextVC.personalRate = rateView.currentStar
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
     
     @objc func isTagTapped(_ sender: UIButton) {
         if sender.layer.borderColor == UIColor.black.cgColor {
             if selectedButtonCount < 3 {
                 sender.layer.borderColor = UIColor.primary.cgColor
+                sender.layer.borderWidth = 1.5
                 selectedButtonCount += 1
             }
         } else {
             selectedButtonCount -= 1
             sender.layer.borderColor = UIColor.black.cgColor
+            sender.layer.borderWidth = 0.5
         }
     }
 }

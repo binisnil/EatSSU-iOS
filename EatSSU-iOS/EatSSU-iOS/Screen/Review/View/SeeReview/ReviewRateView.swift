@@ -6,7 +6,6 @@
 //
 import UIKit
 
-import Charts
 import SnapKit
 
 class ReviewRateView: BaseUIView {
@@ -64,6 +63,89 @@ class ReviewRateView: BaseUIView {
         return label
     }()
     
+    private let fivePointLabel: UILabel = {
+        let label = UILabel()
+        label.text = "5점"
+        label.font = .medium(size: 12)
+        label.textColor = .black
+        return label
+    }()
+    
+    private let fourPointLabel: UILabel = {
+        let label = UILabel()
+        label.text = "4점"
+        label.font = .medium(size: 12)
+        label.textColor = .black
+        return label
+    }()
+    
+    private let threePointLabel: UILabel = {
+        let label = UILabel()
+        label.text = "3점"
+        label.font = .medium(size: 12)
+        label.textColor = .black
+        return label
+    }()
+    
+    private let twoPointLabel: UILabel = {
+        let label = UILabel()
+        label.text = "2점"
+        label.font = .medium(size: 12)
+        label.textColor = .black
+        return label
+    }()
+    
+    private let onePointLabel: UILabel = {
+        let label = UILabel()
+        label.text = "1점"
+        label.font = .medium(size: 12)
+        label.textColor = .black
+        return label
+    }()
+    
+    var oneChartBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mediumGray
+        view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
+        return view
+    }()
+    
+    var twoChartBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mediumGray
+        view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
+        return view
+    }()
+    
+    var threeChartBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mediumGray
+        view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
+        return view
+    }()
+    
+    var fourChartBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mediumGray
+        view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
+        return view
+    }()
+    
+    var fiveChartBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mediumGray
+//        view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
+        return view
+    }()
+    
+    lazy var yAxisStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [fivePointLabel, fourPointLabel, threePointLabel, twoPointLabel, onePointLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 2
+        stackView.alignment = .trailing
+        return stackView
+    }()
+    
     lazy var totalLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [totalReviewLabel, totalReviewCount])
         stackView.axis = .horizontal
@@ -115,6 +197,9 @@ class ReviewRateView: BaseUIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        [oneChartBar, twoChartBar, threeChartBar, fourChartBar, fiveChartBar].forEach {
+            $0.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
+        }
     }
     
     //MARK: - Functions
@@ -126,14 +211,20 @@ class ReviewRateView: BaseUIView {
                          rateNumLabel,
                          starStackView,
                          addReviewButton,
-                         totalLabelStackView
+                         totalLabelStackView,
+                         yAxisStackView,
+                         oneChartBar,
+                         twoChartBar,
+                         threeChartBar,
+                         fourChartBar,
+                         fiveChartBar
         )
     }
     
     override func setLayout() {
 
         reviewLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(65)
+            make.top.equalToSuperview().offset(55)
             make.centerX.equalToSuperview()
         }
 
@@ -141,11 +232,11 @@ class ReviewRateView: BaseUIView {
             make.height.equalTo(2)
             make.leading.equalToSuperview().offset(28)
             make.trailing.equalToSuperview().offset(-28)
-            make.top.equalTo(reviewLabel.snp.bottom).offset(24)
+            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
         }
 
         menuLabel.snp.makeConstraints { make in
-            make.top.equalTo(progressView.snp.bottom).offset(7)
+            make.top.equalTo(progressView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
         }
         
@@ -155,8 +246,48 @@ class ReviewRateView: BaseUIView {
         }
         
         starStackView.snp.makeConstraints { make in
-            make.top.equalTo(rateNumLabel.snp.bottom).offset(10)
+            make.top.equalTo(rateNumLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(36)
+        }
+        
+        yAxisStackView.snp.makeConstraints { make in
+            make.top.equalTo(totalReviewLabel.snp.bottom).offset(8)
+            make.leading.equalTo(totalReviewLabel)
+        }
+        
+        oneChartBar.snp.makeConstraints { make in
+            make.leading.equalTo(onePointLabel.snp.trailing).offset(7)
+            make.centerY.equalTo(onePointLabel)
+            make.height.equalTo(10)
+            make.width.equalTo(126)
+        }
+        
+        twoChartBar.snp.makeConstraints { make in
+            make.leading.equalTo(twoPointLabel.snp.trailing).offset(7)
+            make.centerY.equalTo(twoPointLabel)
+            make.height.equalTo(10)
+            make.width.equalTo(126)
+        }
+        
+        threeChartBar.snp.makeConstraints { make in
+            make.leading.equalTo(threePointLabel.snp.trailing).offset(7)
+            make.centerY.equalTo(threePointLabel)
+            make.height.equalTo(10)
+            make.width.equalTo(126)
+        }
+        
+        fourChartBar.snp.makeConstraints { make in
+            make.leading.equalTo(fourPointLabel.snp.trailing).offset(7)
+            make.centerY.equalTo(fourPointLabel)
+            make.height.equalTo(10)
+            make.width.equalTo(126)
+        }
+        
+        fiveChartBar.snp.makeConstraints { make in
+            make.leading.equalTo(fivePointLabel.snp.trailing).offset(7)
+            make.centerY.equalTo(fivePointLabel)
+            make.height.equalTo(10)
+            make.width.equalTo(126)
         }
         
         addReviewButton.snp.makeConstraints { make in

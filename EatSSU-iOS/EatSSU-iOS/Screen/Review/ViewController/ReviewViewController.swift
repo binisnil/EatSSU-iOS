@@ -5,10 +5,7 @@
 //  Created by 박윤빈 on 2023/03/04.
 //
 
-import Foundation
 import UIKit
-
-import Charts
 
 class ReviewViewController: BaseViewController {
     
@@ -47,7 +44,6 @@ class ReviewViewController: BaseViewController {
     //MARK: - Function
 
     override func configureUI() {
-        view.backgroundColor = .systemBackground
         topReviewView.backgroundColor = .white
         reviewTableView.backgroundColor = .white
         view.addSubviews(topReviewView, progressView, reviewLabel, reviewTableView)
