@@ -106,7 +106,7 @@ class SetRateViewController: BaseViewController {
     }
     
     override func setButtonEvent() {
-        nextButton.addTarget(self, action: #selector(userTapNextButton), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(tappedNextButton), for: .touchUpInside)
         [bottomTagView.tag1,
          bottomTagView.tag2,
          bottomTagView.tag3,
@@ -117,7 +117,7 @@ class SetRateViewController: BaseViewController {
          bottomTagView.tag8,
          bottomTagView.tag9,
          bottomTagView.tag10].forEach {
-            $0.addTarget(self, action: #selector(isTagTapped), for: .touchUpInside)
+            $0.addTarget(self, action: #selector(tappedTagButton), for: .touchUpInside)
         }
     }
     
@@ -134,7 +134,7 @@ class SetRateViewController: BaseViewController {
     // FIXME: - 별점 안남기면 버튼 안넘어가도록 수정 (alert 추가)
     
     @objc
-    func userTapNextButton() {
+    func tappedNextButton() {
         if selectedButtonCount != 0 {
             let nextVC = WriteReviewViewController()
             nextVC.personalRate = rateView.currentStar
@@ -143,7 +143,7 @@ class SetRateViewController: BaseViewController {
     }
     
     @objc
-    func isTagTapped(_ sender: UIButton) {
+    func tappedTagButton(_ sender: UIButton) {
         if sender.layer.borderColor == UIColor.black.cgColor {
             if selectedButtonCount < 3 {
                 sender.layer.borderColor = UIColor.primary.cgColor
