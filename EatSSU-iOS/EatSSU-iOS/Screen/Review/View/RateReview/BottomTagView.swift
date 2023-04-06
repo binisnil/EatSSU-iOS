@@ -189,7 +189,7 @@ class BottomTagView: BaseUIView {
     
     override func setLayout() {
         globalStackView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalToSuperview()
+            make.top.leading.bottom.trailing.equalToSuperview()
         }
         
         tag1.snp.makeConstraints { make in

@@ -53,7 +53,7 @@ class RateView: BaseUIView {
     
     override func setLayout() {
         starStackView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalToSuperview()
+            make.top.leading.bottom.trailing.equalToSuperview()
         }
     }
     
@@ -65,12 +65,12 @@ class RateView: BaseUIView {
             button.tag = i
             buttons += [button]
             starStackView.addArrangedSubview(button)
-            button.addTarget(self, action: #selector(didTapButton(sender:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(didTappedTag(sender:)), for: .touchUpInside)
         }
     }
     
     ///tag를 이용한 선택처리
-    @objc private func didTapButton(sender: UIButton) {
+    @objc private func didTappedTag(sender: UIButton) {
         let end = sender.tag
         for i in 0...end {
             buttons[i].setImage(starFillImage, for: .normal)
