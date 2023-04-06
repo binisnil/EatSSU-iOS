@@ -133,7 +133,8 @@ class SetRateViewController: BaseViewController {
     
     // FIXME: - 별점 안남기면 버튼 안넘어가도록 수정 (alert 추가)
     
-    @objc func userTapNextButton() {
+    @objc
+    func userTapNextButton() {
         if selectedButtonCount != 0 {
             let nextVC = WriteReviewViewController()
             nextVC.personalRate = rateView.currentStar
@@ -141,7 +142,8 @@ class SetRateViewController: BaseViewController {
         }
     }
     
-    @objc func isTagTapped(_ sender: UIButton) {
+    @objc
+    func isTagTapped(_ sender: UIButton) {
         if sender.layer.borderColor == UIColor.black.cgColor {
             if selectedButtonCount < 3 {
                 sender.layer.borderColor = UIColor.primary.cgColor
