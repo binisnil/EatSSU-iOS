@@ -12,7 +12,7 @@ import Tabman
 
 class HomeViewController: TabmanViewController {
 
-    //MARK: - Life Cycle
+    // MARK: - Life Cycles
     
     public let bar = TMBar.ButtonBar()
     var viewControllers: Array<UIViewController> = [MorningViewController(),LunchViewController(),DinnerViewController()]

@@ -12,7 +12,7 @@ import Then
 
 class MorningViewController: BaseViewController {
     
-    //MARK: - UI Component
+    //MARK: - UI Components
     
     private let contentView = UIView()
     private let morningView = MorningView()
@@ -37,14 +37,14 @@ class MorningViewController: BaseViewController {
         $0.showsVerticalScrollIndicator = false
     }
     
-    //MARK: - Life Cycle
+    //MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setnavigation()
     }
     
-    //MARK: - Function
+    //MARK: - Functions
     
     func setnavigation() {
         self.navigationController?.navigationBar.topItem?.title = "EAT SSU"

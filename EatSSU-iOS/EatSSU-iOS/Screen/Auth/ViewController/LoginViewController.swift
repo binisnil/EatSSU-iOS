@@ -25,7 +25,7 @@ class LoginViewController: BaseViewController {
         setButtonEvent()
     }
     
-    // MARK: - Function
+    // MARK: - Functions
     
     override func configureUI() {
         view.backgroundColor = .systemBackground

@@ -84,7 +84,7 @@ class SignUpViewController: BaseViewController {
         $0.title = "완료하기"
     }
     
-    //MARK: - Life Cycles
+    // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +92,7 @@ class SignUpViewController: BaseViewController {
         customNavigationBar()
     }
     
-    //MARK: - Function
+    // MARK: - Functions
     
     override func configureUI() {
         view.addSubviews(nicknameStackView,

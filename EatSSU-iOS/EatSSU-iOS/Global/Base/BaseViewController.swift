@@ -25,7 +25,7 @@ class BaseViewController: UIViewController {
         setButtonEvent()
     }
     
-    //MARK: - Function
+    //MARK: - Functions
     
     func configureUI() {
         //override Point

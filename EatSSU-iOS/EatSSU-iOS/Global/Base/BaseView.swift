@@ -24,7 +24,7 @@ class BaseUIView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Func
+    // MARK: - Functions
     
     func configureUI() {
         

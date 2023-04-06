@@ -120,7 +120,7 @@ class LoginView: BaseUIView {
         return stackView
     }()
     
-    // MARK: - Func
+    // MARK: - Functions
     
     override func configureUI() {
         self.addSubviews(previewButton,

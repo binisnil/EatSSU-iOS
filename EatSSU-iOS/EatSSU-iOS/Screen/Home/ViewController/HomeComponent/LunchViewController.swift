@@ -11,9 +11,9 @@ import SnapKit
 
 class LunchViewController: BaseViewController {
     
-    //MARK: - UI Component
+    //MARK: - UI Components
     
-    //MARK: - Life Cycle
+    //MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class LunchViewController: BaseViewController {
         setButtonEvent()
     }
     
-    //MARK: - Function
+    //MARK: - Functions
     
     override func configureUI() {
         
