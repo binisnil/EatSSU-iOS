@@ -43,7 +43,7 @@ class ReviewViewController: BaseViewController {
         reviewTableView.dataSource = self
     }
     
-    // MARK: - Function
+    // MARK: - Functions
 
     override func configureUI() {
         topReviewView.backgroundColor = .white
@@ -57,11 +57,13 @@ class ReviewViewController: BaseViewController {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(350)
         }
+        
         progressView.snp.makeConstraints { make in
             make.top.equalTo(topReviewView.snp.bottom)
             make.width.equalToSuperview()
             make.height.equalTo(8)
         }
+        
         reviewLabel.snp.makeConstraints { make in
             make.top.equalTo(progressView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(16)
@@ -78,7 +80,8 @@ class ReviewViewController: BaseViewController {
         topReviewView.addReviewButton.addTarget(self, action: #selector(userTapReviewButton), for: .touchUpInside)
     }
     
-    @objc func userTapReviewButton() {
+    @objc
+    func userTapReviewButton() {
         let nextVC = SetRateViewController()
         
         self.navigationController?.pushViewController(nextVC, animated: true)
