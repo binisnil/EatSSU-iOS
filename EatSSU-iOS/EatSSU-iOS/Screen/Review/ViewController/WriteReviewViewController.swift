@@ -14,7 +14,7 @@ class WriteReviewViewController: BaseViewController {
     var personalRate = 0
     private var starButtons: [UIButton] = []
     
-    // MARK: - UI Component
+    // MARK: - UI Components
     
     private var menuLabel: UILabel = {
         let label = UILabel()
@@ -166,7 +166,8 @@ class WriteReviewViewController: BaseViewController {
         }
     }
     
-    @objc func userTappedNextButton() {
+    @objc
+    func userTappedNextButton() {
         if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
             self.navigationController?.popToViewController(reviewViewController, animated: true)
         }
