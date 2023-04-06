@@ -20,10 +20,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(140)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -36,10 +32,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(165)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -52,10 +44,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(113)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -68,10 +56,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(117)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -84,10 +68,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(90)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
 
@@ -100,10 +80,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(75)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -116,10 +92,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(90)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -132,10 +104,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(137)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -148,10 +116,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(113)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -164,10 +128,6 @@ class BottomTagView: BaseUIView {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.black.cgColor
         button.titleLabel?.font = .medium(size: 16)
-        button.snp.makeConstraints { make in
-            make.width.equalTo(174)
-            make.height.equalTo(30.62)
-        }
         return button
     }()
     
@@ -230,6 +190,56 @@ class BottomTagView: BaseUIView {
     override func setLayout() {
         globalStackView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
+        }
+        
+        tag1.snp.makeConstraints { make in
+            make.width.equalTo(140)
+            make.height.equalTo(30.62)
+        }
+        
+        tag2.snp.makeConstraints { make in
+            make.width.equalTo(165)
+            make.height.equalTo(30.62)
+        }
+        
+        tag3.snp.makeConstraints { make in
+            make.width.equalTo(113)
+            make.height.equalTo(30.62)
+        }
+        
+        tag4.snp.makeConstraints { make in
+            make.width.equalTo(117)
+            make.height.equalTo(30.62)
+        }
+        
+        tag5.snp.makeConstraints { make in
+            make.width.equalTo(90)
+            make.height.equalTo(30.62)
+        }
+        
+        tag6.snp.makeConstraints { make in
+            make.width.equalTo(75)
+            make.height.equalTo(30.62)
+        }
+        
+        tag7.snp.makeConstraints { make in
+            make.width.equalTo(90)
+            make.height.equalTo(30.62)
+        }
+        
+        tag8.snp.makeConstraints { make in
+            make.width.equalTo(137)
+            make.height.equalTo(30.62)
+        }
+        
+        tag9.snp.makeConstraints { make in
+            make.width.equalTo(113)
+            make.height.equalTo(30.62)
+        }
+        
+        tag10.snp.makeConstraints { make in
+            make.width.equalTo(174)
+            make.height.equalTo(30.62)
         }
     }
 }
