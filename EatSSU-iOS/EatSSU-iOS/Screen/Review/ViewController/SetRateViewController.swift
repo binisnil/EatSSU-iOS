@@ -69,13 +69,11 @@ class SetRateViewController: BaseViewController {
     // MARK: - Functions
     
     override func configureUI() {
-        view.backgroundColor = .white
         view.addSubviews(rateView,
                          bottomTagView,
                          menuLabel,
                          introLabel,
-                         nextButton
-                         )
+                         nextButton)
     }
     
     override func setLayout() {
@@ -100,8 +98,8 @@ class SetRateViewController: BaseViewController {
         }
         
         nextButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-68)
             make.leading.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().offset(-68)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(40)
         }

@@ -113,8 +113,8 @@ class WriteReviewViewController: BaseViewController {
         }
         
         updateReviewButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-61)
             make.leading.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().offset(-61)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(40)
         }

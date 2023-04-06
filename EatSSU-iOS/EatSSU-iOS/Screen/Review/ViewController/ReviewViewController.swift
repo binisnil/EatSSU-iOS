@@ -69,8 +69,8 @@ class ReviewViewController: BaseViewController {
         
         reviewTableView.snp.makeConstraints { make in
             make.top.equalTo(reviewLabel.snp.bottom).offset(15)
-            make.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
     
