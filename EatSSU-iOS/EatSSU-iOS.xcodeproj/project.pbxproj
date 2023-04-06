@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0569565529B1F59C002E8CF2 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565429B1F59C002E8CF2 /* MorningViewController.swift */; };
-		0569565729B1F5A5002E8CF2 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565629B1F5A5002E8CF2 /* LunchViewController.swift */; };
-		0569565929B1F5D4002E8CF2 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565829B1F5D4002E8CF2 /* DinnerViewController.swift */; };
 		0569565C29B25D40002E8CF2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 0569565B29B25D40002E8CF2 /* Tabman */; };
 		056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956B729C0D6DC002E8CF2 /* UIView+.swift */; };
 		056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956BA29C0D8BF002E8CF2 /* UIFont+.swift */; };
@@ -118,7 +115,6 @@
 		0569565D29B262F9002E8CF2 /* Review */ = {
 			isa = PBXGroup;
 			children = (
-				056956C329C0E2B1002E8CF2 /* MenuReview */,
 				056956C529C0E2C7002E8CF2 /* View */,
 				056956C429C0E2BA002E8CF2 /* ViewController */,
 			);
@@ -137,7 +133,6 @@
 		056956C429C0E2BA002E8CF2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0569565E29B26337002E8CF2 /* ReviewViewController.swift */,
 				056956FE29CB81E2002E8CF2 /* SetRateViewController.swift */,
 				0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */,
 			);
@@ -176,6 +171,7 @@
 			children = (
 				7B2BBF94299A1AC400EE0F1F /* EatSSU-iOS */,
 				7B2BBF93299A1AC400EE0F1F /* Products */,
+				7B2C9E9829DF2C7B0007603D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +238,7 @@
 		7B2C9E6229DAC6B10007603D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				7B2C9E6329DAC6B70007603D /* View */,
 				7B2C9E6429DAC6BD0007603D /* ViewController */,
 			);
 			path = Auth;
@@ -260,7 +257,6 @@
 			children = (
 				7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */,
 				7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */,
-				7B2C9E6329DAC6B70007603D /* View */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -272,6 +268,15 @@
 				7B2C9E9429DB359A0007603D /* MainTextField.swift */,
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		7B2C9E9829DF2C7B0007603D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				7BD73CD729D215170076DC77 /* BaseView.swift */,
+				056956E129C23688002E8CF2 /* UIStackView+.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		7B63C45029C0FF7E0070C588 /* View */ = {
@@ -410,7 +415,6 @@
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
 				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,
-				0569565F29B26338002E8CF2 /* ReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
