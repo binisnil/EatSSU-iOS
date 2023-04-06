@@ -11,13 +11,13 @@ import SnapKit
 
 class ReviewTableCell: UITableViewCell {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     static let identifier = "ReviewTableCell"
     private var personalRate = 4 ///dummy Data
     private var starButtons: [UIButton] = []
     
-    //MARK: - UI Components
+    // MARK: - UI Components
     
     lazy var starStackView: UIStackView = {
         let stackView = UIStackView()
@@ -162,7 +162,7 @@ class ReviewTableCell: UITableViewCell {
         return stackView
     }()
     
-    //MARK: - Functions
+    // MARK: - Functions
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

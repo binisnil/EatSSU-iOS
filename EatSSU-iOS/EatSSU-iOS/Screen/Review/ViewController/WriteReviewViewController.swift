@@ -68,6 +68,8 @@ class WriteReviewViewController: BaseViewController {
         button.titleLabel?.font = .semiBold(size: 18)
         return button
     }()
+    
+    // MARK: - Life Cycles
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +78,8 @@ class WriteReviewViewController: BaseViewController {
         
         userReviewTextView.delegate = self
     }
+    
+    // MARK: - Functions
     
     override func configureUI() {
         view.addSubviews(menuLabel,

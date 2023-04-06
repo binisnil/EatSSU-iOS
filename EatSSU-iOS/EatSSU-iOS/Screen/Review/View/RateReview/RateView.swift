@@ -46,6 +46,8 @@ class RateView: BaseUIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Functions
+    
     override func configureUI() {
         super.configureUI()
         self.addSubview(starStackView)

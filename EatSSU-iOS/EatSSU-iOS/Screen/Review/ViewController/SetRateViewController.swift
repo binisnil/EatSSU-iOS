@@ -11,9 +11,13 @@ import SnapKit
 
 class SetRateViewController: BaseViewController {
     
+    // MARK: - Properties
+    
     private var bottomTagView = BottomTagView()
     private var rateView = RateView()
     private var selectedButtonCount = 0
+    
+    // MARK: - UI Components
 
     private let reviewLabel: UILabel = {
         let label = UILabel()
@@ -55,10 +59,14 @@ class SetRateViewController: BaseViewController {
         return button
     }()
     
+    // MARK: - Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customNavigationBar()
     }
+    
+    // MARK: - Functions
     
     override func configureUI() {
         view.backgroundColor = .white

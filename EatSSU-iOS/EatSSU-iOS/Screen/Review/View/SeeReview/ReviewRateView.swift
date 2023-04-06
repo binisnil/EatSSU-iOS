@@ -183,7 +183,7 @@ class ReviewRateView: BaseUIView {
         return button
     }()
     
-    //MARK: FIX ME - charts 추가 나중에 하기
+    // MARK: FIX ME - charts 추가 나중에 하기
     
     override init(frame: CGRect) {
         super.init(frame: frame)

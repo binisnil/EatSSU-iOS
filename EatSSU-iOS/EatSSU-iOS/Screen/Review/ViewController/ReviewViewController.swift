@@ -34,6 +34,8 @@ class ReviewViewController: BaseViewController {
         return tableView
     }()
     
+    // MARK: - Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         reviewTableView.register(ReviewTableCell.self, forCellReuseIdentifier: ReviewTableCell.identifier)

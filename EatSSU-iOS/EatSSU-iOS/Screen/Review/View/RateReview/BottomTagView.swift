@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 class BottomTagView: BaseUIView {
+    
+    // MARK: - UI Components
         
     lazy var tag1: UIButton = {
         let button = UIButton()
@@ -182,6 +184,8 @@ class BottomTagView: BaseUIView {
         stackView.alignment = .center
         return stackView
     }()
+    
+    // MARK: - Functions
     
     override func configureUI() {
         self.addSubview(globalStackView)
