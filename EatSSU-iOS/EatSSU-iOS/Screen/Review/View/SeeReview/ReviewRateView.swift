@@ -222,7 +222,6 @@ class ReviewRateView: BaseUIView {
     }
     
     override func setLayout() {
-
         reviewLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(55)
             make.centerX.equalToSuperview()

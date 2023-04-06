@@ -11,15 +11,15 @@ import SnapKit
 
 class RateView: BaseUIView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
+    private var buttons: [UIButton] = []
     var currentStar: Int = 0
     var starNumber: Int = 5 {
         didSet { bind() } ///초기화할 별의 개수 (button의 개수)
     }
-    private var buttons: [UIButton] = []
-
-    //MARK: - UI Component
+    
+    // MARK: - UI Component
     
     lazy var starStackView: UIStackView = {
         let view = UIStackView()

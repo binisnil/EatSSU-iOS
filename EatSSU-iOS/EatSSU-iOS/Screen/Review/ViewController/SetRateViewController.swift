@@ -66,7 +66,8 @@ class SetRateViewController: BaseViewController {
                          bottomTagView,
                          menuLabel,
                          introLabel,
-                         nextButton)
+                         nextButton,
+                         )
     }
     
     override func setLayout() {
