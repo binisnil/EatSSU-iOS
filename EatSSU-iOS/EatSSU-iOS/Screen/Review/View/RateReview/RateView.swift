@@ -16,7 +16,7 @@ class RateView: BaseUIView {
     private var buttons: [UIButton] = []
     var currentStar: Int = 0
     var starNumber: Int = 5 {
-        didSet { bind() } ///초기화할 별의 개수 (button의 개수)
+        didSet { bind() } /// 초기화할 별의 개수 (button의 개수)
     }
     
     // MARK: - UI Component
@@ -59,7 +59,7 @@ class RateView: BaseUIView {
         }
     }
     
-    ///별점 버튼 초기화. tag 생성이 핵심
+    /// 별점 버튼 초기화. tag 생성이 핵심
     func bind() {
         for i in 0..<5 {
             let button = UIButton()
@@ -71,8 +71,9 @@ class RateView: BaseUIView {
         }
     }
     
-    ///tag를 이용한 선택처리
-    @objc private func didTappedTag(sender: UIButton) {
+    /// tag를 이용한 선택처리
+    @objc
+    private func didTappedTag(sender: UIButton) {
         let end = sender.tag
         for i in 0...end {
             buttons[i].setImage(starFillImage, for: .normal)
