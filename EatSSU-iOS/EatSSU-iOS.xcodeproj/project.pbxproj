@@ -11,7 +11,6 @@
 		0569565729B1F5A5002E8CF2 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565629B1F5A5002E8CF2 /* LunchViewController.swift */; };
 		0569565929B1F5D4002E8CF2 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565829B1F5D4002E8CF2 /* DinnerViewController.swift */; };
 		0569565C29B25D40002E8CF2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 0569565B29B25D40002E8CF2 /* Tabman */; };
-		0569565F29B26338002E8CF2 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569565E29B26337002E8CF2 /* ReviewViewController.swift */; };
 		056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956B729C0D6DC002E8CF2 /* UIView+.swift */; };
 		056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956BA29C0D8BF002E8CF2 /* UIFont+.swift */; };
 		056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */; };
@@ -33,13 +32,21 @@
 		7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7B2BBFAF299A291A00EE0F1F /* SnapKit */; };
 		7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBFB1299A29AF00EE0F1F /* UIColor+.swift */; };
 		7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */; };
+		7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9029DAF6270007603D /* MainButton.swift */; };
+		7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */; };
+		7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9429DB359A0007603D /* MainTextField.swift */; };
+		7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9629DEE7B20007603D /* UITextField+.swift */; };
+		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
+		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
+		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
+		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
+		7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD529D20B980076DC77 /* MorningView.swift */; };
+		7BD73CD829D215170076DC77 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD729D215170076DC77 /* BaseView.swift */; };
+		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
+		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0569565429B1F59C002E8CF2 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
-		0569565629B1F5A5002E8CF2 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
-		0569565829B1F5D4002E8CF2 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
-		0569565E29B26337002E8CF2 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		056956B729C0D6DC002E8CF2 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		056956BA29C0D8BF002E8CF2 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +67,17 @@
 		7B2BBFA3299A1AC500EE0F1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B2BBFB1299A29AF00EE0F1F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		7B2C9E9029DAF6270007603D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7B2C9E9429DB359A0007603D /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
+		7B2C9E9629DEE7B20007603D /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
+		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
+		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
+		7BD73CD529D20B980076DC77 /* MorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningView.swift; sourceTree = "<group>"; };
+		7BD73CD729D215170076DC77 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BD73CD429D208940076DC77 /* Then in Frameworks */,
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
 				0569565C29B25D40002E8CF2 /* Tabman in Frameworks */,
@@ -80,6 +99,7 @@
 		0569564E29B1F043002E8CF2 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7B2C9E6229DAC6B10007603D /* Auth */,
 				0569565D29B262F9002E8CF2 /* Review */,
 				0569565229B1F4B2002E8CF2 /* Home */,
 			);
@@ -89,25 +109,16 @@
 		0569565229B1F4B2002E8CF2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0569565329B1F4E9002E8CF2 /* HomeComponent */,
-				7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */,
+				7B63C45029C0FF7E0070C588 /* View */,
+				7B63C45229C0FFF50070C588 /* ViewController */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		0569565329B1F4E9002E8CF2 /* HomeComponent */ = {
-			isa = PBXGroup;
-			children = (
-				0569565429B1F59C002E8CF2 /* MorningViewController.swift */,
-				0569565629B1F5A5002E8CF2 /* LunchViewController.swift */,
-				0569565829B1F5D4002E8CF2 /* DinnerViewController.swift */,
-			);
-			path = HomeComponent;
 			sourceTree = "<group>";
 		};
 		0569565D29B262F9002E8CF2 /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				056956C329C0E2B1002E8CF2 /* MenuReview */,
 				056956C529C0E2C7002E8CF2 /* View */,
 				056956C429C0E2BA002E8CF2 /* ViewController */,
 			);
@@ -190,6 +201,7 @@
 		7B2BBFA9299A253B00EE0F1F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				7B2C9E8F29DAF5FE0007603D /* UIComponent */,
 				056956BD29C0DAF9002E8CF2 /* Base */,
 				7B2BBFAA299A254600EE0F1F /* Supports */,
 				7B2BBFAB299A255800EE0F1F /* Resource */,
@@ -222,9 +234,71 @@
 				7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */,
 				056956B729C0D6DC002E8CF2 /* UIView+.swift */,
 				056956BA29C0D8BF002E8CF2 /* UIFont+.swift */,
-				056956E129C23688002E8CF2 /* UIStackView+.swift */,
+				7B2C9E9629DEE7B20007603D /* UITextField+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		7B2C9E6229DAC6B10007603D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7B2C9E6429DAC6BD0007603D /* ViewController */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		7B2C9E6329DAC6B70007603D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BD73CE729D2F9D10076DC77 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B2C9E6429DAC6BD0007603D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */,
+				7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */,
+				7B2C9E6329DAC6B70007603D /* View */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7B2C9E8F29DAF5FE0007603D /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				7B2C9E9029DAF6270007603D /* MainButton.swift */,
+				7B2C9E9429DB359A0007603D /* MainTextField.swift */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		7B63C45029C0FF7E0070C588 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BD73CD529D20B980076DC77 /* MorningView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B63C45229C0FFF50070C588 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B63C45529C100AD0070C588 /* HomeComponent */,
+				7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7B63C45529C100AD0070C588 /* HomeComponent */ = {
+			isa = PBXGroup;
+			children = (
+				7B63C45629C100C80070C588 /* MorningViewController.swift */,
+				7B63C45829C100D70070C588 /* LunchViewController.swift */,
+				7B63C45A29C100DE0070C588 /* DinnerViewController.swift */,
+			);
+			path = HomeComponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,7 +321,7 @@
 				7B2BBFAF299A291A00EE0F1F /* SnapKit */,
 				0569565B29B25D40002E8CF2 /* Tabman */,
 				056956C129C0DB55002E8CF2 /* Moya */,
-				056956DF29C1EF9B002E8CF2 /* Charts */,
+				7BD73CD329D208940076DC77 /* Then */,
 			);
 			productName = "EatSSU-iOS";
 			productReference = 7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */;
@@ -281,7 +355,7 @@
 				7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0569565A29B25D40002E8CF2 /* XCRemoteSwiftPackageReference "Tabman" */,
 				056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */,
-				056956DE29C1EF9B002E8CF2 /* XCRemoteSwiftPackageReference "Charts" */,
+				7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 7B2BBF93299A1AC400EE0F1F /* Products */;
 			projectDirPath = "";
@@ -309,14 +383,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
+				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
+				7BD73CD829D215170076DC77 /* BaseView.swift in Sources */,
+				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
+				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
+				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
+				7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
-				0569565529B1F59C002E8CF2 /* MorningViewController.swift in Sources */,
+				7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */,
+				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
-				0569565729B1F5A5002E8CF2 /* LunchViewController.swift in Sources */,
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,
 				056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */,
-				0569565929B1F5D4002E8CF2 /* DinnerViewController.swift in Sources */,
+				7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */,
+				7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */,
 				0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */,
@@ -568,6 +650,14 @@
 				kind = branch;
 			};
 		};
+		7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -590,6 +680,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		7BD73CD329D208940076DC77 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

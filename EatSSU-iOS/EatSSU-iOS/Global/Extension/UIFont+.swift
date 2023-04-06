@@ -12,6 +12,7 @@ enum AppFontName: String {
     case mediumFont = "AppleSDGothicNeo-Medium"
     case semiBoldFont = "AppleSDGothicNeo-SemiBold"
     case boldFont = "AppleSDGothicNeo-Bold"
+    case extraBoldFont = "AppleSDGothicNeo-ExtraBold"
 }
 
 extension UIFont {
@@ -30,5 +31,9 @@ extension UIFont {
     
     class func bold(size: CGFloat) -> UIFont {
         return UIFont(name: AppFontName.boldFont.rawValue, size: size)!
+    }
+    
+    class func extraBold(size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.extraBoldFont.rawValue, size: size)!
     }
 }
