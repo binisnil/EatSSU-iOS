@@ -10,23 +10,22 @@ import UIKit
 import SnapKit
 import Then
 
-class LoginViewController : BaseViewController {
+class LoginViewController: BaseViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
-    //MARK: - UI Components
+    // MARK: - UI Components
     
     private let loginView = LoginView()
     
-    //MARK: - Life Cycles
+    // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonEvent()
-
     }
     
-    //MARK: - Function
+    // MARK: - Function
     
     override func configureUI() {
         view.backgroundColor = .systemBackground
@@ -44,11 +43,14 @@ class LoginViewController : BaseViewController {
         loginView.signUPButton.addTarget(self, action: #selector(didTappedSignUpBtn), for: .touchUpInside)
     }
     
-    @objc func didTappedPreviewBtn() {
+    @objc
+    func didTappedPreviewBtn() {
         let nextVC = HomeViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    @objc func didTappedSignUpBtn() {
+    
+    @objc
+    func didTappedSignUpBtn() {
         let nextVC = SignUpViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

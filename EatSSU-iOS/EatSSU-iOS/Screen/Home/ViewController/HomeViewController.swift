@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import Pageboy
 import Tabman
 
@@ -14,7 +15,6 @@ class HomeViewController: TabmanViewController {
     //MARK: - Life Cycle
     
     public let bar = TMBar.ButtonBar()
-    
     var viewControllers: Array<UIViewController> = [MorningViewController(),LunchViewController(),DinnerViewController()]
 
     override func viewDidLoad() {

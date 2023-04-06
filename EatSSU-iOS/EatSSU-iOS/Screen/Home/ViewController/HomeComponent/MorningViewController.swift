@@ -6,12 +6,16 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
 class MorningViewController: BaseViewController {
     
     //MARK: - UI Component
+    
+    private let contentView = UIView()
+    private let morningView = MorningView()
     
     lazy var menuItems: [UIAction] = {
         return [
@@ -33,16 +37,11 @@ class MorningViewController: BaseViewController {
         $0.showsVerticalScrollIndicator = false
     }
     
-    private let contentView = UIView()
-    
-    private let morningView = MorningView()
-    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setnavigation()
-
     }
     
     //MARK: - Function
@@ -67,17 +66,14 @@ class MorningViewController: BaseViewController {
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
         contentView.snp.makeConstraints {
             $0.edges.width.height.equalToSuperview()
         }
+        
         morningView.snp.makeConstraints {
             $0.width.height.equalTo(contentView)
         }
-        
-    }
-    
-    override func setButtonEvent() {
-        
     }
     
     @objc

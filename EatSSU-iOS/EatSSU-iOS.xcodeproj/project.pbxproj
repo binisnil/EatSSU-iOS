@@ -24,6 +24,7 @@
 		7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9029DAF6270007603D /* MainButton.swift */; };
 		7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */; };
 		7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9429DB359A0007603D /* MainTextField.swift */; };
+		7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9629DEE7B20007603D /* UITextField+.swift */; };
 		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
@@ -50,6 +51,7 @@
 		7B2C9E9029DAF6270007603D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7B2C9E9429DB359A0007603D /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
+		7B2C9E9629DEE7B20007603D /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */,
 				056956B729C0D6DC002E8CF2 /* UIView+.swift */,
 				056956BA29C0D8BF002E8CF2 /* UIFont+.swift */,
+				7B2C9E9629DEE7B20007603D /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
+				7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,

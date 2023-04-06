@@ -6,10 +6,11 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
-class MorningView : BaseUIView {
+class MorningView: BaseUIView {
     
     // MARK: - UI Components
     
@@ -21,9 +22,7 @@ class MorningView : BaseUIView {
         $0.text = "학생 식당"
         $0.font = UIFont.boldSystemFont(ofSize: 20)
     }
-    
-    //StackView
-    
+        
     lazy var restaurantTitleStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [coordinateImage, studentRestaurantLabel])
         stackView.axis = .horizontal
@@ -32,16 +31,8 @@ class MorningView : BaseUIView {
         return stackView
     }()
   
-    // MARK: - init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - Func
+    
     override func configureUI() {
         self.addSubviews(restaurantTitleStackView)
     }
@@ -50,6 +41,7 @@ class MorningView : BaseUIView {
         studentRestaurantLabel.snp.makeConstraints {
             $0.leading.equalTo(coordinateImage.snp.trailing).offset(10)
         }
+        
         restaurantTitleStackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(160)
             $0.leading.equalToSuperview().offset(21)
