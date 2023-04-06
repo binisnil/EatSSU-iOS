@@ -19,7 +19,9 @@ class MorningViewController: BaseViewController {
     
     lazy var menuItems: [UIAction] = {
         return [
-            UIAction(title: "마이페이지", image: UIImage(systemName: "person"),handler: {_ in self.touchMyPageBtnEvent()})
+            UIAction(title: "마이페이지",
+                     image: UIImage(systemName: "person"),
+                     handler: {_ in self.touchMyPageBtnEvent()})
         ]
     }()
 
