@@ -79,13 +79,13 @@ class MorningViewController: BaseViewController {
     }
     
     @objc
-    func rightBarItemTapped() {
-        print("rightBarItemTapped")
+    func tappedRightBarItem() {
+        print("tappedRightBarItem")
     }
     
     @objc
-    func touchMyPageBtnEvent() {
-        print("touchMyPageBtnEvent")
+    func tappedMyPageBtn() {
+        print("tappedMyPageBtn")
     }
 }
 
