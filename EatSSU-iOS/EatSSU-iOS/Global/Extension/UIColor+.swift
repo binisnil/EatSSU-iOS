@@ -10,23 +10,23 @@ import UIKit
 extension UIColor {
     
     // MARK: - 임의로 색깔 지정 / 디자이너가 scheme 지정해주면 컴포넌트 추가해주기
-    static var gray1: UIColor {
-        return UIColor(hex: "#6B6B6B")
+    static var darkGray: UIColor {
+        return UIColor(hex: "#9D9D9D")
     }
     
-    static var barGray: UIColor {
+    static var mediumGray: UIColor {
         return UIColor(hex: "#D9D9D9")
     }
     
-    static var buttonGray: UIColor {
-        return UIColor(hex: "#F4F4F4")
+    static var lightGray: UIColor {
+        return UIColor(hex: "#F5F5F5")
     }
     
     static var backgroundGray: UIColor {
         return UIColor(hex: "#F9F9F9")
     }
     
-    static var brandColor: UIColor {
+    static var primary: UIColor {
         return UIColor(hex: "#DF5757")
     }
     
@@ -49,5 +49,3 @@ extension UIColor {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0, alpha: alpha)
     }
 }
-
-

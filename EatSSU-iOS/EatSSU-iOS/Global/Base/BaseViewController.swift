@@ -12,24 +12,24 @@ import SnapKit
 
 class BaseViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
-    //MARK: - UI Components
+    // MARK: - UI Components
     
-    //MARK: - Life Cycles
+    // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         configureUI()
         setLayout()
         setButtonEvent()
     }
     
-    //MARK: - Function
+    // MARK: - Function
     
     func configureUI() {
         //override Point
-        view.backgroundColor = .systemBackground
     }
     
     func setLayout() {
