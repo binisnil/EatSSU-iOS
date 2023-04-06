@@ -8,31 +8,41 @@
 import Foundation
 import UIKit
 
-class ReviewViewController : UIViewController {
+import Charts
+
+class ReviewViewController: BaseViewController {
     
     //MARK: - UI Component
     
+    let topReviewView = ReviewRateView()
+    
     //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        
-        setViewHierarchy()
+        configureUI()
         setLayout()
         setButtonEvent()
     }
     
     //MARK: - Function
-    func setViewHierarchy(){
 
+    override func configureUI() {
+        view.backgroundColor = .backgroundGray
+        topReviewView.backgroundColor = .white
+        view.addSubviews(topReviewView)
     }
     
-    func setLayout(){
-
+    override func setLayout() {
+        topReviewView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(350)
+        }
     }
     
-    func setButtonEvent(){
-
+    override func setButtonEvent() {
+        
     }
 }
 
