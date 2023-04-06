@@ -21,7 +21,7 @@ class MorningViewController: BaseViewController {
         return [
             UIAction(title: "마이페이지",
                      image: UIImage(systemName: "person"),
-                     handler: {_ in self.touchMyPageBtnEvent()})
+                     handler: {_ in self.tappedMyPageBtn()})
         ]
     }()
 
