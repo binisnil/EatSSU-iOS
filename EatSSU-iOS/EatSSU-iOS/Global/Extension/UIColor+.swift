@@ -27,15 +27,7 @@ extension UIColor {
     
     static var buttonGray: UIColor {
         return UIColor(hex: "#F4F4F4")
-    }
-
-    static var mediumGray: UIColor {
-        return UIColor(hex: "#D9D9D9")
-    }
-    
-    static var lightGray: UIColor {
-        return UIColor(hex: "#F5F5F5")
-    }
+    }    
     
     static var backgroundGray: UIColor {
         return UIColor(hex: "#F9F9F9")

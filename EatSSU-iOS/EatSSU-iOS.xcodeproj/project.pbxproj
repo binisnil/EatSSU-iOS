@@ -197,6 +197,7 @@
 		7B2BBFA9299A253B00EE0F1F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				7B2C9E9929DF36880007603D /* Constant */,
 				7B2C9E8F29DAF5FE0007603D /* UIComponent */,
 				056956BD29C0DAF9002E8CF2 /* Base */,
 				7B2BBFAA299A254600EE0F1F /* Supports */,
@@ -277,6 +278,13 @@
 				056956E129C23688002E8CF2 /* UIStackView+.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		7B2C9E9929DF36880007603D /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		7B63C45029C0FF7E0070C588 /* View */ = {
