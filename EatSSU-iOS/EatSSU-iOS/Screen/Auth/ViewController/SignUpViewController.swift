@@ -11,14 +11,13 @@ import SnapKit
 import Then
 
 class SignUpViewController: BaseViewController {
-    
-    // MARK: - Properties
-    
+        
     // MARK: - UI Components
     
     let nicknameTextField = MainTextField("닉네임을 입력해주세요")
     let emailTextField = MainTextField("example@gmail.com")
     let pwTextField = MainTextField("비밀번호를 입력해주세요")
+    let pwRewritingTextField = MainTextField("비밀번호를 확인해주세요")
     
     let nicknameLabel = UILabel().then {
         $0.text = "닉네임"
@@ -74,7 +73,6 @@ class SignUpViewController: BaseViewController {
         $0.font = .semiBold(size: 16)
     }
     
-    let pwRewritingTextField = MainTextField("비밀번호를 확인해주세요")
     private lazy var pwRewritingStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [pwRewritingLabel, pwRewritingTextField])
         stackView.axis = .vertical
