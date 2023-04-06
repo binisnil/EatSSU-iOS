@@ -66,7 +66,7 @@ class SetRateViewController: BaseViewController {
                          bottomTagView,
                          menuLabel,
                          introLabel,
-                         nextButton,
+                         nextButton
                          )
     }
     

@@ -9,12 +9,12 @@ import UIKit
 
 class WriteReviewViewController: BaseViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     var personalRate = 0
     private var starButtons: [UIButton] = []
     
-    //MARK: - UI Component
+    // MARK: - UI Component
     
     private var menuLabel: UILabel = {
         let label = UILabel()
@@ -120,7 +120,7 @@ class WriteReviewViewController: BaseViewController {
         updateReviewButton.addTarget(self, action: #selector(userTappedNextButton), for: .touchUpInside)
     }
     
-    //FIXME: - TextView placeholder 커스텀 수정
+    // FIXME: - TextView placeholder 커스텀 수정
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.userReviewTextView.resignFirstResponder()

@@ -10,12 +10,12 @@ import SnapKit
 
 class ReviewRateView: BaseUIView {
     
-    //MARK: - Properties
+    // MARK: - Properties
 
     var currentStar: Int = 0
     private var starButtons: [UIButton] = []
     
-    //MARK: - UI Components
+    // MARK: - UI Components
     
     private let reviewLabel: UILabel = {
         let label = UILabel()
@@ -201,7 +201,7 @@ class ReviewRateView: BaseUIView {
         }
     }
     
-    //MARK: - Functions
+    // MARK: - Functions
     
     override func configureUI() {
         self.addSubviews(reviewLabel,

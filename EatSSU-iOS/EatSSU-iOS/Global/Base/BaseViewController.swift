@@ -12,11 +12,11 @@ import SnapKit
 
 class BaseViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
-    //MARK: - UI Components
+    // MARK: - UI Components
     
-    //MARK: - Life Cycles
+    // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class BaseViewController: UIViewController {
         setButtonEvent()
     }
     
-    //MARK: - Function
+    // MARK: - Function
     
     func configureUI() {
         //override Point

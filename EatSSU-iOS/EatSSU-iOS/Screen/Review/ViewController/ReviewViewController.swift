@@ -9,7 +9,7 @@ import UIKit
 
 class ReviewViewController: BaseViewController {
     
-    //MARK: - UI Component
+    // MARK: - UI Component
     
     let topReviewView = ReviewRateView()
     
@@ -41,7 +41,7 @@ class ReviewViewController: BaseViewController {
         reviewTableView.dataSource = self
     }
     
-    //MARK: - Function
+    // MARK: - Function
 
     override func configureUI() {
         topReviewView.backgroundColor = .white
