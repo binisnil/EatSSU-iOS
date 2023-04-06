@@ -117,7 +117,6 @@ class ReviewTableCell: UITableViewCell {
         textView.backgroundColor = .systemBackground
         textView.font = .regular(size: 16)
         textView.text = "여기 계란국 맛집임... 김치볶음밥에 계란후라이 없어서 아쉽 다음에 또 먹어야지"
-
         return textView
     }()
     
@@ -182,10 +181,12 @@ class ReviewTableCell: UITableViewCell {
             make.top.equalToSuperview().offset(5)
             make.leading.equalToSuperview().offset(16)
         }
+        
         sideButton.snp.makeConstraints { make in
             make.centerY.equalTo(profileStackView.snp.top).offset(3)
             make.trailing.equalToSuperview().offset(-16)
         }
+        
         contentStackView.snp.makeConstraints { make in
             make.top.equalTo(profileStackView.snp.bottom).offset(7)
             make.leading.equalToSuperview().offset(16)
