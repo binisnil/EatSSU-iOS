@@ -2,7 +2,7 @@
 //  ReviewViewController.swift
 //  EatSSU-iOS
 //
-//  Created by 박윤빈 on 2023/03/04.
+//  Created by 최지우 on 2023/04/07.
 //
 
 import UIKit
@@ -44,7 +44,6 @@ class ReviewViewController: BaseViewController {
     }
     
     // MARK: - Functions
-
     override func configureUI() {
         topReviewView.backgroundColor = .white
         reviewTableView.backgroundColor = .white

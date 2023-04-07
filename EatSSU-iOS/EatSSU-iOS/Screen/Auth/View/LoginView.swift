@@ -53,7 +53,7 @@ class LoginView: BaseUIView {
         $0.layer.cornerRadius = 10.0
         $0.tintColor = .darkGray
         $0.addLeftPadding(width: 10.0)
-        $0.addLeftImage(image: (UIImage(systemName: "person.fill") ?? UIImage(named: "logo.svg"))!)
+        $0.addLeftImage(image: (UIImage(systemName: "person.fill")!))
     }
     
     private let pwTextField = UITextField().then {
@@ -64,7 +64,7 @@ class LoginView: BaseUIView {
         $0.layer.cornerRadius = 10.0
         $0.tintColor = .darkGray
         $0.addLeftPadding(width: 10.0)
-        $0.addLeftImage(image: (UIImage(systemName: "lock.fill") ?? UIImage(named: "logo.svg"))!)
+        $0.addLeftImage(image: (UIImage(systemName: "lock.fill")!))
     }
     
     private lazy var loginButton = UIButton().then {
