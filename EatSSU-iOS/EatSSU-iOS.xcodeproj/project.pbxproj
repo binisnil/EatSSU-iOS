@@ -14,13 +14,13 @@
 		056956C229C0DB55002E8CF2 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 056956C129C0DB55002E8CF2 /* Moya */; };
 		056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956C629C0E350002E8CF2 /* ReviewRateView.swift */; };
 		056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956C829C0E51F002E8CF2 /* BaseUIView.swift */; };
-		056956E029C1EF9B002E8CF2 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 056956DF29C1EF9B002E8CF2 /* Charts */; };
-		056956E229C23688002E8CF2 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956E129C23688002E8CF2 /* UIStackView+.swift */; };
 		056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956FC29CB7958002E8CF2 /* ReviewTableCell.swift */; };
 		056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956FE29CB81E2002E8CF2 /* SetRateViewController.swift */; };
 		0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570229CB83A1002E8CF2 /* BottomTagView.swift */; };
 		0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570929CCBC41002E8CF2 /* RateView.swift */; };
 		0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */; };
+		05A4C88229DFE2A2004B9A81 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88129DFE2A2004B9A81 /* ReviewViewController.swift */; };
+		05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88329DFE42A004B9A81 /* UIStackView+.swift */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
 		7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */; };
 		7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */; };
@@ -40,7 +40,6 @@
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD529D20B980076DC77 /* MorningView.swift */; };
-		7BD73CD829D215170076DC77 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD729D215170076DC77 /* BaseView.swift */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
 /* End PBXBuildFile section */
@@ -51,12 +50,13 @@
 		056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		056956C629C0E350002E8CF2 /* ReviewRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRateView.swift; sourceTree = "<group>"; };
 		056956C829C0E51F002E8CF2 /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
-		056956E129C23688002E8CF2 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		056956FC29CB7958002E8CF2 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		056956FE29CB81E2002E8CF2 /* SetRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRateViewController.swift; sourceTree = "<group>"; };
 		0569570229CB83A1002E8CF2 /* BottomTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTagView.swift; sourceTree = "<group>"; };
 		0569570929CCBC41002E8CF2 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
+		05A4C88129DFE2A2004B9A81 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewViewController.swift; path = ../../../Global/Supports/ReviewViewController.swift; sourceTree = "<group>"; };
+		05A4C88329DFE42A004B9A81 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EatSSU-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +76,6 @@
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
 		7BD73CD529D20B980076DC77 /* MorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningView.swift; sourceTree = "<group>"; };
-		7BD73CD729D215170076DC77 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +89,6 @@
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
 				0569565C29B25D40002E8CF2 /* Tabman in Frameworks */,
-				056956E029C1EF9B002E8CF2 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +137,7 @@
 			children = (
 				056956FE29CB81E2002E8CF2 /* SetRateViewController.swift */,
 				0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */,
+				05A4C88129DFE2A2004B9A81 /* ReviewViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -236,6 +235,7 @@
 				056956B729C0D6DC002E8CF2 /* UIView+.swift */,
 				056956BA29C0D8BF002E8CF2 /* UIFont+.swift */,
 				7B2C9E9629DEE7B20007603D /* UITextField+.swift */,
+				05A4C88329DFE42A004B9A81 /* UIStackView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -278,8 +278,6 @@
 		7B2C9E9829DF2C7B0007603D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				7BD73CD729D215170076DC77 /* BaseView.swift */,
-				056956E129C23688002E8CF2 /* UIStackView+.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -402,9 +400,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
-				7BD73CD829D215170076DC77 /* BaseView.swift in Sources */,
+				05A4C88229DFE2A2004B9A81 /* ReviewViewController.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
 				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
@@ -425,7 +424,6 @@
 				0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
-				056956E229C23688002E8CF2 /* UIStackView+.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
@@ -654,14 +652,6 @@
 				kind = branch;
 			};
 		};
-		056956DE29C1EF9B002E8CF2 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -690,11 +680,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
-		};
-		056956DF29C1EF9B002E8CF2 /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 056956DE29C1EF9B002E8CF2 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
 		};
 		7B2BBFAF299A291A00EE0F1F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
