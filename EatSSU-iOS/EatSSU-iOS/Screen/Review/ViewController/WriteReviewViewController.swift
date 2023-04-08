@@ -130,7 +130,7 @@ class WriteReviewViewController: BaseViewController {
             self.userReviewTextView.resignFirstResponder()
         }
     
-    func customNavigationBar() {
+    override func customNavigationBar() {
         let backButton: UIBarButtonItem = UIBarButtonItem()
         backButton.title = ""
         navigationItem.title = "리뷰 남기기"
