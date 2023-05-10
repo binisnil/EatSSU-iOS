@@ -62,6 +62,7 @@
 		05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		05EC82FF2A0BD40900851B55 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		05EC83012A0BE5B700851B55 /* EatSSU-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EatSSU-iOS.entitlements"; sourceTree = "<group>"; };
 		7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EatSSU-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 		7B2BBF94299A1AC400EE0F1F /* EatSSU-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				05EC83012A0BE5B700851B55 /* EatSSU-iOS.entitlements */,
 				05C5EC022A0BCFCD00CC6A58 /* Model */,
 				0569564E29B1F043002E8CF2 /* Screen */,
 				7B2BBFA9299A253B00EE0F1F /* Global */,
@@ -617,6 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "EatSSU-iOS/EatSSU-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -643,6 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "EatSSU-iOS/EatSSU-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

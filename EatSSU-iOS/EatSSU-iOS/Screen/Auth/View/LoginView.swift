@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 import SnapKit
 import Then
@@ -86,7 +87,7 @@ class LoginView: BaseUIView {
         $0.setImage(UIImage(named: "google"), for: .normal)
     }
     
-    private var appleLoginButton = UIButton().then {
+    var appleLoginButton = UIButton().then {
         $0.setImage(UIImage(named: "apple"), for: .normal)
     }
     
