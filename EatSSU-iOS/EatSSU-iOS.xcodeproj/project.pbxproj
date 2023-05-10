@@ -20,6 +20,9 @@
 		0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570929CCBC41002E8CF2 /* RateView.swift */; };
 		0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */; };
 		05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88329DFE42A004B9A81 /* UIStackView+.swift */; };
+		05C5EC012A0BCF2300CC6A58 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */; };
+		05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */; };
+		05EC83002A0BD40900851B55 /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC82FF2A0BD40900851B55 /* NoticeTableViewCell.swift */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
 		7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */; };
 		7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */; };
@@ -56,6 +59,9 @@
 		0569570929CCBC41002E8CF2 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		05A4C88329DFE42A004B9A81 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		05EC82FF2A0BD40900851B55 /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EatSSU-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 		0569564E29B1F043002E8CF2 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				05C5EBFD2A0BCC6500CC6A58 /* MyPage */,
 				7B2C9E6229DAC6B10007603D /* Auth */,
 				0569565D29B262F9002E8CF2 /* Review */,
 				0569565229B1F4B2002E8CF2 /* Home */,
@@ -169,6 +176,47 @@
 			path = RateReview;
 			sourceTree = "<group>";
 		};
+		05C5EBFD2A0BCC6500CC6A58 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				05C5EBFF2A0BCC8B00CC6A58 /* ViewController */,
+				05C5EBFE2A0BCC6E00CC6A58 /* View */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		05C5EBFE2A0BCC6E00CC6A58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05EC82FF2A0BD40900851B55 /* NoticeTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05C5EBFF2A0BCC8B00CC6A58 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		05C5EC022A0BCFCD00CC6A58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05C5EC032A0BCFD500CC6A58 /* MyPage */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		05C5EC032A0BCFD500CC6A58 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		7B2BBF89299A1AC400EE0F1F = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +237,7 @@
 		7B2BBF94299A1AC400EE0F1F /* EatSSU-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				05C5EC022A0BCFCD00CC6A58 /* Model */,
 				0569564E29B1F043002E8CF2 /* Screen */,
 				7B2BBFA9299A253B00EE0F1F /* Global */,
 				7B2BBFA0299A1AC500EE0F1F /* LaunchScreen.storyboard */,
@@ -404,6 +453,8 @@
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
+				05C5EC012A0BCF2300CC6A58 /* NoticeViewController.swift in Sources */,
+				05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
 				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
 				7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */,
@@ -423,6 +474,7 @@
 				0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
+				05EC83002A0BD40900851B55 /* NoticeTableViewCell.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
