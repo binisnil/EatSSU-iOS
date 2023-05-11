@@ -16,10 +16,8 @@ class MorningView: BaseUIView {
     
      var menus: [Menu] = []
     
-    
-    
-    private let coordinateImage = UIImageView().then {
-        $0.image = UIImage(named: "coordinate")
+    let coordinateButton = UIButton().then {
+        $0.setImage(UIImage(named: "coordinate"), for: .normal)
     }
     
     let studentRestaurantLabel = UILabel().then {
@@ -28,7 +26,7 @@ class MorningView: BaseUIView {
     }
         
     lazy var restaurantTitleStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [coordinateImage, studentRestaurantLabel])
+        let stackView = UIStackView(arrangedSubviews: [coordinateButton, studentRestaurantLabel])
         stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.alignment = .leading
@@ -39,6 +37,8 @@ class MorningView: BaseUIView {
         $0.showsVerticalScrollIndicator = false
         $0.layer.cornerRadius = 15.0
     }
+    
+    // MARK : - 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,7 +70,7 @@ class MorningView: BaseUIView {
     
     override func setLayout() {
         studentRestaurantLabel.snp.makeConstraints {
-            $0.leading.equalTo(coordinateImage.snp.trailing).offset(10)
+            $0.leading.equalTo(coordinateButton.snp.trailing).offset(10)
         }
         
         restaurantTitleStackView.snp.makeConstraints {
@@ -112,6 +112,7 @@ class MorningView: BaseUIView {
 //        menuTableView.tableHeaderView = menuHeaderView
 //        menuHeaderView.backgroundColor = .orange
     }
+    
 }
 
 extension MorningView: UITableViewDataSource {
@@ -153,4 +154,11 @@ extension MorningView: UITableViewDataSource {
 
 extension MorningView: UITableViewDelegate {
     
+}
+
+extension MorningView: UISheetPresentationControllerDelegate {
+    func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
+        //크기 변경 됐을 경우
+        print(sheetPresentationController.selectedDetentIdentifier == .large ? "large" : "medium")
+    }
 }

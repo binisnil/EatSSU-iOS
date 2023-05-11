@@ -43,20 +43,20 @@ class MorningViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setnavigation()
+//        setnavigation()
     }
     
     //MARK: - Functions
     
-    func setnavigation() {
-        self.navigationController?.navigationBar.topItem?.title = "EAT SSU"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Bold", size: 25), .foregroundColor: UIColor.primary]
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "text.justify", style: .done, target: self, action: #selector(rightBarItemTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
-                                                                   image: UIImage(systemName: "text.justify"),
-                                                                   primaryAction: nil,
-                                                                   menu: menu)
-    }
+//    func setnavigation() {
+//        self.navigationController?.navigationBar.topItem?.title = "EAT SSU"
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Bold", size: 25), .foregroundColor: UIColor.primary]
+////        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "text.justify", style: .done, target: self, action: #selector(rightBarItemTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
+//                                                                   image: UIImage(systemName: "text.justify"),
+//                                                                   primaryAction: nil,
+//                                                                   menu: menu)
+//    }
     
     override func configureUI() {
         view.addSubviews(scrollView)
@@ -86,6 +86,17 @@ class MorningViewController: BaseViewController {
     @objc
     func tappedMyPageBtn() {
         print("tappedMyPageBtn")
+    }
+    
+    override func setButtonEvent() {
+        morningView.coordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
+    }
+    
+    @objc
+    func didTappedMapViewButton() {
+        let mapVC = RestaurantMapViewController()
+        present(mapVC, animated: true, completion: nil)
+
     }
 }
 

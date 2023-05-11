@@ -16,6 +16,11 @@ class RestaurantMapViewController: BaseViewController {
     
     // MARK: - UI Components
     
+    private let restaurantNameLabel = UILabel().then {
+        $0.text = "숭실 도담 식당"
+        $0.font = .bold(size: 22)
+    }
+    
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
@@ -29,7 +34,9 @@ class RestaurantMapViewController: BaseViewController {
     }
     
     override func setLayout() {
-        //override Point
+        restaurantNameLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+        }
     }
     
     override func setButtonEvent() {
