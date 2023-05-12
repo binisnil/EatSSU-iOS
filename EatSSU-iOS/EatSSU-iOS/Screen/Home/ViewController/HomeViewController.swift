@@ -74,6 +74,11 @@ class HomeViewController: TabmanViewController {
     
     func setnavigation() {
         navigationItem.titleView = UIImageView(image: UIImage(named: "TopLogo"))
+        
+        let rightButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(didTappedRightBarButton))
+        rightButton.tintColor = UIColor.primary
+        navigationItem.rightBarButtonItem = rightButton
+        
     }
     
     func createDatePicker() {
@@ -91,7 +96,8 @@ class HomeViewController: TabmanViewController {
         dateSelectedField.text = formatter.string(from: date)
     }
     
-    @objc func didSelectedDate(_ sender: UIDatePicker) {
+    @objc
+    func didSelectedDate(_ sender: UIDatePicker) {
         print(sender.date)
 
         let dateFormatter = DateFormatter()
@@ -101,6 +107,13 @@ class HomeViewController: TabmanViewController {
         self.dateSelectedField.text = dateFormatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
+    
+    @objc
+    func didTappedRightBarButton() {
+        // 마이페이지 뷰로 이동
+        print("didTappedRightBarButton")
+    }
+    
 }
 
 // MARK: - PageBoy Extension

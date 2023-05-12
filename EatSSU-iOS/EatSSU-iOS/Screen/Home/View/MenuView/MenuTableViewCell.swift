@@ -8,32 +8,22 @@
 import UIKit
 
 class MenuTableViewCell: UITableViewCell {
-
+    
     // MARK:  - Properties
     
     static let identifier = "MenuTableViewCell"
     
     // MARK: - UI Components
     
-    private let todayMenuLabel = UILabel().then {
-        $0.text = "오늘의 메뉴"
-        $0.font = .bold(size: 12)
-    }
-    
-    private let priceLabel = UILabel().then {
-        $0.text = "가격"
-        $0.font = .bold(size: 12)
-    }
-    
-    private let rateLabel = UILabel().then {
-        $0.text = "평점"
-        $0.font = .bold(size: 12)
-    }
+    let nameLabel = UILabel()
+    let priceLabel = UILabel()
+    let ratingLabel = UILabel()
     
     lazy var InfoTableStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [todayMenuLabel, priceLabel, rateLabel])
+        let stackView = UIStackView(arrangedSubviews: [nameLabel, priceLabel, ratingLabel])
         stackView.axis = .horizontal
-//        stackView.setCustomSpacing(170, after: todayMenuLabel)
+//        stackView.setCustomSpacing(170, after: nameLabel)
+//        stackView.setCustomSpacing(38, after: priceLabel)
         return stackView
     }()
     
@@ -41,23 +31,40 @@ class MenuTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        configureUI()
-//        setLayout()
+        
+        contentView.addSubview(InfoTableStackView)
+        
+        [nameLabel,priceLabel,ratingLabel].forEach {
+            $0.font = .medium(size: 14)
+        }
+        
+        setLayout()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI() {
-//        self.contentView.addSubview(self.InfoTableStackView)
-    }
-    
     func setLayout() {
-//        InfoTableStackView.snp.makeConstraints {
-//            $0.top.equalToSuperview().offset(5)
-//            $0.leading.equalToSuperview().offset(10)
-//        }
-    }
-
-}
+        InfoTableStackView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(10)
+            $0.centerY.equalToSuperview()
+        
+        }
+        nameLabel.snp.makeConstraints {
+            $0.leading.equalTo(contentView.snp.leading).offset(16)
+            $0.width.equalTo(210)
+        }
+        priceLabel.snp.makeConstraints {
+//            $0.centerX.equalTo(contentView.snp.centerX)
+            $0.width.equalTo(75)
+        }
+        ratingLabel.snp.makeConstraints {
+//            $0.trailing.equalTo(contentView.snp.trailing).offset(-5)
+            $0.width.equalTo(30)
+        }
+        
+        
+        
+    }}

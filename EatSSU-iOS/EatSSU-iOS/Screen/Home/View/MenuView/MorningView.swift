@@ -21,7 +21,7 @@ class MorningView: BaseUIView {
     }
     
     let studentRestaurantLabel = UILabel().then {
-        $0.text = "학생 식당"
+        $0.text = "기숙사 식당"
         $0.font = UIFont.boldSystemFont(ofSize: 20)
     }
         
@@ -33,10 +33,18 @@ class MorningView: BaseUIView {
         return stackView
     }()
     
-    lazy var menuTableView = MenuTableView().then {
+    lazy var dormitoryTableView = MenuTableView().then {
         $0.showsVerticalScrollIndicator = false
         $0.layer.cornerRadius = 15.0
+        $0.isScrollEnabled = false
     }
+    
+    lazy var dodamTableView = MenuTableView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.layer.cornerRadius = 15.0
+        $0.isScrollEnabled = false
+    }
+
     
     // MARK : - 
     
@@ -65,7 +73,8 @@ class MorningView: BaseUIView {
 //        self.addSubviews(contentScrollView)
 //        contentScrollView.addSubview(contentView)
         self.addSubviews(restaurantTitleStackView,
-                        menuTableView)
+                         dormitoryTableView,
+                        dodamTableView)
     }
     
     override func setLayout() {
@@ -78,39 +87,31 @@ class MorningView: BaseUIView {
             $0.leading.equalToSuperview().offset(21)
         }
         
-        menuTableView.snp.makeConstraints {
+        dormitoryTableView.snp.makeConstraints {
             $0.top.equalTo(restaurantTitleStackView.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(16)
-            $0.width.equalTo(358)
+            $0.centerX.equalToSuperview()
         }
         
-//        headerViewLayout()
-        
-//        contentScrollView.snp.makeConstraints {
-//            $0.edges.equalToSuperview()
-//        }
-//
-//        contentView.snp.makeConstraints {
-//            $0.edges.equalToSuperview()
-//            $0.width.equalToSuperview()
-//            $0.height.equalToSuperview()
-//        }
+        dodamTableView.snp.makeConstraints {
+            $0.top.equalTo(dormitoryTableView.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+            $0.centerX.equalToSuperview()
+        }
     }
     
-//    private func headerViewLayout() {
-//           menuTableView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: 500)
-//       }
-    
     func setupTableView() {
-        menuTableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
-        menuTableView.delegate = self
-        menuTableView.dataSource = self
-        menuTableView.separatorStyle = .none
-        
-        menuTableView.layer.borderColor = UIColor.barGray.cgColor
-        menuTableView.layer.borderWidth = 1.0
-//        menuTableView.tableHeaderView = menuHeaderView
-//        menuHeaderView.backgroundColor = .orange
+        [dormitoryTableView,dodamTableView].forEach {
+            $0.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
+            $0.delegate = self
+            $0.dataSource = self
+            $0.separatorStyle = .none
+            
+            $0.layer.borderColor = UIColor.barGray.cgColor
+            $0.layer.borderWidth = 1.0
+        }
+       
+
     }
     
 }
@@ -121,30 +122,25 @@ extension MorningView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as? MenuTableViewCell ?? MenuTableViewCell()
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
         let menu = menus[indexPath.row]
-//        let formattedString = String(format: "%8s%8s%8s", menu.name, menu.price, menu.rating)
         
-//        cell.textLabel?.text = String(format: "%15s%8s%8s", (menu.name as NSString).utf8String!, (menu.price as NSString).utf8String!, (menu.rating as NSString).utf8String!)
-
-//        cell.textLabel?.text = String(format: "%8s", menu.name) + String(format: "%8s", menu.price) + String(format: "%8s", menu.rating)
-//        let formattedName = String(format: "%8s", menu.name)
-//        let formattedPrice = String(format: "%8s", menu.price)
-//        let formattedRating = String(format: "%8s", menu.rating)
-//
-//        let menuLabel = (formattedName + formattedPrice + formattedRating)
-  
-        cell.textLabel?.text = "\(menu.name)                        \(menu.price)                         \(menu.rating)"
+        cell.nameLabel.text = menu.name
+        cell.priceLabel.text = menu.price
+        cell.ratingLabel.text = menu.rating
+        
         cell.textLabel?.font = .regular(size: 14)
-//        let formattedDetail = String(format: "%8s%8s", "\(menu.price)", "\(menu.rating)")
-//        cell.detailTextLabel?.text = "\(menu.price) \(menu.rating)"
-//        cell.detailTextLabel?.text = "가격: \(menu.price) 원, 평점: \(menu.rating)"
-//        cell.detailTextLabel?.font = .regular(size: 14)
-        // UITableViewCell의 separatorInset 조정
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-
+        cell.selectionStyle = .none     // 셀 선택 비활성화
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = MenuHeaderView()
