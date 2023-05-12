@@ -74,7 +74,7 @@ class MorningView: BaseUIView {
         }
         
         restaurantTitleStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(160)
+            $0.top.equalToSuperview().offset(190)
             $0.leading.equalToSuperview().offset(21)
         }
         

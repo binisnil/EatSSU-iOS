@@ -11,21 +11,24 @@ import Pageboy
 import Tabman
 
 class HomeViewController: TabmanViewController {
-    
+
     // MARK: - Properties
+    
+    let morningView = MorningView()
+        
+    var dateSelectedField = UITextField().then {
+        $0.tintColor = .clear
+        $0.textColor = .darkGray
+        $0.font = .bold(size: 18)
+    }
+    
+    let datePicker = UIDatePicker().then {
+        $0.addTarget(self, action: #selector(didSelectedDate(_:)), for: .valueChanged)
+    }
         
     public let bar = TMBar.ButtonBar()
     var viewControllers: Array<UIViewController> = [MorningViewController(),LunchViewController(),DinnerViewController()]
-    
-    var dateTextField = UITextField().then {
-        $0.borderStyle = .roundedRect
-    }
-    
-    var todayDatePicker = UIDatePicker().then {
-        $0.preferredDatePickerStyle = .automatic
-        $0.datePickerMode = .date
-        $0.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-    }
+
     
     // MARK: - Life Cycles
 
@@ -41,49 +44,62 @@ class HomeViewController: TabmanViewController {
         configureUI()
         setLayout()
         
-        dateTextField.frame = CGRect(x: 20, y: 100, width: self.view.frame.width - 40, height: 40)
-        // TextField의 입력 뷰로 DatePicker 설정
-        dateTextField.inputView = todayDatePicker
+        createDatePicker()
+        
+        // 초기 날짜 표시
+        setTodayDateLabel(with: Date())
         
     }
     
     //MARK: - Functions
     
     func configureUI() {
-        view.addSubview(dateTextField)
+        view.addSubview(dateSelectedField)
     }
     
     func setLayout() {
-        dateTextField.snp.makeConstraints {
-//            $0.top.equalToSuperview().offset(navigationController!.navigationBar.frame.height)
+        dateSelectedField.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(30)
 
         }
         bar.snp.makeConstraints {
-            $0.top.equalTo(dateTextField.snp.bottom)
+            $0.top.equalTo(dateSelectedField.snp.bottom)
+//            $0.bottom.equalTo(morningView.snp.top).inset(50)
         }
+      
+        
     }
     
     func setnavigation() {
-        self.navigationController?.navigationBar.topItem?.title = "EAT SSU"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Bold", size: 25), .foregroundColor: UIColor.primary]
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "text.justify", style: .done, target: self, action: #selector(rightBarItemTapped))
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
-//                                                                   image: UIImage(systemName: "text.justify"),
-//                                                                   primaryAction: nil,
-//                                                                   menu: menu)
-    }
-    @objc func dateChanged(_ sender: UIDatePicker) {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy.MM.dd"
-            print(formatter.string(from: sender.date))
+        navigationItem.titleView = UIImageView(image: UIImage(named: "TopLogo"))
     }
     
-    func setButtonEvent() {
-        
-        
+    func createDatePicker() {
+        datePicker.preferredDatePickerStyle = .inline
+        datePicker.datePickerMode = .date
+        datePicker.backgroundColor = .white
+        datePicker.tintColor = .primary
+
+        dateSelectedField.inputView = datePicker
+    }
+
+    func setTodayDateLabel(with date: Date) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        dateSelectedField.text = formatter.string(from: date)
+    }
+    
+    @objc func didSelectedDate(_ sender: UIDatePicker) {
+        print(sender.date)
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        self.dateSelectedField.text = dateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
     }
 }
 
@@ -132,3 +148,24 @@ extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
         ctBar.layout.contentMode = .fit
         }
 }
+
+//extension UITextField {
+//    func setDatePicker(target: Any, selector: Selector) {
+//            let SCwidth = self.bounds.width
+//            let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: SCwidth, height: 400))
+//            datePicker.datePickerMode = .date
+//        datePicker.preferredDatePickerStyle = .inline
+//            self.inputView = datePicker
+//
+//            let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: SCwidth, height: 44.0))
+//            let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//            let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel))
+//            let barButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
+//            toolBar.setItems([cancel, flexible, barButton], animated: false)
+//            self.inputAccessoryView = toolBar
+//
+//        }
+//        @objc func tapCancel() {
+//            self.resignFirstResponder()
+//        }
+//}
