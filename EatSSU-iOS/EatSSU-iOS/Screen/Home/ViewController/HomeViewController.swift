@@ -111,7 +111,8 @@ class HomeViewController: TabmanViewController {
     @objc
     func didTappedRightBarButton() {
         // 마이페이지 뷰로 이동
-        print("didTappedRightBarButton")
+        let nextVC = MyPageViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }
