@@ -19,7 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(windowScene: windowScene)
         window?.windowScene = windowScene
+<<<<<<< Updated upstream
         let navigationController = UINavigationController(rootViewController: HomeViewController())
+=======
+        let navigationController = UINavigationController(rootViewController: RestaurantMapViewController())
+>>>>>>> Stashed changes
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 

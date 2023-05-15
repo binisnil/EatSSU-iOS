@@ -40,14 +40,13 @@ class RestaurantMapViewController: BaseViewController {
         $0.text = "주중"
         $0.font = .medium(size: 16)
     }
-//    private let restaurantMapView = MKMapView(frame: CGRect(x: 0, y: 0, width: 317, height: 256))
     
     // Create a map view
 //    let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: 317, height: 256))
     let mapView = MKMapView()
 
     // Define a region for Soongsil University (Latitude and longitude for Soongsil University)
-    let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
 
    
     // MARK: - Life Cycles
