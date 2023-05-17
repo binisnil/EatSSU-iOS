@@ -13,7 +13,7 @@ import Tabman
 class HomeViewController: TabmanViewController {
 
     // MARK: - Properties
-    
+    private let contentView = UIView()
     let morningView = MorningView()
         
     var dateSelectedField = UITextField().then {
@@ -28,6 +28,15 @@ class HomeViewController: TabmanViewController {
         
     public let bar = TMBar.ButtonBar()
     var viewControllers: Array<UIViewController> = [MorningViewController(),LunchViewController(),DinnerViewController()]
+    
+    private let scrollView = UIScrollView().then {
+        $0.backgroundColor = .systemBackground
+        $0.showsVerticalScrollIndicator = false
+    }
+    
+    let label = UILabel().then {
+        $0.text = "dfdffffffffffff"
+    }
 
     
     // MARK: - Life Cycles
@@ -53,23 +62,76 @@ class HomeViewController: TabmanViewController {
     
     //MARK: - Functions
     
+//    func configureUI() {
+//        view.addSubviews(dateSelectedField,
+//                        scrollView)
+//        scrollView.addSubview(contentView)
+//        contentView.addSubview(viewControllers)
+//    }
+//
+//    func setLayout() {
+//        dateSelectedField.snp.makeConstraints {
+//            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            $0.centerX.equalToSuperview()
+//            $0.height.equalTo(30)
+//
+//        }
+//        bar.snp.makeConstraints {
+//            $0.top.equalTo(dateSelectedField.snp.bottom)
+//            $0.bottom.equalTo(morningView.snp.top).inset(50)
+//        }
+//        scrollView.snp.makeConstraints {
+//            $0.top.equalTo(bar.snp.bottom).offset(10)
+//            $0.leading.bottom.trailing.equalToSuperview()
+//        }
+//        contentView.snp.makeConstraints {
+//            $0.edges.width.equalTo(scrollView)
+//        }
+//
+//
+//    }
+    //MARK: - Functions
+
     func configureUI() {
-        view.addSubview(dateSelectedField)
+        view.addSubviews(dateSelectedField)
+//        scrollView.addSubview(contentView)
+//
+//         // viewControllers
+//        for vc in viewControllers {
+//          // 부모 뷰 컨트롤러에 자식 뷰 컨트롤러를 추가
+//            self.addChild(vc)
+////
+////            // contentView에 자식 뷰 컨트롤러의 뷰 추가
+////            contentView.addSubview(vc.view)
+//////
+//////            // SnapKit 사용하여 레이아웃 설정
+////            vc.view.snp.makeConstraints {
+////                $0.width.height.equalToSuperview()
+////            }
+//            ㅡ.scrollView.snp.makeConstraints {
+//                $0.top.equalTo(bar.snp.bottom)
+//            }
+//        }
+        
     }
-    
+
     func setLayout() {
         dateSelectedField.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(30)
-
         }
         bar.snp.makeConstraints {
             $0.top.equalTo(dateSelectedField.snp.bottom)
-//            $0.bottom.equalTo(morningView.snp.top).inset(50)
+            $0.bottom.equalToSuperview().inset(210)
         }
-      
-        
+//        scrollView.snp.makeConstraints {
+//            $0.top.equalTo(bar.snp.bottom)
+//            $0.leading.bottom.trailing.equalToSuperview()
+//        }
+//        contentView.snp.makeConstraints {
+//            $0.edges.width.equalTo(scrollView)
+//        }
     }
     
     func setnavigation() {

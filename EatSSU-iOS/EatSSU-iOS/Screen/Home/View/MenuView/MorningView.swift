@@ -70,8 +70,6 @@ class MorningView: BaseUIView {
     // MARK: - Functions
     
     override func configureUI() {
-//        self.addSubviews(contentScrollView)
-//        contentScrollView.addSubview(contentView)
         self.addSubviews(restaurantTitleStackView,
                          dormitoryTableView,
                         dodamTableView)

@@ -18,7 +18,7 @@ class MorningViewController: BaseViewController {
     private let morningView = MorningView()
     
     
-    private let scrollView = UIScrollView().then {
+    let scrollView = UIScrollView().then {
         $0.backgroundColor = .systemBackground
         $0.showsVerticalScrollIndicator = false
     }
@@ -50,7 +50,7 @@ class MorningViewController: BaseViewController {
         }
         
         morningView.snp.makeConstraints {
-            $0.width.height.equalTo(contentView)
+            $0.width.height.equalToSuperview()
         }
     }
     

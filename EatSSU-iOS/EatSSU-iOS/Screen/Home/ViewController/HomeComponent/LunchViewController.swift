@@ -12,6 +12,10 @@ import SnapKit
 class LunchViewController: BaseViewController {
     
     //MARK: - UI Components
+    let scrollView = UIScrollView().then {
+        $0.backgroundColor = .systemBackground
+        $0.showsVerticalScrollIndicator = false
+    }
     
     //MARK: - Life Cycles
     
@@ -25,7 +29,8 @@ class LunchViewController: BaseViewController {
     //MARK: - Functions
     
     override func configureUI() {
-        
+        view.addSubviews(scrollView)
+
     }
     
     override func setLayout() {
