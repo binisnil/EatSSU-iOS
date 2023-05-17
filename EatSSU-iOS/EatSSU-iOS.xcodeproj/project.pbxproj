@@ -202,6 +202,7 @@
 		7B2BBF94299A1AC400EE0F1F /* EatSSU-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				7B9899BC2A154EF400D1A076 /* Network */,
 				0569564E29B1F043002E8CF2 /* Screen */,
 				7B2BBFA9299A253B00EE0F1F /* Global */,
 				7B2BBFA0299A1AC500EE0F1F /* LaunchScreen.storyboard */,
@@ -374,6 +375,53 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7B9899BC2A154EF400D1A076 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7B9899C12A154F1700D1A076 /* API */,
+				7B9899C02A154F1100D1A076 /* Config */,
+				7B9899BF2A154F0D00D1A076 /* DTO */,
+				7B9899BE2A154F0800D1A076 /* Router */,
+				7B9899BD2A154EFB00D1A076 /* Foundation */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7B9899BD2A154EFB00D1A076 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		7B9899BE2A154F0800D1A076 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		7B9899BF2A154F0D00D1A076 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		7B9899C02A154F1100D1A076 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		7B9899C12A154F1700D1A076 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
