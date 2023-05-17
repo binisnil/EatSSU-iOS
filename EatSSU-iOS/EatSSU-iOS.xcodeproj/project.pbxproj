@@ -44,6 +44,7 @@
 		7B9899A62A0B904700D1A076 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A52A0B904700D1A076 /* Menu.swift */; };
 		7B9899AA2A0B98E700D1A076 /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */; };
 		7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899B62A0ED34300D1A076 /* MyPageViewController.swift */; };
+		7B9899C32A154F9800D1A076 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899C22A154F9800D1A076 /* Config.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD529D20B980076DC77 /* MorningView.swift */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
@@ -87,6 +88,7 @@
 		7B9899A52A0B904700D1A076 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
 		7B9899B62A0ED34300D1A076 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		7B9899C22A154F9800D1A076 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7BD73CD529D20B980076DC77 /* MorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningView.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 		7B9899C02A154F1100D1A076 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				7B9899C22A154F9800D1A076 /* Config.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				7B9899AA2A0B98E700D1A076 /* RestaurantMapViewController.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				7B9899A62A0B904700D1A076 /* Menu.swift in Sources */,
+				7B9899C32A154F9800D1A076 /* Config.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
 				7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
