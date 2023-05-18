@@ -50,11 +50,12 @@ class RestaurantMapViewController: BaseViewController {
     let mapView = MKMapView()
 
     // Define a region for Soongsil University (Latitude and longitude for Soongsil University)
-    let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+
+    let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
+
     
     
-    
-    
+
 
    
     // MARK: - Life Cycles
