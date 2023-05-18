@@ -38,6 +38,13 @@
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
 		7B98992E29E04F1300D1A076 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B98992D29E04F1300D1A076 /* ReviewViewController.swift */; };
+		7B9899A02A0B8F3E00D1A076 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B98999F2A0B8F3E00D1A076 /* MenuTableViewCell.swift */; };
+		7B9899A22A0B8FCF00D1A076 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A12A0B8FCF00D1A076 /* MenuHeaderView.swift */; };
+		7B9899A42A0B902C00D1A076 /* MenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A32A0B902C00D1A076 /* MenuTableView.swift */; };
+		7B9899A62A0B904700D1A076 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A52A0B904700D1A076 /* Menu.swift */; };
+		7B9899AA2A0B98E700D1A076 /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */; };
+		7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899B62A0ED34300D1A076 /* MyPageViewController.swift */; };
+		7B9899C32A154F9800D1A076 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899C22A154F9800D1A076 /* Config.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD529D20B980076DC77 /* MorningView.swift */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
@@ -75,6 +82,13 @@
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
 		7B98992D29E04F1300D1A076 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		7B98999F2A0B8F3E00D1A076 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		7B9899A12A0B8FCF00D1A076 /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
+		7B9899A32A0B902C00D1A076 /* MenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableView.swift; sourceTree = "<group>"; };
+		7B9899A52A0B904700D1A076 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
+		7B9899B62A0ED34300D1A076 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		7B9899C22A154F9800D1A076 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7BD73CD529D20B980076DC77 /* MorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningView.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -98,6 +112,7 @@
 		0569564E29B1F043002E8CF2 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7B9899B32A0ED31900D1A076 /* MyPage */,
 				7B2C9E6229DAC6B10007603D /* Auth */,
 				0569565D29B262F9002E8CF2 /* Review */,
 				0569565229B1F4B2002E8CF2 /* Home */,
@@ -189,6 +204,7 @@
 		7B2BBF94299A1AC400EE0F1F /* EatSSU-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				7B9899BC2A154EF400D1A076 /* Network */,
 				0569564E29B1F043002E8CF2 /* Screen */,
 				7B2BBFA9299A253B00EE0F1F /* Global */,
 				7B2BBFA0299A1AC500EE0F1F /* LaunchScreen.storyboard */,
@@ -294,7 +310,8 @@
 		7B63C45029C0FF7E0070C588 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BD73CD529D20B980076DC77 /* MorningView.swift */,
+				7B9899A82A0B98AA00D1A076 /* MapView */,
+				7B9899A72A0B988800D1A076 /* MenuView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +333,98 @@
 				7B63C45A29C100DE0070C588 /* DinnerViewController.swift */,
 			);
 			path = HomeComponent;
+			sourceTree = "<group>";
+		};
+		7B9899A72A0B988800D1A076 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				7BD73CD529D20B980076DC77 /* MorningView.swift */,
+				7B98999F2A0B8F3E00D1A076 /* MenuTableViewCell.swift */,
+				7B9899A12A0B8FCF00D1A076 /* MenuHeaderView.swift */,
+				7B9899A32A0B902C00D1A076 /* MenuTableView.swift */,
+				7B9899A52A0B904700D1A076 /* Menu.swift */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		7B9899A82A0B98AA00D1A076 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		7B9899B32A0ED31900D1A076 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				7B9899B52A0ED32600D1A076 /* View */,
+				7B9899B42A0ED32200D1A076 /* ViewController */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		7B9899B42A0ED32200D1A076 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B9899B62A0ED34300D1A076 /* MyPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7B9899B52A0ED32600D1A076 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B9899BC2A154EF400D1A076 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7B9899C12A154F1700D1A076 /* API */,
+				7B9899C02A154F1100D1A076 /* Config */,
+				7B9899BF2A154F0D00D1A076 /* DTO */,
+				7B9899BE2A154F0800D1A076 /* Router */,
+				7B9899BD2A154EFB00D1A076 /* Foundation */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7B9899BD2A154EFB00D1A076 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		7B9899BE2A154F0800D1A076 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		7B9899BF2A154F0D00D1A076 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		7B9899C02A154F1100D1A076 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				7B9899C22A154F9800D1A076 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		7B9899C12A154F1700D1A076 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +515,7 @@
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
 				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
+				7B9899A42A0B902C00D1A076 /* MenuTableView.swift in Sources */,
 				7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
@@ -414,6 +524,7 @@
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,
 				056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */,
+				7B9899A02A0B8F3E00D1A076 /* MenuTableViewCell.swift in Sources */,
 				7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */,
 				7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
@@ -424,11 +535,16 @@
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
+				7B9899AA2A0B98E700D1A076 /* RestaurantMapViewController.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
+				7B9899A62A0B904700D1A076 /* Menu.swift in Sources */,
+				7B9899C32A154F9800D1A076 /* Config.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
+				7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
 				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,
 				7B98992E29E04F1300D1A076 /* ReviewViewController.swift in Sources */,
+				7B9899A22A0B8FCF00D1A076 /* MenuHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +566,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BASE_URL = "https://eatssu.shop";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -510,6 +627,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BASE_URL = "https://eatssu.shop";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -569,6 +687,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -595,6 +714,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

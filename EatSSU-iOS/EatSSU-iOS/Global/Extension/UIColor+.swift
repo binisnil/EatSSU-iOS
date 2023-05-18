@@ -37,6 +37,10 @@ extension UIColor {
         return UIColor(hex: "#565656")
     }
     
+    static var tableGray: UIColor {
+        return UIColor(hex: "C2C2C2")
+    }
+    
     static var primary: UIColor {
         return UIColor(hex: "#DF5757")
     }
