@@ -7,7 +7,10 @@
 
 import UIKit
 
-class WriteReviewViewController: BaseViewController {
+import SnapKit
+import Then
+
+class WriteReviewViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
     
@@ -15,6 +18,19 @@ class WriteReviewViewController: BaseViewController {
     private var starButtons: [UIButton] = []
     
     // MARK: - UI Components
+
+    let imagePickerController = UIImagePickerController()
+    
+    var userReviewImageView = UIImageView()
+//    ().then {
+//        $0.contentMode = .scaleAspectFit
+//    }
+    
+    let selectImageButton = UIButton().then {
+        $0.setTitle("사진", for: .normal)
+        $0.addTarget(self, action: #selector(didSelectedImage), for: .touchUpInside)
+        $0.backgroundColor = .purple
+    }
     
     private var menuLabel: UILabel = {
         let label = UILabel()
@@ -77,6 +93,10 @@ class WriteReviewViewController: BaseViewController {
         setStarButtons()
         
         userReviewTextView.delegate = self
+        
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.allowsEditing = false
     }
     
     // MARK: - Functions
@@ -86,7 +106,10 @@ class WriteReviewViewController: BaseViewController {
                          starStackView,
                          userReviewTextView,
                          maximumWordLabel,
-                         updateReviewButton)
+                         updateReviewButton,
+                         selectImageButton,
+                         userReviewImageView
+        )
     }
     
     override func setLayout() {
@@ -111,6 +134,21 @@ class WriteReviewViewController: BaseViewController {
             make.top.equalTo(userReviewTextView.snp.bottom).offset(7)
             make.trailing.equalTo(userReviewTextView)
         }
+        
+        selectImageButton.snp.makeConstraints {
+            $0.top.equalTo(maximumWordLabel.snp.bottom).offset(15)
+            $0.leading.equalToSuperview().offset(15)
+            $0.width.equalTo(60)
+            $0.height.equalTo(60)
+        }
+        
+        userReviewImageView.snp.makeConstraints {
+            $0.top.equalTo(maximumWordLabel.snp.bottom).offset(15)
+            $0.leading.equalTo(selectImageButton.snp.trailing).offset(13)
+            $0.width.equalTo(60)
+            $0.height.equalTo(60)
+        }
+        
         
         updateReviewButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
@@ -166,11 +204,24 @@ class WriteReviewViewController: BaseViewController {
         }
     }
     
+    // UIImagePickerControllerDelegate method
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            userReviewImageView.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     @objc
     func userTappedNextButton() {
         if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
             self.navigationController?.popToViewController(reviewViewController, animated: true)
         }
+    }
+    
+    @objc
+    func didSelectedImage() {
+        self.present(imagePickerController, animated: true, completion: nil)
     }
 }
 
