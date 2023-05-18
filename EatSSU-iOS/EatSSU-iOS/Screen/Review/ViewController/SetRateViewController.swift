@@ -119,7 +119,7 @@ class SetRateViewController: BaseViewController {
         navigationItem.title = "리뷰 남기기"
     }
     
-    // FIXME: - 별점 안남기면 버튼 안넘어가도록 수정 (alert 추가)
+    // FIXME: - alert 추가
     
     @objc
     func tappedNextButton() {
