@@ -21,17 +21,6 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
 
     let imagePickerController = UIImagePickerController()
     
-    var userReviewImageView = UIImageView()
-//    ().then {
-//        $0.contentMode = .scaleAspectFit
-//    }
-    
-    let selectImageButton = UIButton().then {
-        $0.setTitle("사진", for: .normal)
-        $0.addTarget(self, action: #selector(didSelectedImage), for: .touchUpInside)
-        $0.backgroundColor = .purple
-    }
-    
     private var menuLabel: UILabel = {
         let label = UILabel()
         label.text = "김치볶음밥 & 계란국을 평가해주세요"
@@ -85,6 +74,26 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
         return button
     }()
     
+    private lazy var userReviewImageView = UIImageView().then {
+        $0.layer.cornerRadius = 10 // 원하는 둥근 모서리의 크기
+        $0.clipsToBounds = true // 이 속성을 true로 설정해야 둥근 모서리가 보입니다.
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTappedimageView))
+        $0.isUserInteractionEnabled = true // 사용자 상호작용을 가능하게 설정
+        $0.addGestureRecognizer(tapGesture)
+    }
+    
+    private let selectImageButton = UIButton().then {
+        $0.setImage(UIImage(named: "AddImageButton"), for: .normal)
+        $0.addTarget(self, action: #selector(didSelectedImage), for: .touchUpInside)
+    }
+
+    private let deleteMethodLabel = UILabel().then {
+        $0.text = "이미지 클릭 시, 삭제됩니다"
+        $0.font = .medium(size: 12)
+        $0.textColor = .mediumGray
+    }
+    
     // MARK: - Life Cycles
 
     override func viewDidLoad() {
@@ -108,7 +117,8 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
                          maximumWordLabel,
                          updateReviewButton,
                          selectImageButton,
-                         userReviewImageView
+                         userReviewImageView,
+                         deleteMethodLabel
         )
     }
     
@@ -149,12 +159,16 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
             $0.height.equalTo(60)
         }
         
-        
         updateReviewButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-61)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(40)
+        }
+        
+        deleteMethodLabel.snp.makeConstraints {
+            $0.top.equalTo(selectImageButton.snp.bottom).offset(7)
+            $0.trailing.equalTo(userReviewTextView)
         }
     }
     
@@ -222,6 +236,11 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
     @objc
     func didSelectedImage() {
         self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @objc
+    func didTappedimageView() {
+        userReviewImageView.image = nil // 이미지 삭제
     }
 }
 
