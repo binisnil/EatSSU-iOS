@@ -109,7 +109,7 @@ class ReviewTableCell: UITableViewCell {
         return button
     }()
     
-    var reviewTextView : UITextView = {
+    var reviewTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor.black
         textView.isEditable = false
@@ -118,6 +118,14 @@ class ReviewTableCell: UITableViewCell {
         textView.font = .regular(size: 16)
         textView.text = "여기 계란국 맛집임... 김치볶음밥에 계란후라이 없어서 아쉽 다음에 또 먹어야지"
         return textView
+    }()
+    
+    var foodImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "logo.png")
+        imageView.contentMode = .scaleAspectFill
+        imageView.isHidden = true
+        return imageView
     }()
     
     lazy var rateDateStackView: UIStackView = {
@@ -154,7 +162,7 @@ class ReviewTableCell: UITableViewCell {
     }()
     
     lazy var contentStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [reviewTextView,userTagStackView])
+        let stackView = UIStackView(arrangedSubviews: [reviewTextView,foodImageView,userTagStackView])
         stackView.axis = .vertical
         stackView.spacing = 6
         stackView.alignment = .leading
@@ -194,6 +202,10 @@ class ReviewTableCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-16)
         }
         
+        foodImageView.snp.makeConstraints { make in
+            make.height.width.equalTo(358)
+        }
+        
         firstUserTag.snp.makeConstraints { make in
             make.height.equalTo(19)
         }
@@ -230,6 +242,34 @@ class ReviewTableCell: UITableViewCell {
             button.tag = i
             starButtons += [button]
             starStackView.addArrangedSubview(button)
+        }
+    }
+}
+
+// FIXME: - ImageURL 하나만 오도록 수정되면 고쳐주기
+
+extension ReviewTableCell {
+    func dataBind(nickname: String, grade: Int, date: String, tagList: [String]) {
+        userNameLabel.text = nickname
+        personalRate = grade
+        dateLabel.text = date
+        switch tagList.count {
+        case 1:
+            firstUserTag.setTitle(tagList[0], for: .normal)
+            secondUserTag.isHidden = true
+            thirdUserTag.isHidden = true
+        case 2:
+            firstUserTag.setTitle(tagList[0], for: .normal)
+            secondUserTag.setTitle(tagList[1], for: .normal)
+            thirdUserTag.isHidden = true
+        case 3:
+            firstUserTag.setTitle(tagList[0], for: .normal)
+            secondUserTag.setTitle(tagList[1], for: .normal)
+            thirdUserTag.setTitle(tagList[2], for: .normal)
+        default:
+            firstUserTag.isHidden = true
+            secondUserTag.isHidden = true
+            thirdUserTag.isHidden = true
         }
     }
 }

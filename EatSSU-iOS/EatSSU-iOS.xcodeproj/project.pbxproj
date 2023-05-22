@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559705A2A16646B00868C42 /* MenuReviewResponse.swift */; };
+		0559705D2A16670600868C42 /* MenuInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559705C2A16670600868C42 /* MenuInfoResponse.swift */; };
 		0569565C29B25D40002E8CF2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 0569565B29B25D40002E8CF2 /* Tabman */; };
 		056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956B729C0D6DC002E8CF2 /* UIView+.swift */; };
 		056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956BA29C0D8BF002E8CF2 /* UIFont+.swift */; };
@@ -19,6 +21,8 @@
 		0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570229CB83A1002E8CF2 /* BottomTagView.swift */; };
 		0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570929CCBC41002E8CF2 /* RateView.swift */; };
 		0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */; };
+		057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */; };
+		057A0AC92A1B498300F10B85 /* ReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0AC82A1B498300F10B85 /* ReviewRouter.swift */; };
 		05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88329DFE42A004B9A81 /* UIStackView+.swift */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
 		7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF97299A1AC400EE0F1F /* SceneDelegate.swift */; };
@@ -52,6 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0559705A2A16646B00868C42 /* MenuReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuReviewResponse.swift; sourceTree = "<group>"; };
+		0559705C2A16670600868C42 /* MenuInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInfoResponse.swift; sourceTree = "<group>"; };
 		056956B729C0D6DC002E8CF2 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		056956BA29C0D8BF002E8CF2 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 		0569570229CB83A1002E8CF2 /* BottomTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTagView.swift; sourceTree = "<group>"; };
 		0569570929CCBC41002E8CF2 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
+		057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalReviewResponse.swift; sourceTree = "<group>"; };
+		057A0AC82A1B498300F10B85 /* ReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewRouter.swift; path = "EatSSU-iOS/Network/DTO/Review/ReviewRouter.swift"; sourceTree = SOURCE_ROOT; };
 		05A4C88329DFE42A004B9A81 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EatSSU-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +117,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		055970592A16643600868C42 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				0559705A2A16646B00868C42 /* MenuReviewResponse.swift */,
+				0559705C2A16670600868C42 /* MenuInfoResponse.swift */,
+				057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		0569564E29B1F043002E8CF2 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +419,7 @@
 		7B9899BE2A154F0800D1A076 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				057A0AC82A1B498300F10B85 /* ReviewRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -408,6 +427,7 @@
 		7B9899BF2A154F0D00D1A076 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				055970592A16643600868C42 /* Review */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -513,6 +533,7 @@
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
+				057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
 				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
 				7B9899A42A0B902C00D1A076 /* MenuTableView.swift in Sources */,
@@ -532,6 +553,7 @@
 				056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */,
 				0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */,
 				0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */,
+				057A0AC92A1B498300F10B85 /* ReviewRouter.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
@@ -542,7 +564,9 @@
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
 				7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
+				0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */,
 				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,
+				0559705D2A16670600868C42 /* MenuInfoResponse.swift in Sources */,
 				7B98992E29E04F1300D1A076 /* ReviewViewController.swift in Sources */,
 				7B9899A22A0B8FCF00D1A076 /* MenuHeaderView.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ class ReviewRateView: BaseUIView {
     
     // MARK: - Properties
 
-    var currentStar: Int = 0
+    var totalRate: Double = 0 ///dummy
     private var starButtons: [UIButton] = []
     
     // MARK: - UI Components
@@ -31,7 +31,7 @@ class ReviewRateView: BaseUIView {
         return view
     }()
     
-    private let menuLabel: UILabel = {
+    private var menuLabel: UILabel = {
         let label = UILabel()
         label.text = "김치볶음밥 & 계란국"
         label.font = .semiBold(size: 20)
@@ -187,7 +187,6 @@ class ReviewRateView: BaseUIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setStarButtons()
     }
     
     required init?(coder: NSCoder) {
@@ -257,35 +256,30 @@ class ReviewRateView: BaseUIView {
             make.centerY.equalTo(onePointLabel)
             make.leading.equalTo(onePointLabel.snp.trailing).offset(7)
             make.height.equalTo(10)
-            make.width.equalTo(126)
         }
         
         twoChartBar.snp.makeConstraints { make in
             make.centerY.equalTo(twoPointLabel)
             make.leading.equalTo(twoPointLabel.snp.trailing).offset(7)
             make.height.equalTo(10)
-            make.width.equalTo(126)
         }
         
         threeChartBar.snp.makeConstraints { make in
             make.centerY.equalTo(threePointLabel)
             make.leading.equalTo(threePointLabel.snp.trailing).offset(7)
             make.height.equalTo(10)
-            make.width.equalTo(126)
         }
         
         fourChartBar.snp.makeConstraints { make in
             make.centerY.equalTo(fourPointLabel)
             make.leading.equalTo(fourPointLabel.snp.trailing).offset(7)
             make.height.equalTo(10)
-            make.width.equalTo(126)
         }
         
         fiveChartBar.snp.makeConstraints { make in
             make.centerY.equalTo(fivePointLabel)
             make.leading.equalTo(fivePointLabel.snp.trailing).offset(7)
             make.height.equalTo(10)
-            make.width.equalTo(126)
         }
         
         addReviewButton.snp.makeConstraints { make in
@@ -302,12 +296,45 @@ class ReviewRateView: BaseUIView {
     }
     
     func setStarButtons(){
-        for i in 0..<5 {
+        for i in 0..<Int(totalRate) {
             let button = UIButton()
             button.setImage(starFillImage, for: .normal)
             button.tag = i
             starButtons += [button]
             starStackView.addArrangedSubview(button)
         }
+        
+        for i in Int(totalRate)..<5 {
+            let button = UIButton()
+            button.setImage(starEmptyImage, for: .normal)
+            button.tag = i
+            starButtons += [button]
+            starStackView.addArrangedSubview(button)
+        }
+    }
+}
+
+extension ReviewRateView {
+    func dataBind(menuName: String, reviewCount: Int, totalGrade: Double, fiveCnt: Int, fourCnt: Int, threeCnt: Int, twoCnt: Int, oneCnt: Int) {
+        menuLabel.text = menuName
+        totalReviewCount.text = "\(reviewCount)"
+        rateNumLabel.text = "\(totalGrade)"
+        totalRate = totalGrade
+        fiveChartBar.snp.makeConstraints {
+            $0.width.equalTo(126/reviewCount*fiveCnt)
+        }
+        fourChartBar.snp.makeConstraints {
+            $0.width.equalTo((126/reviewCount)*fourCnt)
+        }
+        threeChartBar.snp.makeConstraints {
+            $0.width.equalTo(126/reviewCount*threeCnt)
+        }
+        twoChartBar.snp.makeConstraints {
+            $0.width.equalTo(126/reviewCount*twoCnt)
+        }
+        oneChartBar.snp.makeConstraints {
+            $0.width.equalTo(126/reviewCount*oneCnt)
+        }
+        setStarButtons()
     }
 }
