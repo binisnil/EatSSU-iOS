@@ -14,7 +14,13 @@ class MorningView: BaseUIView {
     
     // MARK: - UI Components
     
-     var menus: [Menu] = []
+    var menus: [Menu] = []
+    private let contentView = UIView()
+
+    let scrollView = UIScrollView().then {
+        $0.backgroundColor = .systemBackground
+        $0.showsVerticalScrollIndicator = false
+    }
     
     let coordinateButton = UIButton().then {
         $0.setImage(UIImage(named: "coordinate"), for: .normal)
@@ -44,13 +50,17 @@ class MorningView: BaseUIView {
         $0.layer.cornerRadius = 15.0
         $0.isScrollEnabled = false
     }
+    
+    lazy var studentTableView = MenuTableView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.layer.cornerRadius = 15.0
+        $0.isScrollEnabled = false
+    }
 
-    
-    // MARK : - 
-    
+    // MARK: - init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         // 메뉴 데이터 초기화
            let menu1 = Menu(name: "스테이크", price: "30,000", rating: "4.5")
@@ -58,8 +68,7 @@ class MorningView: BaseUIView {
            let menu3 = Menu(name: "피자", price: "25,000", rating: "4.2")
            let menu4 = Menu(name: "샐러드", price: "15,000", rating: "3.8")
            
-         menus = [menu1, menu2, menu3, menu4]
-        
+        menus = [menu1, menu2, menu3, menu4]
         setupTableView()
     }
     
@@ -72,17 +81,18 @@ class MorningView: BaseUIView {
     override func configureUI() {
         self.addSubviews(restaurantTitleStackView,
                          dormitoryTableView,
-                        dodamTableView)
+                        dodamTableView,
+                         studentTableView)
     }
     
     override func setLayout() {
-        studentRestaurantLabel.snp.makeConstraints {
-            $0.leading.equalTo(coordinateButton.snp.trailing).offset(10)
+        restaurantTitleStackView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().offset(21)
         }
         
-        restaurantTitleStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(190)
-            $0.leading.equalToSuperview().offset(21)
+        studentRestaurantLabel.snp.makeConstraints {
+            $0.leading.equalTo(coordinateButton.snp.trailing).offset(10)
         }
         
         dormitoryTableView.snp.makeConstraints {
@@ -96,10 +106,16 @@ class MorningView: BaseUIView {
             $0.leading.equalToSuperview().offset(16)
             $0.centerX.equalToSuperview()
         }
+        
+        studentTableView.snp.makeConstraints {
+            $0.top.equalTo(dodamTableView.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+            $0.centerX.equalToSuperview()
+        }
     }
     
     func setupTableView() {
-        [dormitoryTableView,dodamTableView].forEach {
+        [dormitoryTableView, dodamTableView, studentTableView].forEach {
             $0.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
             $0.delegate = self
             $0.dataSource = self
@@ -108,10 +124,7 @@ class MorningView: BaseUIView {
             $0.layer.borderColor = UIColor.barGray.cgColor
             $0.layer.borderWidth = 1.0
         }
-       
-
     }
-    
 }
 
 extension MorningView: UITableViewDataSource {

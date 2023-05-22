@@ -16,8 +16,7 @@ class MorningViewController: BaseViewController {
     
     private let contentView = UIView()
     private let morningView = MorningView()
-    
-    
+
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .systemBackground
         $0.showsVerticalScrollIndicator = false
@@ -27,12 +26,9 @@ class MorningViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     //MARK: - Functions
-    
-
     
     override func configureUI() {
         view.addSubviews(scrollView)
@@ -42,15 +38,20 @@ class MorningViewController: BaseViewController {
 
     override func setLayout() {
         scrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalToSuperview().offset(190)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
-        
+
         contentView.snp.makeConstraints {
-            $0.edges.width.height.equalToSuperview()
+            $0.edges.width.equalToSuperview()
+        }
+
+        morningView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
         }
         
-        morningView.snp.makeConstraints {
-            $0.width.height.equalToSuperview()
+        morningView.studentTableView.snp.makeConstraints {
+            $0.bottom.equalTo(contentView.snp.bottom)
         }
     }
     
