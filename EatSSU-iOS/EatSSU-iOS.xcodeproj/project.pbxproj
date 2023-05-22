@@ -37,6 +37,7 @@
 		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
+		7B906AF42A1B849D00E4B6A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B906AF32A1B849D00E4B6A9 /* MyPageViewController.swift */; };
 		7B98992E29E04F1300D1A076 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B98992D29E04F1300D1A076 /* ReviewViewController.swift */; };
 		7B9899A02A0B8F3E00D1A076 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B98999F2A0B8F3E00D1A076 /* MenuTableViewCell.swift */; };
 		7B9899A22A0B8FCF00D1A076 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A12A0B8FCF00D1A076 /* MenuHeaderView.swift */; };
@@ -79,6 +80,7 @@
 		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
+		7B906AF32A1B849D00E4B6A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		7B98992D29E04F1300D1A076 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		7B98999F2A0B8F3E00D1A076 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		7B9899A12A0B8FCF00D1A076 /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		0569564E29B1F043002E8CF2 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				7B906AF02A1B847700E4B6A9 /* MyPage */,
 				7B2C9E6229DAC6B10007603D /* Auth */,
 				0569565D29B262F9002E8CF2 /* Review */,
 				0569565229B1F4B2002E8CF2 /* Home */,
@@ -329,6 +332,31 @@
 			path = HomeComponent;
 			sourceTree = "<group>";
 		};
+		7B906AF02A1B847700E4B6A9 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				7B906AF22A1B849800E4B6A9 /* View */,
+				7B906AF12A1B849100E4B6A9 /* ViewController */,
+			);
+			name = MyPage;
+			path = ../MyPage;
+			sourceTree = "<group>";
+		};
+		7B906AF12A1B849100E4B6A9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B906AF32A1B849D00E4B6A9 /* MyPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7B906AF22A1B849800E4B6A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7B9899A72A0B988800D1A076 /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +489,7 @@
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				7B9899A62A0B904700D1A076 /* Menu.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
+				7B906AF42A1B849D00E4B6A9 /* MyPageViewController.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
 				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,
 				7B98992E29E04F1300D1A076 /* ReviewViewController.swift in Sources */,
