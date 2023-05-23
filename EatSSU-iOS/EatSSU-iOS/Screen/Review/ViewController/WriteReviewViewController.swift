@@ -7,7 +7,10 @@
 
 import UIKit
 
-class WriteReviewViewController: BaseViewController {
+import SnapKit
+import Then
+
+class WriteReviewViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
     
@@ -15,6 +18,8 @@ class WriteReviewViewController: BaseViewController {
     private var starButtons: [UIButton] = []
     
     // MARK: - UI Components
+
+    let imagePickerController = UIImagePickerController()
     
     private var menuLabel: UILabel = {
         let label = UILabel()
@@ -69,6 +74,26 @@ class WriteReviewViewController: BaseViewController {
         return button
     }()
     
+    private lazy var userReviewImageView = UIImageView().then {
+        $0.layer.cornerRadius = 10 // 원하는 둥근 모서리의 크기
+        $0.clipsToBounds = true // 이 속성을 true로 설정해야 둥근 모서리가 보입니다.
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTappedimageView))
+        $0.isUserInteractionEnabled = true // 사용자 상호작용을 가능하게 설정
+        $0.addGestureRecognizer(tapGesture)
+    }
+    
+    private let selectImageButton = UIButton().then {
+        $0.setImage(UIImage(named: "AddImageButton"), for: .normal)
+        $0.addTarget(self, action: #selector(didSelectedImage), for: .touchUpInside)
+    }
+
+    private let deleteMethodLabel = UILabel().then {
+        $0.text = "이미지 클릭 시, 삭제됩니다"
+        $0.font = .medium(size: 12)
+        $0.textColor = .mediumGray
+    }
+    
     // MARK: - Life Cycles
 
     override func viewDidLoad() {
@@ -77,6 +102,10 @@ class WriteReviewViewController: BaseViewController {
         setStarButtons()
         
         userReviewTextView.delegate = self
+        
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.allowsEditing = false
     }
     
     // MARK: - Functions
@@ -86,7 +115,11 @@ class WriteReviewViewController: BaseViewController {
                          starStackView,
                          userReviewTextView,
                          maximumWordLabel,
-                         updateReviewButton)
+                         updateReviewButton,
+                         selectImageButton,
+                         userReviewImageView,
+                         deleteMethodLabel
+        )
     }
     
     override func setLayout() {
@@ -112,11 +145,30 @@ class WriteReviewViewController: BaseViewController {
             make.trailing.equalTo(userReviewTextView)
         }
         
+        selectImageButton.snp.makeConstraints {
+            $0.top.equalTo(maximumWordLabel.snp.bottom).offset(15)
+            $0.leading.equalToSuperview().offset(15)
+            $0.width.equalTo(60)
+            $0.height.equalTo(60)
+        }
+        
+        userReviewImageView.snp.makeConstraints {
+            $0.top.equalTo(maximumWordLabel.snp.bottom).offset(15)
+            $0.leading.equalTo(selectImageButton.snp.trailing).offset(13)
+            $0.width.equalTo(60)
+            $0.height.equalTo(60)
+        }
+        
         updateReviewButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-61)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(40)
+        }
+        
+        deleteMethodLabel.snp.makeConstraints {
+            $0.top.equalTo(selectImageButton.snp.bottom).offset(7)
+            $0.trailing.equalTo(userReviewTextView)
         }
     }
     
@@ -166,11 +218,29 @@ class WriteReviewViewController: BaseViewController {
         }
     }
     
+    // UIImagePickerControllerDelegate method
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            userReviewImageView.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     @objc
     func userTappedNextButton() {
         if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
             self.navigationController?.popToViewController(reviewViewController, animated: true)
         }
+    }
+    
+    @objc
+    func didSelectedImage() {
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @objc
+    func didTappedimageView() {
+        userReviewImageView.image = nil // 이미지 삭제
     }
 }
 
