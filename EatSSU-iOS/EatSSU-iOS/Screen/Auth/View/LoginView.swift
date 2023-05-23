@@ -70,7 +70,7 @@ class LoginView: BaseUIView {
     
     private lazy var loginButton = UIButton().then {
         $0.titleLabel?.font = .semiBold(size: 14.0)
-        $0.backgroundColor = UIColor.primary
+        $0.backgroundColor = .primary
         $0.setTitle("로그인", for: .normal)
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.layer.cornerRadius = 10.0
@@ -101,17 +101,17 @@ class LoginView: BaseUIView {
     private let pwFindButton = UIButton().then {
         $0.titleLabel?.font = .regular(size: 14.0)
         $0.setTitle("비밀번호 찾기", for: .normal)
-        $0.setTitleColor(UIColor.darkGray, for: .normal)
+        $0.setTitleColor(.darkGray, for: .normal)
     }
     
     let signUPButton = UIButton().then {
         $0.titleLabel?.font = .regular(size: 14.0)
         $0.setTitle("회원가입", for: .normal)
-        $0.setTitleColor(UIColor.darkGray, for: .normal)
+        $0.setTitleColor(.darkGray, for: .normal)
     }
     
     private let lineView = UIView().then {
-        $0.backgroundColor = UIColor.mediumGray
+        $0.backgroundColor = .mediumGray
     }
     
     private lazy var userInfoStackView: UIStackView = {

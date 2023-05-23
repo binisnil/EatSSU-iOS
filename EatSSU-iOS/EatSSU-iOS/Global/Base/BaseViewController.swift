@@ -55,6 +55,18 @@ class BaseViewController: UIViewController {
     func setButtonEvent() {
         //override Point
     }
+    
+//    func customNavigationBar() {
+//            navigationController?.navigationBar.tintColor = .primary
+//            navigationController?.navigationBar.barTintColor = .white
+//            
+//            let backButton: UIBarButtonItem = UIBarButtonItem()
+//            backButton.title = ""
+//            navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+//            
+//            navigationItem.title = "회원가입"
+//            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.primary, NSAttributedString.Key.font: UIFont.bold(size: 22)]
+//        }
 }
 
 

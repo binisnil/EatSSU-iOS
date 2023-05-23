@@ -12,10 +12,25 @@ import Tabman
 
 class HomeViewController: TabmanViewController {
 
-    // MARK: - Life Cycles
+    // MARK: - Properties
     
+    let morningView = MorningView()
+        
+    var dateSelectedField = UITextField().then {
+        $0.tintColor = .clear
+        $0.textColor = .darkGray
+        $0.font = .bold(size: 18)
+    }
+    
+    let datePicker = UIDatePicker().then {
+        $0.addTarget(self, action: #selector(didSelectedDate(_:)), for: .valueChanged)
+    }
+        
     public let bar = TMBar.ButtonBar()
     var viewControllers: Array<UIViewController> = [MorningViewController(),LunchViewController(),DinnerViewController()]
+
+    
+    // MARK: - Life Cycles
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +40,78 @@ class HomeViewController: TabmanViewController {
         addBar(bar, dataSource: self, at: .top)
         
         view.backgroundColor = .systemBackground
+        setnavigation()
+        configureUI()
+        setLayout()
+        
+        createDatePicker()
+        
+        // 초기 날짜 표시
+        setTodayDateLabel(with: Date())
+        
     }
+    
+    //MARK: - Functions
+    
+    func configureUI() {
+        view.addSubview(dateSelectedField)
+    }
+    
+    func setLayout() {
+        dateSelectedField.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(30)
+        }
+        bar.snp.makeConstraints {
+            $0.top.equalTo(dateSelectedField.snp.bottom)
+//            $0.bottom.equalTo(morningView.snp.top).inset(50)
+        }
+    }
+    
+    func setnavigation() {
+        navigationItem.titleView = UIImageView(image: UIImage(named: "TopLogo"))
+        
+        let rightButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(didTappedRightBarButton))
+        rightButton.tintColor = UIColor.primary
+        navigationItem.rightBarButtonItem = rightButton
+        
+    }
+    
+    func createDatePicker() {
+        datePicker.preferredDatePickerStyle = .inline
+        datePicker.datePickerMode = .date
+        datePicker.backgroundColor = .white
+        datePicker.tintColor = .primary
+
+        dateSelectedField.inputView = datePicker
+    }
+
+    func setTodayDateLabel(with date: Date) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        dateSelectedField.text = formatter.string(from: date)
+    }
+    
+    @objc
+    func didSelectedDate(_ sender: UIDatePicker) {
+        print(sender.date)
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        self.dateSelectedField.text = dateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc
+    func didTappedRightBarButton() {
+        // 마이페이지 뷰로 이동
+        let nextVC = MyPageViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
 }
 
 // MARK: - PageBoy Extension
@@ -73,3 +159,24 @@ extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
         ctBar.layout.contentMode = .fit
         }
 }
+
+//extension UITextField {
+//    func setDatePicker(target: Any, selector: Selector) {
+//            let SCwidth = self.bounds.width
+//            let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: SCwidth, height: 400))
+//            datePicker.datePickerMode = .date
+//        datePicker.preferredDatePickerStyle = .inline
+//            self.inputView = datePicker
+//
+//            let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: SCwidth, height: 44.0))
+//            let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//            let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel))
+//            let barButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
+//            toolBar.setItems([cancel, flexible, barButton], animated: false)
+//            self.inputAccessoryView = toolBar
+//
+//        }
+//        @objc func tapCancel() {
+//            self.resignFirstResponder()
+//        }
+//}

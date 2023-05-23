@@ -17,22 +17,6 @@ class MorningViewController: BaseViewController {
     private let contentView = UIView()
     private let morningView = MorningView()
     
-    lazy var menuItems: [UIAction] = {
-        return [
-            UIAction(title: "마이페이지",
-                     image: UIImage(systemName: "person"),
-                     handler: {_ in self.tappedMyPageBtn()})
-        ]
-    }()
-
-    lazy var menu : UIMenu = {
-        let menu = UIMenu(title: "title",
-                          image: UIImage(systemName: "bell"),
-                          identifier: nil,
-                          options: .displayInline,
-                          children: menuItems)
-       return menu
-    }()
     
     private let scrollView = UIScrollView().then {
         $0.backgroundColor = .systemBackground
@@ -43,20 +27,12 @@ class MorningViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setnavigation()
+        preferredContentSize = CGSize(width: 300, height: 400)
     }
     
     //MARK: - Functions
     
-    func setnavigation() {
-        self.navigationController?.navigationBar.topItem?.title = "EAT SSU"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Bold", size: 25), .foregroundColor: UIColor.primary]
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "text.justify", style: .done, target: self, action: #selector(rightBarItemTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
-                                                                   image: UIImage(systemName: "text.justify"),
-                                                                   primaryAction: nil,
-                                                                   menu: menu)
-    }
+
     
     override func configureUI() {
         view.addSubviews(scrollView)
@@ -78,14 +54,22 @@ class MorningViewController: BaseViewController {
         }
     }
     
-    @objc
-    func tappedRightBarItem() {
-        print("tappedRightBarItem")
+    override func setButtonEvent() {
+        morningView.coordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
     }
     
     @objc
-    func tappedMyPageBtn() {
-        print("tappedMyPageBtn")
+    func didTappedMapViewButton() {
+        let mapVC = RestaurantMapViewController()
+        mapVC.preferredContentSize = CGSize(width: 200, height: 300)
+        mapVC.modalPresentationStyle = .popover
+        
+        let ppc = mapVC.popoverPresentationController
+        ppc?.permittedArrowDirections = .any
+        ppc?.sourceView = self.view
+        ppc?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        present(mapVC, animated: true, completion: nil)
+
     }
 }
 
