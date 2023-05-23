@@ -183,13 +183,8 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
         }
     
     override func customNavigationBar() {
-        let backButton: UIBarButtonItem = UIBarButtonItem()
-        backButton.title = ""
+        super.customNavigationBar()
         navigationItem.title = "리뷰 남기기"
-        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        navigationController?.navigationBar.tintColor = .primary
-        navigationController?.navigationBar.barTintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.primary, NSAttributedString.Key.font: UIFont.bold(size: 22)]
     }
     
     func setStarButtons() {

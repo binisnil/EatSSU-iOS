@@ -7,7 +7,12 @@
 
 import UIKit
 
+import Moya
+
 class ReviewViewController: BaseViewController {
+    
+    let reviewProvider = MoyaProvider<ReviewRouter>()
+    private var reviewList = [DataList]()
     
     // MARK: - UI Component
     
@@ -41,6 +46,8 @@ class ReviewViewController: BaseViewController {
         reviewTableView.register(ReviewTableCell.self, forCellReuseIdentifier: ReviewTableCell.identifier)
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
+        getMenuReview(menuId: 35)
+        getTotalReview(menuId: 35)
     }
     
     // MARK: - Functions
@@ -82,7 +89,6 @@ class ReviewViewController: BaseViewController {
     @objc
     func userTapReviewButton() {
         let nextVC = SetRateViewController()
-        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
@@ -95,12 +101,70 @@ extension ReviewViewController: UITableViewDelegate {
 
 extension ReviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return reviewList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableCell.identifier, for: indexPath) as? ReviewTableCell ?? ReviewTableCell()
+
+        let cellReview: DataList = reviewList[indexPath.row]
+        cell.dataBind(nickname: cellReview.writerNickname,
+                      grade: cellReview.grade,
+                      date: cellReview.writeDate,
+                      tagList: cellReview.tagList)
         cell.selectionStyle = .none
         return cell
+    }
+}
+
+// MARK: - Server Setting
+
+extension ReviewViewController {
+    
+    func getTotalReview(menuId: Int) {
+        self.reviewProvider.request(.totalReview(menuId)) { response in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                    let responseData = try moyaResponse.map(TotalReviewResponse.self)
+                    self.topReviewView.dataBind(menuName: responseData.menuName,
+                                                reviewCount: responseData.totalReviewCount,
+                                                totalGrade: responseData.grade,
+                                                fiveCnt: responseData.reviewGradeCnt.fiveCnt,
+                                                fourCnt: responseData.reviewGradeCnt.fourCnt,
+                                                threeCnt: responseData.reviewGradeCnt.threeCnt,
+                                                twoCnt: responseData.reviewGradeCnt.twoCnt,
+                                                oneCnt: responseData.reviewGradeCnt.oneCnt)
+                    
+                    print(responseData)
+                    
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    func getMenuReview(menuId: Int) {
+        self.reviewProvider.request(.menuReview(menuId)) { response in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                    let responseData = try moyaResponse.map(MenuReviewResponse.self)
+                    self.reviewList = responseData.dataList ?? []
+                    self.reviewTableView.reloadData()
+                    print(responseData)
+                    
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
     }
 }
