@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "cutlery-3 1.png",
+      "filename" : "Add.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "cutlery-3 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "cutlery-3 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

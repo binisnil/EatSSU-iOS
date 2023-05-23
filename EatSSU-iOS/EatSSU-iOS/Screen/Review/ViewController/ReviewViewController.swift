@@ -106,6 +106,7 @@ extension ReviewViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableCell.identifier, for: indexPath) as? ReviewTableCell ?? ReviewTableCell()
+
         let cellReview: DataList = reviewList[indexPath.row]
         cell.dataBind(nickname: cellReview.writerNickname,
                       grade: cellReview.grade,

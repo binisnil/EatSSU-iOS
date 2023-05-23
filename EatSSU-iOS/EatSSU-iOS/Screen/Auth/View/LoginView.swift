@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 import SnapKit
 import Then
@@ -22,7 +23,7 @@ class LoginView: BaseUIView {
     }
     
     private let logoImage = UIImageView().then {
-        $0.image = UIImage(named: "logo.svg")
+        $0.image = UIImage(named: "logo.png")
     }
     
     private let titleLabel = UILabel().then {
@@ -86,7 +87,7 @@ class LoginView: BaseUIView {
         $0.setImage(UIImage(named: "google"), for: .normal)
     }
     
-    private var appleLoginButton = UIButton().then {
+    var appleLoginButton = UIButton().then {
         $0.setImage(UIImage(named: "apple"), for: .normal)
     }
     
@@ -173,6 +174,10 @@ class LoginView: BaseUIView {
             $0.centerX.equalTo(self)
             $0.width.equalTo(1)
             $0.height.equalTo(16)
+        }
+        
+        logoImage.snp.makeConstraints { make in
+            make.height.width.equalTo(200)
         }
     }
 }

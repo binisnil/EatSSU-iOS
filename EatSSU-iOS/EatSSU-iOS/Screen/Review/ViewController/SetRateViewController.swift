@@ -131,7 +131,7 @@ class SetRateViewController: BaseViewController {
     }
     
     @objc
-    func tappedTagButton(_ sender: UIButton) {
+    private func tappedTagButton(_ sender: UIButton) {
         if sender.layer.borderColor == UIColor.black.cgColor {
             if selectedButtonCount < 3 {
                 sender.layer.borderColor = UIColor.primary.cgColor

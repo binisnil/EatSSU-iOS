@@ -62,14 +62,11 @@ class HomeViewController: TabmanViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(30)
-
         }
         bar.snp.makeConstraints {
             $0.top.equalTo(dateSelectedField.snp.bottom)
 //            $0.bottom.equalTo(morningView.snp.top).inset(50)
         }
-      
-        
     }
     
     func setnavigation() {
