@@ -46,7 +46,7 @@ class LoginView: BaseUIView {
         return stackView
     }()
     
-    private let emailTextField = UITextField().then {
+    let emailTextField = UITextField().then {
         $0.placeholder = "이메일 아이디"
         $0.font = .regular(size: 14.0)
         $0.layer.borderColor = UIColor.primary.cgColor
@@ -57,7 +57,7 @@ class LoginView: BaseUIView {
         $0.addLeftImage(image: (UIImage(systemName: "person.fill")!))
     }
     
-    private let pwTextField = UITextField().then {
+    let pwTextField = UITextField().then {
         $0.placeholder = "비밀번호"
         $0.font = .regular(size: 14.0)
         $0.layer.borderColor = UIColor.primary.cgColor
@@ -68,7 +68,7 @@ class LoginView: BaseUIView {
         $0.addLeftImage(image: (UIImage(systemName: "lock.fill")!))
     }
     
-    private lazy var loginButton = UIButton().then {
+    lazy var loginButton = UIButton().then {
         $0.titleLabel?.font = .semiBold(size: 14.0)
         $0.backgroundColor = .primary
         $0.setTitle("로그인", for: .normal)

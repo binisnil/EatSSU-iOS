@@ -11,6 +11,7 @@ import Foundation
 enum ReviewRouter {
     case totalReview(_ menuId: Int)
     case menuReview(_ menuId: Int)
+//    case writeReview(_ menuId: Int)
 }
 
 extension ReviewRouter: TargetType, AccessTokenAuthorizable {
@@ -46,7 +47,8 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
     var headers: [String : String]? {
         switch self {
         default:
-            let token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjU3LFwiZW1haWxcIjpcInRlc3QxQG5hdmVyLmNvbVwifSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2ODQ3NjE3ODR9.1iEVJTLAno6oUtkYOQF_X9wIPN0zaWLX9FkXe_KPgXdui7gvrsZ9x1_PfwE1vFpmbKLsmV2uKJrikm8T8bl2Iw"
+            let realm = RealmService()
+            let token = realm.getToken()
             return ["Content-Type":"application/json",
                     "Authorization": "Bearer \(token)"]
         }
