@@ -48,19 +48,20 @@ class LoginViewController: BaseViewController {
     
     override func configureUI() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(loginScrollView)
-        loginScrollView.addSubview(loginView)
+        view.addSubviews(loginView)
+//        loginScrollView.addSubview(loginView)
     }
     
     override func setLayout() {
         
-        loginScrollView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+//        loginScrollView.snp.makeConstraints {
+//            $0.edges.equalToSuperview()
+//        }
         
         loginView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.top.equalToSuperview()
+//            $0.width.equalToSuperview()
+//            $0.top.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
     }
     
