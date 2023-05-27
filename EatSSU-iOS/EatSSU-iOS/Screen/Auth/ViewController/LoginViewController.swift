@@ -21,28 +21,46 @@ class LoginViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    private let loginView = LoginView()
+    private let loginView = LoginView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private let loginScrollView = UIScrollView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /// 자동 로그인 풀고 싶을 때 한번 실행시켜주기
+//        self.realm.resetDB()
         
         /// 자동 로그인
         if checkRealmToken() {
             print(self.realm.getToken())
             pushToHomeVC()
         }
+        
+        self.dismissKeyboard()
     }
     
     // MARK: - Functions
     
     override func configureUI() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(loginView)
+        view.addSubviews(loginScrollView)
+        loginScrollView.addSubview(loginView)
     }
     
     override func setLayout() {
-        loginView.snp.makeConstraints {
+        
+        loginScrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        loginView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.top.equalToSuperview()
         }
     }
     

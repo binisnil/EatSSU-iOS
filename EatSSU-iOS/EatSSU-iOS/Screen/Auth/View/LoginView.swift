@@ -133,13 +133,13 @@ class LoginView: BaseUIView {
     
     override func setLayout() {
         previewButton.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(60)
+            $0.top.equalToSuperview().inset(10)
             $0.leading.equalToSuperview().offset(20)
             $0.height.equalTo(17)
         }
         
         loginTopStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(118)
+            $0.top.equalToSuperview().offset(80)
             $0.centerX.equalToSuperview()
         }
         
@@ -162,12 +162,12 @@ class LoginView: BaseUIView {
         }
         
         socialLoginStackView.snp.makeConstraints {
-            $0.top.equalTo(userInputStackView.snp.bottom).offset(42)
+            $0.top.equalTo(userInputStackView.snp.bottom).offset(30)
             $0.centerX.equalToSuperview()
         }
         
         userInfoStackView.snp.makeConstraints {
-            $0.top.equalTo(socialLoginStackView.snp.bottom).offset(45)
+            $0.top.equalTo(socialLoginStackView.snp.bottom).offset(25)
         }
         
         lineView.snp.makeConstraints {
@@ -177,7 +177,7 @@ class LoginView: BaseUIView {
         }
         
         logoImage.snp.makeConstraints { make in
-            make.height.width.equalTo(200)
+            make.height.width.equalTo(170)
         }
     }
 }
