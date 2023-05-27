@@ -23,6 +23,16 @@ class LoginViewController: BaseViewController {
     
     private let loginView = LoginView()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        /// 자동 로그인
+        if checkRealmToken() {
+            print(self.realm.getToken())
+            pushToHomeVC()
+        }
+    }
+    
     // MARK: - Functions
     
     override func configureUI() {
@@ -86,38 +96,7 @@ class LoginViewController: BaseViewController {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-    
-    // MARK: - Server
-    
-    private func postSignInRequest() {
-        let param = SignInRequest.init(loginView.emailTextField.text ?? "",
-                                       loginView.pwTextField.text ?? "")
-        self.authProvider.request(.signIn(param: param)) { response in
-            switch response {
-            case.success(let moyaResponse):
-                do {
-                    
-                    ///SUCCESS
-                    print(moyaResponse.statusCode)
-                    let responseData = try moyaResponse.map(SignResponse.self)
-                    self.addTokenInRealm(accessToken: responseData.accessToken,
-                                         refreshToken: responseData.refreshToken)
-                    self.pushToHomeVC()
-                } catch (let err) {
-                    
-                    ///400 ERROR
-                    self.showFailAlert(statusCode: moyaResponse.statusCode)
-                    print(err.localizedDescription)
-                }
-            case.failure(let err):
-                
-                /// Extra Error
-                print(MoyaError.statusCode)
-                print(err.localizedDescription)
-            }
-        }
-    }
-    
+        
     private func addTokenInRealm(accessToken:String, refreshToken:String) {
         realm.addToken(accessToken: accessToken, refreshToken: refreshToken)
         print(realm.getToken())
@@ -160,6 +139,48 @@ class LoginViewController: BaseViewController {
         })
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func checkRealmToken()->Bool{
+        if realm.getToken() == ""{
+            return false
+        } else{
+            return true
+        }
+    }
+}
+
+extension LoginViewController {
+    
+    // MARK: - Server
+    
+    private func postSignInRequest() {
+        let param = SignInRequest.init(loginView.emailTextField.text ?? "",
+                                       loginView.pwTextField.text ?? "")
+        self.authProvider.request(.signIn(param: param)) { response in
+            switch response {
+            case.success(let moyaResponse):
+                do {
+                    
+                    ///SUCCESS
+                    print(moyaResponse.statusCode)
+                    let responseData = try moyaResponse.map(SignResponse.self)
+                    self.addTokenInRealm(accessToken: responseData.accessToken,
+                                         refreshToken: responseData.refreshToken)
+                    self.pushToHomeVC()
+                } catch (let err) {
+                    
+                    ///400 ERROR
+                    self.showFailAlert(statusCode: moyaResponse.statusCode)
+                    print(err.localizedDescription)
+                }
+            case.failure(let err):
+                
+                /// Extra Error
+                print(MoyaError.statusCode)
+                print(err.localizedDescription)
+            }
+        }
     }
 }
 
