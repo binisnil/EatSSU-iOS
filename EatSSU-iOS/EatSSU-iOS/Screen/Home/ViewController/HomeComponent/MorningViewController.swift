@@ -26,6 +26,7 @@ class MorningViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButtonEvent()
     }
     
     //MARK: - Functions
@@ -50,20 +51,20 @@ class MorningViewController: BaseViewController {
             $0.top.leading.trailing.equalToSuperview()
         }
         
-        morningView.studentTableView.snp.makeConstraints {
+        morningView.allRestaurantStackView.snp.makeConstraints {
             $0.bottom.equalTo(contentView.snp.bottom)
         }
     }
     
     override func setButtonEvent() {
-        morningView.coordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
+        morningView.dormitoryCoordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
     }
     
     @objc
     func didTappedMapViewButton() {
-        let mapVC = RestaurantMapViewController()
-        present(mapVC, animated: true, completion: nil)
-
+//        let mapVC = RestaurantMapViewController()
+//        present(mapVC, animated: true, completion: nil)
+        print("didTappedMapViewButton")
     }
 }
 
