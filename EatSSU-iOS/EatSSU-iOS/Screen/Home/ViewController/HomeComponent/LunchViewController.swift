@@ -23,10 +23,6 @@ class LunchViewController: BaseViewController {
     
     //MARK: - Life Cycles
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     //MARK: - Functions
     
     override func configureUI() {
