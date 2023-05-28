@@ -110,6 +110,13 @@ class HomeViewController: TabmanViewController {
         dateSelectedField.text = dateFormatter.string(from: sender.date)
         view.endEditing(true)
     }
+
+    @objc
+    func didTappedRightBarButton() {
+        // 마이페이지 뷰로 이동
+        let nextVC = MyPageViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 

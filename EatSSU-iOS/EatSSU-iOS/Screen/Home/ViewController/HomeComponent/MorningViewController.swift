@@ -27,6 +27,7 @@ class MorningViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonEvent()
+        preferredContentSize = CGSize(width: 300, height: 400)
     }
     
     //MARK: - Functions
@@ -64,7 +65,16 @@ class MorningViewController: BaseViewController {
     func didTappedMapViewButton() {
 //        let mapVC = RestaurantMapViewController()
 //        present(mapVC, animated: true, completion: nil)
-        print("didTappedMapViewButton")
+
+        let mapVC = RestaurantMapViewController()
+        mapVC.preferredContentSize = CGSize(width: 200, height: 300)
+        mapVC.modalPresentationStyle = .popover
+        
+        let ppc = mapVC.popoverPresentationController
+        ppc?.permittedArrowDirections = .any
+        ppc?.sourceView = self.view
+        ppc?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        present(mapVC, animated: true, completion: nil)
     }
 }
 
