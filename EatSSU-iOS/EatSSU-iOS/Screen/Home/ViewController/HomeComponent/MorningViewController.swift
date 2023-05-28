@@ -7,10 +7,15 @@
 
 import UIKit
 
+import Moya
 import SnapKit
 import Then
 
 class MorningViewController: BaseViewController {
+    
+    //MARK: - Properties
+    
+    let morningTableProvider = MoyaProvider<HomeRouter>()
     
     //MARK: - UI Components
     
@@ -78,3 +83,42 @@ class MorningViewController: BaseViewController {
     }
 }
 
+// MARK: - Network
+
+extension MorningViewController {
+    
+    func getMorningMenuTable(menuId: Int) {
+        self.morningTableProvider.request(.morningMenuTable(menuId: menuId)) { response in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                    let responseDetailDto = try moyaResponse.map(MenuTableResponse.self)
+                    self.bindMenuTable(responseDetailDto)
+                }
+            }
+        }
+    }
+    
+    func bindMenuTable(_ data: MenuTableResponse) {
+        self.morningView.dataBind(     : data.
+    }
+}
+//
+//switch response {
+//            case .success(let result):
+//                let status = result.statusCode
+//                if status >= 200 && status < 300 {
+//                    do {
+//                        let responseDetailDto = try result.map(BookDetailResponseDTO.self)
+//                        self.fetchDetail(data: responseDetailDto)
+//                    }
+//                    catch(let error) {
+//                        print(error.localizedDescription)
+//                    }
+//                } else if status >= 400 {
+//                    print("400 error")
+//                }
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
