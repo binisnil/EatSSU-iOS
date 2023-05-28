@@ -56,6 +56,8 @@
 		7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD529D20B980076DC77 /* MorningView.swift */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
+		7BFD09BF2A21E6E400B40054 /* MenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09BE2A21E6E400B40054 /* MenuTableResponse.swift */; };
+		7BFD09C12A21EE3E00B40054 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,8 @@
 		7BD73CD529D20B980076DC77 /* MorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningView.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7BFD09BE2A21E6E400B40054 /* MenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableResponse.swift; sourceTree = "<group>"; };
+		7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				057A0AC82A1B498300F10B85 /* ReviewRouter.swift */,
+				7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 		7B9899BF2A154F0D00D1A076 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				7BFD09BD2A21E6CA00B40054 /* Home */,
 				055970592A16643600868C42 /* Review */,
 			);
 			path = DTO;
@@ -496,6 +502,14 @@
 			children = (
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		7BFD09BD2A21E6CA00B40054 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7BFD09BE2A21E6E400B40054 /* MenuTableResponse.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -614,6 +628,8 @@
 				7B9899AA2A0B98E700D1A076 /* RestaurantMapViewController.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				7B9899A62A0B904700D1A076 /* Menu.swift in Sources */,
+				7BFD09C12A21EE3E00B40054 /* HomeRouter.swift in Sources */,
+				7BFD09BF2A21E6E400B40054 /* MenuTableResponse.swift in Sources */,
 				7B9899C32A154F9800D1A076 /* Config.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
 				7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */,
