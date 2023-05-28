@@ -64,7 +64,14 @@ class MenuTableViewCell: UITableViewCell {
 //            $0.trailing.equalTo(contentView.snp.trailing).offset(-5)
             $0.width.equalTo(30)
         }
-        
-        
-        
-    }}
+    }
+}
+
+//
+//extension MenuTableViewCell {
+//    func dataBind(name: String, price: Int, rating: Double) {
+//        nameLabel.text = name
+//        priceLabel.text = "\(price)"
+//        ratingLabel.text = "\(rating)"
+//    }
+//}
