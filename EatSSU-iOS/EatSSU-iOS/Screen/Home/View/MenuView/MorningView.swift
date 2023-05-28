@@ -14,22 +14,29 @@ class MorningView: BaseUIView {
     
     // MARK: - UI Components
     
-     var menus: [Menu] = []
-    
-    let coordinateButton = UIButton().then {
-        $0.setImage(UIImage(named: "coordinate"), for: .normal)
+    var menus: [Menu] = []
+    private let contentView = UIView()
+
+    let scrollView = UIScrollView().then {
+        $0.backgroundColor = .systemBackground
+        $0.showsVerticalScrollIndicator = false
     }
     
-    let studentRestaurantLabel = UILabel().then {
+    // dormitory
+    let dormitoryCoordinateButton = UIButton().then {
+        $0.setImage(UIImage(named: "coordinate"), for: .normal)
+    }
+
+    private let dormitoryLabel = UILabel().then {
         $0.text = "기숙사 식당"
         $0.font = UIFont.boldSystemFont(ofSize: 20)
     }
         
-    lazy var restaurantTitleStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [coordinateButton, studentRestaurantLabel])
+    lazy var dormitoryTitleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [dormitoryCoordinateButton, dormitoryLabel])
         stackView.axis = .horizontal
-        stackView.spacing = 10
         stackView.alignment = .leading
+        stackView.spacing = 3.0
         return stackView
     }()
     
@@ -39,18 +46,194 @@ class MorningView: BaseUIView {
         $0.isScrollEnabled = false
     }
     
+    lazy var dormitoryStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [dormitoryTitleStackView, dormitoryTableView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10.0
+        return stackView
+    }()
+    
+    // dodam
+    private let dodamCoordinateButton = UIButton().then {
+        $0.setImage(UIImage(named: "coordinate"), for: .normal)
+    }
+    
+    private let dodamLabel = UILabel().then {
+        $0.text = "도담 식당"
+        $0.font = UIFont.boldSystemFont(ofSize: 20)
+    }
+        
+    lazy var dodamTitleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [dodamCoordinateButton, dodamLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .leading
+        return stackView
+    }()
+    
     lazy var dodamTableView = MenuTableView().then {
         $0.showsVerticalScrollIndicator = false
         $0.layer.cornerRadius = 15.0
         $0.isScrollEnabled = false
     }
+    
+    lazy var dodamStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [dodamTitleStackView, dodamTableView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10.0
+        return stackView
+    }()
+    
+    // student
+    private let studentCoordinateButton = UIButton().then {
+        $0.setImage(UIImage(named: "coordinate"), for: .normal)
+    }
+    
+    private let studentLabel = UILabel().then {
+        $0.text = "학생 식당"
+        $0.font = UIFont.boldSystemFont(ofSize: 20)
+    }
+        
+    lazy var studentTitleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [studentCoordinateButton, studentLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .leading
+        return stackView
+    }()
+    
+    lazy var studentTableView = MenuTableView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.layer.cornerRadius = 15.0
+        $0.isScrollEnabled = false
+    }
+    
+    lazy var studentStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [studentTitleStackView, studentTableView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10.0
+        return stackView
+    }()
 
     
-    // MARK : - 
+    // foodcourt
+    private let foodCourtCoordinateButton = UIButton().then {
+        $0.setImage(UIImage(named: "coordinate"), for: .normal)
+    }
     
+    private let foodCourtLabel = UILabel().then {
+        $0.text = "푸드 코트"
+        $0.font = UIFont.boldSystemFont(ofSize: 20)
+    }
+        
+    lazy var foodCourtTitleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [foodCourtCoordinateButton, foodCourtLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .leading
+        return stackView
+    }()
+    
+    lazy var foodCourtTableView = MenuTableView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.layer.cornerRadius = 15.0
+        $0.isScrollEnabled = false
+    }
+    
+    lazy var foodCourtStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [foodCourtTitleStackView, foodCourtTableView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10.0
+        return stackView
+    }()
+    
+    // snackcorner
+    private let snackCornerCoordinateButton = UIButton().then {
+        $0.setImage(UIImage(named: "coordinate"), for: .normal)
+    }
+    
+    private let snackCornerLabel = UILabel().then {
+        $0.text = "스낵 코너"
+        $0.font = UIFont.boldSystemFont(ofSize: 20)
+    }
+        
+    lazy var snackCornerTitleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [snackCornerCoordinateButton, snackCornerLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .leading
+        return stackView
+    }()
+    
+    lazy var snackCornerTableView = MenuTableView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.layer.cornerRadius = 15.0
+        $0.isScrollEnabled = false
+    }
+    
+    lazy var snackCornerStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [snackCornerTitleStackView, snackCornerTableView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10.0
+        return stackView
+    }()
+    
+    // thekitchen
+    private let theKitchenCoordinateButton = UIButton().then {
+        $0.setImage(UIImage(named: "coordinate"), for: .normal)
+    }
+    
+    private let theKitchenLabel = UILabel().then {
+        $0.text = "더 키친"
+        $0.font = UIFont.boldSystemFont(ofSize: 20)
+    }
+        
+    lazy var theKitchenTitleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [theKitchenCoordinateButton, theKitchenLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .leading
+        return stackView
+    }()
+    
+    lazy var theKitchenTableView = MenuTableView().then {
+        $0.showsVerticalScrollIndicator = false
+        $0.layer.cornerRadius = 15.0
+        $0.isScrollEnabled = false
+    }
+    
+    lazy var theKitchenStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [theKitchenTitleStackView, theKitchenTableView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 10.0
+        return stackView
+    }()
+    
+    lazy var allRestaurantStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [dormitoryStackView,
+                                                       dodamStackView,
+                                                       studentStackView,
+                                                       foodCourtStackView,
+                                                       snackCornerStackView,
+                                                       theKitchenStackView])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.spacing = 20.0
+        return stackView
+    }()
+    
+    
+    
+    // MARK: - init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         // 메뉴 데이터 초기화
            let menu1 = Menu(name: "스테이크", price: "30,000", rating: "4.5")
@@ -58,8 +241,7 @@ class MorningView: BaseUIView {
            let menu3 = Menu(name: "피자", price: "25,000", rating: "4.2")
            let menu4 = Menu(name: "샐러드", price: "15,000", rating: "3.8")
            
-         menus = [menu1, menu2, menu3, menu4]
-        
+        menus = [menu1, menu2, menu3, menu4]
         setupTableView()
     }
     
@@ -70,38 +252,31 @@ class MorningView: BaseUIView {
     // MARK: - Functions
     
     override func configureUI() {
-//        self.addSubviews(contentScrollView)
-//        contentScrollView.addSubview(contentView)
-        self.addSubviews(restaurantTitleStackView,
-                         dormitoryTableView,
-                        dodamTableView)
+        self.addSubviews(allRestaurantStackView)
     }
     
     override func setLayout() {
-        studentRestaurantLabel.snp.makeConstraints {
-            $0.leading.equalTo(coordinateButton.snp.trailing).offset(10)
+        
+        [dormitoryTableView, dodamTableView, studentTableView, foodCourtTableView, snackCornerTableView, theKitchenTableView].forEach { $0.snp.makeConstraints {
+                $0.width.equalTo(355)
+            }
         }
         
-        restaurantTitleStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(190)
-            $0.leading.equalToSuperview().offset(21)
+        allRestaurantStackView.snp.makeConstraints {
+            $0.top.equalToSuperview()
         }
         
-        dormitoryTableView.snp.makeConstraints {
-            $0.top.equalTo(restaurantTitleStackView.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().offset(16)
-            $0.centerX.equalToSuperview()
-        }
         
-        dodamTableView.snp.makeConstraints {
-            $0.top.equalTo(dormitoryTableView.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().offset(16)
-            $0.centerX.equalToSuperview()
+        [dormitoryStackView,dodamStackView,studentStackView,foodCourtStackView,snackCornerStackView,theKitchenStackView].forEach {
+            $0.snp.makeConstraints {
+                $0.horizontalEdges.equalToSuperview().inset(16)
+            }
         }
+      
     }
     
     func setupTableView() {
-        [dormitoryTableView,dodamTableView].forEach {
+        [dormitoryTableView, dodamTableView, studentTableView, foodCourtTableView, snackCornerTableView, theKitchenTableView].forEach {
             $0.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
             $0.delegate = self
             $0.dataSource = self
@@ -110,10 +285,7 @@ class MorningView: BaseUIView {
             $0.layer.borderColor = UIColor.barGray.cgColor
             $0.layer.borderWidth = 1.0
         }
-       
-
     }
-    
 }
 
 extension MorningView: UITableViewDataSource {
