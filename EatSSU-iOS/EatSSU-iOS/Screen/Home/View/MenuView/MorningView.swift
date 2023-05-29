@@ -16,8 +16,8 @@ class MorningView: BaseUIView {
     //MARK: - Properties
     
     let morningTableProvider = MoyaProvider<HomeRouter>()
-    private var menuTableList = [MenuInfoList]()
-    
+    var menuTableListDict = [Int: [MenuInfoList]]()
+
     // MARK: - UI Components
     
 //    var menus: [Menu] = []
@@ -249,7 +249,16 @@ class MorningView: BaseUIView {
 //           let menu4 = Menu(name: "샐러드", price: "15,000", rating: "3.8")
 //
 //        menus = [menu1, menu2, menu3, menu4]
-        getMorningMenuTable(menuId: "SNACK_CORNER")
+//        getMorningMenuTable(menuId: "SNACK_CORNER")
+        setTableViewTagNumber()
+        
+        getMorningMenuTable(restaurant: "DOMITORY", tableView: dormitoryTableView)
+        getMorningMenuTable(restaurant: "DODAM", tableView: dodamTableView)
+        getMorningMenuTable(restaurant: "HAKSIK", tableView: studentTableView)
+        getMorningMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
+        getMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
+        getMorningMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
+
         setupTableView()
 
     }
@@ -284,6 +293,15 @@ class MorningView: BaseUIView {
       
     }
     
+    func setTableViewTagNumber() {
+        dormitoryTableView.tag = 1
+        dodamTableView.tag = 2
+        studentTableView.tag = 3
+        foodCourtTableView.tag = 4
+        snackCornerTableView.tag = 5
+        theKitchenTableView.tag = 6
+    }
+    
     func setupTableView() {
         [dormitoryTableView, dodamTableView, studentTableView, foodCourtTableView, snackCornerTableView, theKitchenTableView].forEach {
             $0.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
@@ -293,36 +311,50 @@ class MorningView: BaseUIView {
             
             $0.layer.borderColor = UIColor.barGray.cgColor
             $0.layer.borderWidth = 1.0
+            
+//            getMorningMenuTable(menuId: "SNACK_CORNER")
+            getMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
+
+
         }
 
+    }
+    
+    func setupTableViewAPI() {
+        let allRestaurant = ["DODAM", "DOMITORY", "FOOD_COURT", "SNACK_CORNER", "HAKSIK", "THE_KITCHEN"]
     }
 }
 
 
 extension MorningView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("menuTableList.count: \(menuTableList.count)")
+        print("menuTableList.count: \(menuTableListDict[tableView.tag]?.count)")
 //        return 10
-        return menuTableList.count
+        return menuTableListDict[tableView.tag]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
         
-        let cellMenu: MenuInfoList = menuTableList[indexPath.row]
-        print("cell Menu: \(cellMenu)")
-//        cell.dataBind(nameLabel: cellMenu.name,
-//                      priceLabel: cellMenu.price
-//                      ratingLabel: cellMenu.grade)
-        
-        
-//        let menu = menus[indexPath.row]
+        if let menuTableList = menuTableListDict[tableView.tag] {
+                let cellMenu: MenuInfoList = menuTableList[indexPath.row]
+                print("cell Menu: \(cellMenu)")
+
+                cell.menuIDLabel.text = "\(cellMenu.menuId)"
+                cell.nameLabel.text = cellMenu.name
+                cell.priceLabel.text = "\(cellMenu.price)"
+                cell.ratingLabel.text = "\(cellMenu.grade)"
+            }
+
+//        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
 //
-        cell.menuIDLabel.text = "\(cellMenu.menuId)"
-        cell.nameLabel.text = cellMenu.name
-        cell.priceLabel.text = "\(cellMenu.price)"
-        cell.ratingLabel.text = "\(cellMenu.grade)"
+//        let cellMenu: MenuInfoList = menuTableList[indexPath.row]
+//        print("cell Menu: \(cellMenu)")
+//
+//        cell.menuIDLabel.text = "\(cellMenu.menuId)"
+//        cell.nameLabel.text = cellMenu.name
+//        cell.priceLabel.text = "\(cellMenu.price)"
+//        cell.ratingLabel.text = "\(cellMenu.grade)"
         
         cell.textLabel?.font = .regular(size: 14)
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
@@ -357,32 +389,33 @@ extension MorningView: UISheetPresentationControllerDelegate {
 
 extension MorningView {
     
-    func getMorningMenuTable(menuId: String) {
-        self.morningTableProvider.request(.getRestaurantMenu(restaurant: menuId)) { response in
+    func getMorningMenuTable(restaurant: String, tableView: UITableView) {
+        self.morningTableProvider.request(.getRestaurantMenu(restaurant: restaurant)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
                     print(moyaResponse.statusCode)
                     let responseDetailDto = try moyaResponse.map(MenuTableResponse.self)
-                    self.menuTableList = responseDetailDto.menuInfoList ?? []
-                    self.foodCourtTableView.reloadData()
+                    self.menuTableListDict[tableView.tag] = responseDetailDto.menuInfoList
+                    tableView.reloadData()
                     print(responseDetailDto)
                     
                 } catch(let err) {
                     print(err.localizedDescription)
-            }
+                }
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
     }
+}
     
 //    func dataBind(name: String, price: Int, rating: Double) {
 //        cell.nameLabel.text = name
 //        cell.priceLabel.text = "\(price)"
 //        cell.ratingLabel.text = "\(rating)"
 //    }
-}
+
 //
 //switch response {
 //            case .success(let result):
