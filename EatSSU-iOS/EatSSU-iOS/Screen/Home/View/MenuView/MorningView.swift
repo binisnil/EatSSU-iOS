@@ -239,7 +239,7 @@ class MorningView: BaseUIView {
         super.init(frame: frame)
 
         setTableViewTagNumber()
-        getMenuTableView()
+//        getMenuTableView()
         setupTableView()
     }
     
@@ -257,18 +257,23 @@ class MorningView: BaseUIView {
         
         [dormitoryTableView, dodamTableView, studentTableView, foodCourtTableView, snackCornerTableView, theKitchenTableView].forEach { $0.snp.makeConstraints {
                 $0.width.equalTo(355)
+//            $0.centerX.equalToSuperview()
             }
         }
         
         allRestaurantStackView.snp.makeConstraints {
             $0.top.equalToSuperview()
+                        $0.centerX.equalToSuperview()
+
         }
         
-        [dormitoryStackView,dodamStackView,studentStackView,foodCourtStackView,snackCornerStackView,theKitchenStackView].forEach {
-            $0.snp.makeConstraints {
-                $0.horizontalEdges.equalToSuperview().inset(16)
-            }
-        }
+//        [dormitoryStackView,dodamStackView,studentStackView,foodCourtStackView,snackCornerStackView,theKitchenStackView].forEach {
+//            $0.snp.makeConstraints {
+//                $0.horizontalEdges.equalToSuperview().inset(16)
+//                            $0.centerX.equalToSuperview()
+
+//            }
+//        }
     }
     
     func setTableViewTagNumber() {
