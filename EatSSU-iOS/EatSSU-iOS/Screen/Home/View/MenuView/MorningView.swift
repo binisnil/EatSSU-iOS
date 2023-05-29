@@ -20,7 +20,6 @@ class MorningView: BaseUIView {
 
     // MARK: - UI Components
     
-//    var menus: [Menu] = []
     private let contentView = UIView()
 
     let scrollView = UIScrollView().then {
@@ -234,33 +233,14 @@ class MorningView: BaseUIView {
         return stackView
     }()
     
-    
-    
     // MARK: - init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        
-        // 메뉴 데이터 초기화
-//           let menu1 = Menu(name: "스테이크", price: "30,000", rating: "4.5")
-//           let menu2 = Menu(name: "파스타", price: "20,000", rating: "4.0")
-//           let menu3 = Menu(name: "피자", price: "25,000", rating: "4.2")
-//           let menu4 = Menu(name: "샐러드", price: "15,000", rating: "3.8")
-//
-//        menus = [menu1, menu2, menu3, menu4]
-//        getMorningMenuTable(menuId: "SNACK_CORNER")
         setTableViewTagNumber()
-        
-        getMorningMenuTable(restaurant: "DOMITORY", tableView: dormitoryTableView)
-        getMorningMenuTable(restaurant: "DODAM", tableView: dodamTableView)
-        getMorningMenuTable(restaurant: "HAKSIK", tableView: studentTableView)
-        getMorningMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
-        getMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
-        getMorningMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
-
+        getMenuTableView()
         setupTableView()
-
     }
     
     required init?(coder: NSCoder) {
@@ -284,13 +264,11 @@ class MorningView: BaseUIView {
             $0.top.equalToSuperview()
         }
         
-        
         [dormitoryStackView,dodamStackView,studentStackView,foodCourtStackView,snackCornerStackView,theKitchenStackView].forEach {
             $0.snp.makeConstraints {
                 $0.horizontalEdges.equalToSuperview().inset(16)
             }
         }
-      
     }
     
     func setTableViewTagNumber() {
@@ -302,6 +280,15 @@ class MorningView: BaseUIView {
         theKitchenTableView.tag = 6
     }
     
+    func getMenuTableView() {
+        getMorningMenuTable(restaurant: "DOMITORY", tableView: dormitoryTableView)
+        getMorningMenuTable(restaurant: "DODAM", tableView: dodamTableView)
+        getMorningMenuTable(restaurant: "HAKSIK", tableView: studentTableView)
+        getMorningMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
+        getMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
+        getMorningMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
+    }
+    
     func setupTableView() {
         [dormitoryTableView, dodamTableView, studentTableView, foodCourtTableView, snackCornerTableView, theKitchenTableView].forEach {
             $0.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
@@ -311,25 +298,12 @@ class MorningView: BaseUIView {
             
             $0.layer.borderColor = UIColor.barGray.cgColor
             $0.layer.borderWidth = 1.0
-            
-//            getMorningMenuTable(menuId: "SNACK_CORNER")
-            getMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
-
-
         }
-
-    }
-    
-    func setupTableViewAPI() {
-        let allRestaurant = ["DODAM", "DOMITORY", "FOOD_COURT", "SNACK_CORNER", "HAKSIK", "THE_KITCHEN"]
     }
 }
 
-
 extension MorningView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("menuTableList.count: \(menuTableListDict[tableView.tag]?.count)")
-//        return 10
         return menuTableListDict[tableView.tag]?.count ?? 0
     }
     
@@ -345,16 +319,6 @@ extension MorningView: UITableViewDataSource {
                 cell.priceLabel.text = "\(cellMenu.price)"
                 cell.ratingLabel.text = "\(cellMenu.grade)"
             }
-
-//        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
-//
-//        let cellMenu: MenuInfoList = menuTableList[indexPath.row]
-//        print("cell Menu: \(cellMenu)")
-//
-//        cell.menuIDLabel.text = "\(cellMenu.menuId)"
-//        cell.nameLabel.text = cellMenu.name
-//        cell.priceLabel.text = "\(cellMenu.price)"
-//        cell.ratingLabel.text = "\(cellMenu.grade)"
         
         cell.textLabel?.font = .regular(size: 14)
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
@@ -367,16 +331,13 @@ extension MorningView: UITableViewDataSource {
         return nil
     }
 
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = MenuHeaderView()
         return header
     }
 }
 
-extension MorningView: UITableViewDelegate {
-    
-}
+extension MorningView: UITableViewDelegate {}
 
 extension MorningView: UISheetPresentationControllerDelegate {
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
@@ -409,28 +370,3 @@ extension MorningView {
         }
     }
 }
-    
-//    func dataBind(name: String, price: Int, rating: Double) {
-//        cell.nameLabel.text = name
-//        cell.priceLabel.text = "\(price)"
-//        cell.ratingLabel.text = "\(rating)"
-//    }
-
-//
-//switch response {
-//            case .success(let result):
-//                let status = result.statusCode
-//                if status >= 200 && status < 300 {
-//                    do {
-//                        let responseDetailDto = try result.map(BookDetailResponseDTO.self)
-//                        self.fetchDetail(data: responseDetailDto)
-//                    }
-//                    catch(let error) {
-//                        print(error.localizedDescription)
-//                    }
-//                } else if status >= 400 {
-//                    print("400 error")
-//                }
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
