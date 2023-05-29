@@ -85,25 +85,25 @@ class MorningViewController: BaseViewController {
 
 // MARK: - Network
 
-extension MorningViewController {
-    
-    func getMorningMenuTable(menuId: Int) {
-        self.morningTableProvider.request(.morningMenuTable(menuId: menuId)) { response in
-            switch response {
-            case .success(let moyaResponse):
-                do {
-                    print(moyaResponse.statusCode)
-                    let responseDetailDto = try moyaResponse.map(MenuTableResponse.self)
-                    self.bindMenuTable(responseDetailDto)
-                }
-            }
-        }
-    }
-    
-    func bindMenuTable(_ data: MenuTableResponse) {
-        self.morningView.dataBind(     : data.
-    }
-}
+//extension MorningViewController {
+//
+//    func getMorningMenuTable(menuId: Int) {
+//        self.morningTableProvider.request(.morningMenuTable(menuId: menuId)) { response in
+//            switch response {
+//            case .success(let moyaResponse):
+//                do {
+//                    print(moyaResponse.statusCode)
+//                    let responseDetailDto = try moyaResponse.map(MenuTableResponse.self)
+//                    self.bindMenuTable(responseDetailDto)
+//                }
+//            }
+//        }
+//    }
+//
+//    func bindMenuTable(_ data: MenuTableResponse) {
+//        self.morningView.dataBind(     : data.
+//    }
+//}
 //
 //switch response {
 //            case .success(let result):

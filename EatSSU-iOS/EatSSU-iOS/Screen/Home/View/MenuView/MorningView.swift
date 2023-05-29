@@ -7,14 +7,20 @@
 
 import UIKit
 
+import Moya
 import SnapKit
 import Then
 
 class MorningView: BaseUIView {
     
+    //MARK: - Properties
+    
+    let morningTableProvider = MoyaProvider<HomeRouter>()
+    private var menuTableList = [MenuInfoList]()
+    
     // MARK: - UI Components
     
-    var menus: [Menu] = []
+//    var menus: [Menu] = []
     private let contentView = UIView()
 
     let scrollView = UIScrollView().then {
@@ -234,15 +240,18 @@ class MorningView: BaseUIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         
         // 메뉴 데이터 초기화
-           let menu1 = Menu(name: "스테이크", price: "30,000", rating: "4.5")
-           let menu2 = Menu(name: "파스타", price: "20,000", rating: "4.0")
-           let menu3 = Menu(name: "피자", price: "25,000", rating: "4.2")
-           let menu4 = Menu(name: "샐러드", price: "15,000", rating: "3.8")
-           
-        menus = [menu1, menu2, menu3, menu4]
+//           let menu1 = Menu(name: "스테이크", price: "30,000", rating: "4.5")
+//           let menu2 = Menu(name: "파스타", price: "20,000", rating: "4.0")
+//           let menu3 = Menu(name: "피자", price: "25,000", rating: "4.2")
+//           let menu4 = Menu(name: "샐러드", price: "15,000", rating: "3.8")
+//
+//        menus = [menu1, menu2, menu3, menu4]
+        getMorningMenuTable(menuId: "SNACK_CORNER")
         setupTableView()
+
     }
     
     required init?(coder: NSCoder) {
@@ -285,22 +294,35 @@ class MorningView: BaseUIView {
             $0.layer.borderColor = UIColor.barGray.cgColor
             $0.layer.borderWidth = 1.0
         }
+
     }
 }
 
+
 extension MorningView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menus.count
+        print("menuTableList.count: \(menuTableList.count)")
+//        return 10
+        return menuTableList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
-        let menu = menus[indexPath.row]
         
-        cell.nameLabel.text = menu.name
-        cell.priceLabel.text = menu.price
-        cell.ratingLabel.text = menu.rating
+        let cellMenu: MenuInfoList = menuTableList[indexPath.row]
+        print("cell Menu: \(cellMenu)")
+//        cell.dataBind(nameLabel: cellMenu.name,
+//                      priceLabel: cellMenu.price
+//                      ratingLabel: cellMenu.grade)
+        
+        
+//        let menu = menus[indexPath.row]
+//
+        cell.menuIDLabel.text = "\(cellMenu.menuId)"
+        cell.nameLabel.text = cellMenu.name
+        cell.priceLabel.text = "\(cellMenu.price)"
+        cell.ratingLabel.text = "\(cellMenu.grade)"
         
         cell.textLabel?.font = .regular(size: 14)
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
@@ -330,3 +352,52 @@ extension MorningView: UISheetPresentationControllerDelegate {
         print(sheetPresentationController.selectedDetentIdentifier == .large ? "large" : "medium")
     }
 }
+
+// MARK: - Network
+
+extension MorningView {
+    
+    func getMorningMenuTable(menuId: String) {
+        self.morningTableProvider.request(.getRestaurantMenu(restaurant: menuId)) { response in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                    let responseDetailDto = try moyaResponse.map(MenuTableResponse.self)
+                    self.menuTableList = responseDetailDto.menuInfoList ?? []
+                    self.foodCourtTableView.reloadData()
+                    print(responseDetailDto)
+                    
+                } catch(let err) {
+                    print(err.localizedDescription)
+            }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+//    func dataBind(name: String, price: Int, rating: Double) {
+//        cell.nameLabel.text = name
+//        cell.priceLabel.text = "\(price)"
+//        cell.ratingLabel.text = "\(rating)"
+//    }
+}
+//
+//switch response {
+//            case .success(let result):
+//                let status = result.statusCode
+//                if status >= 200 && status < 300 {
+//                    do {
+//                        let responseDetailDto = try result.map(BookDetailResponseDTO.self)
+//                        self.fetchDetail(data: responseDetailDto)
+//                    }
+//                    catch(let error) {
+//                        print(error.localizedDescription)
+//                    }
+//                } else if status >= 400 {
+//                    print("400 error")
+//                }
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }

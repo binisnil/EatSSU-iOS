@@ -15,6 +15,7 @@ class MenuTableViewCell: UITableViewCell {
     
     // MARK: - UI Components
     
+    let menuIDLabel = UILabel()
     let nameLabel = UILabel()
     let priceLabel = UILabel()
     let ratingLabel = UILabel()
