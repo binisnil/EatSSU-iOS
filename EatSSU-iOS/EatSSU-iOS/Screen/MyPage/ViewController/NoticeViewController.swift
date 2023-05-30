@@ -50,7 +50,7 @@ final class NoticeViewController: BaseViewController {
         noticeTableView.dataSource = self
     }
     
-    func customNavigationBar() {
+    override func customNavigationBar() {
         navigationController?.navigationBar.tintColor = .primary
         navigationController?.navigationBar.barTintColor = .white
         let backButton: UIBarButtonItem = UIBarButtonItem()

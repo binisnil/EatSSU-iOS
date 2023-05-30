@@ -23,6 +23,17 @@
 		0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */; };
 		057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */; };
 		057A0AC92A1B498300F10B85 /* ReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0AC82A1B498300F10B85 /* ReviewRouter.swift */; };
+		057A0ACF2A1D3EEF00F10B85 /* WriteReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0ACE2A1D3EEF00F10B85 /* WriteReviewRequest.swift */; };
+		057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B182A22254500F10B85 /* SignUpRequest.swift */; };
+		057A0B1C2A22272D00F10B85 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 057A0B1B2A22272D00F10B85 /* Realm */; };
+		057A0B1E2A22272D00F10B85 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 057A0B1D2A22272D00F10B85 /* RealmSwift */; };
+		057A0B212A22278800F10B85 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B202A22278800F10B85 /* RealmService.swift */; };
+		057A0B232A22279B00F10B85 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B222A22279B00F10B85 /* Token.swift */; };
+		057A0B252A22284400F10B85 /* SignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B242A22284400F10B85 /* SignResponse.swift */; };
+		057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B262A222D4A00F10B85 /* AuthRouter.swift */; };
+		057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B282A222F7E00F10B85 /* SignInRequest.swift */; };
+		057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */; };
+		057A0B2F2A25BD1800F10B85 /* SetRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2E2A25BD1800F10B85 /* SetRate.swift */; };
 		05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88329DFE42A004B9A81 /* UIStackView+.swift */; };
 		05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
@@ -75,6 +86,15 @@
 		0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalReviewResponse.swift; sourceTree = "<group>"; };
 		057A0AC82A1B498300F10B85 /* ReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewRouter.swift; path = "EatSSU-iOS/Network/DTO/Review/ReviewRouter.swift"; sourceTree = SOURCE_ROOT; };
+		057A0ACE2A1D3EEF00F10B85 /* WriteReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewRequest.swift; sourceTree = "<group>"; };
+		057A0B182A22254500F10B85 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		057A0B202A22278800F10B85 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		057A0B222A22279B00F10B85 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		057A0B242A22284400F10B85 /* SignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignResponse.swift; sourceTree = "<group>"; };
+		057A0B262A222D4A00F10B85 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/AuthRouter.swift"; sourceTree = SOURCE_ROOT; };
+		057A0B282A222F7E00F10B85 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WriteReviewRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/WriteReviewRouter.swift"; sourceTree = SOURCE_ROOT; };
+		057A0B2E2A25BD1800F10B85 /* SetRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRate.swift; sourceTree = "<group>"; };
 		05A4C88329DFE42A004B9A81 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -120,10 +140,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057A0B1E2A22272D00F10B85 /* RealmSwift in Frameworks */,
 				7BD73CD429D208940076DC77 /* Then in Frameworks */,
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
 				0569565C29B25D40002E8CF2 /* Tabman in Frameworks */,
+				057A0B1C2A22272D00F10B85 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +158,7 @@
 				0559705A2A16646B00868C42 /* MenuReviewResponse.swift */,
 				0559705C2A16670600868C42 /* MenuInfoResponse.swift */,
 				057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */,
+				057A0ACE2A1D3EEF00F10B85 /* WriteReviewRequest.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -215,10 +238,56 @@
 			path = RateReview;
 			sourceTree = "<group>";
 		};
+
+		057A0B172A22252000F10B85 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				057A0B182A22254500F10B85 /* SignUpRequest.swift */,
+				057A0B242A22284400F10B85 /* SignResponse.swift */,
+				057A0B282A222F7E00F10B85 /* SignInRequest.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		057A0B1F2A22274D00F10B85 /* LocalDB */ = {
+			isa = PBXGroup;
+			children = (
+				057A0B202A22278800F10B85 /* RealmService.swift */,
+				057A0B222A22279B00F10B85 /* Token.swift */,
+			);
+			path = LocalDB;
+			sourceTree = "<group>";
+		};
+		05C5EBFD2A0BCC6500CC6A58 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				05C5EBFF2A0BCC8B00CC6A58 /* ViewController */,
+				05C5EBFE2A0BCC6E00CC6A58 /* View */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		05C5EBFE2A0BCC6E00CC6A58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05EC82FF2A0BD40900851B55 /* NoticeTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05C5EBFF2A0BCC8B00CC6A58 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		05C5EC022A0BCFCD00CC6A58 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				05C5EC032A0BCFD500CC6A58 /* MyPage */,
+				057A0B2E2A25BD1800F10B85 /* SetRate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,6 +513,7 @@
 		7B9899BC2A154EF400D1A076 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				057A0B1F2A22274D00F10B85 /* LocalDB */,
 				7B9899C12A154F1700D1A076 /* API */,
 				7B9899C02A154F1100D1A076 /* Config */,
 				7B9899BF2A154F0D00D1A076 /* DTO */,
@@ -464,6 +534,8 @@
 			isa = PBXGroup;
 			children = (
 				057A0AC82A1B498300F10B85 /* ReviewRouter.swift */,
+				057A0B262A222D4A00F10B85 /* AuthRouter.swift */,
+				057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */,
 				7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */,
 			);
 			path = Router;
@@ -472,6 +544,7 @@
 		7B9899BF2A154F0D00D1A076 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				057A0B172A22252000F10B85 /* Auth */,
 				7BFD09BD2A21E6CA00B40054 /* Home */,
 				055970592A16643600868C42 /* Review */,
 			);
@@ -522,6 +595,8 @@
 				0569565B29B25D40002E8CF2 /* Tabman */,
 				056956C129C0DB55002E8CF2 /* Moya */,
 				7BD73CD329D208940076DC77 /* Then */,
+				057A0B1B2A22272D00F10B85 /* Realm */,
+				057A0B1D2A22272D00F10B85 /* RealmSwift */,
 			);
 			productName = "EatSSU-iOS";
 			productReference = 7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */;
@@ -556,6 +631,7 @@
 				0569565A29B25D40002E8CF2 /* XCRemoteSwiftPackageReference "Tabman" */,
 				056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */,
 				7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */,
+				057A0B1A2A22272D00F10B85 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 7B2BBF93299A1AC400EE0F1F /* Products */;
 			projectDirPath = "";
@@ -587,7 +663,10 @@
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
+				057A0B252A22284400F10B85 /* SignResponse.swift in Sources */,
 				057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */,
+				057A0B212A22278800F10B85 /* RealmService.swift in Sources */,
+				05C5EC012A0BCF2300CC6A58 /* NoticeViewController.swift in Sources */,
 				05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
 				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
@@ -604,16 +683,22 @@
 				7B9899A02A0B8F3E00D1A076 /* MenuTableViewCell.swift in Sources */,
 				7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */,
 				7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */,
+				057A0B232A22279B00F10B85 /* Token.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */,
 				056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */,
 				7B9798AF2A24E6A70069F027 /* LunchView.swift in Sources */,
 				0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */,
+				057A0ACF2A1D3EEF00F10B85 /* WriteReviewRequest.swift in Sources */,
 				0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */,
 				057A0AC92A1B498300F10B85 /* ReviewRouter.swift in Sources */,
+				057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
+				057A0B2F2A25BD1800F10B85 /* SetRate.swift in Sources */,
+				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
+				057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */,
 				7B9899AA2A0B98E700D1A076 /* RestaurantMapViewController.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				7B9899A62A0B904700D1A076 /* Menu.swift in Sources */,
@@ -621,6 +706,8 @@
 				7BFD09BF2A21E6E400B40054 /* MenuTableResponse.swift in Sources */,
 				7B9899C32A154F9800D1A076 /* Config.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
+				7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */,
+				057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */,
 				7B906AF42A1B849D00E4B6A9 /* MyPageViewController.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
 				0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */,
@@ -770,7 +857,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HZ8WU7PA4J;
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -803,7 +890,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HZ8WU7PA4J;
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -867,6 +954,14 @@
 				kind = branch;
 			};
 		};
+		057A0B1A2A22272D00F10B85 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -895,6 +990,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		057A0B1B2A22272D00F10B85 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 057A0B1A2A22272D00F10B85 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		057A0B1D2A22272D00F10B85 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 057A0B1A2A22272D00F10B85 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		7B2BBFAF299A291A00EE0F1F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

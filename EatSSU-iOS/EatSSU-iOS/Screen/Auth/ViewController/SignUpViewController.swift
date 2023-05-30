@@ -9,8 +9,12 @@ import UIKit
 
 import SnapKit
 import Then
+import Moya
 
 class SignUpViewController: BaseViewController {
+    
+    let authProvider = MoyaProvider<AuthRouter>()
+    let realm = RealmService()
         
     // MARK: - UI Components
     
@@ -128,4 +132,71 @@ class SignUpViewController: BaseViewController {
             $0.centerX.equalToSuperview()
         }
     }
+    
+    override func setButtonEvent() {
+        signUpButton.addTarget(self, action: #selector(tappedFinishButtonEvent), for: .touchUpInside)
+    }
+    
+    @objc
+    private func tappedFinishButtonEvent() {
+        postSignUpRequest()
+    }
+    
+    // MARK: - Server
+    
+    private func postSignUpRequest() {
+        let param = SignUpRequest.init(emailTextField.text ?? "",
+                                       pwTextField.text ?? "",
+                                       nicknameTextField.text ?? "")
+        self.authProvider.request(.signUp(param: param)) { response in
+            switch response {
+            case.success(let moyaResponse):
+                do {
+                    
+                    /// SUCCESS
+                    print(moyaResponse.statusCode)
+                    let responseData = try moyaResponse.map(SignResponse.self)
+                    self.addTokenInRealm(accessToken: responseData.accessToken,
+                                         refreshToken: responseData.refreshToken)
+                    self.pushToHome()
+                    print(responseData)
+                } catch(let err) {
+                    
+                    /// 400 ERROR
+                    self.showFailAlert()
+                    print(err.localizedDescription)
+                }
+                
+            case .failure(let err):
+                
+                /// Extra ERROR
+                print(MoyaError.statusCode)
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    private func addTokenInRealm(accessToken:String, refreshToken:String) {
+        realm.addToken(accessToken: accessToken, refreshToken: refreshToken)
+        print(realm.getToken())
+    }
+    
+    private func showFailAlert(){
+        let alert = UIAlertController(title: "회원가입 실패", message: "입력을 완료하지 않았거나, 이미 가입된 이메일 입니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { okAction in
+            self.nicknameTextField.text = ""
+            self.emailTextField.text = ""
+            self.pwTextField.text = ""
+            self.pwRewritingTextField.text = ""
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func pushToHome() {
+        let homeVC = HomeViewController()
+        homeVC.isPreviewButtonTapped(preview: false)
+        navigationController?.pushViewController(homeVC, animated: true)
+    }
 }
+
