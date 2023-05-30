@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MenuTableResponse: Codable {
+struct FixedMenuTableResponse: Codable {
     let menuInfoList: [MenuInfoList]?
 }
 

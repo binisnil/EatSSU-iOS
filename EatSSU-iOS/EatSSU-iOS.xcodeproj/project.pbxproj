@@ -67,7 +67,7 @@
 		7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CD529D20B980076DC77 /* MorningView.swift */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
-		7BFD09BF2A21E6E400B40054 /* MenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09BE2A21E6E400B40054 /* MenuTableResponse.swift */; };
+		7BFD09BF2A21E6E400B40054 /* FixedMenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */; };
 		7BFD09C12A21EE3E00B40054 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +131,7 @@
 		7BD73CD529D20B980076DC77 /* MorningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningView.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		7BFD09BE2A21E6E400B40054 /* MenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableResponse.swift; sourceTree = "<group>"; };
+		7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedMenuTableResponse.swift; sourceTree = "<group>"; };
 		7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,7 +238,6 @@
 			path = RateReview;
 			sourceTree = "<group>";
 		};
-
 		057A0B172A22252000F10B85 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,31 +255,6 @@
 				057A0B222A22279B00F10B85 /* Token.swift */,
 			);
 			path = LocalDB;
-			sourceTree = "<group>";
-		};
-		05C5EBFD2A0BCC6500CC6A58 /* MyPage */ = {
-			isa = PBXGroup;
-			children = (
-				05C5EBFF2A0BCC8B00CC6A58 /* ViewController */,
-				05C5EBFE2A0BCC6E00CC6A58 /* View */,
-			);
-			path = MyPage;
-			sourceTree = "<group>";
-		};
-		05C5EBFE2A0BCC6E00CC6A58 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				05EC82FF2A0BD40900851B55 /* NoticeTableViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		05C5EBFF2A0BCC8B00CC6A58 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		05C5EC022A0BCFCD00CC6A58 /* Model */ = {
@@ -569,7 +543,7 @@
 		7BFD09BD2A21E6CA00B40054 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				7BFD09BE2A21E6E400B40054 /* MenuTableResponse.swift */,
+				7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -666,7 +640,6 @@
 				057A0B252A22284400F10B85 /* SignResponse.swift in Sources */,
 				057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */,
 				057A0B212A22278800F10B85 /* RealmService.swift in Sources */,
-				05C5EC012A0BCF2300CC6A58 /* NoticeViewController.swift in Sources */,
 				05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
 				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
@@ -703,10 +676,9 @@
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				7B9899A62A0B904700D1A076 /* Menu.swift in Sources */,
 				7BFD09C12A21EE3E00B40054 /* HomeRouter.swift in Sources */,
-				7BFD09BF2A21E6E400B40054 /* MenuTableResponse.swift in Sources */,
+				7BFD09BF2A21E6E400B40054 /* FixedMenuTableResponse.swift in Sources */,
 				7B9899C32A154F9800D1A076 /* Config.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
-				7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */,
 				057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */,
 				7B906AF42A1B849D00E4B6A9 /* MyPageViewController.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,

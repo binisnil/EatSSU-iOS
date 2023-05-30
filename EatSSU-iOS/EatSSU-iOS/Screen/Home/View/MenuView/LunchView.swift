@@ -15,8 +15,8 @@ class LunchView: BaseUIView {
     
     //MARK: - Properties
     
-    let morningTableProvider = MoyaProvider<HomeRouter>()
-    var menuTableListDict = [Int: [MenuInfoList]]()
+    let fixedLunchMenuProvider = MoyaProvider<HomeRouter>()
+    var fixedMenuTableListDict = [Int: [MenuInfoList]]()
 
     // MARK: - UI Components
     
@@ -286,12 +286,12 @@ class LunchView: BaseUIView {
     }
     
     func getMenuTableView() {
-        getMorningMenuTable(restaurant: "DOMITORY", tableView: dormitoryTableView)
-        getMorningMenuTable(restaurant: "DODAM", tableView: dodamTableView)
-        getMorningMenuTable(restaurant: "HAKSIK", tableView: studentTableView)
-        getMorningMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
-        getMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
-        getMorningMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
+        getFixedLunchMenuTable(restaurant: "DOMITORY", tableView: dormitoryTableView)
+        getFixedLunchMenuTable(restaurant: "DODAM", tableView: dodamTableView)
+        getFixedLunchMenuTable(restaurant: "HAKSIK", tableView: studentTableView)
+        getFixedLunchMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
+        getFixedLunchMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
+        getFixedLunchMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
     }
     
     func setupTableView() {
@@ -309,13 +309,13 @@ class LunchView: BaseUIView {
 
 extension LunchView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuTableListDict[tableView.tag]?.count ?? 0
+        return fixedMenuTableListDict[tableView.tag]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
         
-        if let menuTableList = menuTableListDict[tableView.tag] {
+        if let menuTableList = fixedMenuTableListDict[tableView.tag] {
                 let cellMenu: MenuInfoList = menuTableList[indexPath.row]
                 print("cell Menu: \(cellMenu)")
 
@@ -355,14 +355,14 @@ extension LunchView: UISheetPresentationControllerDelegate {
 
 extension LunchView {
     
-    func getMorningMenuTable(restaurant: String, tableView: UITableView) {
-        self.morningTableProvider.request(.getRestaurantMenu(restaurant: restaurant)) { response in
+    func getFixedLunchMenuTable(restaurant: String, tableView: UITableView) {
+        self.fixedLunchMenuProvider.request(.getFixedRestaurantMenu(restaurant: restaurant)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
                     print(moyaResponse.statusCode)
-                    let responseDetailDto = try moyaResponse.map(MenuTableResponse.self)
-                    self.menuTableListDict[tableView.tag] = responseDetailDto.menuInfoList
+                    let responseDetailDto = try moyaResponse.map(FixedMenuTableResponse.self)
+                    self.fixedMenuTableListDict[tableView.tag] = responseDetailDto.menuInfoList
                     tableView.reloadData()
                     print(responseDetailDto)
                     
