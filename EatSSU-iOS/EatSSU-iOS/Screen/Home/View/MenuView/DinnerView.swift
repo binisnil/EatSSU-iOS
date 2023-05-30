@@ -241,6 +241,7 @@ class DinnerView: BaseUIView {
         setTableViewTagNumber()
 //        getMenuTableView()
         setupTableView()
+        
     }
     
     required init?(coder: NSCoder) {
