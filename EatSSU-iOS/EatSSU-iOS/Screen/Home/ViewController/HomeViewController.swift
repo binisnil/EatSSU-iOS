@@ -8,6 +8,7 @@
 import UIKit
 
 import Pageboy
+import SnapKit
 import Tabman
 
 class HomeViewController: TabmanViewController {
@@ -21,59 +22,64 @@ class HomeViewController: TabmanViewController {
     
     let morningView = MorningView()
         
+    private let contentView = UIView()
+    public let bar = TMBar.ButtonBar()
+
     var dateSelectedField = UITextField().then {
         $0.tintColor = .clear
         $0.textColor = .darkGray
-        $0.font = .bold(size: 18)
+        $0.font = .boldSystemFont(ofSize: 18)
     }
-    
+
     let datePicker = UIDatePicker().then {
         $0.addTarget(self, action: #selector(didSelectedDate(_:)), for: .valueChanged)
     }
-        
-    public let bar = TMBar.ButtonBar()
-    var viewControllers: Array<UIViewController> = [MorningViewController(),LunchViewController(),DinnerViewController()]
 
+    var viewControllers: Array<UIViewController> = [MorningViewController(), LunchViewController(), DinnerViewController()]
+
+    let scrollView = UIScrollView().then {
+        $0.backgroundColor = .systemBackground
+        $0.showsVerticalScrollIndicator = false
+    }
     
-    // MARK: - Life Cycles
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.dataSource = self
         settingTabBar(ctBar: bar)
         addBar(bar, dataSource: self, at: .top)
-        
-        view.backgroundColor = .systemBackground
+
+        self.view.backgroundColor = .systemBackground
         setnavigation()
-        configureUI()
-        setLayout()
-        
-        createDatePicker()
-        
+        self.configureUI()
+        self.setLayout()
+
+        self.createDatePicker()
+
         // 초기 날짜 표시
-        setTodayDateLabel(with: Date())
-        
+        self.setTodayDateLabel(with: Date())
+               
     }
-    
-    //MARK: - Functions
     
     func configureUI() {
-        view.addSubview(dateSelectedField)
+        view.addSubviews(dateSelectedField)
     }
-    
+
     func setLayout() {
         dateSelectedField.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(30)
+            $0.width.equalTo(114)
+            $0.height.equalTo(20)
         }
+        
         bar.snp.makeConstraints {
-            $0.top.equalTo(dateSelectedField.snp.bottom)
-//            $0.bottom.equalTo(morningView.snp.top).inset(50)
-        }
+            $0.top.equalTo(dateSelectedField.snp.bottom).offset(3)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(50)
+       }
     }
-    
+
     func setnavigation() {
         navigationItem.titleView = UIImageView(image: UIImage(named: "TopLogo"))
         navigationController?.isNavigationBarHidden = false
@@ -102,29 +108,34 @@ class HomeViewController: TabmanViewController {
     }
     
     @objc
-    func didSelectedDate(_ sender: UIDatePicker) {
-        print(sender.date)
+    func didTappedRightBarButton() {
+        // 마이페이지 뷰로 이동
+        let nextVC = MyPageViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 
+    @objc func didSelectedDate(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "yyyy.MM.dd"
-        self.dateSelectedField.text = dateFormatter.string(from: datePicker.date)
-        self.view.endEditing(true)
+        dateSelectedField.text = dateFormatter.string(from: sender.date)
+        view.endEditing(true)
     }
-    
+
     @objc
     func didTappedRightBarButton() {
         // 마이페이지 뷰로 이동
         let nextVC = MyPageViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    
 }
+
 
 // MARK: - PageBoy Extension
 
 extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
+    
     func numberOfViewControllers(in pageboyViewController: Pageboy.PageboyViewController) -> Int {
         return viewControllers.count
     }
@@ -138,18 +149,19 @@ extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
         nil
     }
     
+    
     func barItem(for bar: Tabman.TMBar, at index: Int) -> Tabman.TMBarItemable {
-               switch index {
-               case 0:
-                   return TMBarItem(title: "아침")
-               case 1:
-                   return TMBarItem(title: "점심")
-               case 2:
-                   return TMBarItem(title: "저녁")
-               default:
-                   let title = "Page \(index)"
-                   return TMBarItem(title: title)
-               }
+        switch index {
+        case 0:
+            return TMBarItem(title: "아침")
+        case 1:
+            return TMBarItem(title: "점심")
+        case 2:
+            return TMBarItem(title: "저녁")
+        default:
+            let title = "Page \(index)"
+            return TMBarItem(title: title)
+        }
     }
     
     func settingTabBar (ctBar: TMBar.ButtonBar) {
@@ -171,24 +183,3 @@ extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
         isPreview = preview
     }
 }
-
-//extension UITextField {
-//    func setDatePicker(target: Any, selector: Selector) {
-//            let SCwidth = self.bounds.width
-//            let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: SCwidth, height: 400))
-//            datePicker.datePickerMode = .date
-//        datePicker.preferredDatePickerStyle = .inline
-//            self.inputView = datePicker
-//
-//            let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: SCwidth, height: 44.0))
-//            let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//            let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel))
-//            let barButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
-//            toolBar.setItems([cancel, flexible, barButton], animated: false)
-//            self.inputAccessoryView = toolBar
-//
-//        }
-//        @objc func tapCancel() {
-//            self.resignFirstResponder()
-//        }
-//}
