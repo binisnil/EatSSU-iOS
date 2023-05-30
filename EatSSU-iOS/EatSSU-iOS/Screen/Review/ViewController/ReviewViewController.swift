@@ -11,6 +11,8 @@ import Moya
 
 class ReviewViewController: BaseViewController {
     
+    // MARK: - Properties
+    
     let reviewProvider = MoyaProvider<ReviewRouter>()
     private var reviewList = [DataList]()
     
@@ -48,6 +50,7 @@ class ReviewViewController: BaseViewController {
         reviewTableView.dataSource = self
         getMenuReview(menuId: 35)
         getTotalReview(menuId: 35)
+        view.backgroundColor = .systemBackground
     }
     
     // MARK: - Functions

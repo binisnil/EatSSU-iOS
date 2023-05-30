@@ -32,6 +32,8 @@
 		057A0B252A22284400F10B85 /* SignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B242A22284400F10B85 /* SignResponse.swift */; };
 		057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B262A222D4A00F10B85 /* AuthRouter.swift */; };
 		057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B282A222F7E00F10B85 /* SignInRequest.swift */; };
+		057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */; };
+		057A0B2F2A25BD1800F10B85 /* SetRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2E2A25BD1800F10B85 /* SetRate.swift */; };
 		05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88329DFE42A004B9A81 /* UIStackView+.swift */; };
 		05C5EC012A0BCF2300CC6A58 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */; };
 		05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */; };
@@ -89,6 +91,8 @@
 		057A0B242A22284400F10B85 /* SignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignResponse.swift; sourceTree = "<group>"; };
 		057A0B262A222D4A00F10B85 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/AuthRouter.swift"; sourceTree = SOURCE_ROOT; };
 		057A0B282A222F7E00F10B85 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WriteReviewRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/WriteReviewRouter.swift"; sourceTree = SOURCE_ROOT; };
+		057A0B2E2A25BD1800F10B85 /* SetRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRate.swift; sourceTree = "<group>"; };
 		05A4C88329DFE42A004B9A81 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				05C5EC032A0BCFD500CC6A58 /* MyPage */,
+				057A0B2E2A25BD1800F10B85 /* SetRate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 			children = (
 				057A0AC82A1B498300F10B85 /* ReviewRouter.swift */,
 				057A0B262A222D4A00F10B85 /* AuthRouter.swift */,
+				057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -660,6 +666,7 @@
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				05EC83002A0BD40900851B55 /* NoticeTableViewCell.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
+				057A0B2F2A25BD1800F10B85 /* SetRate.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
 				057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */,
 				7B9899AA2A0B98E700D1A076 /* RestaurantMapViewController.swift in Sources */,
@@ -668,6 +675,7 @@
 				7B9899C32A154F9800D1A076 /* Config.swift in Sources */,
 				056956C729C0E350002E8CF2 /* ReviewRateView.swift in Sources */,
 				7B9899B72A0ED34300D1A076 /* MyPageViewController.swift in Sources */,
+				057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
 				0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */,
 				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,

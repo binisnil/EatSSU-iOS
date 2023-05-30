@@ -39,6 +39,7 @@ class BaseViewController: UIViewController {
         setLayout()
         setButtonEvent()
         customNavigationBar()
+        view.backgroundColor = .systemBackground
     }
     
     //MARK: - Functions
