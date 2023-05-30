@@ -6,45 +6,6 @@
 //
 
 import Foundation
-
-import Moya
-
-//enum HomeRouter {
-//    case morningMenuTable(menuId: String)
-//}
-//
-//extension HomeRouter: TargetType {
-//    var baseURL: URL {
-//        return URL (string: Config.baseURL)!
-//    }ㅔ
-//
-//    var path: String {
-//        switch self {
-//        case .morningMenuTable(let menuId):
-//            return "\(menuId)"
-//        }
-//    }
-//
-//    var method: Moya.Method {
-//        switch self {
-//        case .morningMenuTable:
-//            return .get
-//        }
-//    }
-//
-//    var task: Moya.Task {
-//        switch self {
-//        case .morningMenuTable:
-//            return .requestPlain
-//        }
-//    }
-//
-//    var headers: [String : String]? {
-//        return ["Content-Type":"application/json"]
-//    }
-//}
-
-import Foundation
 import Moya
 
 enum HomeRouter {
