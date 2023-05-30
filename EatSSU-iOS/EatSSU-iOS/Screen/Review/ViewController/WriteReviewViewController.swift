@@ -13,8 +13,9 @@ import Then
 class WriteReviewViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
-    
+    typealias handler = (SetRate) -> (Void)
     var personalRate = 0
+    var completionHadler: handler?
     private var starButtons: [UIButton] = []
     
     // MARK: - UI Components

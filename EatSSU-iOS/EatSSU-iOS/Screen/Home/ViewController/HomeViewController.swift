@@ -13,6 +13,15 @@ import Tabman
 
 class HomeViewController: TabmanViewController {
 
+    // MARK: - Properties
+    
+    let realm = RealmService()
+    var isPreview = false
+    
+    // MARK: - UI Components
+    
+    let morningView = MorningView()
+        
     private let contentView = UIView()
     public let bar = TMBar.ButtonBar()
 
@@ -73,11 +82,14 @@ class HomeViewController: TabmanViewController {
 
     func setnavigation() {
         navigationItem.titleView = UIImageView(image: UIImage(named: "TopLogo"))
-
-        let rightButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(didTappedRightBarButton))
-        rightButton.tintColor = UIColor.primary
-        navigationItem.rightBarButtonItem = rightButton
-
+        navigationController?.isNavigationBarHidden = false
+        if isPreview {
+            let rightButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(didTappedRightBarButton))
+            rightButton.tintColor = UIColor.primary
+            navigationItem.rightBarButtonItem = rightButton
+        } else {
+            navigationItem.hidesBackButton = true
+        }
     }
     
     func createDatePicker() {
@@ -165,5 +177,9 @@ extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
         ctBar.indicator.tintColor = .primary
         ctBar.indicator.overscrollBehavior = .compress
         ctBar.layout.contentMode = .fit
+        }
+    
+    func isPreviewButtonTapped(preview: Bool) {
+        isPreview = preview
     }
 }
