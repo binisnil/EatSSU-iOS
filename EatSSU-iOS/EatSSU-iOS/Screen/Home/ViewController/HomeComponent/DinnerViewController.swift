@@ -14,7 +14,7 @@ class DinnerViewController: BaseViewController {
     //MARK: - UI Components
     
     private let contentView = UIView()
-    private let morningView = MorningView()
+    private let morningView = DinnerView()
 
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .systemBackground

@@ -1,8 +1,8 @@
 //
-//  MorningView.swift
+//  LunchView.swift
 //  EatSSU-iOS
 //
-//  Created by 최지우 on 2023/03/28.
+//  Created by 최지우 on 2023/05/29.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import Moya
 import SnapKit
 import Then
 
-class MorningView: BaseUIView {
+class LunchView: BaseUIView {
     
     //MARK: - Properties
     
@@ -239,7 +239,7 @@ class MorningView: BaseUIView {
         super.init(frame: frame)
 
         setTableViewTagNumber()
-//        getMenuTableView()
+        getMenuTableView()
         setupTableView()
     }
     
@@ -307,7 +307,7 @@ class MorningView: BaseUIView {
     }
 }
 
-extension MorningView: UITableViewDataSource {
+extension LunchView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuTableListDict[tableView.tag]?.count ?? 0
     }
@@ -342,9 +342,9 @@ extension MorningView: UITableViewDataSource {
     }
 }
 
-extension MorningView: UITableViewDelegate {}
+extension LunchView: UITableViewDelegate {}
 
-extension MorningView: UISheetPresentationControllerDelegate {
+extension LunchView: UISheetPresentationControllerDelegate {
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
         //크기 변경 됐을 경우
         print(sheetPresentationController.selectedDetentIdentifier == .large ? "large" : "medium")
@@ -353,7 +353,7 @@ extension MorningView: UISheetPresentationControllerDelegate {
 
 // MARK: - Network
 
-extension MorningView {
+extension LunchView {
     
     func getMorningMenuTable(restaurant: String, tableView: UITableView) {
         self.morningTableProvider.request(.getRestaurantMenu(restaurant: restaurant)) { response in
@@ -375,3 +375,4 @@ extension MorningView {
         }
     }
 }
+
