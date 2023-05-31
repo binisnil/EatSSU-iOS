@@ -6,49 +6,14 @@
 //
 
 import Foundation
-
-import Moya
-
-//enum HomeRouter {
-//    case morningMenuTable(menuId: String)
-//}
-//
-//extension HomeRouter: TargetType {
-//    var baseURL: URL {
-//        return URL (string: Config.baseURL)!
-//    }ㅔ
-//
-//    var path: String {
-//        switch self {
-//        case .morningMenuTable(let menuId):
-//            return "\(menuId)"
-//        }
-//    }
-//
-//    var method: Moya.Method {
-//        switch self {
-//        case .morningMenuTable:
-//            return .get
-//        }
-//    }
-//
-//    var task: Moya.Task {
-//        switch self {
-//        case .morningMenuTable:
-//            return .requestPlain
-//        }
-//    }
-//
-//    var headers: [String : String]? {
-//        return ["Content-Type":"application/json"]
-//    }
-//}
-
-import Foundation
 import Moya
 
 enum HomeRouter {
-    case getRestaurantMenu(restaurant: String)
+    case getFixedRestaurantMenu(restaurant: String)
+    case getDailyMorningRestaurantMenu(date: String, restaurant: String)
+    case getDailyLunchRestaurantMenu(date: String, restaurant: String)
+    case getDailyDinnerRestaurantMenu(date: String, restaurant: String)
+    
 }
 
 extension HomeRouter: TargetType {
@@ -58,21 +23,39 @@ extension HomeRouter: TargetType {
 
     var path: String {
         switch self {
-        case .getRestaurantMenu:
+        case .getFixedRestaurantMenu:
             return "/menu"
+        case .getDailyMorningRestaurantMenu(let date, _):
+            return "/menu/\(date)/morning"
+        case .getDailyLunchRestaurantMenu(let date, _):
+            return "/menu/\(date)/lunch2"
+        case .getDailyDinnerRestaurantMenu(let date, _):
+            return "/menu/\(date)/dinner"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .getRestaurantMenu:
+        case .getFixedRestaurantMenu:
+            return .get
+        case .getDailyMorningRestaurantMenu:
+            return .get
+        case .getDailyLunchRestaurantMenu:
+            return .get
+        case .getDailyDinnerRestaurantMenu:
             return .get
         }
     }
 
     var task: Task {
         switch self {
-        case .getRestaurantMenu(let restaurant):
+        case .getFixedRestaurantMenu(let restaurant):
+            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
+        case .getDailyMorningRestaurantMenu(_, let restaurant):
+            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
+        case .getDailyLunchRestaurantMenu(_, let restaurant):
+            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
+        case .getDailyDinnerRestaurantMenu(_, let restaurant):
             return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
         }
     }
