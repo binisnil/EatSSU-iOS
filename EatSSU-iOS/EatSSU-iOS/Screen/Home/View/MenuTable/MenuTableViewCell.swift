@@ -32,19 +32,25 @@ class MenuTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+      
         contentView.addSubview(InfoTableStackView)
         
-        [nameLabel,priceLabel,ratingLabel].forEach {
-            $0.font = .medium(size: 14)
-        }
-        
+        setLabel()
         setLayout()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setLabel() {
+        nameLabel.do {
+            $0.numberOfLines = 0
+            $0.lineBreakMode = .byWordWrapping
+        }
+        [nameLabel,priceLabel,ratingLabel].forEach {
+            $0.font = .medium(size: 14)
+        }
     }
     
     func setLayout() {

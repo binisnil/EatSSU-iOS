@@ -357,12 +357,12 @@ extension DinnerView: UISheetPresentationControllerDelegate {
 extension DinnerView {
     
     func getMorningMenuTable(restaurant: String, tableView: UITableView) {
-        self.morningTableProvider.request(.getRestaurantMenu(restaurant: restaurant)) { response in
+        self.morningTableProvider.request(.getFixedRestaurantMenu(restaurant: restaurant)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
                     print(moyaResponse.statusCode)
-                    let responseDetailDto = try moyaResponse.map(MenuTableResponse.self)
+                    let responseDetailDto = try moyaResponse.map(FixedMenuTableResponse.self)
                     self.menuTableListDict[tableView.tag] = responseDetailDto.menuInfoList
                     tableView.reloadData()
                     print(responseDetailDto)

@@ -9,7 +9,8 @@ import Foundation
 import Moya
 
 enum HomeRouter {
-    case getFixedRestaurantMenu(restaurant: String) // getRestaurantMenu
+    case getFixedRestaurantMenu(restaurant: String)
+    case getDailyRestaurantMenu(date: String, restaurant: String)
 }
 
 extension HomeRouter: TargetType {
@@ -21,6 +22,8 @@ extension HomeRouter: TargetType {
         switch self {
         case .getFixedRestaurantMenu:
             return "/menu"
+        case .getDailyRestaurantMenu(let date, _):
+            return "/menu/\(date)/lunch2"
         }
     }
 
@@ -28,12 +31,16 @@ extension HomeRouter: TargetType {
         switch self {
         case .getFixedRestaurantMenu:
             return .get
+        case .getDailyRestaurantMenu:
+            return .get
         }
     }
 
     var task: Task {
         switch self {
         case .getFixedRestaurantMenu(let restaurant):
+            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
+        case .getDailyRestaurantMenu(_, let restaurant):
             return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
         }
     }
