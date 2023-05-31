@@ -1,8 +1,8 @@
 //
-//  MorningView.swift
+//  LunchView.swift
 //  EatSSU-iOS
 //
-//  Created by 최지우 on 2023/03/28.
+//  Created by 최지우 on 2023/05/29.
 //
 
 import UIKit
@@ -15,8 +15,19 @@ class MorningView: BaseUIView {
     
     //MARK: - Properties
     
-    let morningTableProvider = MoyaProvider<HomeRouter>()
-    var menuTableListDict = [Int: [MenuInfoList]]()
+    let morningMenuProvider = MoyaProvider<HomeRouter>()
+    var fixedMenuTableListDict = [Int: [MenuInfoList]]()
+    var dailyMenuTableListDict = [Int: [MenuInfoList]]()
+    let fixedMenuRestaurants: [String] = ["FOOD_COURT", "SNACK_CORNER", "THE_KITCHEN"] // 고정메뉴 레스토랑
+    let restaurantTags: [String: Int] = [
+        "DOMITORY": 1,
+        "DODAM": 2,
+        "HAKSIK": 3,
+        "FOOD_COURT": 4,
+        "SNACK_CORNER": 5,
+        "THE_KITCHEN": 6
+    ]
+  
 
     // MARK: - UI Components
     
@@ -239,8 +250,9 @@ class MorningView: BaseUIView {
         super.init(frame: frame)
 
         setTableViewTagNumber()
-//        getMenuTableView()
         setupTableView()
+        getMenuTableView()
+
     }
     
     required init?(coder: NSCoder) {
@@ -263,15 +275,13 @@ class MorningView: BaseUIView {
         
         allRestaurantStackView.snp.makeConstraints {
             $0.top.equalToSuperview()
-                        $0.centerX.equalToSuperview()
-
+            $0.centerX.equalToSuperview()
         }
         
 //        [dormitoryStackView,dodamStackView,studentStackView,foodCourtStackView,snackCornerStackView,theKitchenStackView].forEach {
 //            $0.snp.makeConstraints {
 //                $0.horizontalEdges.equalToSuperview().inset(16)
 //                            $0.centerX.equalToSuperview()
-
 //            }
 //        }
     }
@@ -286,12 +296,11 @@ class MorningView: BaseUIView {
     }
     
     func getMenuTableView() {
-        getMorningMenuTable(restaurant: "DOMITORY", tableView: dormitoryTableView)
-        getMorningMenuTable(restaurant: "DODAM", tableView: dodamTableView)
-        getMorningMenuTable(restaurant: "HAKSIK", tableView: studentTableView)
-        getMorningMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
-        getMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
-        getMorningMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
+        getDailyMorningMenuTable(date: "20230530", restaurant: "DODAM", tableView: dodamTableView)
+
+        getFixedMorningMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
+        getFixedMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
+        getFixedMorningMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
     }
     
     func setupTableView() {
@@ -305,30 +314,57 @@ class MorningView: BaseUIView {
             $0.layer.borderWidth = 1.0
         }
     }
+    
+    func restaurantNameForTag(_ tag: Int) -> String? {
+        for (key, value) in restaurantTags {
+            if value == tag {
+                return key
+            }
+        }
+        return nil
+    }
 }
 
 extension MorningView: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuTableListDict[tableView.tag]?.count ?? 0
+        if tableView.tag > 3 {
+            if let menuTableList = fixedMenuTableListDict[tableView.tag] {
+                return menuTableList.count
+            }
+        } else {
+            return dailyMenuTableListDict.count
+        }
+        return 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
         
-        if let menuTableList = menuTableListDict[tableView.tag] {
-                let cellMenu: MenuInfoList = menuTableList[indexPath.row]
-                print("cell Menu: \(cellMenu)")
-
-                cell.menuIDLabel.text = "\(cellMenu.menuId)"
-                cell.nameLabel.text = cellMenu.name
-                cell.priceLabel.text = "\(cellMenu.price)"
-                cell.ratingLabel.text = "\(cellMenu.grade)"
+        if let restaurantName = restaurantNameForTag(tableView.tag) {
+            if fixedMenuRestaurants.contains(restaurantName) {
+                if let menuTableList = fixedMenuTableListDict[tableView.tag] {
+                    let cellMenu: MenuInfoList = menuTableList[indexPath.row]
+                    
+                    cell.nameLabel.text = cellMenu.name
+                    cell.priceLabel.text = "\(cellMenu.price)"
+                    cell.ratingLabel.text = "\(cellMenu.grade ?? 0)"
+                }
+            }else{
+                if tableView.tag == 2 {
+                    if let menuTableList = dailyMenuTableListDict[indexPath.row + 1] {// Non-fixed menus
+                        let cellMenuList: [MenuInfoList] = menuTableList
+                        
+                        cell.nameLabel.text = cellMenuList.map { $0.name }.joined(separator: "+")
+                        cell.priceLabel.text = "\(cellMenuList[0].price)"
+                        cell.ratingLabel.text = "\(cellMenuList[0].grade ?? 0)"
+                    }
+                }
             }
-        
-        cell.textLabel?.font = .regular(size: 14)
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-        cell.selectionStyle = .none     // 셀 선택 비활성화
-        
+            cell.textLabel?.font = .regular(size: 14)
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+            cell.selectionStyle = .none     // 셀 선택 비활성화
+        }
         return cell
     }
     
@@ -355,17 +391,39 @@ extension MorningView: UISheetPresentationControllerDelegate {
 
 extension MorningView {
     
-    func getMorningMenuTable(restaurant: String, tableView: UITableView) {
-        self.morningTableProvider.request(.getFixedRestaurantMenu(restaurant: restaurant)) { response in
+    func getFixedMorningMenuTable(restaurant: String, tableView: UITableView) {
+        self.morningMenuProvider.request(.getFixedRestaurantMenu(restaurant: restaurant)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
                     print(moyaResponse.statusCode)
                     let responseDetailDto = try moyaResponse.map(FixedMenuTableResponse.self)
-                    self.menuTableListDict[tableView.tag] = responseDetailDto.menuInfoList
+                    self.fixedMenuTableListDict[tableView.tag] = responseDetailDto.menuInfoList
                     tableView.reloadData()
                     print(responseDetailDto)
-                    
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    func getDailyMorningMenuTable(date: String, restaurant: String, tableView: UITableView) {
+        self.morningMenuProvider.request(.getDailyMorningRestaurantMenu(date: date, restaurant: restaurant)) { response in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                    let responseDetailDto = try moyaResponse.map([DailyMenuTableResponse].self)
+                                    
+                    for menuTable in responseDetailDto {
+                        self.dailyMenuTableListDict[menuTable.flag] = menuTable.dailyMenuInfoList
+                    }
+                    DispatchQueue.main.async {
+                        tableView.reloadData()
+                    }
+                    print("responseDetailDto: \(responseDetailDto)")
                 } catch(let err) {
                     print(err.localizedDescription)
                 }
@@ -375,3 +433,4 @@ extension MorningView {
         }
     }
 }
+

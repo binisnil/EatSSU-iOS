@@ -10,7 +10,10 @@ import Moya
 
 enum HomeRouter {
     case getFixedRestaurantMenu(restaurant: String)
-    case getDailyRestaurantMenu(date: String, restaurant: String)
+    case getDailyMorningRestaurantMenu(date: String, restaurant: String)
+    case getDailyLunchRestaurantMenu(date: String, restaurant: String)
+    case getDailyDinnerRestaurantMenu(date: String, restaurant: String)
+    
 }
 
 extension HomeRouter: TargetType {
@@ -22,8 +25,12 @@ extension HomeRouter: TargetType {
         switch self {
         case .getFixedRestaurantMenu:
             return "/menu"
-        case .getDailyRestaurantMenu(let date, _):
+        case .getDailyMorningRestaurantMenu(let date, _):
+            return "/menu/\(date)/morning"
+        case .getDailyLunchRestaurantMenu(let date, _):
             return "/menu/\(date)/lunch2"
+        case .getDailyDinnerRestaurantMenu(let date, _):
+            return "/menu/\(date)/dinner"
         }
     }
 
@@ -31,7 +38,11 @@ extension HomeRouter: TargetType {
         switch self {
         case .getFixedRestaurantMenu:
             return .get
-        case .getDailyRestaurantMenu:
+        case .getDailyMorningRestaurantMenu:
+            return .get
+        case .getDailyLunchRestaurantMenu:
+            return .get
+        case .getDailyDinnerRestaurantMenu:
             return .get
         }
     }
@@ -40,7 +51,11 @@ extension HomeRouter: TargetType {
         switch self {
         case .getFixedRestaurantMenu(let restaurant):
             return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
-        case .getDailyRestaurantMenu(_, let restaurant):
+        case .getDailyMorningRestaurantMenu(_, let restaurant):
+            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
+        case .getDailyLunchRestaurantMenu(_, let restaurant):
+            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
+        case .getDailyDinnerRestaurantMenu(_, let restaurant):
             return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
         }
     }

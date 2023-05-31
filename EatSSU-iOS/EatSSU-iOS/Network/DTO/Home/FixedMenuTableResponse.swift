@@ -11,11 +11,4 @@ struct FixedMenuTableResponse: Codable {
     let menuInfoList: [MenuInfoList]?
 }
 
-//struct MenuInfoList: Codable {
-//    let menuId: Int
-//    let name: String
-//    let price: Int
-//    let grade: Double?
-//}
-
 

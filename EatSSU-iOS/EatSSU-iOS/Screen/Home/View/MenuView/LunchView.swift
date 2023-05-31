@@ -410,7 +410,7 @@ extension LunchView {
         }
     }
     func getDailyLunchMenuTable(date: String, restaurant: String, tableView: UITableView) {
-        self.lunchMenuProvider.request(.getDailyRestaurantMenu(date: date, restaurant: restaurant)) { response in
+        self.lunchMenuProvider.request(.getDailyLunchRestaurantMenu(date: date, restaurant: restaurant)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
