@@ -19,14 +19,14 @@ class LunchView: BaseUIView {
     var fixedMenuTableListDict = [Int: [MenuInfoList]]()
     var dailyMenuTableListDict = [Int: [MenuInfoList]]()
     let fixedMenuRestaurants: [String] = ["FOOD_COURT", "SNACK_CORNER", "THE_KITCHEN"] // 고정메뉴 레스토랑
-//    let restaurantTags: [String: Int] = [
-//        "DOMITORY": 1,
-//        "DODAM": 2,
-//        "HAKSIK": 3,
-//        "FOOD_COURT": 4,
-//        "SNACK_CORNER": 5,
-//        "THE_KITCHEN": 6
-//    ]
+    let restaurantTags: [String: Int] = [
+        "DOMITORY": 1,
+        "DODAM": 2,
+        "HAKSIK": 3,
+        "FOOD_COURT": 4,
+        "SNACK_CORNER": 5,
+        "THE_KITCHEN": 6
+    ]
   
 
     // MARK: - UI Components
@@ -282,7 +282,6 @@ class LunchView: BaseUIView {
 //            $0.snp.makeConstraints {
 //                $0.horizontalEdges.equalToSuperview().inset(16)
 //                            $0.centerX.equalToSuperview()
-
 //            }
 //        }
     }
@@ -316,96 +315,56 @@ class LunchView: BaseUIView {
         }
     }
     
-//    func restaurantNameForTag(_ tag: Int) -> String? {
-//        for (key, value) in restaurantTags {
-//            if value == tag {
-//                return key
-//            }
-//        }
-//        return nil
-//    }
-
+    func restaurantNameForTag(_ tag: Int) -> String? {
+        for (key, value) in restaurantTags {
+            if value == tag {
+                return key
+            }
+        }
+        return nil
+    }
 }
 
 extension LunchView: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return fixedMenuTableListDict[tableView.tag]?.count ?? 0
-//    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag > 3 {
             if let menuTableList = fixedMenuTableListDict[tableView.tag] {
                 return menuTableList.count
             }
         } else {
-            // Non-fixed menus
-            // 아래의 코드는 모든 Non-fixed 메뉴 항목들의 수를 반환합니다.
-            // 만약 당신이 한 테이블 뷰에 모든 Non-fixed 메뉴를 보여주고 싶다면 이렇게 할 수 있습니다.
-//            var totalCount = 0
-//            for (_, menuTableList) in dailyMenuTableListDict {
-//                totalCount += menuTableList.flag
-//            }
-            print("totalCount: \(dailyMenuTableListDict.count)")
             return dailyMenuTableListDict.count
         }
         return 0
     }
 
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
         
-        print("tag: \(tableView.tag)")
-        print("dailyMenuTableListDict: \(dailyMenuTableListDict)")
-
-
-        // Use the tableView's tag to find restaurant name from the dictionary.
-//        if let restaurantName = restaurantNameForTag(tableView.tag) {
-//            print("restaurantName: \(restaurantName)")
-//
-//            // Check if this restaurant has fixed menus.
-//            if fixedMenuRestaurants.contains(restaurantName) {
-        if tableView.tag > 3  {
+        if let restaurantName = restaurantNameForTag(tableView.tag) {
+            if fixedMenuRestaurants.contains(restaurantName) {
                 if let menuTableList = fixedMenuTableListDict[tableView.tag] {
                     let cellMenu: MenuInfoList = menuTableList[indexPath.row]
-                    print("cell Menu: \(cellMenu)")
                     
-                    //                        cell.menuIDLabel.text = "\(cellMenu.menuId)"
                     cell.nameLabel.text = cellMenu.name
                     cell.priceLabel.text = "\(cellMenu.price)"
                     cell.ratingLabel.text = "\(cellMenu.grade ?? 0)"
                 }
-        }else if tableView.tag == 2 {
-            if let menuTableList = dailyMenuTableListDict[indexPath.row + 1] {// Non-fixed menus
-                print("dailyMenuTableListDictt: \(menuTableList)")
-                
-                
-                //            if let menuTableList = dailyMenuTableListDict[indexPath.row + 1] {
-                let cellMenuList: [MenuInfoList] = menuTableList
-                print("cell Menu: \(cellMenuList)")
-                
-                cell.nameLabel.text = cellMenuList.map { $0.name }.joined(separator: "+")
-                cell.priceLabel.text = "\(cellMenuList[0].price)"
-                cell.ratingLabel.text = "\(cellMenuList[0].grade ?? 0)"
+            }else{
+                if tableView.tag == 2 {
+                    if let menuTableList = dailyMenuTableListDict[indexPath.row + 1] {// Non-fixed menus
+                        let cellMenuList: [MenuInfoList] = menuTableList
+                        
+                        cell.nameLabel.text = cellMenuList.map { $0.name }.joined(separator: "+")
+                        cell.priceLabel.text = "\(cellMenuList[0].price)"
+                        cell.ratingLabel.text = "\(cellMenuList[0].grade ?? 0)"
+                    }
+                }
             }
+            cell.textLabel?.font = .regular(size: 14)
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+            cell.selectionStyle = .none     // 셀 선택 비활성화
         }
-        
-//            return cell
-//        ///
-//
-//        if let menuTableList = fixedMenuTableListDict[tableView.tag] {
-//                let cellMenu: MenuInfoList = menuTableList[indexPath.row]
-//                print("cell Menu: \(cellMenu)")
-//
-//                cell.menuIDLabel.text = "\(cellMenu.menuId)"
-//                cell.nameLabel.text = cellMenu.name
-//                cell.priceLabel.text = "\(cellMenu.price)"
-//                cell.ratingLabel.text = "\(cellMenu.grade)"
-            
-        
-        cell.textLabel?.font = .regular(size: 14)
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-        cell.selectionStyle = .none     // 셀 선택 비활성화
-        
         return cell
     }
     
@@ -461,13 +420,9 @@ extension LunchView {
                     for menuTable in responseDetailDto {
                         self.dailyMenuTableListDict[menuTable.flag] = menuTable.dailyMenuInfoList
                     }
-//                    print("menuTable.dailyMenuInfoList: \(self.dailyMenuTableListDict[1])")
-
-                    tableView.reloadData()
-                    
-//                    DispatchQueue.main.async {
-//                        tableView.reloadData()
-//                    }
+                    DispatchQueue.main.async {
+                        tableView.reloadData()
+                    }
                     print("responseDetailDto: \(responseDetailDto)")
                 } catch(let err) {
                     print(err.localizedDescription)

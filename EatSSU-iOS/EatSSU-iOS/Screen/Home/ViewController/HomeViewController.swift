@@ -21,6 +21,7 @@ class HomeViewController: TabmanViewController {
     // MARK: - UI Components
     
     let morningView = MorningView()
+    let lunchView = LunchView()
         
     private let contentView = UIView()
     public let bar = TMBar.ButtonBar()
@@ -114,13 +115,18 @@ class HomeViewController: TabmanViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
+    // FIXME: date 전달
     @objc func didSelectedDate(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "yyyy.MM.dd"
         dateSelectedField.text = dateFormatter.string(from: sender.date)
+//        dateFormatter.dateFormat = "yyyyMMdd"
+//        let dailyDate = dateFormatter.string(from: sender.date)
         view.endEditing(true)
+        
+//        lunchView.getDailyLunchMenuTable(date: dailyDate, restaurant: "DODAM", tableView: lunchView.dodamTableView)
     }
 }
 
