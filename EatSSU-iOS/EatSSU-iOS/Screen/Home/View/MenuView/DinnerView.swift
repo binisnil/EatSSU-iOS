@@ -297,10 +297,6 @@ class DinnerView: BaseUIView {
     
     func getMenuTableView() {
         getDailyDinnerMenuTable(date: "20230530", restaurant: "DODAM", tableView: dodamTableView)
-
-        getFixedDinnerMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
-        getFixedDinnerMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
-        getFixedDinnerMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
     }
     
     func setupTableView() {

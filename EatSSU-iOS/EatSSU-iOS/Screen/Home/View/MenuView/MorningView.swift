@@ -297,10 +297,6 @@ class MorningView: BaseUIView {
     
     func getMenuTableView() {
         getDailyMorningMenuTable(date: "20230530", restaurant: "DODAM", tableView: dodamTableView)
-
-        getFixedMorningMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
-        getFixedMorningMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
-        getFixedMorningMenuTable(restaurant: "THE_KITCHEN", tableView: theKitchenTableView)
     }
     
     func setupTableView() {
