@@ -15,6 +15,7 @@ class SetRateViewController: BaseViewController {
     
     private var bottomTagView = BottomTagView()
     private var rateView = RateView()
+    private var tag: [String] = []
     private var selectedButtonCount = 0
     
     // MARK: - UI Components
@@ -124,9 +125,26 @@ class SetRateViewController: BaseViewController {
     @objc
     func tappedNextButton() {
         if (selectedButtonCount != 0) && (rateView.currentStar != 0) {
-            let nextVC = WriteReviewViewController()
-            nextVC.personalRate = rateView.currentStar
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            
+            ///눌려있는 tag 찾아주기
+            [bottomTagView.tag1,
+             bottomTagView.tag2,
+             bottomTagView.tag3,
+             bottomTagView.tag4,
+             bottomTagView.tag5,
+             bottomTagView.tag6,
+             bottomTagView.tag7,
+             bottomTagView.tag8,
+             bottomTagView.tag9,
+             bottomTagView.tag10].forEach {
+                if $0.layer.borderColor == UIColor.primary.cgColor {
+                    tag.append($0.titleLabel?.text ?? "")
+                }
+            }
+            let writeReviewVC = WriteReviewViewController()
+            writeReviewVC.personalRate = rateView.currentStar
+            writeReviewVC.getGradeTag(grade: rateView.currentStar, tag: tag)
+            self.navigationController?.pushViewController(writeReviewVC, animated: true)
         }
     }
     

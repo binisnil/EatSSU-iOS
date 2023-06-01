@@ -168,10 +168,6 @@ class ReviewRateView: BaseUIView {
         return UIImage(named: "starEmpty.svg")
     }()
     
-    var starNumber: Int = 5 {
-        didSet { setStarButtons() }
-    }
-    
     let addReviewButton: UIButton = {
         let button = UIButton()
         button.setTitle("리뷰 작성하기", for: .normal)
@@ -318,7 +314,8 @@ extension ReviewRateView {
     func dataBind(menuName: String, reviewCount: Int, totalGrade: Double, fiveCnt: Int, fourCnt: Int, threeCnt: Int, twoCnt: Int, oneCnt: Int) {
         menuLabel.text = menuName
         totalReviewCount.text = "\(reviewCount)"
-        rateNumLabel.text = "\(totalGrade)"
+        let total = String(format: "%.1f", totalGrade)
+        rateNumLabel.text = "\(total)"
         totalRate = totalGrade
         fiveChartBar.snp.makeConstraints {
             $0.width.equalTo(126/reviewCount*fiveCnt)
