@@ -276,7 +276,7 @@ extension WriteReviewViewController {
         let reviewContent = ReviewContent.init(grade: grade, reviewTags: reviewTag, content: content)
         let param = WriteReviewRequest.init(reviewCreate: reviewContent, multipartFileList: [imageData])
         
-        self.writeReviewProvider.request(.writeReview(param: param)) { response in
+        self.writeReviewProvider.request(.writeReview(param: param, menuId: menuId)) { response in
             switch response {
             case.success(let moyaResponse):
                 do {

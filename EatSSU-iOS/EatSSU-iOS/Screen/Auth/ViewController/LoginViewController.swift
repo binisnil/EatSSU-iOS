@@ -105,6 +105,7 @@ class LoginViewController: BaseViewController {
         appleLoginRequest()
     }
     
+    /// 요청으로 얻을 수 있는 값들: 이름, 이메일로 설정
     private func appleLoginRequest() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()

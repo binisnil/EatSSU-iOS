@@ -37,6 +37,8 @@ extension WriteReviewRouter: TargetType, AccessTokenAuthorizable {
         switch self {
         case.writeReview(param: let param, menuId: _):
             var multipartFormDatas: [MultipartFormData] = []
+            if param.multipartFileList != nil {
+                
             multipartFormDatas.append(MultipartFormData(provider: .data("\(param.reviewCreate.grade)".data(using: .utf8) ?? Data()),
                                                         name: "grade",
                                                         mimeType: "application/json"))
@@ -52,12 +54,13 @@ extension WriteReviewRouter: TargetType, AccessTokenAuthorizable {
             if let multipartFileList = param.multipartFileList {
                 for image in multipartFileList {
                         multipartFormDatas.append(MultipartFormData(provider: .data(image),
-                                                                    name: "image",
+                                                                    name: "multipartFileList",
                                                                     fileName: "userImage.jpeg",
                                                                     mimeType: "image/jpeg"))
                     }
+            }
                 return .uploadMultipart(multipartFormDatas)
-            } else {
+        } else {
                 return .requestJSONEncodable(param)
             }
         }
