@@ -13,28 +13,32 @@ extension UIColor {
         return UIColor(hex: "#9D9D9D")
     }
     
-    static var mediumGray: UIColor {
-        return UIColor(hex: "#D9D9D9")
-    }
-    
-    static var lightGray: UIColor {
+    static var gray100: UIColor {
         return UIColor(hex: "#F5F5F5")
     }
-
-    static var barGray: UIColor {
+    
+    static var gray300: UIColor {
         return UIColor(hex: "#D9D9D9")
     }
     
-    static var buttonGray: UIColor {
-        return UIColor(hex: "#F4F4F4")
-    }    
+    static var gray500: UIColor {
+        return UIColor(hex: "#D9D9D9")
+    }
+    
+    static var gray700: UIColor {
+        return UIColor(hex: "#565656")
+    }
     
     static var backgroundGray: UIColor {
         return UIColor(hex: "#F9F9F9")
     }
-
-    static var blackGray: UIColor {
-        return UIColor(hex: "#565656")
+    
+    static var buttonGray: UIColor {
+        return UIColor(hex: "#D5D7D9")
+    }
+    
+    static var customBlue: UIColor {
+        return UIColor(hex: "#243AFF")
     }
     
     static var tableGray: UIColor {

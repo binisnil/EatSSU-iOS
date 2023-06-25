@@ -111,7 +111,7 @@ class LoginView: BaseUIView {
     }
     
     private let lineView = UIView().then {
-        $0.backgroundColor = .mediumGray
+        $0.backgroundColor = .gray300
     }
     
     private lazy var userInfoStackView: UIStackView = {

@@ -301,7 +301,7 @@ class MorningView: BaseUIView {
             $0.dataSource = self
             $0.separatorStyle = .none
             
-            $0.layer.borderColor = UIColor.barGray.cgColor
+            $0.layer.borderColor = UIColor.gray300.cgColor
             $0.layer.borderWidth = 1.0
         }
     }

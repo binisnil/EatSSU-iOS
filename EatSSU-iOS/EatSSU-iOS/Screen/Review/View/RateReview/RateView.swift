@@ -13,7 +13,7 @@ class RateView: BaseUIView {
     
     // MARK: - Properties
     
-    private var buttons: [UIButton] = []
+    var buttons: [UIButton] = []
     var currentStar: Int = 0
     var starNumber: Int = 5 {
         didSet { bind() } /// 초기화할 별의 개수 (button의 개수)

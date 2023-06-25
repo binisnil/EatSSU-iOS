@@ -65,7 +65,7 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
         let label = UILabel()
         label.text = "최대 150자"
         label.font = .medium(size: 12)
-        label.textColor = .mediumGray
+        label.textColor = .gray300
         return label
     }()
     
@@ -96,7 +96,7 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
     private let deleteMethodLabel = UILabel().then {
         $0.text = "이미지 클릭 시, 삭제됩니다"
         $0.font = .medium(size: 12)
-        $0.textColor = .mediumGray
+        $0.textColor = .gray300
     }
     
     // MARK: - Life Cycles

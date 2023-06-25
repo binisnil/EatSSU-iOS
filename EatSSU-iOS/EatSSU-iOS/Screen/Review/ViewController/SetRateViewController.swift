@@ -8,15 +8,15 @@
 import UIKit
 
 import SnapKit
+import Then
 
 class SetRateViewController: BaseViewController {
     
     // MARK: - Properties
     
-    private var bottomTagView = BottomTagView()
     private var rateView = RateView()
-    private var tag: [String] = []
-    private var selectedButtonCount = 0
+    private var tasteRateView = RateView()
+    private var quantityRateView = RateView()
     
     // MARK: - UI Components
 
@@ -36,19 +36,74 @@ class SetRateViewController: BaseViewController {
     
     private var menuLabel: UILabel = {
         let label = UILabel()
-        label.text = "김치볶음밥 & 계란국을 평가해주세요"
+        label.text = "김치볶음밥 & 계란국을 추천하시겠어요?"
         label.font = .bold(size: 20)
         label.textColor = .black
         return label
     }()
     
-    private let introLabel: UILabel = {
+    private var detailLabel: UILabel = {
         let label = UILabel()
-        label.text = "식사는 맛있게 하셨나요?"
-        label.font = .medium(size: 18)
-        label.textColor = .darkGray
+        label.text = "해당 메뉴에 대한 상세한 평가를 남겨주세요."
+        label.font = .medium(size: 16)
+        label.textColor = .gray700
         return label
     }()
+    
+    private var tasteLabel: UILabel = {
+        let label = UILabel()
+        label.text = "맛"
+        label.font = .bold(size: 20)
+        label.textColor = .black
+        return label
+    }()
+    
+    private var quantityLabel: UILabel = {
+        let label = UILabel()
+        label.text = "양"
+        label.font = .bold(size: 20)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var tasteStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 65
+        $0.alignment = .center
+    }
+    
+    lazy var quantityStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 65
+        $0.alignment = .center
+    }
+    
+    lazy var detailRateStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 20
+        $0.alignment = .center
+    }
+    
+    private let userReviewTextView: UITextView = {
+        let textView = UITextView()
+        textView.font = .medium(size: 16)
+        textView.layer.cornerRadius = 10
+        textView.backgroundColor = .backgroundGray
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.darkGray.cgColor
+        textView.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
+        return textView
+    }()
+    
+    private let maximumWordLabel: UILabel = {
+        let label = UILabel()
+        label.text = "최대 300자"
+        label.font = .medium(size: 12)
+        label.textColor = .gray700
+        return label
+    }()
+    
+    
     
     private var nextButton: UIButton = {
         let button = UIButton()
@@ -64,55 +119,69 @@ class SetRateViewController: BaseViewController {
     
     override func configureUI() {
         view.addSubviews(rateView,
-                         bottomTagView,
                          menuLabel,
-                         introLabel,
-                         nextButton)
+                         nextButton,
+                         tasteLabel,
+                         quantityLabel,
+                         detailRateStackView,
+                         userReviewTextView,
+                         maximumWordLabel)
+        
+        tasteStackView.addArrangedSubviews([tasteLabel,tasteRateView])
+        quantityStackView.addArrangedSubviews([quantityLabel,quantityRateView])
+        detailRateStackView.addArrangedSubviews([detailLabel, tasteStackView, quantityStackView])
     }
     
     override func setLayout() {
-        introLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(125)
-            make.centerX.equalToSuperview()
-        }
-        
         menuLabel.snp.makeConstraints { make in
-            make.top.equalTo(introLabel.snp.bottom).offset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(20)
             make.centerX.equalToSuperview()
         }
         
         rateView.snp.makeConstraints { make in
-            make.top.equalTo(menuLabel.snp.bottom).offset(25)
+            make.top.equalTo(menuLabel.snp.bottom).offset(17)
             make.centerX.equalToSuperview()
         }
         
-        bottomTagView.snp.makeConstraints { make in
-            make.top.equalTo(rateView.snp.bottom).offset(60)
-            make.centerX.equalToSuperview()
+        detailRateStackView.snp.makeConstraints { make in
+            make.top.equalTo(rateView.snp.bottom).offset(35)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
         
         nextButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(-68)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).inset(27)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(40)
+        }
+        
+        for i in 0...4 {
+            tasteRateView.buttons[i].snp.makeConstraints { make in
+                make.height.equalTo(28)
+                make.width.equalTo(29.3)
+            }
+            
+            quantityRateView.buttons[i].snp.makeConstraints { make in
+                make.height.equalTo(28)
+                make.width.equalTo(29.3)
+            }
+        }
+        
+        userReviewTextView.snp.makeConstraints { make in
+            make.top.equalTo(detailRateStackView.snp.bottom).offset(40)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(181)
+        }
+        
+        maximumWordLabel.snp.makeConstraints { make in
+            make.top.equalTo(userReviewTextView.snp.bottom).offset(7)
+            make.trailing.equalTo(userReviewTextView)
         }
     }
     
     override func setButtonEvent() {
         nextButton.addTarget(self, action: #selector(tappedNextButton), for: .touchUpInside)
-        [bottomTagView.tag1,
-         bottomTagView.tag2,
-         bottomTagView.tag3,
-         bottomTagView.tag4,
-         bottomTagView.tag5,
-         bottomTagView.tag6,
-         bottomTagView.tag7,
-         bottomTagView.tag8,
-         bottomTagView.tag9,
-         bottomTagView.tag10].forEach {
-            $0.addTarget(self, action: #selector(tappedTagButton), for: .touchUpInside)
-        }
     }
     
     override func customNavigationBar() {
@@ -124,42 +193,6 @@ class SetRateViewController: BaseViewController {
     
     @objc
     func tappedNextButton() {
-        if (selectedButtonCount != 0) && (rateView.currentStar != 0) {
-            
-            ///눌려있는 tag 찾아주기
-            [bottomTagView.tag1,
-             bottomTagView.tag2,
-             bottomTagView.tag3,
-             bottomTagView.tag4,
-             bottomTagView.tag5,
-             bottomTagView.tag6,
-             bottomTagView.tag7,
-             bottomTagView.tag8,
-             bottomTagView.tag9,
-             bottomTagView.tag10].forEach {
-                if $0.layer.borderColor == UIColor.primary.cgColor {
-                    tag.append($0.titleLabel?.text ?? "")
-                }
-            }
-            let writeReviewVC = WriteReviewViewController()
-            writeReviewVC.personalRate = rateView.currentStar
-            writeReviewVC.getGradeTag(grade: rateView.currentStar, tag: tag)
-            self.navigationController?.pushViewController(writeReviewVC, animated: true)
-        }
-    }
-    
-    @objc
-    private func tappedTagButton(_ sender: UIButton) {
-        if sender.layer.borderColor == UIColor.black.cgColor {
-            if selectedButtonCount < 3 {
-                sender.layer.borderColor = UIColor.primary.cgColor
-                sender.layer.borderWidth = 1.5
-                selectedButtonCount += 1
-            }
-        } else {
-            selectedButtonCount -= 1
-            sender.layer.borderColor = UIColor.black.cgColor
-            sender.layer.borderWidth = 0.5
-        }
+
     }
 }
