@@ -296,7 +296,9 @@ class LunchView: BaseUIView {
     }
     
     func getMenuTableView() {
-        getDailyLunchMenuTable(date: "20230530", restaurant: "DODAM", tableView: dodamTableView)
+        getDailyLunchMenuTable(date: "20230531", restaurant: "DOMITORY", tableView: dormitoryTableView)
+        getDailyLunchMenuTable(date: "20230531", restaurant: "DODAM", tableView: dodamTableView)
+        getDailyLunchMenuTable(date: "20230531", restaurant: "HAKSIK", tableView: studentTableView)
 
         getFixedLunchMenuTable(restaurant: "FOOD_COURT", tableView: foodCourtTableView)
         getFixedLunchMenuTable(restaurant: "SNACK_CORNER", tableView: snackCornerTableView)
@@ -350,14 +352,23 @@ extension LunchView: UITableViewDataSource {
                     cell.priceLabel.text = "\(cellMenu.price)"
                     cell.ratingLabel.text = "\(cellMenu.grade ?? 0)"
                 }
-            }else{
-                if tableView.tag == 2 {
-                    if let menuTableList = dailyMenuTableListDict[indexPath.row + 1] {// Non-fixed menus
-                        let cellMenuList: [MenuInfoList] = menuTableList
+            } else{
+                if tableView.tag < 4 {
+                    //                    if let menuTableList = dailyMenuTableListDict[indexPath.row + 1] {// Non-fixed menus
+                    //                        let cellMenuList: [MenuInfoList] = menuTableList
+                    //
+                    //                        cell.nameLabel.text = cellMenuList.map { $0.name }.joined(separator: "+")
+                    //                        cell.priceLabel.text = "\(cellMenuList[0].price)"
+                    //                        cell.ratingLabel.text = "\(cellMenuList[0].grade ?? 0)"
+                    //                    }
+                    if let menuTableList = dailyMenuTableListDict[tableView.tag] {
+                        let cellMenu: MenuInfoList = menuTableList[indexPath.row + 1]
                         
-                        cell.nameLabel.text = cellMenuList.map { $0.name }.joined(separator: "+")
-                        cell.priceLabel.text = "\(cellMenuList[0].price)"
-                        cell.ratingLabel.text = "\(cellMenuList[0].grade ?? 0)"
+                        cell.nameLabel.text = cellMenu.name
+                        cell.priceLabel.text = "\(cellMenu.price)"
+                        cell.ratingLabel.text = "\(cellMenu.grade ?? 0)"
+                        //                    }
+                        
                     }
                 }
             }
@@ -409,6 +420,29 @@ extension LunchView {
             }
         }
     }
+//    func getDailyLunchMenuTable(date: String, restaurant: String, tableView: UITableView) {
+//        self.lunchMenuProvider.request(.getDailyLunchRestaurantMenu(date: date, restaurant: restaurant)) { response in
+//            switch response {
+//            case .success(let moyaResponse):
+//                do {
+//                    print(moyaResponse.statusCode)
+//                    let responseDetailDto = try moyaResponse.map([DailyMenuTableResponse].self)
+//
+//                    for menuTable in responseDetailDto {
+//                        self.dailyMenuTableListDict[menuTable.flag] = menuTable.dailyMenuInfoList
+//                    }
+//                    DispatchQueue.main.async {
+//                        tableView.reloadData()
+//                    }
+//                    print("responseDetailDto: \(responseDetailDto)")
+//                } catch(let err) {
+//                    print(err.localizedDescription)
+//                }
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+//    }
     func getDailyLunchMenuTable(date: String, restaurant: String, tableView: UITableView) {
         self.lunchMenuProvider.request(.getDailyLunchRestaurantMenu(date: date, restaurant: restaurant)) { response in
             switch response {
@@ -416,10 +450,22 @@ extension LunchView {
                 do {
                     print(moyaResponse.statusCode)
                     let responseDetailDto = try moyaResponse.map([DailyMenuTableResponse].self)
-                                    
+
+                    var aggregatedMenuList: [MenuInfoList] = []
                     for menuTable in responseDetailDto {
-                        self.dailyMenuTableListDict[menuTable.flag] = menuTable.dailyMenuInfoList
+                        // Aggregate menus with the same flag
+                        let menusByFlag = Dictionary(grouping: menuTable.dailyMenuInfoList, by: { $0.flag })
+
+                        // Transform each group into a single MenuInfoList
+                        let aggregatedMenus = menusByFlag.map { (flag, menus) -> MenuInfoList in
+                            let names = menus.map { $0.name }.joined(separator: "+")
+                            let price = menus.first?.price ?? 0
+                            let grade = menus.first?.grade ?? 0
+                            return MenuInfoList(menuId: flag, name: names, price: price, grade: grade)
+                        }
+                        aggregatedMenuList.append(contentsOf: aggregatedMenus)
                     }
+                    self.dailyMenuTableListDict[tableView.tag] = aggregatedMenuList
                     DispatchQueue.main.async {
                         tableView.reloadData()
                     }
@@ -432,5 +478,7 @@ extension LunchView {
             }
         }
     }
+
+
 }
 
