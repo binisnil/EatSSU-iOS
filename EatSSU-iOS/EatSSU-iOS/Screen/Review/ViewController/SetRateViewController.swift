@@ -88,7 +88,7 @@ class SetRateViewController: BaseViewController {
         let textView = UITextView()
         textView.font = .medium(size: 16)
         textView.layer.cornerRadius = 10
-        textView.backgroundColor = .backgroundGray
+        textView.backgroundColor = .background
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.darkGray.cgColor
         textView.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)

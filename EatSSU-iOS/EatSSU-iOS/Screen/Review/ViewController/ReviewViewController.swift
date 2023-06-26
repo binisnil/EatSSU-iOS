@@ -22,7 +22,7 @@ class ReviewViewController: BaseViewController {
     
     private let progressView: UIView = {
         let view = UIView()
-        view.backgroundColor = .backgroundGray
+        view.backgroundColor = .background
         return view
     }()
     
