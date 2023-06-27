@@ -5,7 +5,6 @@
 //  Created by 박윤빈 on 2023/05/24.
 //
 
-import Foundation
 import UIKit
 
 struct WriteReviewRequest: Codable {
