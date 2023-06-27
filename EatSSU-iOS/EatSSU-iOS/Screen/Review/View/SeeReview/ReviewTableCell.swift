@@ -14,8 +14,8 @@ class ReviewTableCell: UITableViewCell {
     // MARK: - Properties
     
     static let identifier = "ReviewTableCell"
-    private var personalRate = 4 ///dummy Data
-    private var starButtons: [UIButton] = []
+    private lazy var personalRate = 4 ///dummy Data
+    var starButtons: [UIButton] = []
     
     // MARK: - UI Components
     
@@ -60,7 +60,7 @@ class ReviewTableCell: UITableViewCell {
     private var sideButton: UIButton = {
         let button = UIButton()
         button.setTitle("신고하기", for: .normal)
-        button.setTitleColor(.mediumGray, for: .normal)
+        button.setTitleColor(.gray300, for: .normal)
         button.titleLabel?.font = .regular(size: 14)
         return button
     }()
@@ -177,7 +177,7 @@ class ReviewTableCell: UITableViewCell {
         self.contentView.addSubview(self.sideButton)
         self.contentView.addSubview(self.contentStackView)
         setLayout()
-        setStarButtons()
+//        setStarButtons()
     }
     
     required init?(coder: NSCoder) {
@@ -220,28 +220,30 @@ class ReviewTableCell: UITableViewCell {
     }
     
     func setStarButtons() {
-        for i in 0...personalRate - 1 {
-            let button = UIButton()
-            button.setImage(starFillImage, for: .normal)
-            button.snp.makeConstraints { make in
-                make.height.equalTo(11.19)
-                make.width.equalTo(11.71)
+        if starStackView.subviews.count < 5 {
+            for i in 0...personalRate - 1 {
+                let button = UIButton()
+                button.setImage(starFillImage, for: .normal)
+                button.snp.makeConstraints { make in
+                    make.height.equalTo(11.19)
+                    make.width.equalTo(11.71)
+                }
+                button.tag = i
+                starButtons += [button]
+                starStackView.addArrangedSubview(button)
             }
-            button.tag = i
-            starButtons += [button]
-            starStackView.addArrangedSubview(button)
-        }
-        
-        for i in personalRate..<5 {
-            let button = UIButton()
-            button.setImage(starEmptyImage, for: .normal)
-            button.snp.makeConstraints { make in
-                make.height.equalTo(11.19)
-                make.width.equalTo(11.71)
+            
+            for i in personalRate..<5 {
+                let button = UIButton()
+                button.setImage(starEmptyImage, for: .normal)
+                button.snp.makeConstraints { make in
+                    make.height.equalTo(11.19)
+                    make.width.equalTo(11.71)
+                }
+                button.tag = i
+                starButtons += [button]
+                starStackView.addArrangedSubview(button)
             }
-            button.tag = i
-            starButtons += [button]
-            starStackView.addArrangedSubview(button)
         }
     }
 }
@@ -249,9 +251,10 @@ class ReviewTableCell: UITableViewCell {
 // FIXME: - ImageURL 하나만 오도록 수정되면 고쳐주기
 
 extension ReviewTableCell {
-    func dataBind(nickname: String, grade: Int, date: String, tagList: [String]) {
+    func dataBind(nickname: String, grade: Int, content: String, date: String, tagList: [String]) {
         userNameLabel.text = nickname
         personalRate = grade
+        reviewTextView.text = content
         dateLabel.text = date
         switch tagList.count {
         case 1:

@@ -9,14 +9,18 @@ import UIKit
 
 import SnapKit
 import Then
+import Moya
 
 class WriteReviewViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
-    typealias handler = (SetRate) -> (Void)
+
     var personalRate = 0
-    var completionHadler: handler?
+    var grade: Int = 0
+    var tag: [String] = []
+    var isPhotoExist: Bool = false
     private var starButtons: [UIButton] = []
+    let writeReviewProvider = MoyaProvider<WriteReviewRouter>(plugins: [MoyaLoggingPlugin()])
     
     // MARK: - UI Components
 
@@ -50,7 +54,7 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
         let textView = UITextView()
         textView.font = .medium(size: 16)
         textView.layer.cornerRadius = 10
-        textView.backgroundColor = .backgroundGray
+        textView.backgroundColor = .background
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.darkGray.cgColor
         textView.textContainerInset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
@@ -61,7 +65,7 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
         let label = UILabel()
         label.text = "최대 150자"
         label.font = .medium(size: 12)
-        label.textColor = .mediumGray
+        label.textColor = .gray300
         return label
     }()
     
@@ -92,7 +96,7 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
     private let deleteMethodLabel = UILabel().then {
         $0.text = "이미지 클릭 시, 삭제됩니다"
         $0.font = .medium(size: 12)
-        $0.textColor = .mediumGray
+        $0.textColor = .gray300
     }
     
     // MARK: - Life Cycles
@@ -224,8 +228,15 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
     
     @objc
     func userTappedNextButton() {
-        if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
-            self.navigationController?.popToViewController(reviewViewController, animated: true)
+        if userReviewTextView.text != "" {
+            postWriteReviewRequest(menuId: 35,
+                                   grade: grade,
+                                   reviewTag: ["GOOD"],
+                                   content: userReviewTextView.text,
+                                   image: userReviewImageView.image ?? UIImage())
+            if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
+                self.navigationController?.popToViewController(reviewViewController, animated: true)
+            }
         }
     }
     
@@ -238,6 +249,11 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
     func didTappedimageView() {
         userReviewImageView.image = nil // 이미지 삭제
     }
+    
+    func getGradeTag(grade: Int, tag: [String]) {
+        self.grade = grade
+        self.tag = tag
+    }
 }
 
 extension WriteReviewViewController: UITextViewDelegate {
@@ -248,5 +264,27 @@ extension WriteReviewViewController: UITextViewDelegate {
           return false
         }
         return true
+    }
+}
+
+// MARK: - Server
+
+extension WriteReviewViewController {
+    
+    func postWriteReviewRequest(menuId: Int, grade: Int, reviewTag:[String], content: String, image: UIImage) {
+        let imageData = image.jpegData(compressionQuality: 0.5) ?? Data()
+        let reviewContent = ReviewContent.init(grade: grade, reviewTags: reviewTag, content: content)
+        let param = WriteReviewRequest.init(reviewCreate: reviewContent, multipartFileList: [imageData])
+        
+        self.writeReviewProvider.request(.writeReview(param: param, menuId: menuId)) { response in
+            switch response {
+            case.success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
     }
 }

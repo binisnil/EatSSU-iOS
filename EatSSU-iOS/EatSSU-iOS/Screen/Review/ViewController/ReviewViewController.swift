@@ -22,7 +22,7 @@ class ReviewViewController: BaseViewController {
     
     private let progressView: UIView = {
         let view = UIView()
-        view.backgroundColor = .backgroundGray
+        view.backgroundColor = .background
         return view
     }()
     
@@ -113,8 +113,10 @@ extension ReviewViewController: UITableViewDataSource {
         let cellReview: DataList = reviewList[indexPath.row]
         cell.dataBind(nickname: cellReview.writerNickname,
                       grade: cellReview.grade,
+                      content: cellReview.content,
                       date: cellReview.writeDate,
                       tagList: cellReview.tagList)
+        cell.setStarButtons()
         cell.selectionStyle = .none
         return cell
     }
@@ -160,8 +162,7 @@ extension ReviewViewController {
                     let responseData = try moyaResponse.map(MenuReviewResponse.self)
                     self.reviewList = responseData.dataList ?? []
                     self.reviewTableView.reloadData()
-                    print(responseData)
-                    
+//                    print(responseData)
                 } catch(let err) {
                     print(err.localizedDescription)
                 }

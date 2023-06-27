@@ -18,7 +18,6 @@
 		056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956C829C0E51F002E8CF2 /* BaseUIView.swift */; };
 		056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956FC29CB7958002E8CF2 /* ReviewTableCell.swift */; };
 		056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056956FE29CB81E2002E8CF2 /* SetRateViewController.swift */; };
-		0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570229CB83A1002E8CF2 /* BottomTagView.swift */; };
 		0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570929CCBC41002E8CF2 /* RateView.swift */; };
 		0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */; };
 		057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */; };
@@ -33,7 +32,7 @@
 		057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B262A222D4A00F10B85 /* AuthRouter.swift */; };
 		057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B282A222F7E00F10B85 /* SignInRequest.swift */; };
 		057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */; };
-		057A0B2F2A25BD1800F10B85 /* SetRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2E2A25BD1800F10B85 /* SetRate.swift */; };
+		057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */; };
 		05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88329DFE42A004B9A81 /* UIStackView+.swift */; };
 		05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
@@ -82,7 +81,6 @@
 		056956C829C0E51F002E8CF2 /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
 		056956FC29CB7958002E8CF2 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		056956FE29CB81E2002E8CF2 /* SetRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRateViewController.swift; sourceTree = "<group>"; };
-		0569570229CB83A1002E8CF2 /* BottomTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTagView.swift; sourceTree = "<group>"; };
 		0569570929CCBC41002E8CF2 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalReviewResponse.swift; sourceTree = "<group>"; };
@@ -95,7 +93,7 @@
 		057A0B262A222D4A00F10B85 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/AuthRouter.swift"; sourceTree = SOURCE_ROOT; };
 		057A0B282A222F7E00F10B85 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WriteReviewRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/WriteReviewRouter.swift"; sourceTree = SOURCE_ROOT; };
-		057A0B2E2A25BD1800F10B85 /* SetRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRate.swift; sourceTree = "<group>"; };
+		057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPluggin.swift; sourceTree = "<group>"; };
 		05A4C88329DFE42A004B9A81 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -234,7 +232,6 @@
 		0569570129CB837A002E8CF2 /* RateReview */ = {
 			isa = PBXGroup;
 			children = (
-				0569570229CB83A1002E8CF2 /* BottomTagView.swift */,
 				0569570929CCBC41002E8CF2 /* RateView.swift */,
 			);
 			path = RateReview;
@@ -263,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				05C5EC032A0BCFD500CC6A58 /* MyPage */,
-				057A0B2E2A25BD1800F10B85 /* SetRate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -495,6 +491,7 @@
 				7B9899BF2A154F0D00D1A076 /* DTO */,
 				7B9899BE2A154F0800D1A076 /* Router */,
 				7B9899BD2A154EFB00D1A076 /* Foundation */,
+				057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -640,6 +637,7 @@
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
+				057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */,
 				057A0B252A22284400F10B85 /* SignResponse.swift in Sources */,
 				057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */,
 				057A0B212A22278800F10B85 /* RealmService.swift in Sources */,
@@ -667,13 +665,11 @@
 				7B9798AF2A24E6A70069F027 /* LunchView.swift in Sources */,
 				0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */,
 				057A0ACF2A1D3EEF00F10B85 /* WriteReviewRequest.swift in Sources */,
-				0569570329CB83A1002E8CF2 /* BottomTagView.swift in Sources */,
 				057A0AC92A1B498300F10B85 /* ReviewRouter.swift in Sources */,
 				057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
-				057A0B2F2A25BD1800F10B85 /* SetRate.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
 				057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */,
 				7B9899AA2A0B98E700D1A076 /* RestaurantMapViewController.swift in Sources */,
