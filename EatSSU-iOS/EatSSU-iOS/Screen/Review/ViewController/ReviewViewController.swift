@@ -64,7 +64,7 @@ class ReviewViewController: BaseViewController {
         topReviewView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(350)
+            make.bottom.equalTo(topReviewView.addReviewButton.snp.bottom).offset(23)
         }
         
         progressView.snp.makeConstraints { make in
@@ -79,7 +79,7 @@ class ReviewViewController: BaseViewController {
         }
         
         reviewTableView.snp.makeConstraints { make in
-            make.top.equalTo(reviewLabel.snp.bottom).offset(15)
+            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -87,6 +87,11 @@ class ReviewViewController: BaseViewController {
     
     override func setButtonEvent() {
         topReviewView.addReviewButton.addTarget(self, action: #selector(userTapReviewButton), for: .touchUpInside)
+    }
+    
+    override func customNavigationBar() {
+        super.customNavigationBar()
+        navigationItem.title = "리뷰"
     }
     
     @objc
@@ -116,7 +121,6 @@ extension ReviewViewController: UITableViewDataSource {
                       content: cellReview.content,
                       date: cellReview.writeDate,
                       tagList: cellReview.tagList)
-        cell.setStarButtons()
         cell.selectionStyle = .none
         return cell
     }

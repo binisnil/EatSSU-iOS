@@ -16,19 +16,19 @@ class ReviewRateView: BaseUIView {
     
     // MARK: - UI Components
     
-    private let reviewLabel: UILabel = {
-        let label = UILabel()
-        label.text = "리뷰"
-        label.font = .bold(size: 22)
-        label.textColor = .black
-        return label
-    }()
-    
-    private let progressView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .primary
-        return view
-    }()
+//    private let reviewLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "리뷰"
+//        label.font = .bold(size: 22)
+//        label.textColor = .black
+//        return label
+//    }()
+//
+//    private let progressView: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .primary
+//        return view
+//    }()
     
     private var menuLabel: UILabel = {
         let label = UILabel()
@@ -266,8 +266,9 @@ class ReviewRateView: BaseUIView {
     // MARK: - Functions
     
     override func configureUI() {
-        self.addSubviews(reviewLabel,
-                         progressView,
+        self.addSubviews(
+//            reviewLabel,
+//                         progressView,
                          menuLabel,
                          totalRateStackView,
                          addReviewButton,
@@ -283,21 +284,22 @@ class ReviewRateView: BaseUIView {
     }
     
     override func setLayout() {
-        reviewLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(55)
-            make.centerX.equalToSuperview()
-        }
-
-        progressView.snp.makeConstraints { make in
-            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(28)
-            make.trailing.equalToSuperview().offset(-28)
-            make.height.equalTo(2)
-
-        }
+//        reviewLabel.snp.makeConstraints { make in
+//            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
+//            make.centerX.equalToSuperview()
+//        }
+//
+//        progressView.snp.makeConstraints { make in
+//            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
+//            make.leading.equalToSuperview().offset(28)
+//            make.trailing.equalToSuperview().offset(-28)
+//            make.height.equalTo(2)
+//
+//        }
 
         menuLabel.snp.makeConstraints { make in
-            make.top.equalTo(progressView.snp.bottom).offset(10)
+//            make.top.equalTo(progressView.snp.bottom).offset(10)
+            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
             make.centerX.equalToSuperview()
         }
         
