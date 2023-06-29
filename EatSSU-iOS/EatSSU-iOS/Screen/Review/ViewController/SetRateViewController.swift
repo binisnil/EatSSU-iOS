@@ -13,12 +13,26 @@ import Then
 class SetRateViewController: BaseViewController {
     
     // MARK: - Properties
+
+    
+    // MARK: - UI Components
     
     private var rateView = RateView()
     private var tasteRateView = RateView()
     private var quantityRateView = RateView()
     
-    // MARK: - UI Components
+    private var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+        return scrollView
+    }()
 
     private let reviewLabel: UILabel = {
         let label = UILabel()
@@ -78,12 +92,6 @@ class SetRateViewController: BaseViewController {
         $0.alignment = .center
     }
     
-    lazy var detailRateStackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.spacing = 20
-        $0.alignment = .center
-    }
-    
     private let userReviewTextView: UITextView = {
         let textView = UITextView()
         textView.font = .medium(size: 16)
@@ -125,46 +133,65 @@ class SetRateViewController: BaseViewController {
     
     override func configureUI() {
         dismissKeyboard()
-        view.addSubviews(rateView,
-                         menuLabel,
-                         nextButton,
-                         tasteLabel,
-                         quantityLabel,
-                         detailRateStackView,
-                         userReviewTextView,
-                         maximumWordLabel)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubviews(rateView,
+                                menuLabel,
+                                tasteLabel,
+                                quantityLabel,
+                                detailLabel,
+                                tasteStackView,
+                                quantityStackView,
+                                userReviewTextView,
+                                maximumWordLabel,
+                                nextButton)
         
         tasteStackView.addArrangedSubviews([tasteLabel,
                                             tasteRateView])
         
         quantityStackView.addArrangedSubviews([quantityLabel,
                                                quantityRateView])
-        
-        detailRateStackView.addArrangedSubviews([detailLabel,
-                                                 tasteStackView,
-                                                 quantityStackView])
     }
     
     override func setLayout() {
+        scrollView.snp.makeConstraints {
+            $0.top.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.width.height.equalTo(scrollView)
+        }
+        
         menuLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(20)
+            make.top.equalToSuperview().inset(20)
             make.centerX.equalToSuperview()
         }
         
         rateView.snp.makeConstraints { make in
             make.top.equalTo(menuLabel.snp.bottom).offset(17)
             make.centerX.equalToSuperview()
+            make.height.equalTo(36.12)
+        }
+    
+        detailLabel.snp.makeConstraints { make in
+            make.top.equalTo(rateView.snp.bottom).offset(35)
+            make.centerX.equalToSuperview()
         }
         
-        detailRateStackView.snp.makeConstraints { make in
-            make.top.equalTo(rateView.snp.bottom).offset(35)
-            make.leading.trailing.equalToSuperview().inset(16)
+        tasteStackView.snp.makeConstraints { make in
+            make.top.equalTo(detailLabel.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+        }
+        
+        quantityStackView.snp.makeConstraints { make in
+            make.top.equalTo(tasteStackView.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
         }
         
         nextButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).inset(27)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(maximumWordLabel.snp.bottom).offset(132)
             make.height.equalTo(40)
         }
         
@@ -181,7 +208,7 @@ class SetRateViewController: BaseViewController {
         }
         
         userReviewTextView.snp.makeConstraints { make in
-            make.top.equalTo(detailRateStackView.snp.bottom).offset(40)
+            make.top.equalTo(quantityStackView.snp.bottom).offset(40)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(181)
@@ -206,6 +233,7 @@ class SetRateViewController: BaseViewController {
     
     @objc
     func tappedNextButton() {
+        self.navigationController?.isNavigationBarHidden = false
         if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
             self.navigationController?.popToViewController(reviewViewController, animated: true)
         }
@@ -219,6 +247,7 @@ class SetRateViewController: BaseViewController {
             let keyboardHeight = keyboardRectangle.height
             let buttonHeight = nextButton.frame.size.height + 77
             self.view.frame.origin.y -= (keyboardHeight - buttonHeight)
+            self.navigationController?.isNavigationBarHidden = true
         }
     }
 
@@ -230,6 +259,7 @@ class SetRateViewController: BaseViewController {
             let keyboardHeight = keyboardRectangle.height
             let buttonHeight = nextButton.frame.size.height + 77
             self.view.frame.origin.y += (keyboardHeight - buttonHeight)
+            self.navigationController?.isNavigationBarHidden = false
         }
     }
     
