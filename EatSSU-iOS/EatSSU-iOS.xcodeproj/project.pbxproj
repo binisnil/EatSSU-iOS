@@ -33,6 +33,9 @@
 		057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B282A222F7E00F10B85 /* SignInRequest.swift */; };
 		057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */; };
 		057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */; };
+		058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326602A4D9422004A295F /* ChoiceMenuViewController.swift */; };
+		058326642A4D9597004A295F /* ChoiceMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326632A4D9597004A295F /* ChoiceMenuTableViewCell.swift */; };
+		058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326652A4D97BC004A295F /* UICollectionViewCell+.swift */; };
 		05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88329DFE42A004B9A81 /* UIStackView+.swift */; };
 		05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
@@ -94,6 +97,9 @@
 		057A0B282A222F7E00F10B85 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WriteReviewRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/WriteReviewRouter.swift"; sourceTree = SOURCE_ROOT; };
 		057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPluggin.swift; sourceTree = "<group>"; };
+		058326602A4D9422004A295F /* ChoiceMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceMenuViewController.swift; sourceTree = "<group>"; };
+		058326632A4D9597004A295F /* ChoiceMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceMenuTableViewCell.swift; sourceTree = "<group>"; };
+		058326652A4D97BC004A295F /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		05A4C88329DFE42A004B9A81 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 				056956FE29CB81E2002E8CF2 /* SetRateViewController.swift */,
 				0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */,
 				7B98992D29E04F1300D1A076 /* ReviewViewController.swift */,
+				058326602A4D9422004A295F /* ChoiceMenuViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -214,6 +221,7 @@
 		056956C529C0E2C7002E8CF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				058326622A4D956D004A295F /* ChoiceMenuView */,
 				0569570129CB837A002E8CF2 /* RateReview */,
 				0569570029CB834C002E8CF2 /* SeeReview */,
 			);
@@ -254,6 +262,14 @@
 				057A0B222A22279B00F10B85 /* Token.swift */,
 			);
 			path = LocalDB;
+			sourceTree = "<group>";
+		};
+		058326622A4D956D004A295F /* ChoiceMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				058326632A4D9597004A295F /* ChoiceMenuTableViewCell.swift */,
+			);
+			path = ChoiceMenuView;
 			sourceTree = "<group>";
 		};
 		05C5EC022A0BCFCD00CC6A58 /* Model */ = {
@@ -342,6 +358,7 @@
 				056956BA29C0D8BF002E8CF2 /* UIFont+.swift */,
 				7B2C9E9629DEE7B20007603D /* UITextField+.swift */,
 				05A4C88329DFE42A004B9A81 /* UIStackView+.swift */,
+				058326652A4D97BC004A295F /* UICollectionViewCell+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -634,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */,
+				058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
@@ -643,6 +661,7 @@
 				057A0B212A22278800F10B85 /* RealmService.swift in Sources */,
 				05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */,
 				7BD73CD629D20B980076DC77 /* MorningView.swift in Sources */,
+				058326642A4D9597004A295F /* ChoiceMenuTableViewCell.swift in Sources */,
 				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
 				7B9899A42A0B902C00D1A076 /* MenuTableView.swift in Sources */,
 				7B9798B12A24E6AE0069F027 /* DinnerView.swift in Sources */,
@@ -652,6 +671,7 @@
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
 				7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
+				058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,
 				056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */,

@@ -118,6 +118,7 @@ class SetRateViewController: BaseViewController {
     // MARK: - Functions
     
     override func configureUI() {
+        dismissKeyboard()
         view.addSubviews(rateView,
                          menuLabel,
                          nextButton,
@@ -127,9 +128,15 @@ class SetRateViewController: BaseViewController {
                          userReviewTextView,
                          maximumWordLabel)
         
-        tasteStackView.addArrangedSubviews([tasteLabel,tasteRateView])
-        quantityStackView.addArrangedSubviews([quantityLabel,quantityRateView])
-        detailRateStackView.addArrangedSubviews([detailLabel, tasteStackView, quantityStackView])
+        tasteStackView.addArrangedSubviews([tasteLabel,
+                                            tasteRateView])
+        
+        quantityStackView.addArrangedSubviews([quantityLabel,
+                                               quantityRateView])
+        
+        detailRateStackView.addArrangedSubviews([detailLabel,
+                                                 tasteStackView,
+                                                 quantityStackView])
     }
     
     override func setLayout() {
@@ -193,6 +200,8 @@ class SetRateViewController: BaseViewController {
     
     @objc
     func tappedNextButton() {
-
+        if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
+            self.navigationController?.popToViewController(reviewViewController, animated: true)
+        }
     }
 }
