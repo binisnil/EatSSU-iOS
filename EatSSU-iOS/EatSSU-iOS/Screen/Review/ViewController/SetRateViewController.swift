@@ -155,12 +155,12 @@ class SetRateViewController: BaseViewController {
     
     override func setLayout() {
         scrollView.snp.makeConstraints {
-            $0.top.leading.trailing.bottom.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
         
         contentView.snp.makeConstraints { make in
-            make.edges.equalTo(scrollView.contentLayoutGuide)
-            make.width.height.equalTo(scrollView)
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(scrollView)
         }
         
         menuLabel.snp.makeConstraints { make in
@@ -192,6 +192,7 @@ class SetRateViewController: BaseViewController {
         nextButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.top.equalTo(maximumWordLabel.snp.bottom).offset(132)
+            make.bottom.equalToSuperview().offset(-15)
             make.height.equalTo(40)
         }
         
