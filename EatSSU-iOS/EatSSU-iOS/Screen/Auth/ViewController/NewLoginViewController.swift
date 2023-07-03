@@ -27,5 +27,4 @@ class NewLoginViewController: BaseViewController {
             $0.edges.equalToSuperview()
         }
     }
-    
 }

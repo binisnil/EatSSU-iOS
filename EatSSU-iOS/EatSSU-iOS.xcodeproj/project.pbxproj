@@ -73,6 +73,7 @@
 		7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */; };
 		7BF5CC122A49F65400E4EE11 /* TextLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC112A49F65400E4EE11 /* TextLiteral.swift */; };
 		7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC372A53168000E4EE11 /* SetNickNameView.swift */; };
+		7BF5CC3A2A531ED100E4EE11 /* SetNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC392A531ED100E4EE11 /* SetNickNameViewController.swift */; };
 		7BFD09BF2A21E6E400B40054 /* FixedMenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */; };
 		7BFD09C12A21EE3E00B40054 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */; };
 /* End PBXBuildFile section */
@@ -143,6 +144,7 @@
 		7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		7BF5CC112A49F65400E4EE11 /* TextLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLiteral.swift; sourceTree = "<group>"; };
 		7BF5CC372A53168000E4EE11 /* SetNickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameView.swift; sourceTree = "<group>"; };
+		7BF5CC392A531ED100E4EE11 /* SetNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameViewController.swift; sourceTree = "<group>"; };
 		7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedMenuTableResponse.swift; sourceTree = "<group>"; };
 		7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -386,6 +388,7 @@
 				7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */,
 				7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */,
 				7BF5CC0D2A497D3100E4EE11 /* NewLoginViewController.swift */,
+				7BF5CC392A531ED100E4EE11 /* SetNickNameViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */,
 				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,
 				0559705D2A16670600868C42 /* MenuInfoResponse.swift in Sources */,
+				7BF5CC3A2A531ED100E4EE11 /* SetNickNameViewController.swift in Sources */,
 				7BF5CC0E2A497D3100E4EE11 /* NewLoginViewController.swift in Sources */,
 				7B98992E29E04F1300D1A076 /* ReviewViewController.swift in Sources */,
 				7B9899A22A0B8FCF00D1A076 /* MenuHeaderView.swift in Sources */,

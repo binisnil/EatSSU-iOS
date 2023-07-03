@@ -44,31 +44,23 @@ class NewLoginView: BaseUIView {
     
     private let buttonSelectView = UIView()
     
-//    private lazy var userInputStackView: UIStackView = UIStackView(arrangedSubviews: [emailTextField, pwTextField, loginButton]).then {
-//        $0.axis = .vertical
-//        $0.spacing = 17.0
-//    }
-    
     override func configureUI() {
         [appleLoginButton, kakaoLoginButton, lookingButton].forEach {
             buttonSelectView.addSubview($0)
         }
         self.addSubviews(logoImage,
-                         buttonSelectView
-                            )
+                         buttonSelectView)
     }
     
     override func setLayout() {
         logoImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(UIScreen.main.bounds.height / 3.9)
-            $0.leading.equalToSuperview().offset(86)
-            $0.trailing.equalToSuperview().offset(-86)
+            $0.leading.trailing.equalToSuperview().inset(86)
         }
         buttonSelectView.snp.makeConstraints {
             $0.top.equalTo(logoImage.snp.bottom).offset(160)
-            $0.leading.equalToSuperview().offset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().offset(-(UIScreen.main.bounds.height / 3.5))
-            $0.trailing.equalToSuperview().offset(-16)
         }
         appleLoginButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
