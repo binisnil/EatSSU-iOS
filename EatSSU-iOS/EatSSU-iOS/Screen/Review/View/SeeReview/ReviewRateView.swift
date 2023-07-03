@@ -105,35 +105,35 @@ class ReviewRateView: BaseUIView {
     
     var oneChartBar: UIView = {
         let view = UIView()
-        view.backgroundColor = .mediumGray
+        view.backgroundColor = .gray300
         view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
         return view
     }()
     
     var twoChartBar: UIView = {
         let view = UIView()
-        view.backgroundColor = .mediumGray
+        view.backgroundColor = .gray300
         view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
         return view
     }()
     
     var threeChartBar: UIView = {
         let view = UIView()
-        view.backgroundColor = .mediumGray
+        view.backgroundColor = .gray300
         view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
         return view
     }()
     
     var fourChartBar: UIView = {
         let view = UIView()
-        view.backgroundColor = .mediumGray
+        view.backgroundColor = .gray300
         view.roundCorners(corners: [.topRight, .bottomRight], radius: 15)
         return view
     }()
     
     var fiveChartBar: UIView = {
         let view = UIView()
-        view.backgroundColor = .mediumGray
+        view.backgroundColor = .gray300
         return view
     }()
     

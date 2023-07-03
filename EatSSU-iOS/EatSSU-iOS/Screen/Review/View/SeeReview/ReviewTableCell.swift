@@ -60,7 +60,7 @@ class ReviewTableCell: UITableViewCell {
     private var sideButton: UIButton = {
         let button = UIButton()
         button.setTitle("신고하기", for: .normal)
-        button.setTitleColor(.mediumGray, for: .normal)
+        button.setTitleColor(.gray500, for: .normal)
         button.titleLabel?.font = .regular(size: 14)
         return button
     }()
