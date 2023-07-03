@@ -12,8 +12,8 @@ import Moya
 class ReviewViewController: BaseViewController {
     
     // MARK: - Properties
-    
     let reviewProvider = MoyaProvider<ReviewRouter>()
+    private let menuDummy = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
     private var reviewList = [DataList]()
     
     // MARK: - UI Component
@@ -64,7 +64,7 @@ class ReviewViewController: BaseViewController {
         topReviewView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(350)
+            make.bottom.equalTo(topReviewView.addReviewButton.snp.bottom).offset(23)
         }
         
         progressView.snp.makeConstraints { make in
@@ -79,7 +79,7 @@ class ReviewViewController: BaseViewController {
         }
         
         reviewTableView.snp.makeConstraints { make in
-            make.top.equalTo(reviewLabel.snp.bottom).offset(15)
+            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -89,10 +89,23 @@ class ReviewViewController: BaseViewController {
         topReviewView.addReviewButton.addTarget(self, action: #selector(userTapReviewButton), for: .touchUpInside)
     }
     
+    override func customNavigationBar() {
+        super.customNavigationBar()
+        navigationItem.title = "리뷰"
+    }
+    
     @objc
     func userTapReviewButton() {
-        let nextVC = SetRateViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+        /// 메뉴가 여러개면 리뷰할 메뉴를 선택할 VC로 넘어가고, 그렇지 않다면 별점 설정 VC로 넘어갑니다.
+        if menuDummy.count == 0 {
+            let setRateViewController = SetRateViewController()
+            self.navigationController?.pushViewController(setRateViewController, animated: true)
+        } else {
+            let choiceMenuViewController = ChoiceMenuViewController()
+            choiceMenuViewController.menuDataBind(menuList: menuDummy)
+            self.navigationController?.pushViewController(choiceMenuViewController, animated: true)
+        }
     }
 }
 
@@ -116,7 +129,6 @@ extension ReviewViewController: UITableViewDataSource {
                       content: cellReview.content,
                       date: cellReview.writeDate,
                       tagList: cellReview.tagList)
-        cell.setStarButtons()
         cell.selectionStyle = .none
         return cell
     }

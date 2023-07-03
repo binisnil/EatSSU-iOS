@@ -15,26 +15,29 @@ class ReviewTableCell: UITableViewCell {
     
     static let identifier = "ReviewTableCell"
     private lazy var personalRate = 4 ///dummy Data
-    var starButtons: [UIButton] = []
     
     // MARK: - UI Components
     
-    lazy var starStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 3
-        stackView.backgroundColor = .systemBackground
-        return stackView
+    lazy var totalRateView = RateNumberView()
+    lazy var tasteRateView = RateNumberView()
+    lazy var quantityRateView = RateNumberView()
+    
+    private let tasteLabel: UILabel = {
+        let label = UILabel()
+        label.text = "맛"
+        label.font = .medium(size: 12)
+        label.textColor = .black
+        return label
     }()
     
-    lazy var starFillImage: UIImage? = {
-        return UIImage(named: "starFilled.svg")
+    private let quantityLabel: UILabel = {
+        let label = UILabel()
+        label.text = "양"
+        label.font = .medium(size: 12)
+        label.textColor = .black
+        return label
     }()
-    
-    lazy var starEmptyImage: UIImage? = {
-        return UIImage(named: "starEmpty.svg")
-    }()
-    
+
     private var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "2023.03.03"
@@ -46,7 +49,15 @@ class ReviewTableCell: UITableViewCell {
     private var userNameLabel: UILabel = {
         let label = UILabel()
         label.text = "hellosoongsil1234"
-        label.font = .medium(size: 14)
+        label.font = .regular(size: 12)
+        label.textColor = .gray500
+        return label
+    }()
+    
+    private var menuNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "계란국"
+        label.font = .semiBold(size: 12)
         label.textColor = .black
         return label
     }()
@@ -73,42 +84,6 @@ class ReviewTableCell: UITableViewCell {
         return label
     }()
     
-    var firstUserTag: UIButton = {
-        let button = UIButton()
-        button.setTitle("든든한 한 끼", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 8
-        button.layer.borderWidth = 0.2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.titleLabel?.font = .medium(size: 11)
-        return button
-    }()
-    
-    var secondUserTag: UIButton = {
-        let button = UIButton()
-        button.setTitle("그럭저럭해요", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 8
-        button.layer.borderWidth = 0.2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.titleLabel?.font = .medium(size: 11)
-        return button
-    }()
-    
-    var thirdUserTag: UIButton = {
-        let button = UIButton()
-        button.setTitle("아쉬워요", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 8
-        button.layer.borderWidth = 0.2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.titleLabel?.font = .medium(size: 11)
-        return button
-    }()
-    
     var reviewTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor.black
@@ -128,22 +103,52 @@ class ReviewTableCell: UITableViewCell {
         return imageView
     }()
     
-    lazy var rateDateStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [starStackView, dateLabel])
+    /// 맛 별점
+    lazy var tasteStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [tasteLabel, tasteRateView])
         stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.alignment = .fill
+        stackView.spacing = 3
+        stackView.alignment = .center
         return stackView
     }()
     
-    lazy var infoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [userNameLabel, rateDateStackView])
-        stackView.axis = .vertical
+    /// 양 별점
+    lazy var quantityStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [quantityLabel, quantityRateView])
+        stackView.axis = .horizontal
         stackView.spacing = 3
+        stackView.alignment = .center
+        return stackView
+    }()
+    
+    /// 별점
+    lazy var rateStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [totalRateView, tasteStackView, quantityStackView])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .center
+        return stackView
+    }()
+    
+    ///이름 + 메뉴
+    lazy var nameMenuStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [userNameLabel, menuNameLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        return stackView
+    }()
+    
+    /// 이름 + 메뉴 + 별점
+    lazy var infoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [nameMenuStackView, rateStackView])
+        stackView.axis = .vertical
+        stackView.spacing = 4
         stackView.alignment = .leading
         return stackView
     }()
     
+    /// 프로필 + 이름 + 메뉴 + 별점
     lazy var profileStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [userProfileImageView, infoStackView])
         stackView.axis = .horizontal
@@ -152,17 +157,16 @@ class ReviewTableCell: UITableViewCell {
         return stackView
     }()
     
-    lazy var userTagStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [firstUserTag, secondUserTag, thirdUserTag])
-        stackView.axis = .horizontal
-        stackView.spacing = 19
-        stackView.alignment = .fill
-        stackView.distribution = .fill
+    lazy var dateReportStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [dateLabel, sideButton])
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        stackView.alignment = .trailing
         return stackView
     }()
     
     lazy var contentStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [reviewTextView,foodImageView,userTagStackView])
+        let stackView = UIStackView(arrangedSubviews: [reviewTextView,foodImageView])
         stackView.axis = .vertical
         stackView.spacing = 6
         stackView.alignment = .leading
@@ -174,10 +178,9 @@ class ReviewTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.profileStackView)
-        self.contentView.addSubview(self.sideButton)
+        self.contentView.addSubview(self.dateReportStackView)
         self.contentView.addSubview(self.contentStackView)
         setLayout()
-//        setStarButtons()
     }
     
     required init?(coder: NSCoder) {
@@ -190,9 +193,9 @@ class ReviewTableCell: UITableViewCell {
             make.leading.equalToSuperview().offset(16)
         }
         
-        sideButton.snp.makeConstraints { make in
-            make.centerY.equalTo(profileStackView.snp.top).offset(3)
-            make.trailing.equalToSuperview().offset(-16)
+        dateReportStackView.snp.makeConstraints { make in
+            make.centerY.equalTo(profileStackView)
+            make.trailing.equalToSuperview().inset(16)
         }
         
         contentStackView.snp.makeConstraints { make in
@@ -205,46 +208,6 @@ class ReviewTableCell: UITableViewCell {
         foodImageView.snp.makeConstraints { make in
             make.height.width.equalTo(358)
         }
-        
-        firstUserTag.snp.makeConstraints { make in
-            make.height.equalTo(19)
-        }
-        
-        secondUserTag.snp.makeConstraints { make in
-            make.height.equalTo(19)
-        }
-        
-        thirdUserTag.snp.makeConstraints { make in
-            make.height.equalTo(19)
-        }
-    }
-    
-    func setStarButtons() {
-        if starStackView.subviews.count < 5 {
-            for i in 0...personalRate - 1 {
-                let button = UIButton()
-                button.setImage(starFillImage, for: .normal)
-                button.snp.makeConstraints { make in
-                    make.height.equalTo(11.19)
-                    make.width.equalTo(11.71)
-                }
-                button.tag = i
-                starButtons += [button]
-                starStackView.addArrangedSubview(button)
-            }
-            
-            for i in personalRate..<5 {
-                let button = UIButton()
-                button.setImage(starEmptyImage, for: .normal)
-                button.snp.makeConstraints { make in
-                    make.height.equalTo(11.19)
-                    make.width.equalTo(11.71)
-                }
-                button.tag = i
-                starButtons += [button]
-                starStackView.addArrangedSubview(button)
-            }
-        }
     }
 }
 
@@ -256,23 +219,5 @@ extension ReviewTableCell {
         personalRate = grade
         reviewTextView.text = content
         dateLabel.text = date
-        switch tagList.count {
-        case 1:
-            firstUserTag.setTitle(tagList[0], for: .normal)
-            secondUserTag.isHidden = true
-            thirdUserTag.isHidden = true
-        case 2:
-            firstUserTag.setTitle(tagList[0], for: .normal)
-            secondUserTag.setTitle(tagList[1], for: .normal)
-            thirdUserTag.isHidden = true
-        case 3:
-            firstUserTag.setTitle(tagList[0], for: .normal)
-            secondUserTag.setTitle(tagList[1], for: .normal)
-            thirdUserTag.setTitle(tagList[2], for: .normal)
-        default:
-            firstUserTag.isHidden = true
-            secondUserTag.isHidden = true
-            thirdUserTag.isHidden = true
-        }
     }
 }
