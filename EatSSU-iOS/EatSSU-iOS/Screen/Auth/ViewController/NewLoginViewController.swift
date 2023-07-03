@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
-class newLoginViewController: BaseViewController {
+class NewLoginViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    private let loginView = newLoginView()
+    private let loginView = NewLoginView()
         
     // MARK: - Functions
     

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class newLoginView: BaseUIView {
+class NewLoginView: BaseUIView {
     
     // MARK: - UI Components
     
