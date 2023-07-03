@@ -12,9 +12,6 @@ import Then
 
 class RateNumberView: BaseUIView {
     
-    // MARK: - Properties
-
-    
     // MARK: - UI Components
 
     let starImageView = UIImageView()

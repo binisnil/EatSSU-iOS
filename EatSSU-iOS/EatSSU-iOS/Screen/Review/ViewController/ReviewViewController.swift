@@ -12,8 +12,8 @@ import Moya
 class ReviewViewController: BaseViewController {
     
     // MARK: - Properties
-    
     let reviewProvider = MoyaProvider<ReviewRouter>()
+    private let menuDummy = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
     private var reviewList = [DataList]()
     
     // MARK: - UI Component
@@ -96,8 +96,16 @@ class ReviewViewController: BaseViewController {
     
     @objc
     func userTapReviewButton() {
-        let nextVC = SetRateViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+        /// 메뉴가 여러개면 리뷰할 메뉴를 선택할 VC로 넘어가고, 그렇지 않다면 별점 설정 VC로 넘어갑니다.
+        if menuDummy.count == 0 {
+            let setRateViewController = SetRateViewController()
+            self.navigationController?.pushViewController(setRateViewController, animated: true)
+        } else {
+            let choiceMenuViewController = ChoiceMenuViewController()
+            choiceMenuViewController.menuDataBind(menuList: menuDummy)
+            self.navigationController?.pushViewController(choiceMenuViewController, animated: true)
+        }
     }
 }
 

@@ -68,3 +68,9 @@ class ChoiceMenuTableViewCell: UITableViewCell {
         }
     }
 }
+
+extension ChoiceMenuTableViewCell {
+    func dataBind(menu: String) {
+        menuLabel.text = menu
+    }
+}

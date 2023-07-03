@@ -14,6 +14,9 @@ class ChoiceMenuViewController: BaseViewController {
     
     // MARK: - Properties
     
+    var menuDummy: [String] = []
+    var isMenuSelected: [Bool] = []
+    
     // MARK: - UI Component
     
     private let enjoyLabel = UILabel()
@@ -103,25 +106,39 @@ class ChoiceMenuViewController: BaseViewController {
     
     @objc
     func nextButtonTapped() {
+        
         let setRateVC = SetRateViewController()
         self.navigationController?.pushViewController(setRateVC, animated: true)
     }
     
     @objc
-    func checkButtonTapped(_ sender: UIButton) {
+    func checkButtonTapped(_ sender: UIButton){
         sender.isSelected.toggle()
     }
+    
+    func menuDataBind(menuList: [String]) {
+        menuDummy = menuList
+    }
+    
+//    func setReviewMenuList(index: Int) {
+//        isMenuSelected.append(<#T##newElement: Bool##Bool#>)
+//    }
 }
 
 extension ChoiceMenuViewController: UITableViewDelegate {}
+
 extension ChoiceMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        for _ in 0..<menuDummy.count {
+            isMenuSelected.append(false)
+        }
+        return menuDummy.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChoiceMenuTableViewCell.identifier) as? ChoiceMenuTableViewCell else {return UITableViewCell()}
         cell.selectionStyle = .none
+        cell.dataBind(menu: menuDummy[indexPath.row])
         cell.checkButton.addTarget(self, action: #selector(checkButtonTapped(_:)), for: .touchUpInside)
         return cell
     }
@@ -133,5 +150,6 @@ extension ChoiceMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let touchedCell = tableView.cellForRow(at: indexPath) as! ChoiceMenuTableViewCell
         touchedCell.checkButton.isSelected.toggle()
+//        isMenuSelected[indexPath.row].toggle()
     }
 }
