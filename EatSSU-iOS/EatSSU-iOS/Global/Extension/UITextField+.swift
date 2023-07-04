@@ -36,4 +36,13 @@ extension UITextField  {
         self.leftView = leftImage
         self.leftViewMode = .always
     }
+    
+    /// 테두리 Border 설정
+    
+    func setRoundBorder() {
+        layer.masksToBounds = true
+        layer.borderColor = UIColor.primary.cgColor
+        layer.borderWidth = 1.0
+        layer.cornerRadius = 10
+    }
 }
