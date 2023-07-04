@@ -74,6 +74,7 @@
 		7BF5CC122A49F65400E4EE11 /* TextLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC112A49F65400E4EE11 /* TextLiteral.swift */; };
 		7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC372A53168000E4EE11 /* SetNickNameView.swift */; };
 		7BF5CC3A2A531ED100E4EE11 /* SetNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC392A531ED100E4EE11 /* SetNickNameViewController.swift */; };
+		7BF5CC3C2A53DD0600E4EE11 /* PostUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC3B2A53DD0600E4EE11 /* PostUIButton.swift */; };
 		7BFD09BF2A21E6E400B40054 /* FixedMenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */; };
 		7BFD09C12A21EE3E00B40054 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */; };
 /* End PBXBuildFile section */
@@ -145,6 +146,7 @@
 		7BF5CC112A49F65400E4EE11 /* TextLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLiteral.swift; sourceTree = "<group>"; };
 		7BF5CC372A53168000E4EE11 /* SetNickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameView.swift; sourceTree = "<group>"; };
 		7BF5CC392A531ED100E4EE11 /* SetNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameViewController.swift; sourceTree = "<group>"; };
+		7BF5CC3B2A53DD0600E4EE11 /* PostUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUIButton.swift; sourceTree = "<group>"; };
 		7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedMenuTableResponse.swift; sourceTree = "<group>"; };
 		7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +213,7 @@
 			children = (
 				056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */,
 				056956C829C0E51F002E8CF2 /* BaseUIView.swift */,
+				7BF5CC3B2A53DD0600E4EE11 /* PostUIButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
+				7BF5CC3C2A53DD0600E4EE11 /* PostUIButton.swift in Sources */,
 				057A0B252A22284400F10B85 /* SignResponse.swift in Sources */,
 				057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */,
 				057A0B212A22278800F10B85 /* RealmService.swift in Sources */,
@@ -857,7 +861,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3DGF5D388H;
+				DEVELOPMENT_TEAM = HZ8WU7PA4J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -890,7 +894,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3DGF5D388H;
+				DEVELOPMENT_TEAM = HZ8WU7PA4J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";

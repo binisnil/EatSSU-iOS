@@ -16,7 +16,7 @@ class SetNickNameViewController: BaseViewController {
     
     private let setNickNameView = SetNickNameView()
     
-    //MARK: - Functions
+    // MARK: - Functions
     
     override func configureUI() {
         view.addSubviews(setNickNameView)
@@ -31,6 +31,15 @@ class SetNickNameViewController: BaseViewController {
     override func customNavigationBar() {
         super.customNavigationBar()
         navigationItem.title = TextLiteral.setNickName
+    }
+    
+    override func setButtonEvent() {
+        setNickNameView.completeSettingNickNameButton.addTarget(self, action: #selector(tappedCompleteNickNameButton), for: .touchUpInside)
+    }
+    
+    @objc
+    func tappedCompleteNickNameButton() {
+        print("complete")
     }
 
 }

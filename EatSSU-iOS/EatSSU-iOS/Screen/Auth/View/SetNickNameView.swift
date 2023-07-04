@@ -20,12 +20,13 @@ class SetNickNameView: BaseUIView {
     private let inputNickNameTextField = UITextField().then {
         $0.placeholder = TextLiteral.inputNickName
         $0.font = .regular(size: 12)
-        $0.textColor = .gray500
+        $0.textColor = .black
+        $0.setRoundBorder()
+        $0.addLeftPadding()
     }
     
-    private var doubleCheckButton = UIButton().then {
-        $0.setTitle(TextLiteral.doubleCheckNickName, for: .normal)
-        $0.titleLabel?.font = .regular(size: 14)
+    lazy var doubleCheckButton = UIButton().then {
+        $0.addTitleAttribute(title: TextLiteral.doubleCheckNickName, titleColor: .white, fontName: .regular(size: 14))
         $0.setBackgroundColor(.gray300, for: .normal)
         $0.setRoundBorder(borderColor: .gray300, borderWidth: 0.0, cornerRadius: 10.0)
         $0.contentEdgeInsets = .init(top: 12.0, left: 12.0, bottom: 12.0, right: 12.0)
@@ -46,12 +47,8 @@ class SetNickNameView: BaseUIView {
         $0.spacing = 8.0
     }
     
-    private let completeSettingNickNameButton = UIButton().then {
-        $0.setTitle(TextLiteral.completeLabel, for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.titleLabel?.font = .semiBold(size: 18)
-        $0.backgroundColor = .gray300
-        $0.contentEdgeInsets = .init(top: 10, left: 0, bottom: 10, right: 0)
+    lazy var completeSettingNickNameButton = PostUIButton().then {
+        $0.addTitleAttribute(title: TextLiteral.completeLabel, titleColor: .white, fontName: .semiBold(size: 18))
         $0.setRoundBorder(borderColor: .gray300, borderWidth: 0, cornerRadius: 10)
     }
     
