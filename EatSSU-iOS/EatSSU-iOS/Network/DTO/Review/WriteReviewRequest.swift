@@ -5,13 +5,13 @@
 //  Created by 박윤빈 on 2023/05/24.
 //
 
-import Foundation
+import UIKit
 
 struct WriteReviewRequest: Codable {
     let reviewCreate: ReviewContent
-    let multipartFileList: [String]
+    let multipartFileList: [Data]?
     
-    init(reviewCreate: ReviewContent, multipartFileList: [String]) {
+    init(reviewCreate: ReviewContent, multipartFileList: [Data]) {
         self.reviewCreate = reviewCreate
         self.multipartFileList = multipartFileList
     }

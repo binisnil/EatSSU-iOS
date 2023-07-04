@@ -32,6 +32,7 @@ class SignUpViewController: BaseViewController {
     let nicknameRuleLabel = UILabel().then {
         $0.text = "2~8글자를 입력해주세요."
         $0.font = .semiBold(size: 12)
+        $0.textColor = .gray700
     }
     
     private lazy var nicknameStackView: UIStackView = {
@@ -61,6 +62,7 @@ class SignUpViewController: BaseViewController {
     let pwRuleLabel = UILabel().then {
         $0.text = "영문과 숫자를 포함하여 8자 이상을 입력해주세요."
         $0.font = .semiBold(size: 12)
+        $0.textColor = .gray700
     }
     
     private lazy var pwStackView: UIStackView = {

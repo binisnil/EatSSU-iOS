@@ -13,23 +13,22 @@ class ReviewRateView: BaseUIView {
     // MARK: - Properties
 
     var totalRate: Double = 0 ///dummy
-    private var starButtons: [UIButton] = []
     
     // MARK: - UI Components
     
-    private let reviewLabel: UILabel = {
-        let label = UILabel()
-        label.text = "리뷰"
-        label.font = .bold(size: 22)
-        label.textColor = .black
-        return label
-    }()
-    
-    private let progressView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .primary
-        return view
-    }()
+//    private let reviewLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "리뷰"
+//        label.font = .bold(size: 22)
+//        label.textColor = .black
+//        return label
+//    }()
+//
+//    private let progressView: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .primary
+//        return view
+//    }()
     
     private var menuLabel: UILabel = {
         let label = UILabel()
@@ -39,11 +38,61 @@ class ReviewRateView: BaseUIView {
         return label
     }()
     
+    private let bigStarImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "starFilledBig.svg")
+        return imageView
+    }()
+    
     private let rateNumLabel: UILabel = {
         let label = UILabel()
         label.text = "4.3"
-        label.font = .bold(size: 30)
+        label.font = .bold(size: 36)
         label.textColor = .black
+        return label
+    }()
+    
+    private let tasteStarImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "starFilled.svg")
+        return imageView
+    }()
+    
+    private let quantityStarImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "starFilled.svg")
+        return imageView
+    }()
+    
+    private let tasteLabel: UILabel = {
+        let label = UILabel()
+        label.text = "맛"
+        label.font = .bold(size: 14)
+        label.textColor = .black
+        return label
+    }()
+    
+    private let tasteRateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "5"
+        label.font = .bold(size: 14)
+        label.textColor = .primary
+        return label
+    }()
+    
+    private let quantityLabel: UILabel = {
+        let label = UILabel()
+        label.text = "양"
+        label.font = .bold(size: 14)
+        label.textColor = .black
+        return label
+    }()
+    
+    private let quantityRateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "5"
+        label.font = .bold(size: 14)
+        label.textColor = .primary
         return label
     }()
     
@@ -138,7 +187,11 @@ class ReviewRateView: BaseUIView {
     }()
     
     lazy var yAxisStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [fivePointLabel, fourPointLabel, threePointLabel, twoPointLabel, onePointLabel])
+        let stackView = UIStackView(arrangedSubviews: [fivePointLabel,
+                                                       fourPointLabel,
+                                                       threePointLabel,
+                                                       twoPointLabel,
+                                                       onePointLabel])
         stackView.axis = .vertical
         stackView.spacing = 2
         stackView.alignment = .trailing
@@ -146,31 +199,41 @@ class ReviewRateView: BaseUIView {
     }()
     
     lazy var totalLabelStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [totalReviewLabel, totalReviewCount])
+        let stackView = UIStackView(arrangedSubviews: [totalReviewLabel,
+                                                       totalReviewCount])
         stackView.axis = .horizontal
         stackView.spacing = 7
         return stackView
     }()
     
-    lazy var starStackView: UIStackView = {
-        let stackView = UIStackView()
+    lazy var totalRateStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [bigStarImageView
+                                                       , rateNumLabel])
         stackView.axis = .horizontal
         stackView.spacing = 3
-        stackView.backgroundColor = .systemBackground
+        stackView.alignment = .top
         return stackView
     }()
     
-    lazy var starFillImage: UIImage? = {
-        return UIImage(named: "starFilled.svg")
+    lazy var tasteStackView: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [tasteLabel,
+                                                      tasteStarImageView,
+                                                      tasteRateLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        return stackView
     }()
     
-    lazy var starEmptyImage: UIImage? = {
-        return UIImage(named: "starEmpty.svg")
+    lazy var quantityStackView: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [quantityLabel,
+                                                      quantityStarImageView,
+                                                      quantityRateLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        return stackView
     }()
-    
-    var starNumber: Int = 5 {
-        didSet { setStarButtons() }
-    }
     
     let addReviewButton: UIButton = {
         let button = UIButton()
@@ -203,11 +266,11 @@ class ReviewRateView: BaseUIView {
     // MARK: - Functions
     
     override func configureUI() {
-        self.addSubviews(reviewLabel,
-                         progressView,
+        self.addSubviews(
+//            reviewLabel,
+//                         progressView,
                          menuLabel,
-                         rateNumLabel,
-                         starStackView,
+                         totalRateStackView,
                          addReviewButton,
                          totalLabelStackView,
                          yAxisStackView,
@@ -215,36 +278,44 @@ class ReviewRateView: BaseUIView {
                          twoChartBar,
                          threeChartBar,
                          fourChartBar,
-                         fiveChartBar)
+                         fiveChartBar,
+                         tasteStackView,
+                         quantityStackView)
     }
     
     override func setLayout() {
-        reviewLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(55)
-            make.centerX.equalToSuperview()
-        }
-
-        progressView.snp.makeConstraints { make in
-            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(28)
-            make.trailing.equalToSuperview().offset(-28)
-            make.height.equalTo(2)
-
-        }
+//        reviewLabel.snp.makeConstraints { make in
+//            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
+//            make.centerX.equalToSuperview()
+//        }
+//
+//        progressView.snp.makeConstraints { make in
+//            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
+//            make.leading.equalToSuperview().offset(28)
+//            make.trailing.equalToSuperview().offset(-28)
+//            make.height.equalTo(2)
+//
+//        }
 
         menuLabel.snp.makeConstraints { make in
-            make.top.equalTo(progressView.snp.bottom).offset(10)
+//            make.top.equalTo(progressView.snp.bottom).offset(10)
+            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
             make.centerX.equalToSuperview()
         }
         
-        rateNumLabel.snp.makeConstraints { make in
+        totalRateStackView.snp.makeConstraints { make in
             make.top.equalTo(menuLabel.snp.bottom).offset(40)
-            make.centerX.equalTo(starStackView)
+            make.leading.equalToSuperview().inset(60)
         }
         
-        starStackView.snp.makeConstraints { make in
-            make.top.equalTo(rateNumLabel.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(36)
+        tasteStackView.snp.makeConstraints { make in
+            make.top.equalTo(totalRateStackView.snp.bottom).offset(8)
+            make.leading.equalTo(totalRateStackView)
+        }
+        
+        quantityStackView.snp.makeConstraints { make in
+            make.top.equalTo(tasteStackView)
+            make.trailing.equalTo(totalRateStackView)
         }
         
         yAxisStackView.snp.makeConstraints { make in
@@ -283,7 +354,7 @@ class ReviewRateView: BaseUIView {
         }
         
         addReviewButton.snp.makeConstraints { make in
-            make.top.equalTo(starStackView.snp.bottom).offset(35)
+            make.top.equalTo(tasteStackView.snp.bottom).offset(35)
             make.leading.equalToSuperview().offset(36)
             make.trailing.equalToSuperview().offset(-36)
             make.height.equalTo(30)
@@ -291,34 +362,28 @@ class ReviewRateView: BaseUIView {
         
         totalLabelStackView.snp.makeConstraints { make in
             make.top.equalTo(menuLabel.snp.bottom).offset(15)
-            make.leading.equalTo(starStackView.snp.trailing).offset(24)
+            make.leading.equalTo(quantityStackView.snp.trailing).offset(44)
+        }
+        
+        tasteStarImageView.snp.makeConstraints { make in
+            make.height.equalTo(11.19)
+            make.width.equalTo(11.71)
+        }
+        
+        quantityStarImageView.snp.makeConstraints { make in
+            make.height.equalTo(11.19)
+            make.width.equalTo(11.71)
         }
     }
     
-    func setStarButtons(){
-        for i in 0..<Int(totalRate) {
-            let button = UIButton()
-            button.setImage(starFillImage, for: .normal)
-            button.tag = i
-            starButtons += [button]
-            starStackView.addArrangedSubview(button)
-        }
-        
-        for i in Int(totalRate)..<5 {
-            let button = UIButton()
-            button.setImage(starEmptyImage, for: .normal)
-            button.tag = i
-            starButtons += [button]
-            starStackView.addArrangedSubview(button)
-        }
-    }
 }
 
 extension ReviewRateView {
     func dataBind(menuName: String, reviewCount: Int, totalGrade: Double, fiveCnt: Int, fourCnt: Int, threeCnt: Int, twoCnt: Int, oneCnt: Int) {
         menuLabel.text = menuName
         totalReviewCount.text = "\(reviewCount)"
-        rateNumLabel.text = "\(totalGrade)"
+        let total = String(format: "%.1f", totalGrade)
+        rateNumLabel.text = "\(total)"
         totalRate = totalGrade
         fiveChartBar.snp.makeConstraints {
             $0.width.equalTo(126/reviewCount*fiveCnt)
@@ -335,6 +400,5 @@ extension ReviewRateView {
         oneChartBar.snp.makeConstraints {
             $0.width.equalTo(126/reviewCount*oneCnt)
         }
-        setStarButtons()
     }
 }

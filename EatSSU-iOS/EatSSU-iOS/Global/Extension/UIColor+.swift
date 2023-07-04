@@ -9,32 +9,8 @@ import UIKit
 
 extension UIColor {
     
-    static var darkGray: UIColor {
-        return UIColor(hex: "#9D9D9D")
-    }
-
     static var gray100: UIColor {
         return UIColor(hex: "#F5F5F5")
-    }
-
-    static var gray300: UIColor {
-        return UIColor(hex: "#D9D9D9")
-    }
-    
-    static var gray500: UIColor {
-        return UIColor(hex: "#D9D9D9")
-    }
-
-    static var gray700: UIColor {
-        return UIColor(hex: "#565656")
-    }
-
-    static var backgroundGray: UIColor {
-        return UIColor(hex: "#F9F9F9")
-    }
-
-    static var buttonGray: UIColor {
-        return UIColor(hex: "#D5D7D9")
     }
 
     static var customBlue: UIColor {
@@ -43,6 +19,22 @@ extension UIColor {
 
     static var tableGray: UIColor {
         return UIColor(hex: "C2C2C2")
+    }
+    
+    static var gray300: UIColor {
+        return UIColor(hex: "#D9D9D9")
+    }
+    
+    static var gray500: UIColor {
+        return UIColor(hex: "#9D9D9D")
+    }
+    
+    static var gray700: UIColor {
+        return UIColor(hex: "#565656")
+    }
+    
+    static var background: UIColor {
+        return UIColor(hex: "#F9F9F9")
     }
     
     static var primary: UIColor {
