@@ -26,6 +26,12 @@ extension UIButton {
         self.setBackgroundImage(colorImage, for: state)
     }
     
+    func addTitleAttribute(title: String, titleColor: UIColor, fontName: UIFont) {
+        self.setTitle(title, for: .normal)
+        self.setTitleColor(titleColor, for: .normal)
+        self.titleLabel?.font = fontName
+    }
+    
     func setRoundBorder(borderColor: UIColor, borderWidth: CGFloat, cornerRadius: CGFloat) {
         layer.masksToBounds = true
         layer.borderColor = borderColor.cgColor

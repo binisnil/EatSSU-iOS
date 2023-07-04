@@ -17,9 +17,7 @@ class NewLoginView: BaseUIView {
     private let logoImage = UIImageView().then { $0.image = ImageLiteral.signInImage }
     
     private let appleLoginButton = UIButton().then {
-        $0.setTitle(TextLiteral.signInWithApple, for: .normal)
-        $0.setTitleColor(UIColor.black, for: .normal)
-        $0.titleLabel?.font = .regular(size: 18)
+        $0.addTitleAttribute(title: TextLiteral.signInWithApple, titleColor: .black, fontName: .regular(size: 18))
         $0.setImage(ImageLiteral.appleIcon, for: .normal)
         $0.setRoundBorder(borderColor: .black, borderWidth: 1.0, cornerRadius: 5.0)
         $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 200)
@@ -27,17 +25,13 @@ class NewLoginView: BaseUIView {
     }
     
     private let kakaoLoginButton = UIButton().then {
-        $0.setTitle(TextLiteral.signInWithKakao, for: .normal)
-        $0.setTitleColor(UIColor.black, for: .normal)
-        $0.titleLabel?.font = .regular(size: 18)
+        $0.addTitleAttribute(title: TextLiteral.signInWithKakao, titleColor: .black, fontName: .regular(size: 18))
         $0.backgroundColor = .yellow
         $0.contentEdgeInsets = .init(top: 10, left: 0, bottom: 10, right: 0)
     }
     
     private let lookingButton = UIButton().then {
-        $0.setTitle(TextLiteral.lookingWithNoSignIn, for: .normal)
-        $0.setTitleColor(UIColor.black, for: .normal)
-        $0.titleLabel?.font = .regular(size: 18)
+        $0.addTitleAttribute(title: TextLiteral.lookingWithNoSignIn, titleColor: .black, fontName: .regular(size: 18))
         $0.backgroundColor = .gray100
         $0.contentEdgeInsets = .init(top: 10, left: 0, bottom: 10, right: 0)
     }
