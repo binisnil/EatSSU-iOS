@@ -20,20 +20,22 @@ class NewLoginView: BaseUIView {
         $0.addTitleAttribute(title: TextLiteral.signInWithApple, titleColor: .black, fontName: .regular(size: 18))
         $0.setImage(ImageLiteral.appleIcon, for: .normal)
         $0.setRoundBorder(borderColor: .black, borderWidth: 1.0, cornerRadius: 5.0)
-        $0.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 200)
-        $0.contentEdgeInsets = .init(top: 10, left: 0, bottom: 10, right: 0)
+        $0.imageEdgeInsets = .init(top: -12, left: 0, bottom: -4, right: 190)
+        $0.contentEdgeInsets = .init(top: 0, left: -16, bottom: -4, right: 0)
     }
     
     private let kakaoLoginButton = UIButton().then {
         $0.addTitleAttribute(title: TextLiteral.signInWithKakao, titleColor: .black, fontName: .regular(size: 18))
-        $0.backgroundColor = .yellow
+        $0.backgroundColor = .kakaoYellow
         $0.contentEdgeInsets = .init(top: 10, left: 0, bottom: 10, right: 0)
+        $0.layer.cornerRadius = 5.0
     }
     
     private let lookingButton = UIButton().then {
         $0.addTitleAttribute(title: TextLiteral.lookingWithNoSignIn, titleColor: .black, fontName: .regular(size: 18))
         $0.backgroundColor = .gray100
         $0.contentEdgeInsets = .init(top: 10, left: 0, bottom: 10, right: 0)
+        $0.layer.cornerRadius = 5.0
     }
     
     private let buttonSelectView = UIView()
