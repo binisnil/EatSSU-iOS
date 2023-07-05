@@ -24,7 +24,9 @@ class SetNickNameViewController: BaseViewController {
     
     override func setLayout() {
         setNickNameView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).inset(25)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).inset(27)
         }
     }
     

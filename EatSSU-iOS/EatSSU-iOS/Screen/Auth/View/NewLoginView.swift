@@ -48,25 +48,29 @@ class NewLoginView: BaseUIView {
     
     override func setLayout() {
         logoImage.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(UIScreen.main.bounds.height / 3.9)
+            $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(86)
+            $0.height.equalTo(194)
         }
         buttonSelectView.snp.makeConstraints {
-            $0.top.equalTo(logoImage.snp.bottom).offset(160)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().offset(-(UIScreen.main.bounds.height / 3.5))
+            $0.bottom.equalToSuperview()
+            $0.height.equalToSuperview().multipliedBy(1/3.1)
         }
         appleLoginButton.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(44)
         }
         kakaoLoginButton.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(appleLoginButton.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(44)
         }
         lookingButton.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(kakaoLoginButton.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(44)
         }
     }
 }

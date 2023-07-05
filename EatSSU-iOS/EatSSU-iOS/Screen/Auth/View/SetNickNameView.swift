@@ -61,12 +61,12 @@ class SetNickNameView: BaseUIView {
     
     override func setLayout() {
         setNickNameStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(UIScreen.main.bounds.height / 7.5)
+            $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         completeSettingNickNameButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().offset(-(UIScreen.main.bounds.height / 13.8))
+            $0.bottom.equalToSuperview()
             $0.height.equalTo(40)
         }
     }
