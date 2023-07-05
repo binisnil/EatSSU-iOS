@@ -42,7 +42,9 @@ class SetNickNameView: BaseUIView {
         $0.spacing = 5.0
     }
     
-    private lazy var setNickNameStackView: UIStackView = UIStackView(arrangedSubviews: [nickNameLabel, userInputNickNameStackView, hintInputNickNameLabel]).then {
+    private lazy var setNickNameStackView: UIStackView = UIStackView(arrangedSubviews: [nickNameLabel, 
+                                                                                        userInputNickNameStackView, 
+                                                                                        hintInputNickNameLabel]).then {
         $0.axis = .vertical
         $0.spacing = 8.0
     }
