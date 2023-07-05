@@ -12,6 +12,14 @@ extension UIColor {
     static var gray100: UIColor {
         return UIColor(hex: "#F5F5F5")
     }
+
+    static var customBlue: UIColor {
+        return UIColor(hex: "#243AFF")
+    }
+
+    static var tableGray: UIColor {
+        return UIColor(hex: "C2C2C2")
+    }
     
     static var gray300: UIColor {
         return UIColor(hex: "#D9D9D9")
@@ -29,14 +37,9 @@ extension UIColor {
         return UIColor(hex: "#F9F9F9")
     }
     
-    static var buttonGray: UIColor {
-        return UIColor(hex: "#D5D7D9")
-    }
-    
     static var primary: UIColor {
         return UIColor(hex: "#DF5757")
     }
-    
 }
 
 extension UIColor {

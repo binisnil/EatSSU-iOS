@@ -167,7 +167,7 @@ extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
         ctBar.layout.transitionStyle = .snap
         ctBar.backgroundView.style = .blur(style: .light)
         ctBar.buttons.customize { (button) in
-            button.tintColor = .gray300
+            button.tintColor = .gray700
             button.selectedTintColor = .black
             button.font = UIFont.systemFont(ofSize: 16)
             button.selectedFont = UIFont.systemFont(ofSize: 16, weight: .medium)

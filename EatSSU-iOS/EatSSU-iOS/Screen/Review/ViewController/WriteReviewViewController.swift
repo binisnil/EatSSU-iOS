@@ -65,7 +65,7 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
         let label = UILabel()
         label.text = "최대 150자"
         label.font = .medium(size: 12)
-        label.textColor = .gray300
+        label.textColor = .gray700
         return label
     }()
     
