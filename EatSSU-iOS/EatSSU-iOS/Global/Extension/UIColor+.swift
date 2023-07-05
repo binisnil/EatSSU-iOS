@@ -40,15 +40,6 @@ extension UIColor {
     static var primary: UIColor {
         return UIColor(hex: "#DF5757")
     }
-    
-    static var white: UIColor {
-        return UIColor(hex: "#FFFFFF")
-    }
-    
-    static var black: UIColor {
-        return UIColor(hex: "#000000")
-    }
-    
 }
 
 extension UIColor {
