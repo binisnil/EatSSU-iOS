@@ -24,7 +24,9 @@ class NewLoginViewController: BaseViewController {
     
     override func setLayout() {
         loginView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalToSuperview().offset(UIScreen.main.bounds.height / 4.0)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).inset(50)
         }
     }
 }

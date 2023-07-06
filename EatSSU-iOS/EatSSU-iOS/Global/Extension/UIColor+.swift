@@ -40,6 +40,10 @@ extension UIColor {
     static var primary: UIColor {
         return UIColor(hex: "#DF5757")
     }
+    
+    static var kakaoYellow: UIColor {
+        return UIColor(hex: "#FEE500")
+    }
 }
 
 extension UIColor {
