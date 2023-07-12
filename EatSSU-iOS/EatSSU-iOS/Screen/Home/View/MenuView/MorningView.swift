@@ -36,11 +36,7 @@ class MorningView: BaseUIView {
         $0.addTitleAttribute(title: TextLiteral.dormitoryRestaurant, titleColor: .black, fontName: .bold(size: 20))
     }
     
-    lazy var dormitoryTableView = MenuTableView().then {
-        $0.showsVerticalScrollIndicator = false
-        $0.layer.cornerRadius = 15.0
-        $0.isScrollEnabled = false
-    }
+    lazy var dormitoryTableView = MenuTableView()
     
     lazy var dormitoryStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [dormitoryCoordinateButton, dormitoryTableView])
@@ -57,11 +53,7 @@ class MorningView: BaseUIView {
         $0.addTitleAttribute(title: TextLiteral.dodamRestaurant, titleColor: .black, fontName: .bold(size: 20))
     }
     
-    lazy var dodamTableView = MenuTableView().then {
-        $0.showsVerticalScrollIndicator = false
-        $0.layer.cornerRadius = 15.0
-        $0.isScrollEnabled = false
-    }
+    lazy var dodamTableView = MenuTableView()
     
     lazy var dodamStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [dodamCoordinateButton, dodamTableView])
@@ -77,11 +69,7 @@ class MorningView: BaseUIView {
         $0.addTitleAttribute(title: TextLiteral.studentRestaurant, titleColor: .black, fontName: .bold(size: 20))
     }
 
-    lazy var studentTableView = MenuTableView().then {
-        $0.showsVerticalScrollIndicator = false
-        $0.layer.cornerRadius = 15.0
-        $0.isScrollEnabled = false
-    }
+    lazy var studentTableView = MenuTableView()
     
     lazy var studentStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [studentCoordinateButton, studentTableView])
@@ -97,11 +85,7 @@ class MorningView: BaseUIView {
         $0.addTitleAttribute(title: TextLiteral.foodCourt, titleColor: .black, fontName: .bold(size: 20))
     }
     
-    lazy var foodCourtTableView = MenuTableView().then {
-        $0.showsVerticalScrollIndicator = false
-        $0.layer.cornerRadius = 15.0
-        $0.isScrollEnabled = false
-    }
+    lazy var foodCourtTableView = MenuTableView()
     
     lazy var foodCourtStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [foodCourtCoordinateButton, foodCourtTableView])
@@ -117,11 +101,7 @@ class MorningView: BaseUIView {
         $0.addTitleAttribute(title: TextLiteral.snackCorner, titleColor: .black, fontName: .bold(size: 20))
     }
     
-    lazy var snackCornerTableView = MenuTableView().then {
-        $0.showsVerticalScrollIndicator = false
-        $0.layer.cornerRadius = 15.0
-        $0.isScrollEnabled = false
-    }
+    lazy var snackCornerTableView = MenuTableView()
     
     lazy var snackCornerStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [snackCornerCoordinateButton, snackCornerTableView])
@@ -137,11 +117,7 @@ class MorningView: BaseUIView {
         $0.addTitleAttribute(title: TextLiteral.theKitchen, titleColor: .black, fontName: .bold(size: 20))
     }
     
-    lazy var theKitchenTableView = MenuTableView().then {
-        $0.showsVerticalScrollIndicator = false
-        $0.layer.cornerRadius = 15.0
-        $0.isScrollEnabled = false
-    }
+    lazy var theKitchenTableView = MenuTableView()
     
     lazy var theKitchenStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [theKitchenCoordinateButton, theKitchenTableView])
