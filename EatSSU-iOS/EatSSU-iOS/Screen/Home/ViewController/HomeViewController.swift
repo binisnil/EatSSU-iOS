@@ -16,7 +16,8 @@ class HomeViewController: TabmanViewController {
     // MARK: - Properties
     
     let realm = RealmService()
-    var isPreview = false
+    // FIXME: true로 바꿨는데 로직 상 수정 필요하면 말씀해주세요
+    var isPreview = true
     
     // MARK: - UI Components
     
@@ -24,12 +25,15 @@ class HomeViewController: TabmanViewController {
     let lunchView = LunchView()
         
     private let contentView = UIView()
-    public let bar = TMBar.ButtonBar()
+    public let bar = TMBar.ButtonBar().then {
+        $0.backgroundColor = .gray500
+    }
 
     var dateSelectedField = UITextField().then {
         $0.tintColor = .clear
         $0.textColor = .darkGray
         $0.font = .boldSystemFont(ofSize: 18)
+        $0.backgroundColor = .blue
     }
 
     let datePicker = UIDatePicker().then {
@@ -59,7 +63,6 @@ class HomeViewController: TabmanViewController {
 
         // 초기 날짜 표시
         self.setTodayDateLabel(with: Date())
-               
     }
     
     func configureUI() {
@@ -69,24 +72,24 @@ class HomeViewController: TabmanViewController {
     func setLayout() {
         dateSelectedField.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(114)
-            $0.height.equalTo(20)
+            $0.leading.trailing.equalToSuperview().inset(140)
+            $0.height.equalTo(25)
         }
         
         bar.snp.makeConstraints {
-            $0.top.equalTo(dateSelectedField.snp.bottom).offset(3)
+            $0.top.equalTo(dateSelectedField.snp.bottom)
             $0.width.equalToSuperview()
             $0.height.equalTo(50)
        }
     }
 
     func setnavigation() {
-        navigationItem.titleView = UIImageView(image: UIImage(named: "TopLogo"))
+        navigationController?.navigationBar.backgroundColor = .green
+        navigationItem.titleView = UIImageView(image: ImageLiteral.EatSSULogo)
         navigationController?.isNavigationBarHidden = false
         if isPreview {
-            let rightButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(didTappedRightBarButton))
-            rightButton.tintColor = UIColor.primary
+            let rightButton = UIBarButtonItem(image: ImageLiteral.myPageIcon, style: .plain, target: self, action: #selector(didTappedRightBarButton))
+            rightButton.tintColor = .primary
             navigationItem.rightBarButtonItem = rightButton
         } else {
             navigationItem.hidesBackButton = true
@@ -122,11 +125,7 @@ class HomeViewController: TabmanViewController {
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "yyyy.MM.dd"
         dateSelectedField.text = dateFormatter.string(from: sender.date)
-//        dateFormatter.dateFormat = "yyyyMMdd"
-//        let dailyDate = dateFormatter.string(from: sender.date)
         view.endEditing(true)
-        
-//        lunchView.getDailyLunchMenuTable(date: dailyDate, restaurant: "DODAM", tableView: lunchView.dodamTableView)
     }
 }
 
@@ -147,7 +146,6 @@ extension HomeViewController: PageboyViewControllerDataSource, TMBarDataSource {
     func defaultPage(for pageboyViewController: Pageboy.PageboyViewController) -> Pageboy.PageboyViewController.Page? {
         nil
     }
-    
     
     func barItem(for bar: Tabman.TMBar, at index: Int) -> Tabman.TMBarItemable {
         switch index {

@@ -22,4 +22,13 @@ enum TextLiteral {
     static let hintInputNickName: String = "2~8글자를 입력해주세요."
     static let completeLabel: String = "완료하기"
     
+    // MARK: - Restaurant
+    
+    static let dormitoryRestaurant: String = "기숙사 식당"
+    static let dodamRestaurant: String = "도담 식당"
+    static let studentRestaurant: String = "학생 식당"
+    static let foodCourt: String = "푸드 코트"
+    static let snackCorner: String = "스낵 코너"
+    static let theKitchen: String = "더 키친"
+    
 }

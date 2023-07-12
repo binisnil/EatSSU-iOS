@@ -32,7 +32,8 @@ class MorningViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonEvent()
-        preferredContentSize = CGSize(width: 300, height: 400)
+//        preferredContentSize = CGSize(width: 300, height: 400)
+        morningView.backgroundColor = .yellow
     }
     
     //MARK: - Functions
@@ -54,12 +55,12 @@ class MorningViewController: BaseViewController {
         }
 
         morningView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
+            $0.top.leading.bottom.trailing.equalToSuperview()
         }
         
-        morningView.allRestaurantStackView.snp.makeConstraints {
-            $0.bottom.equalTo(contentView.snp.bottom)
-        }
+//        morningView.allRestaurantStackView.snp.makeConstraints {
+//            $0.bottom.equalTo(contentView.snp.bottom)
+//        }
     }
     
     override func setButtonEvent() {
