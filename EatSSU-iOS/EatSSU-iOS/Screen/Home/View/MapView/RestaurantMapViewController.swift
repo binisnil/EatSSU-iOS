@@ -26,9 +26,14 @@ class RestaurantMapViewController: BaseViewController {
         $0.backgroundColor = .primary
     }
     
-    private let restaurantLocationLabel = UILabel().then {
+    private let restaurantLocationTitleLabel = UILabel().then {
         $0.text = "식당 위치"
         $0.font = .semiBold(size: 18)
+    }
+    
+    private let restaurantLocationLabel = UILabel().then {
+        $0.text = "숭실대학교 신양관 2층"
+        $0.font = .medium(size: 16)
     }
     
     private let lineView1 = UIView().then {
@@ -40,10 +45,12 @@ class RestaurantMapViewController: BaseViewController {
         $0.font = .semiBold(size: 18)
     }
     
-    private let weekdayLabel = UILabel().then {
+    private let weekdayOpeningTitleLabel = UILabel().then {
         $0.text = "주중"
         $0.font = .medium(size: 16)
     }
+    
+    private let
     
     // Create a map view
     // let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: 317, height: 256))
@@ -74,7 +81,7 @@ class RestaurantMapViewController: BaseViewController {
     override func configureUI() {
         view.addSubviews(restaurantNameLabel,
                          lineView,
-                         restaurantLocationLabel,
+                         restaurantLocationTitleLabel,
                         mapView,
                          openingTimeLabel
                          )
@@ -91,12 +98,12 @@ class RestaurantMapViewController: BaseViewController {
             $0.trailing.equalToSuperview().offset(-28)
             $0.height.equalTo(2)
         }
-        restaurantLocationLabel.snp.makeConstraints {
+        restaurantLocationTitleLabel.snp.makeConstraints {
             $0.top.equalTo(lineView.snp.bottom).offset(13)
             $0.leading.equalToSuperview().offset(39)
         }
         mapView.snp.makeConstraints {
-            $0.top.equalTo(restaurantLocationLabel.snp.bottom).offset(12)
+            $0.top.equalTo(restaurantLocationTitleLabel.snp.bottom).offset(12)
             $0.width.equalTo(335)
             $0.height.equalTo(256)
             $0.centerX.equalToSuperview()

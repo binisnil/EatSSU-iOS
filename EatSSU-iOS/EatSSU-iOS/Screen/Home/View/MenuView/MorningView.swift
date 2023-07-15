@@ -167,7 +167,7 @@ class MorningView: BaseUIView {
             }
         }
         dormitoryStackView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(19)
         }
         dodamStackView.snp.makeConstraints {
             $0.top.equalTo(dormitoryStackView.snp.bottom).offset(20)
