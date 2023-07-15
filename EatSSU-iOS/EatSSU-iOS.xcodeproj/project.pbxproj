@@ -56,6 +56,8 @@
 		7B51C5912A628F7E0016B418 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 7B51C5902A628F7E0016B418 /* FSCalendar */; };
 		7B51C5932A628FB30016B418 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5922A628FB30016B418 /* NewHomeViewController.swift */; };
 		7B51C5952A62A0B10016B418 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5942A62A0B10016B418 /* CALayer.swift */; };
+		7B51C5972A62A51D0016B418 /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5962A62A51D0016B418 /* HomeCalendarView.swift */; };
+		7B51C5992A630C890016B418 /* HomeTabmanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5982A630C890016B418 /* HomeTabmanController.swift */; };
 		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
@@ -134,6 +136,8 @@
 		7B2C9E9C29DF3C020007603D /* FontLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiteral.swift; sourceTree = "<group>"; };
 		7B51C5922A628FB30016B418 /* NewHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeViewController.swift; sourceTree = "<group>"; };
 		7B51C5942A62A0B10016B418 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		7B51C5962A62A51D0016B418 /* HomeCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
+		7B51C5982A630C890016B418 /* HomeTabmanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabmanController.swift; sourceTree = "<group>"; };
 		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
@@ -453,6 +457,7 @@
 				7B9798AD2A24E66F0069F027 /* MenuTable */,
 				7B9899A82A0B98AA00D1A076 /* MapView */,
 				7B9899A72A0B988800D1A076 /* MenuView */,
+				7B51C5962A62A51D0016B418 /* HomeCalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				7B63C45529C100AD0070C588 /* HomeComponent */,
 				7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */,
 				7B51C5922A628FB30016B418 /* NewHomeViewController.swift */,
+				7B51C5982A630C890016B418 /* HomeTabmanController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -709,6 +715,7 @@
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
 				7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */,
+				7B51C5972A62A51D0016B418 /* HomeCalendarView.swift in Sources */,
 				7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
 				7B51C5932A628FB30016B418 /* NewHomeViewController.swift in Sources */,
@@ -720,6 +727,7 @@
 				7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */,
 				7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */,
 				057A0B232A22279B00F10B85 /* Token.swift in Sources */,
+				7B51C5992A630C890016B418 /* HomeTabmanController.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */,
 				7BF5CC0C2A497AD800E4EE11 /* NewLoginView.swift in Sources */,

@@ -20,6 +20,8 @@ class DinnerViewController: BaseViewController {
     
     private let contentView = UIView()
     private let morningView = MorningView()
+    let tabBarHeight: CGFloat = 60
+
 
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .systemBackground
@@ -33,6 +35,7 @@ class DinnerViewController: BaseViewController {
         setButtonEvent()
 //        preferredContentSize = CGSize(width: 300, height: 400)
         morningView.backgroundColor = .yellow
+        
     }
     
     //MARK: - Functions
@@ -45,8 +48,10 @@ class DinnerViewController: BaseViewController {
 
     override func setLayout() {
         scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(170)
+            $0.top.equalToSuperview().offset(tabBarHeight)
+            
             $0.horizontalEdges.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
 
         contentView.snp.makeConstraints {

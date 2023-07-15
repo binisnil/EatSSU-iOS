@@ -43,7 +43,7 @@ class MorningView: BaseUIView {
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.spacing = 10.0
-        stackView.backgroundColor = .blue
+//        stackView.backgroundColor = .blue
         return stackView
     }()
     
