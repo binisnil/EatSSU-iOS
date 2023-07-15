@@ -53,6 +53,9 @@
 		7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9629DEE7B20007603D /* UITextField+.swift */; };
 		7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9A29DF3B4A0007603D /* ImageLiteral.swift */; };
 		7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9C29DF3C020007603D /* FontLiteral.swift */; };
+		7B51C5912A628F7E0016B418 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 7B51C5902A628F7E0016B418 /* FSCalendar */; };
+		7B51C5932A628FB30016B418 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5922A628FB30016B418 /* NewHomeViewController.swift */; };
+		7B51C5952A62A0B10016B418 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5942A62A0B10016B418 /* CALayer.swift */; };
 		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
@@ -129,6 +132,8 @@
 		7B2C9E9629DEE7B20007603D /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		7B2C9E9A29DF3B4A0007603D /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
 		7B2C9E9C29DF3C020007603D /* FontLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiteral.swift; sourceTree = "<group>"; };
+		7B51C5922A628FB30016B418 /* NewHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeViewController.swift; sourceTree = "<group>"; };
+		7B51C5942A62A0B10016B418 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
 				0569565C29B25D40002E8CF2 /* Tabman in Frameworks */,
+				7B51C5912A628F7E0016B418 /* FSCalendar in Frameworks */,
 				057A0B1C2A22272D00F10B85 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +384,7 @@
 				05A4C88329DFE42A004B9A81 /* UIStackView+.swift */,
 				7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */,
 				058326652A4D97BC004A295F /* UICollectionViewCell+.swift */,
+				7B51C5942A62A0B10016B418 /* CALayer.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -455,6 +462,7 @@
 			children = (
 				7B63C45529C100AD0070C588 /* HomeComponent */,
 				7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */,
+				7B51C5922A628FB30016B418 /* NewHomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -612,6 +620,7 @@
 				7BD73CD329D208940076DC77 /* Then */,
 				057A0B1B2A22272D00F10B85 /* Realm */,
 				057A0B1D2A22272D00F10B85 /* RealmSwift */,
+				7B51C5902A628F7E0016B418 /* FSCalendar */,
 			);
 			productName = "EatSSU-iOS";
 			productReference = 7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */;
@@ -647,6 +656,7 @@
 				056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */,
 				7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */,
 				057A0B1A2A22272D00F10B85 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				7B51C58F2A628F7E0016B418 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 7B2BBF93299A1AC400EE0F1F /* Products */;
 			projectDirPath = "";
@@ -701,6 +711,7 @@
 				7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */,
 				7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
+				7B51C5932A628FB30016B418 /* NewHomeViewController.swift in Sources */,
 				058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,
@@ -712,6 +723,7 @@
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */,
 				7BF5CC0C2A497AD800E4EE11 /* NewLoginView.swift in Sources */,
+				7B51C5952A62A0B10016B418 /* CALayer.swift in Sources */,
 				056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */,
 				7B9798AF2A24E6A70069F027 /* LunchView.swift in Sources */,
 				0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */,
@@ -722,7 +734,6 @@
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				0583266A2A4DC891004A295F /* RateNumberView.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
-				057A0B2F2A25BD1800F10B85 /* SetRate.swift in Sources */,
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
 				057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */,
@@ -998,6 +1009,14 @@
 				kind = branch;
 			};
 		};
+		7B51C58F2A628F7E0016B418 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -1033,6 +1052,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		7B51C5902A628F7E0016B418 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B51C58F2A628F7E0016B418 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
 		7BD73CD329D208940076DC77 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;

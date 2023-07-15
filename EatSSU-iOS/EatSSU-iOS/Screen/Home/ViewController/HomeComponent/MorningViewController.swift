@@ -46,7 +46,7 @@ class MorningViewController: BaseViewController {
 
     override func setLayout() {
         scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(190)
+            $0.top.equalToSuperview().offset(170)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
 
@@ -57,10 +57,6 @@ class MorningViewController: BaseViewController {
         morningView.snp.makeConstraints {
             $0.top.leading.bottom.trailing.equalToSuperview()
         }
-        
-//        morningView.allRestaurantStackView.snp.makeConstraints {
-//            $0.bottom.equalTo(contentView.snp.bottom)
-//        }
     }
     
     override func setButtonEvent() {
