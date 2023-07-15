@@ -35,6 +35,7 @@ class NewHomeViewController: TabmanViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
+        setnavigation()
         registerTabBar()
         configureUI()
         setLayout()
@@ -51,14 +52,31 @@ class NewHomeViewController: TabmanViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(60)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(40)
-            
         }
     }
+    
+    func setnavigation() {
+            navigationItem.titleView = UIImageView(image: ImageLiteral.EatSSULogo)
+            navigationController?.isNavigationBarHidden = false
+            if isPreview {
+                let rightButton = UIBarButtonItem(image: ImageLiteral.myPageIcon, style: .plain, target: self, action: #selector(didTappedRightBarButton))
+                rightButton.tintColor = .primary
+                navigationItem.rightBarButtonItem = rightButton
+            } else {
+                navigationItem.hidesBackButton = true
+            }
+        }
     
     func registerTabBar() {
         self.dataSource = self
         setLayoutTabBar(ctBar: bar)
         addBar(bar, dataSource: self, at: .custom(view: tabmanView, layout: nil))
+    }
+    
+    @objc
+    func didTappedRightBarButton() {
+        let nextVC = MyPageViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func isPreviewButtonTapped(preview: Bool) {
