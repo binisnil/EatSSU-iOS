@@ -33,7 +33,6 @@ class DinnerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonEvent()
-//        preferredContentSize = CGSize(width: 300, height: 400)
         morningView.backgroundColor = .yellow
         
     }
