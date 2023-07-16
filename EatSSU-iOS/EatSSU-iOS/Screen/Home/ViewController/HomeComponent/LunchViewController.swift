@@ -20,7 +20,7 @@ class LunchViewController: BaseViewController {
     
     private let contentView = UIView()
     private let morningView = MorningView()
-    let tabBarHeight: CGFloat = 48
+    let tabBarHeight: CGFloat = 50
 
 
     let scrollView = UIScrollView().then {

@@ -7,10 +7,7 @@
 
 import UIKit
 
-import SnapKit
-import Then
-
-struct RestaurantInfoModel: AppData {
+struct RestaurantInfoData: AppData {
     let location: String
     let openHours: [OpenHours]
 }
@@ -21,9 +18,9 @@ struct OpenHours: AppData {
     let time: String
 }
 
-extension RestaurantInfoModel {
+extension RestaurantInfoData {
     
-    static func dummy() -> [RestaurantInfoModel] {
-        return [RestaurantInfoModel(location: "기숙사 1층", openHours: [OpenHours(dayType: "주중 / 주말, 공휴일", timePart: "아침/점심/저녁", time: "11:00 - 14:00")])]
+    static func dummy() -> RestaurantInfoData {
+        return RestaurantInfoData(location: "기숙사 1층", openHours: [OpenHours(dayType: "주중 / 주말, 공휴일", timePart: "아침/점심/저녁", time: "11:00 - 14:00")])
     }
 }         

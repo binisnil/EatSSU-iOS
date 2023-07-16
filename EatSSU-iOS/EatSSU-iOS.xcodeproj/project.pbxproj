@@ -58,10 +58,11 @@
 		7B51C5952A62A0B10016B418 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5942A62A0B10016B418 /* CALayer.swift */; };
 		7B51C5972A62A51D0016B418 /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5962A62A51D0016B418 /* HomeCalendarView.swift */; };
 		7B51C5992A630C890016B418 /* HomeTabmanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5982A630C890016B418 /* HomeTabmanController.swift */; };
-		7B51C59C2A6320F50016B418 /* RestaurantMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C59B2A6320F50016B418 /* RestaurantMenuModel.swift */; };
 		7B51C59E2A6321700016B418 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C59D2A6321700016B418 /* DummyModel.swift */; };
 		7B51C5A12A6322D60016B418 /* DataTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5A02A6322D60016B418 /* DataTypeProtocol.swift */; };
 		7B51C5A32A63268A0016B418 /* RestaurantInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5A22A63268A0016B418 /* RestaurantInfoModel.swift */; };
+		7B51C5A52A63C6D50016B418 /* ChangeMenuInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5A42A63C6D50016B418 /* ChangeMenuInfoResponse.swift */; };
+		7B51C5A72A63C7230016B418 /* ChangeMenuInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */; };
 		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
@@ -142,10 +143,11 @@
 		7B51C5942A62A0B10016B418 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		7B51C5962A62A51D0016B418 /* HomeCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
 		7B51C5982A630C890016B418 /* HomeTabmanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabmanController.swift; sourceTree = "<group>"; };
-		7B51C59B2A6320F50016B418 /* RestaurantMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMenuModel.swift; sourceTree = "<group>"; };
 		7B51C59D2A6321700016B418 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		7B51C5A02A6322D60016B418 /* DataTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeProtocol.swift; sourceTree = "<group>"; };
 		7B51C5A22A63268A0016B418 /* RestaurantInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoModel.swift; sourceTree = "<group>"; };
+		7B51C5A42A63C6D50016B418 /* ChangeMenuInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMenuInfoResponse.swift; sourceTree = "<group>"; };
+		7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMenuInfoModel.swift; sourceTree = "<group>"; };
 		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
@@ -465,8 +467,8 @@
 		7B51C59A2A6320B60016B418 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7B51C59B2A6320F50016B418 /* RestaurantMenuModel.swift */,
 				7B51C5A22A63268A0016B418 /* RestaurantInfoModel.swift */,
+				7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -497,6 +499,7 @@
 				7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */,
 				7B51C5922A628FB30016B418 /* NewHomeViewController.swift */,
 				7B51C5982A630C890016B418 /* HomeTabmanController.swift */,
+				7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -560,7 +563,6 @@
 		7B9899A82A0B98AA00D1A076 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -627,6 +629,7 @@
 			children = (
 				7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */,
 				7B9798B62A2638C50069F027 /* DailyMenuTableResponse.swift */,
+				7B51C5A42A63C6D50016B418 /* ChangeMenuInfoResponse.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
+				7B51C5A72A63C7230016B418 /* ChangeMenuInfoModel.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */,
 				057A0B252A22284400F10B85 /* SignResponse.swift in Sources */,
@@ -741,6 +745,7 @@
 				7B9899A42A0B902C00D1A076 /* MenuTableView.swift in Sources */,
 				7B9798B12A24E6AE0069F027 /* DinnerView.swift in Sources */,
 				7B9798B72A2638C50069F027 /* DailyMenuTableResponse.swift in Sources */,
+				7B51C5A52A63C6D50016B418 /* ChangeMenuInfoResponse.swift in Sources */,
 				7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
@@ -786,7 +791,6 @@
 				057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */,
 				7B906AF42A1B849D00E4B6A9 /* MyPageViewController.swift in Sources */,
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
-				7B51C59C2A6320F50016B418 /* RestaurantMenuModel.swift in Sources */,
 				0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */,
 				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,
 				0559705D2A16670600868C42 /* MenuInfoResponse.swift in Sources */,

@@ -14,7 +14,13 @@ import Then
 class RestaurantMapViewController: BaseViewController {
     
     // MARK: - Properties
-    
+
+    private var restaurantInfoData: RestaurantInfoData? {
+        didSet {
+            configureRestaurantInfo()
+        }
+    }
+
     // MARK: - UI Components
     
     private let restaurantNameLabel = UILabel().then {
@@ -31,8 +37,8 @@ class RestaurantMapViewController: BaseViewController {
         $0.font = .semiBold(size: 18)
     }
     
-    private let restaurantLocationLabel = UILabel().then {
-        $0.text = "숭실대학교 신양관 2층"
+    private var locationLabel = UILabel().then {
+        $0.text = "도담관"
         $0.font = .medium(size: 16)
     }
     
@@ -40,17 +46,25 @@ class RestaurantMapViewController: BaseViewController {
         $0.backgroundColor = .primary
     }
     
-    private let openingTimeLabel = UILabel().then {
+    private let openingTimeTitleLabel = UILabel().then {
         $0.text = "영업 시간"
         $0.font = .semiBold(size: 18)
     }
     
-    private let weekdayOpeningTitleLabel = UILabel().then {
-        $0.text = "주중"
+    private var dayTypeLabel = UILabel().then {
+        $0.text = "평일"
         $0.font = .medium(size: 16)
     }
     
-    private let
+    private var timepartLabel = UILabel().then {
+        $0.text = "아침"
+        $0.font = .medium(size: 16)
+    }
+    
+    private var timeLabel = UILabel().then {
+        $0.text = "5시"
+        $0.font = .medium(size: 16)
+    }
     
     // Create a map view
     // let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: 317, height: 256))
@@ -60,16 +74,12 @@ class RestaurantMapViewController: BaseViewController {
 
     let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
 
-    
-    
-
-
-   
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
         
+        loadRestaurantInfo()
         setMapView()
         configureUI()
         setLayout()
@@ -82,8 +92,12 @@ class RestaurantMapViewController: BaseViewController {
         view.addSubviews(restaurantNameLabel,
                          lineView,
                          restaurantLocationTitleLabel,
+                         locationLabel,
                         mapView,
-                         openingTimeLabel
+                         openingTimeTitleLabel,
+                         dayTypeLabel,
+                         timepartLabel,
+                         timeLabel
                          )
     }
     
@@ -102,15 +116,32 @@ class RestaurantMapViewController: BaseViewController {
             $0.top.equalTo(lineView.snp.bottom).offset(13)
             $0.leading.equalToSuperview().offset(39)
         }
+        locationLabel.snp.makeConstraints {
+            $0.top.equalTo(restaurantLocationTitleLabel)
+            $0.trailing.equalToSuperview().offset(-18)
+        }
         mapView.snp.makeConstraints {
             $0.top.equalTo(restaurantLocationTitleLabel.snp.bottom).offset(12)
             $0.width.equalTo(335)
             $0.height.equalTo(256)
             $0.centerX.equalToSuperview()
         }
-        openingTimeLabel.snp.makeConstraints {
+        openingTimeTitleLabel.snp.makeConstraints {
             $0.top.equalTo(mapView.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(39)
+        }
+        dayTypeLabel.snp.makeConstraints {
+            $0.top.equalTo(openingTimeTitleLabel)
+            $0.leading.equalTo(openingTimeTitleLabel.snp.trailing).offset(50)
+        }
+        timepartLabel.snp.makeConstraints {
+            $0.top.equalTo(dayTypeLabel.snp.bottom).offset(10)
+            $0.leading.equalToSuperview().offset(39)
+        }
+        timeLabel.snp.makeConstraints {
+            $0.top.equalTo(timepartLabel)
+            $0.leading.equalTo(timepartLabel).offset(60)
+
         }
     }
     
@@ -131,4 +162,15 @@ class RestaurantMapViewController: BaseViewController {
         mapView.addAnnotation(annotation)
     }
     
+    func loadRestaurantInfo() {
+        restaurantInfoData = RestaurantInfoData.dummy()
+    }
+    
+    func configureRestaurantInfo() {
+        guard let data = restaurantInfoData else {return}
+        self.locationLabel.text = "\(data.location)"
+        self.dayTypeLabel.text = "\(data.openHours[0].dayType)"
+        self.timepartLabel.text = "\(data.openHours[0].timePart)"
+        self.timeLabel.text = "\(data.openHours[0].time)"
+    }
 }

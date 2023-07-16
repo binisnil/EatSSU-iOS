@@ -20,7 +20,7 @@ class DinnerViewController: BaseViewController {
     
     private let contentView = UIView()
     private let morningView = MorningView()
-    let tabBarHeight: CGFloat = 60
+    let tabBarHeight: CGFloat = 50
 
 
     let scrollView = UIScrollView().then {
