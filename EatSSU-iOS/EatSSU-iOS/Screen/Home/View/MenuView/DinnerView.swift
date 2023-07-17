@@ -249,6 +249,7 @@ class DinnerView: BaseUIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        self.backgroundColor = .background
         setTableViewTagNumber()
         setupTableView()
 //        getMenuTableView()
