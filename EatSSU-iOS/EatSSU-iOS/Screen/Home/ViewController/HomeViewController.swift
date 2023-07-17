@@ -1,5 +1,5 @@
 //
-//  NewHomeViewController.swift
+//  HomeViewController.swift
 //  EatSSU-iOS
 //
 //  Created by 최지우 on 2023/07/15.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class NewHomeViewController: BaseViewController {
+class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
