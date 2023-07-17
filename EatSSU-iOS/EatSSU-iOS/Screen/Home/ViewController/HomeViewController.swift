@@ -17,7 +17,6 @@ class HomeViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    var tabmanContainerView = UIView()
     let tabmanController = HomeTabmanController()
     let homeCalendarView = HomeCalendarView()
     
@@ -27,17 +26,16 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
+        registerTabman()
         setnavigation()
         configureUI()
         setLayout()
-        registerTabman()
     }
     
     //MARK: - Functions
     
     override func configureUI() {
-        view.addSubviews(homeCalendarView,
-                         tabmanContainerView)
+        view.addSubviews(homeCalendarView)
     }
 
     override func setLayout() {
@@ -45,11 +43,6 @@ class HomeViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(80)
-        }
-        tabmanContainerView.snp.makeConstraints {
-            $0.top.equalTo(homeCalendarView.snp.bottom)
-            $0.horizontalEdges.equalToSuperview()
-            $0.bottom.equalToSuperview()
         }
     }
     
@@ -66,12 +59,19 @@ class HomeViewController: BaseViewController {
         }
     
     func registerTabman() {
+        
         // 자식 뷰 컨트롤러로 추가
         addChild(tabmanController)
-       
-        tabmanController.view.frame = tabmanContainerView.bounds
-        tabmanContainerView.addSubview(tabmanController.view)
-       
+
+        // 자식 뷰를 부모 뷰에 추가
+        view.addSubview(tabmanController.view)
+        
+        // tabman 레이아웃 설정
+        tabmanController.view.snp.makeConstraints {
+            $0.top.equalTo(homeCalendarView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
         // 자식 뷰 컨트롤러로서의 위치를 확정
         tabmanController.didMove(toParent: self)
     }

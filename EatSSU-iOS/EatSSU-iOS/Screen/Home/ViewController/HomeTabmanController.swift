@@ -17,11 +17,6 @@ class HomeTabmanController: TabmanViewController {
     
     // MARK: - UI Components
     
-    let tabmanView = UIView()
-    // FIXME: Corner 속성을 추가하면 bar와의 충돌로 view 나타나지 않음
-//        $0.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 20)
-//        $0.layer.addBorder([.bottom], color: .gray300, width: 1.0)
-    
     let bar = TMBar.ButtonBar()
     private var viewControllers = [MorningViewController(), LunchViewController(), DinnerViewController()]
     
@@ -29,30 +24,18 @@ class HomeTabmanController: TabmanViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-               
+
         registerTabBar()
-        configureUI()
-        setLayout()
     }
-    
+ 
     //MARK: - Functions
-    
-    func configureUI() {
-
-    }
-
-    func setLayout() {
-
-    }
     
     func registerTabBar() {
         self.dataSource = self
+        
         setLayoutTabBar(ctBar: bar)
-//        addBar(bar, dataSource: self, at: .custom(view: tabmanView, layout: nil))
         addBar(bar, dataSource: self, at: .top)
     }
-
 }
 
 // MARK: - PageBoy Extension

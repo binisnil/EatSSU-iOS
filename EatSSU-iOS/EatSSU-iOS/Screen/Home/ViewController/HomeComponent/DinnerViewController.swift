@@ -33,8 +33,6 @@ class DinnerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonEvent()
-        morningView.backgroundColor = .yellow
-        
     }
     
     //MARK: - Functions

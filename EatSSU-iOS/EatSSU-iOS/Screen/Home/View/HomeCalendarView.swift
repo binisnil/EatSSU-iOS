@@ -16,41 +16,34 @@ class HomeCalendarView: BaseUIView {
     // MARK: - Properties
     
     // MARK: - UI Components
+    
     fileprivate var calendar = FSCalendar()
     
     // MARK: Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        
+        setDelegate()
         setUpCalendar()
-//        self.backgroundColor = .green
     }
     
     // MARK: - Functions
 
-    
     override func configureUI() {
-        
+        self.addSubview(calendar)
     }
     
     override func setLayout() {
-        
-    }
-    
-    // MARK: setupView
-    private func setupView() {
- 
-        calendar.dataSource = self
-        calendar.delegate = self
-       
-        self.addSubview(calendar)
         calendar.snp.makeConstraints {
             $0.height.equalTo(300)
             $0.left.right.equalToSuperview()
         }
-//       self.changeTitle(date: Date())
+    }
+
+    private func setDelegate() {
+        calendar.dataSource = self
+        calendar.delegate = self
    }
-    
 }
 
 extension HomeCalendarView: FSCalendarDataSource, FSCalendarDelegate {
@@ -95,7 +88,6 @@ extension HomeCalendarView: FSCalendarDataSource, FSCalendarDelegate {
         
         // 캘린더 숫자와 subtitle간의 간격 조정
 //        calendar.appearance.subtitleOffset = CGPoint(x: 0, y: 10)
-
     }
     
 //    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
