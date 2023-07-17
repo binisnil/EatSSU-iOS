@@ -251,7 +251,7 @@ class DinnerView: BaseUIView {
 
         setTableViewTagNumber()
         setupTableView()
-        getMenuTableView()
+//        getMenuTableView()
 
     }
     

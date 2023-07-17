@@ -53,6 +53,16 @@
 		7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9629DEE7B20007603D /* UITextField+.swift */; };
 		7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9A29DF3B4A0007603D /* ImageLiteral.swift */; };
 		7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9C29DF3C020007603D /* FontLiteral.swift */; };
+		7B51C5912A628F7E0016B418 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 7B51C5902A628F7E0016B418 /* FSCalendar */; };
+		7B51C5932A628FB30016B418 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5922A628FB30016B418 /* NewHomeViewController.swift */; };
+		7B51C5952A62A0B10016B418 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5942A62A0B10016B418 /* CALayer.swift */; };
+		7B51C5972A62A51D0016B418 /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5962A62A51D0016B418 /* HomeCalendarView.swift */; };
+		7B51C5992A630C890016B418 /* HomeTabmanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5982A630C890016B418 /* HomeTabmanController.swift */; };
+		7B51C59E2A6321700016B418 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C59D2A6321700016B418 /* DummyModel.swift */; };
+		7B51C5A12A6322D60016B418 /* DataTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5A02A6322D60016B418 /* DataTypeProtocol.swift */; };
+		7B51C5A32A63268A0016B418 /* RestaurantInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5A22A63268A0016B418 /* RestaurantInfoModel.swift */; };
+		7B51C5A52A63C6D50016B418 /* ChangeMenuInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5A42A63C6D50016B418 /* ChangeMenuInfoResponse.swift */; };
+		7B51C5A72A63C7230016B418 /* ChangeMenuInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */; };
 		7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45629C100C80070C588 /* MorningViewController.swift */; };
 		7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45829C100D70070C588 /* LunchViewController.swift */; };
 		7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63C45A29C100DE0070C588 /* DinnerViewController.swift */; };
@@ -129,6 +139,15 @@
 		7B2C9E9629DEE7B20007603D /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		7B2C9E9A29DF3B4A0007603D /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
 		7B2C9E9C29DF3C020007603D /* FontLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiteral.swift; sourceTree = "<group>"; };
+		7B51C5922A628FB30016B418 /* NewHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeViewController.swift; sourceTree = "<group>"; };
+		7B51C5942A62A0B10016B418 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		7B51C5962A62A51D0016B418 /* HomeCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
+		7B51C5982A630C890016B418 /* HomeTabmanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabmanController.swift; sourceTree = "<group>"; };
+		7B51C59D2A6321700016B418 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
+		7B51C5A02A6322D60016B418 /* DataTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeProtocol.swift; sourceTree = "<group>"; };
+		7B51C5A22A63268A0016B418 /* RestaurantInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoModel.swift; sourceTree = "<group>"; };
+		7B51C5A42A63C6D50016B418 /* ChangeMenuInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMenuInfoResponse.swift; sourceTree = "<group>"; };
+		7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMenuInfoModel.swift; sourceTree = "<group>"; };
 		7B63C45629C100C80070C588 /* MorningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningViewController.swift; sourceTree = "<group>"; };
 		7B63C45829C100D70070C588 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		7B63C45A29C100DE0070C588 /* DinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +186,7 @@
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
 				0569565C29B25D40002E8CF2 /* Tabman in Frameworks */,
+				7B51C5912A628F7E0016B418 /* FSCalendar in Frameworks */,
 				057A0B1C2A22272D00F10B85 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +219,7 @@
 		0569565229B1F4B2002E8CF2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7B51C59A2A6320B60016B418 /* Model */,
 				7B63C45029C0FF7E0070C588 /* View */,
 				7B63C45229C0FFF50070C588 /* ViewController */,
 			);
@@ -340,6 +361,7 @@
 		7B2BBFA9299A253B00EE0F1F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				7B51C59F2A6322C00016B418 /* Protocol */,
 				7B2C9E9929DF36880007603D /* Literal */,
 				7B2C9E8F29DAF5FE0007603D /* UIComponent */,
 				056956BD29C0DAF9002E8CF2 /* Base */,
@@ -378,6 +400,7 @@
 				05A4C88329DFE42A004B9A81 /* UIStackView+.swift */,
 				7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */,
 				058326652A4D97BC004A295F /* UICollectionViewCell+.swift */,
+				7B51C5942A62A0B10016B418 /* CALayer.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -436,8 +459,26 @@
 				7B2C9E9A29DF3B4A0007603D /* ImageLiteral.swift */,
 				7B2C9E9C29DF3C020007603D /* FontLiteral.swift */,
 				7BF5CC112A49F65400E4EE11 /* TextLiteral.swift */,
+				7B51C59D2A6321700016B418 /* DummyModel.swift */,
 			);
 			path = Literal;
+			sourceTree = "<group>";
+		};
+		7B51C59A2A6320B60016B418 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B51C5A22A63268A0016B418 /* RestaurantInfoModel.swift */,
+				7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B51C59F2A6322C00016B418 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7B51C5A02A6322D60016B418 /* DataTypeProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		7B63C45029C0FF7E0070C588 /* View */ = {
@@ -446,6 +487,7 @@
 				7B9798AD2A24E66F0069F027 /* MenuTable */,
 				7B9899A82A0B98AA00D1A076 /* MapView */,
 				7B9899A72A0B988800D1A076 /* MenuView */,
+				7B51C5962A62A51D0016B418 /* HomeCalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -455,6 +497,9 @@
 			children = (
 				7B63C45529C100AD0070C588 /* HomeComponent */,
 				7B2BBF99299A1AC400EE0F1F /* HomeViewController.swift */,
+				7B51C5922A628FB30016B418 /* NewHomeViewController.swift */,
+				7B51C5982A630C890016B418 /* HomeTabmanController.swift */,
+				7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -518,7 +563,6 @@
 		7B9899A82A0B98AA00D1A076 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				7B9899A92A0B98E700D1A076 /* RestaurantMapViewController.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -585,6 +629,7 @@
 			children = (
 				7BFD09BE2A21E6E400B40054 /* FixedMenuTableResponse.swift */,
 				7B9798B62A2638C50069F027 /* DailyMenuTableResponse.swift */,
+				7B51C5A42A63C6D50016B418 /* ChangeMenuInfoResponse.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -612,6 +657,7 @@
 				7BD73CD329D208940076DC77 /* Then */,
 				057A0B1B2A22272D00F10B85 /* Realm */,
 				057A0B1D2A22272D00F10B85 /* RealmSwift */,
+				7B51C5902A628F7E0016B418 /* FSCalendar */,
 			);
 			productName = "EatSSU-iOS";
 			productReference = 7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */;
@@ -647,6 +693,7 @@
 				056956C029C0DB55002E8CF2 /* XCRemoteSwiftPackageReference "Moya" */,
 				7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */,
 				057A0B1A2A22272D00F10B85 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				7B51C58F2A628F7E0016B418 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 7B2BBF93299A1AC400EE0F1F /* Products */;
 			projectDirPath = "";
@@ -680,12 +727,15 @@
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				7BF5CC3C2A53DD0600E4EE11 /* PostUIButton.swift in Sources */,
+				7B51C5A32A63268A0016B418 /* RestaurantInfoModel.swift in Sources */,
 				058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
+				7B51C5A72A63C7230016B418 /* ChangeMenuInfoModel.swift in Sources */,
 				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */,
 				057A0B252A22284400F10B85 /* SignResponse.swift in Sources */,
+				7B51C5A12A6322D60016B418 /* DataTypeProtocol.swift in Sources */,
 				057A0AC72A1B488B00F10B85 /* TotalReviewResponse.swift in Sources */,
 				057A0B212A22278800F10B85 /* RealmService.swift in Sources */,
 				05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */,
@@ -695,12 +745,15 @@
 				7B9899A42A0B902C00D1A076 /* MenuTableView.swift in Sources */,
 				7B9798B12A24E6AE0069F027 /* DinnerView.swift in Sources */,
 				7B9798B72A2638C50069F027 /* DailyMenuTableResponse.swift in Sources */,
+				7B51C5A52A63C6D50016B418 /* ChangeMenuInfoResponse.swift in Sources */,
 				7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
 				7B2BBF9A299A1AC400EE0F1F /* HomeViewController.swift in Sources */,
 				7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */,
+				7B51C5972A62A51D0016B418 /* HomeCalendarView.swift in Sources */,
 				7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
+				7B51C5932A628FB30016B418 /* NewHomeViewController.swift in Sources */,
 				058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,
@@ -709,20 +762,22 @@
 				7B63C45729C100C80070C588 /* MorningViewController.swift in Sources */,
 				7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */,
 				057A0B232A22279B00F10B85 /* Token.swift in Sources */,
+				7B51C5992A630C890016B418 /* HomeTabmanController.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */,
 				7BF5CC0C2A497AD800E4EE11 /* NewLoginView.swift in Sources */,
+				7B51C5952A62A0B10016B418 /* CALayer.swift in Sources */,
 				056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */,
 				7B9798AF2A24E6A70069F027 /* LunchView.swift in Sources */,
 				0569570C29CE1A71002E8CF2 /* WriteReviewViewController.swift in Sources */,
 				057A0ACF2A1D3EEF00F10B85 /* WriteReviewRequest.swift in Sources */,
 				057A0AC92A1B498300F10B85 /* ReviewRouter.swift in Sources */,
 				057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */,
+				7B51C59E2A6321700016B418 /* DummyModel.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				0583266A2A4DC891004A295F /* RateNumberView.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
-				057A0B2F2A25BD1800F10B85 /* SetRate.swift in Sources */,
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
 				057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */,
@@ -998,6 +1053,14 @@
 				kind = branch;
 			};
 		};
+		7B51C58F2A628F7E0016B418 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -1033,6 +1096,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B2BBFAE299A291A00EE0F1F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		7B51C5902A628F7E0016B418 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B51C58F2A628F7E0016B418 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
 		7BD73CD329D208940076DC77 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;

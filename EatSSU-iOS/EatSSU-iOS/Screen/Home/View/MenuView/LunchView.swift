@@ -251,7 +251,7 @@ class LunchView: BaseUIView {
 
         setTableViewTagNumber()
         setupTableView()
-        getMenuTableView()
+//        getMenuTableView()
 
     }
     
