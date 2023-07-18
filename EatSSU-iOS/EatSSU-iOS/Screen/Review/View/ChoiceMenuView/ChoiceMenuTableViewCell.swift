@@ -15,6 +15,12 @@ class ChoiceMenuTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     static let identifier = "ChoiceMenuTableViewCell"
+    var isChecked: Bool = false {
+            didSet {
+                tapped()
+            }
+        }
+    var handler: (() -> (Void))?
     
     // MARK: - UI Components
     
@@ -40,8 +46,7 @@ class ChoiceMenuTableViewCell: UITableViewCell {
     private func setUI() {
         
         checkButton.do {
-            $0.setImage(UIImage(named: "unChecked.png"), for: .normal)
-            $0.setImage(UIImage(named: "check"), for: .selected)
+            $0.addTarget(self, action: #selector(checkButtonIsTapped), for: .touchUpInside)
         }
         
         menuLabel.do {
@@ -67,10 +72,21 @@ class ChoiceMenuTableViewCell: UITableViewCell {
             $0.leading.equalTo(checkButton.snp.trailing).offset(15)
         }
     }
+    
+    @objc
+    func checkButtonIsTapped() {
+        handler?()
+    }
 }
 
 extension ChoiceMenuTableViewCell {
-    func dataBind(menu: String) {
+    func dataBind(menu: String, isTapped: Bool) {
         menuLabel.text = menu
+        isChecked = isTapped
     }
+    
+    func tapped() {
+            let image = isChecked ? ImageLiteral.checkedIcon : ImageLiteral.uncheckedIcon
+            checkButton.setImage(image, for: .normal)
+        }
 }

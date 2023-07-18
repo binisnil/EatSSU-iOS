@@ -14,6 +14,14 @@ class SetRateViewController: BaseViewController {
     
     // MARK: - Properties
 
+    private var selectedList: [String] = [] {
+        didSet {
+            menuLabel.text = "\(selectedList[0]) 을 추천하시겠어요?"
+            if selectedList.count == 1 {
+                nextButton.setTitle("리뷰 남기기", for: .normal)
+            }
+        }
+    }
     
     // MARK: - UI Components
     
@@ -113,7 +121,7 @@ class SetRateViewController: BaseViewController {
 
     private var nextButton: UIButton = {
         let button = UIButton()
-        button.setTitle("다음 단계로", for: .normal)
+        button.setTitle("다음 리뷰 작성하기", for: .normal)
         button.backgroundColor = .primary
         button.layer.cornerRadius = 10
         button.setTitleColor(.white, for: .normal)
@@ -230,13 +238,24 @@ class SetRateViewController: BaseViewController {
         navigationItem.title = "리뷰 남기기"
     }
     
+    func dataBind(list: [String]) {
+        self.selectedList = list
+    }
+    
     // FIXME: - alert 추가
     
     @objc
     func tappedNextButton() {
-        self.navigationController?.isNavigationBarHidden = false
-        if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
-            self.navigationController?.popToViewController(reviewViewController, animated: true)
+        if selectedList.count == 1 {
+            self.navigationController?.isNavigationBarHidden = false
+            if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
+                self.navigationController?.popToViewController(reviewViewController, animated: true)
+            }
+        } else {
+            selectedList.remove(at: 0)
+            let setRateVC = SetRateViewController()
+            setRateVC.dataBind(list: selectedList)
+            navigationController?.pushViewController(setRateVC, animated: true)
         }
     }
     
