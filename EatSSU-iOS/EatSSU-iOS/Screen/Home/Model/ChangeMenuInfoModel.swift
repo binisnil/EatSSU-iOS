@@ -11,18 +11,18 @@ struct ChangeMenuInfoData: AppData {
     let mealId: Int
     let price: Int
     let mainGrage: Double
-    let changeMenuInfoList: [ChangeMenuInfoList]
+    let changeMenuInfoList: [ChangeMenuInfo]
 }
 
-struct ChangeMenuInfoList: AppData {
-    let menuId: Int
-    let name: String
-}
+//struct ChangeMenuInfoList: AppData {
+//    let menuId: Int
+//    let name: String
+//}
 
 extension ChangeMenuInfoData {
     static func Dummy() -> [ChangeMenuInfoData] {
         return [
-            ChangeMenuInfoData(mealId: 1, price: 6000, mainGrage: 4.0, changeMenuInfoList: [.init(menuId: 63, name: "훈제오리고기버섯볶음"),
+            ChangeMenuInfoData(mealId: 1, price: 6000, mainGrage: 4.0, changeMenuInfoList: [.init(menuId: 63, name: "요플레"),
                                                                                             .init(menuId: 64, name: "깻잎지무침"),
                                                                                             .init(menuId: 65, name: "와사비무쌈"),
                                                                                             .init(menuId: 66, name: "김구이"),

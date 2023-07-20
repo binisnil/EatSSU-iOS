@@ -19,7 +19,7 @@ class HomeViewController: BaseViewController {
     
     let tabmanController = HomeTabmanController()
     let homeCalendarView = HomeCalendarView()
-    
+        
     //MARK: - Life Cycles
     
     override func viewDidLoad() {

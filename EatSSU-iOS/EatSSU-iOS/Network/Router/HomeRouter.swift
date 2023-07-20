@@ -9,11 +9,8 @@ import Foundation
 import Moya
 
 enum HomeRouter {
-    case getFixedRestaurantMenu(restaurant: String)
-    case getDailyMorningRestaurantMenu(date: String, restaurant: String)
-    case getDailyLunchRestaurantMenu(date: String, restaurant: String)
-    case getDailyDinnerRestaurantMenu(date: String, restaurant: String)
-    
+    case getChangeMenuTableResponse(date: String, restaurant: String, time: String)
+    case getFixedMenuTableResponse(restaurant: String)
 }
 
 extension HomeRouter: TargetType {
@@ -23,39 +20,27 @@ extension HomeRouter: TargetType {
 
     var path: String {
         switch self {
-        case .getFixedRestaurantMenu:
-            return "/menu"
-        case .getDailyMorningRestaurantMenu(let date, _):
-            return "/menu/\(date)/morning"
-        case .getDailyLunchRestaurantMenu(let date, _):
-            return "/menu/\(date)/lunch2"
-        case .getDailyDinnerRestaurantMenu(let date, _):
-            return "/menu/\(date)/dinner"
+        case .getChangeMenuTableResponse(let date, let restaurant, let time):
+            return "/menu/today-meal"
+        case .getFixedMenuTableResponse(let restaurant):
+            return "/menu/fix-menu"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .getFixedRestaurantMenu:
+        case .getChangeMenuTableResponse:
             return .get
-        case .getDailyMorningRestaurantMenu:
-            return .get
-        case .getDailyLunchRestaurantMenu:
-            return .get
-        case .getDailyDinnerRestaurantMenu:
+        case .getFixedMenuTableResponse:
             return .get
         }
     }
 
     var task: Task {
         switch self {
-        case .getFixedRestaurantMenu(let restaurant):
-            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
-        case .getDailyMorningRestaurantMenu(_, let restaurant):
-            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
-        case .getDailyLunchRestaurantMenu(_, let restaurant):
-            return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
-        case .getDailyDinnerRestaurantMenu(_, let restaurant):
+        case .getChangeMenuTableResponse(let date, let restaurant, let time):
+            return .requestParameters(parameters: ["date": date, "restaurant": restaurant, "time": time], encoding: URLEncoding.queryString)
+        case .getFixedMenuTableResponse(let restaurant):
             return .requestParameters(parameters: ["restaurant": restaurant], encoding: URLEncoding.queryString)
         }
     }

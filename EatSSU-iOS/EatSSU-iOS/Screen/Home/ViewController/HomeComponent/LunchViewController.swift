@@ -19,7 +19,7 @@ class LunchViewController: BaseViewController {
     //MARK: - UI Components
     
     private let contentView = UIView()
-    private let morningView = MorningView()
+    private let lunchView = LunchView()
     let tabBarHeight: CGFloat = 50
 
 
@@ -35,12 +35,25 @@ class LunchViewController: BaseViewController {
         setButtonEvent()        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        lunchView.getChangeMenuTableResponse(date: "20230714", restaurant: "DOMITORY", time: "LUNCH")
+        lunchView.getChangeMenuTableResponse(date: "20230714", restaurant: "DODAM", time: "LUNCH")
+        lunchView.getChangeMenuTableResponse(date: "20230714", restaurant: "HAKSIK", time: "LUNCH")
+        
+        lunchView.getFixedMenuTableResponse(restaurant: "FOOD_COURT")
+        lunchView.getFixedMenuTableResponse(restaurant: "SNACK_CORNER")
+        lunchView.getFixedMenuTableResponse(restaurant: "THE_KITCHEN")
+        
+    }
+    
     //MARK: - Functions
     
     override func configureUI() {
         view.addSubviews(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(morningView)
+        contentView.addSubviews(lunchView)
     }
 
     override func setLayout() {
@@ -55,13 +68,13 @@ class LunchViewController: BaseViewController {
             $0.edges.width.equalToSuperview()
         }
 
-        morningView.snp.makeConstraints {
+        lunchView.snp.makeConstraints {
             $0.top.leading.bottom.trailing.equalToSuperview()
         }
     }
     
     override func setButtonEvent() {
-        morningView.dormitoryCoordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
+        lunchView.dormitoryCoordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
     }
     
     @objc

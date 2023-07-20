@@ -13,6 +13,12 @@ class MenuTableViewCell: UITableViewCell {
     
     static let identifier = "MenuTableViewCell"
     
+    var inputData: FixedMenuInfoData? {
+        didSet {
+            configureCell(inputData)
+        }
+    }
+    
     // MARK: - UI Components
     
     let menuIDLabel = UILabel()
@@ -77,5 +83,25 @@ class MenuTableViewCell: UITableViewCell {
         ratingLabel.text = String(model.mainGrage)
         nameLabel.text = model.changeMenuInfoList.map { $0.name }.joined(separator: "+")
     }
+    
+    func configureCell(_ model: FixedMenuInfoData?) {
+        guard let model = model else { return }
+        priceLabel.text = String(model.price)
+        ratingLabel.text = String(model.mainGrade)
+        nameLabel.text = model.name
+    }
+    
+    func bind(menuData: ChangeMenuTableResponse?) {
+        guard let menuData = menuData else { return }
+        priceLabel.text = String(menuData.price)
+        ratingLabel.text = String(menuData.mainGrade!)
+        nameLabel.text = menuData.changeMenuInfoList.map { $0.name }.joined(separator: "+")
+    }
 
+    func bind(menuData: FixedMenuInfo?) {
+        guard let menuData = menuData else { return }
+        nameLabel.text = menuData.name
+        ratingLabel.text = String(menuData.mainGrade)
+        priceLabel.text = String(menuData.price)
+    }
 }

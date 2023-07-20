@@ -3,7 +3,7 @@
 //  EatSSU-iOS
 //
 //  Created by 최지우 on 2023/05/29.
-//
+//H
 
 import UIKit
 
@@ -15,11 +15,13 @@ class MorningView: BaseUIView {
     
     //MARK: - Properties
     
-    private let dummy = ChangeMenuInfoData.Dummy()
+    private let changleDummy = ChangeMenuInfoData.Dummy()
+    private let fixedDummy = FixedMenuInfoData.Dummy()
+    
+//    private var menuAllData: [Cha]
     
     let morningMenuProvider = MoyaProvider<HomeRouter>()
-    var fixedMenuTableListDict = [Int: [MenuInfoList]]()
-    var dailyMenuTableListDict = [Int: [MenuInfoList]]()
+
     let fixedMenuRestaurants: [String] = ["FOOD_COURT", "SNACK_CORNER", "THE_KITCHEN"] // 고정메뉴 레스토랑
     let restaurantTags: [String: Int] = [
         "DOMITORY": 1,
@@ -162,6 +164,8 @@ class MorningView: BaseUIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
     // MARK: - Functions
     
     override func configureUI() {
@@ -217,7 +221,7 @@ class MorningView: BaseUIView {
     }
     
     func getMenuTableView() {
-        getDailyMorningMenuTable(date: "20230530", restaurant: "DODAM", tableView: dodamTableView)
+//        getDailyMorningMenuTable(date: "20230530", restaurant: "DODAM", tableView: dodamTableView)
     }
     
     func setupTableView() {
@@ -248,12 +252,20 @@ class MorningView: BaseUIView {
 
 extension MorningView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummy.count
+        if tableView.tag < 4 {
+            return changleDummy.count
+        } else {
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
-        cell.configureData(dummy[indexPath.row])
+        if tableView.tag < 4 {
+            cell.configureData(changleDummy[indexPath.row])
+
+        } 
         return cell
     }
     
@@ -266,58 +278,6 @@ extension MorningView: UITableViewDataSource {
         return header
     }
 }
-//extension MorningView: UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if tableView.tag > 3 {
-//            if let menuTableList = fixedMenuTableListDict[tableView.tag] {
-//                return menuTableList.count
-//            }
-//        } else {
-//            return dailyMenuTableListDict.count
-//        }
-//        return 0
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as! MenuTableViewCell ?? MenuTableViewCell()
-//
-//        if let restaurantName = restaurantNameForTag(tableView.tag) {
-//            if fixedMenuRestaurants.contains(restaurantName) {
-//                if let menuTableList = fixedMenuTableListDict[tableView.tag] {
-//                    let cellMenu: MenuInfoList = menuTableList[indexPath.row]
-//
-//                    cell.nameLabel.text = cellMenu.name
-//                    cell.priceLabel.text = "\(cellMenu.price)"
-//                    cell.ratingLabel.text = "\(cellMenu.grade ?? 0)"
-//                }
-//            }else{
-//                if tableView.tag == 2 {
-//                    if let menuTableList = dailyMenuTableListDict[indexPath.row + 1] {// Non-fixed menus
-//                        let cellMenuList: [MenuInfoList] = menuTableList
-//
-//                        cell.nameLabel.text = cellMenuList.map { $0.name }.joined(separator: "+")
-//                        cell.priceLabel.text = "\(cellMenuList[0].price)"
-//                        cell.ratingLabel.text = "\(cellMenuList[0].grade ?? 0)"
-//                    }
-//                }
-//            }
-//            cell.textLabel?.font = .regular(size: 14)
-//            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-//            cell.selectionStyle = .none     // 셀 선택 비활성화
-//        }
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-//        return nil
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = MenuHeaderView()
-//        return header
-//    }
-//}
 
 extension MorningView: UITableViewDelegate {}
 
@@ -330,48 +290,48 @@ extension MorningView: UISheetPresentationControllerDelegate {
 
 // MARK: - Network
 
-extension MorningView {
-    
-    func getFixedMorningMenuTable(restaurant: String, tableView: UITableView) {
-        self.morningMenuProvider.request(.getFixedRestaurantMenu(restaurant: restaurant)) { response in
-            switch response {
-            case .success(let moyaResponse):
-                do {
-                    print(moyaResponse.statusCode)
-                    let responseDetailDto = try moyaResponse.map(FixedMenuTableResponse.self)
-                    self.fixedMenuTableListDict[tableView.tag] = responseDetailDto.menuInfoList
-                    tableView.reloadData()
-                    print(responseDetailDto)
-                } catch(let err) {
-                    print(err.localizedDescription)
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
-        }
-    }
-    func getDailyMorningMenuTable(date: String, restaurant: String, tableView: UITableView) {
-        self.morningMenuProvider.request(.getDailyMorningRestaurantMenu(date: date, restaurant: restaurant)) { response in
-            switch response {
-            case .success(let moyaResponse):
-                do {
-                    print(moyaResponse.statusCode)
-                    let responseDetailDto = try moyaResponse.map([DailyMenuTableResponse].self)
-                                    
-                    for menuTable in responseDetailDto {
-                        self.dailyMenuTableListDict[menuTable.flag] = menuTable.dailyMenuInfoList
-                    }
-                    DispatchQueue.main.async {
-                        tableView.reloadData()
-                    }
-                    print("responseDetailDto: \(responseDetailDto)")
-                } catch(let err) {
-                    print(err.localizedDescription)
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
-        }
-    }
-}
-
+//extension MorningView {
+//
+//    func getFixedMorningMenuTable(restaurant: String, tableView: UITableView) {
+//        self.morningMenuProvider.request(.getFixedRestaurantMenu(restaurant: restaurant)) { response in
+//            switch response {
+//            case .success(let moyaResponse):
+//                do {
+//                    print(moyaResponse.statusCode)
+//                    let responseDetailDto = try moyaResponse.map(FixedMenuTableResponse.self)
+//                    self.fixedMenuTableListDict[tableView.tag] = responseDetailDto.menuInfoList
+//                    tableView.reloadData()
+//                    print(responseDetailDto)
+//                } catch(let err) {
+//                    print(err.localizedDescription)
+//                }
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+//    }
+//    func getDailyMorningMenuTable(date: String, restaurant: String, tableView: UITableView) {
+//        self.morningMenuProvider.request(.getDailyMorningRestaurantMenu(date: date, restaurant: restaurant)) { response in
+//            switch response {
+//            case .success(let moyaResponse):
+//                do {
+//                    print(moyaResponse.statusCode)
+//                    let responseDetailDto = try moyaResponse.map([DailyMenuTableResponse].self)
+//
+//                    for menuTable in responseDetailDto {
+//                        self.dailyMenuTableListDict[menuTable.flag] = menuTable.dailyMenuInfoList
+//                    }
+//                    DispatchQueue.main.async {
+//                        tableView.reloadData()
+//                    }
+//                    print("responseDetailDto: \(responseDetailDto)")
+//                } catch(let err) {
+//                    print(err.localizedDescription)
+//                }
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+//    }
+//}
+//
