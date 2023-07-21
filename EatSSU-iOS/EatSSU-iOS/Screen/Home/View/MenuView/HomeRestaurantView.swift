@@ -1,5 +1,5 @@
 //
-//  LunchView.swift
+//  HomeRestaurantView.swift
 //  EatSSU-iOS
 //
 //  Created by 최지우 on 2023/05/29.
@@ -11,7 +11,7 @@ import Moya
 import SnapKit
 import Then
 
-class LunchView: BaseUIView {
+class HomeRestaurantView: BaseUIView {
     
     //MARK: - Properties
     
@@ -233,11 +233,6 @@ class LunchView: BaseUIView {
         theKitchenTableView.tag = 6
     }
     
-    func getMenuTableView() {
-//        getDailyMorningMenuTable(date: "20230530", restaurant: "DODAM", tableView: dodamTableView)
-        getChangeMenuTableResponse(date: "20230714", restaurant: "DODAM", time: "LUNCH")
-    }
-    
     func setupTableView() {
         [dormitoryTableView, dodamTableView, studentTableView, foodCourtTableView, snackCornerTableView, theKitchenTableView].forEach {
             $0.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
@@ -248,14 +243,14 @@ class LunchView: BaseUIView {
             $0.layer.borderColor = UIColor.gray300.cgColor
             $0.layer.borderWidth = 1.0
             
-            $0.estimatedRowHeight = 44  // 기본값으로 설정하거나 대략적인 높이를 설정
+            $0.estimatedRowHeight = 44  // 기본값으로 설정 / 대략적인 높이를 설정
             $0.rowHeight = UITableView.automaticDimension
 
         }
     }
 }
 
-extension LunchView: UITableViewDataSource {
+extension HomeRestaurantView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag < 4 {
             return changedMenuData.count
@@ -266,16 +261,23 @@ extension LunchView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as? MenuTableViewCell else {
-            // As a fallback, create a new MenuTableViewCell instance.
             return MenuTableViewCell()
         }
-        if tableView.tag < 4 { 
-            cell.bind(menuData: changedMenuData[indexPath.row])
+        if tableView.tag < 4 {
+            if(indexPath.row > changedMenuData.count-1) {
+                return MenuTableViewCell()
+            } else {
+                cell.bind(menuData: changedMenuData[indexPath.row])
+            }
+            
         } else {
-            print("indexPath: \(indexPath)")
-            if let menu = fixedMenuData?.fixMenuInfoList?[indexPath.row] {
-                    cell.bind(menuData: menu)
+            if(indexPath.row > (fixedMenuData?.fixMenuInfoList?.count ?? 0)-1) {
+                return MenuTableViewCell()
+            } else {
+                if let menu = fixedMenuData?.fixMenuInfoList?[indexPath.row] {
+                        cell.bind(menuData: menu)
                 }
+            }
         }
         return cell
     }
@@ -290,9 +292,9 @@ extension LunchView: UITableViewDataSource {
     }
 }
 
-extension LunchView: UITableViewDelegate {}
+extension HomeRestaurantView: UITableViewDelegate {}
 
-extension LunchView: UISheetPresentationControllerDelegate {
+extension HomeRestaurantView: UISheetPresentationControllerDelegate {
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
         //크기 변경 됐을 경우
         print(sheetPresentationController.selectedDetentIdentifier == .large ? "large" : "medium")
@@ -301,7 +303,7 @@ extension LunchView: UISheetPresentationControllerDelegate {
 
 // MARK: - Network
 
-extension LunchView {
+extension HomeRestaurantView {
     
     func getChangeMenuTableResponse(date: String, restaurant: String, time: String) {
         self.menuProvider.request(.getChangeMenuTableResponse(date: date, restaurant: restaurant, time: time)) { response in
@@ -341,8 +343,3 @@ extension LunchView {
         }
     }
 }
-
-
-//extension LunchView: MenuTableViewCellDelegate {
-//
-//}

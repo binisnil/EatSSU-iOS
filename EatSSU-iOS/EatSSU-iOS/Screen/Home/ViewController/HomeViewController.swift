@@ -8,17 +8,20 @@
 import UIKit
 
 import SnapKit
+import Tabman
 
 class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
     var isPreview = true
-//    var currentDate: Date = Date() {
-//        didSet {
-//            homeCalendarView.calendar.selectedDate(date: currentDate)
-//        }
-//    }
+    var currentDate: Date = Date() {
+        didSet {
+            tabmanController.morningViewController.morningMenuAPI(date: changeDateFormat(date: currentDate))
+            tabmanController.lunchViewController.lunchMenuAPI(date: changeDateFormat(date: currentDate))
+            tabmanController.dinnerViewController.dinnerMenuAPI(date: changeDateFormat(date: currentDate))
+        }
+    }
     
     // MARK: - UI Components
     
@@ -30,15 +33,19 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        homeCalendarView.delegate = tabmanController.lunchViewController as? any CalendarSeletionDelegate
+        homeCalendarView.delegate = self
         
         registerTabman()
         setnavigation()
         configureUI()
         setLayout()
     }
-    
-   
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        tabmanController.morningViewController.morningMenuAPI(date: changeDateFormat(date: currentDate))
+        tabmanController.lunchViewController.lunchMenuAPI(date: changeDateFormat(date: currentDate))
+        tabmanController.dinnerViewController.dinnerMenuAPI(date: changeDateFormat(date: currentDate))
+    }
     
     //MARK: - Functions
     
@@ -83,6 +90,12 @@ class HomeViewController: BaseViewController {
         // 자식 뷰 컨트롤러로서의 위치를 확정
         tabmanController.didMove(toParent: self)
     }
+    
+    func changeDateFormat(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter.string(from: date)
+    }
 
     @objc
     func didTappedRightBarButton() {
@@ -92,5 +105,13 @@ class HomeViewController: BaseViewController {
     
     func isPreviewButtonTapped(preview: Bool) {
         isPreview = preview
+    }
+}
+
+// MARK: Calendar Selection
+extension HomeViewController: CalendarSeletionDelegate {
+
+    func didSelectCalendar(date: Date) {
+        self.currentDate = date
     }
 }

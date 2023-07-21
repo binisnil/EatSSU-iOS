@@ -15,14 +15,12 @@ class LunchViewController: BaseViewController {
     //MARK: - Properties
     
     let morningTableProvider = MoyaProvider<HomeRouter>()
+    let tabBarHeight: CGFloat = 50
     
     //MARK: - UI Components
     
     private let contentView = UIView()
-    let lunchView = LunchView()
-    let tabBarHeight: CGFloat = 50
-
-
+    let lunchView = HomeRestaurantView()
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .systemBackground
         $0.showsVerticalScrollIndicator = false
@@ -38,16 +36,8 @@ class LunchViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
-
-        lunchView.getChangeMenuTableResponse(date: "20230714", restaurant: "DOMITORY", time: "LUNCH")
-        lunchView.getChangeMenuTableResponse(date: "20230714", restaurant: "DODAM", time: "LUNCH")
-        lunchView.getChangeMenuTableResponse(date: "20230714", restaurant: "HAKSIK", time: "LUNCH")
         
-        lunchView.getFixedMenuTableResponse(restaurant: "FOOD_COURT")
-        lunchView.getFixedMenuTableResponse(restaurant: "SNACK_CORNER")
-        lunchView.getFixedMenuTableResponse(restaurant: "THE_KITCHEN")
-        
+        fixedMenuAPI()
     }
     
     //MARK: - Functions
@@ -79,6 +69,18 @@ class LunchViewController: BaseViewController {
         lunchView.dormitoryCoordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
     }
     
+    func lunchMenuAPI(date: String) {
+        lunchView.getChangeMenuTableResponse(date: date, restaurant: "DOMITORY", time: "LUNCH")
+        lunchView.getChangeMenuTableResponse(date: date, restaurant: "DODAM", time: "LUNCH")
+        lunchView.getChangeMenuTableResponse(date: date, restaurant: "HAKSIK", time: "LUNCH")
+    }
+    
+    func fixedMenuAPI() {
+        lunchView.getFixedMenuTableResponse(restaurant: "FOOD_COURT")
+        lunchView.getFixedMenuTableResponse(restaurant: "SNACK_CORNER")
+        lunchView.getFixedMenuTableResponse(restaurant: "THE_KITCHEN")
+    }
+    
     @objc
     func didTappedMapViewButton() {
         let mapVC = RestaurantMapViewController()
@@ -93,22 +95,3 @@ class LunchViewController: BaseViewController {
     }
 }
 
-// MARK: Calendar Selection
-extension LunchViewController: CalendarSeletionDelegate {
-
-    func didSelectCalendar(date: Date) {
-        print("SelectionCalendar: \(date)")
-        let formattingDate = changeDateFormat(date: date)
-        print("changeDateFormat: \(formattingDate)")
-        
-        viewWillAppear(true)
-        lunchView.getChangeMenuTableResponse(date: formattingDate, restaurant: "DOMITORY", time: "LUNCH")
-
-    }
-    
-    func changeDateFormat(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        return dateFormatter.string(from: date)
-    }
-}
