@@ -14,11 +14,6 @@ struct ChangeMenuInfoData: AppData {
     let changeMenuInfoList: [ChangeMenuInfo]
 }
 
-//struct ChangeMenuInfoList: AppData {
-//    let menuId: Int
-//    let name: String
-//}
-
 extension ChangeMenuInfoData {
     static func Dummy() -> [ChangeMenuInfoData] {
         return [
