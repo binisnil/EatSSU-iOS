@@ -14,6 +14,11 @@ class HomeViewController: BaseViewController {
     // MARK: - Properties
     
     var isPreview = true
+//    var currentDate: Date = Date() {
+//        didSet {
+//            homeCalendarView.calendar.selectedDate(date: currentDate)
+//        }
+//    }
     
     // MARK: - UI Components
     
@@ -25,12 +30,15 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        homeCalendarView.delegate = tabmanController.lunchViewController as? any CalendarSeletionDelegate
         
         registerTabman()
         setnavigation()
         configureUI()
         setLayout()
     }
+    
+   
     
     //MARK: - Functions
     

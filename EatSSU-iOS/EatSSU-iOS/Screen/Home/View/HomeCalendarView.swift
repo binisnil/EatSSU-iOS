@@ -11,13 +11,19 @@ import FSCalendar
 import SnapKit
 import Then
 
+protocol CalendarSeletionDelegate: AnyObject {
+    func didSelectCalendar(date: Date)
+}
+
 class HomeCalendarView: BaseUIView {
     
     // MARK: - Properties
     
+    weak var delegate: CalendarSeletionDelegate?
+    
     // MARK: - UI Components
     
-    fileprivate var calendar = FSCalendar()
+    var calendar = FSCalendar()
     
     // MARK: Initializer
     override init(frame: CGRect) {
@@ -90,12 +96,10 @@ extension HomeCalendarView: FSCalendarDataSource, FSCalendarDelegate {
 //        calendar.appearance.subtitleOffset = CGPoint(x: 0, y: 10)
     }
     
-//    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-//        calendar.snp.updateConstraints { (make) in
-//            make.height.equalTo(bounds.height)
-//            // Do other updates
-//        }
-////        self.view.layoutIfNeeded()
-//        self.layoutSubviews()
-//    }
+        // 날짜를 선택했을 때 할일을 지정
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print("HomeCalendarView 날짜 변경: \(date)")
+        
+        self.delegate?.didSelectCalendar(date: date)
+    }
 }

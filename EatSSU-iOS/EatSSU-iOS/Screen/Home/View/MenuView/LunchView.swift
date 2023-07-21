@@ -269,9 +269,10 @@ extension LunchView: UITableViewDataSource {
             // As a fallback, create a new MenuTableViewCell instance.
             return MenuTableViewCell()
         }
-        if tableView.tag < 4 {
+        if tableView.tag < 4 { 
             cell.bind(menuData: changedMenuData[indexPath.row])
         } else {
+            print("indexPath: \(indexPath)")
             if let menu = fixedMenuData?.fixMenuInfoList?[indexPath.row] {
                     cell.bind(menuData: menu)
                 }

@@ -13,12 +13,16 @@ import Pageboy
 
 class HomeTabmanController: TabmanViewController {
     
+    
     // MARK: - Properties
     
     // MARK: - UI Components
     
     let bar = TMBar.ButtonBar()
-    private var viewControllers = [MorningViewController(), LunchViewController(), DinnerViewController()]
+    lazy var morningViewController = MorningViewController()
+    lazy var lunchViewController = LunchViewController()
+    lazy var dinnerViewController = DinnerViewController()
+    private lazy var viewControllers = [morningViewController, lunchViewController, dinnerViewController]
     
     //MARK: - Life Cycles
     

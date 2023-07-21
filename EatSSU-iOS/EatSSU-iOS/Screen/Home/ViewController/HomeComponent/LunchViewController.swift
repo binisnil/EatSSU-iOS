@@ -19,7 +19,7 @@ class LunchViewController: BaseViewController {
     //MARK: - UI Components
     
     private let contentView = UIView()
-    private let lunchView = LunchView()
+    let lunchView = LunchView()
     let tabBarHeight: CGFloat = 50
 
 
@@ -32,11 +32,13 @@ class LunchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setButtonEvent()        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("viewWillAppear")
 
         lunchView.getChangeMenuTableResponse(date: "20230714", restaurant: "DOMITORY", time: "LUNCH")
         lunchView.getChangeMenuTableResponse(date: "20230714", restaurant: "DODAM", time: "LUNCH")
@@ -88,5 +90,25 @@ class LunchViewController: BaseViewController {
         ppc?.sourceView = self.view
         ppc?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
         present(mapVC, animated: true, completion: nil)
+    }
+}
+
+// MARK: Calendar Selection
+extension LunchViewController: CalendarSeletionDelegate {
+
+    func didSelectCalendar(date: Date) {
+        print("SelectionCalendar: \(date)")
+        let formattingDate = changeDateFormat(date: date)
+        print("changeDateFormat: \(formattingDate)")
+        
+        viewWillAppear(true)
+        lunchView.getChangeMenuTableResponse(date: formattingDate, restaurant: "DOMITORY", time: "LUNCH")
+
+    }
+    
+    func changeDateFormat(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter.string(from: date)
     }
 }
