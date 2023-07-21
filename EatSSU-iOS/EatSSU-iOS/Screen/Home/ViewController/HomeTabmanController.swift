@@ -13,7 +13,6 @@ import Pageboy
 
 class HomeTabmanController: TabmanViewController {
     
-    
     // MARK: - Properties
     
     // MARK: - UI Components

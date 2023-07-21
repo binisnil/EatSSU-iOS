@@ -35,11 +35,6 @@ class MorningViewController: BaseViewController {
         setButtonEvent()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-  
-    }
-    
     //MARK: - Functions
     
     override func configureUI() {
