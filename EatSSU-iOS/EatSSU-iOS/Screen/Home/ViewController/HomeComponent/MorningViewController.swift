@@ -72,7 +72,7 @@ class MorningViewController: BaseViewController {
     
     @objc
     func didTappedMapViewButton() {
-        let mapVC = RestaurantMapViewController()
+        let mapVC = RestaurantInfoViewController()
         mapVC.preferredContentSize = CGSize(width: 200, height: 300)
         mapVC.modalPresentationStyle = .popover
         

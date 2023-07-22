@@ -175,10 +175,6 @@ class HomeRestaurantView: BaseUIView {
         setupTableView()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - Functions
     
     override func configureUI() {
