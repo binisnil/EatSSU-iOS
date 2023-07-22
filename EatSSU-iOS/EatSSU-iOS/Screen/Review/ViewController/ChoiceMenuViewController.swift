@@ -16,6 +16,20 @@ class ChoiceMenuViewController: BaseViewController {
     
     var menuDummy: [String] = []
     var isMenuSelected: [Bool] = []
+        {
+            didSet {
+                self.choiceMenuTabelView.reloadData()
+                print(isMenuSelected)
+            }
+        }
+    private lazy var selectedList: [String] = []
+    
+//    var isCheckButtonTouched: Bool = false {
+//        didSet {
+//            self.choiceMenuTabelView.reloadData()
+//            print(isMenuSelected)
+//        }
+//    }
     
     // MARK: - UI Component
     
@@ -104,52 +118,51 @@ class ChoiceMenuViewController: BaseViewController {
                                           forCellReuseIdentifier: ChoiceMenuTableViewCell.identifier)
     }
     
-    @objc
-    func nextButtonTapped() {
-        
-        let setRateVC = SetRateViewController()
-        self.navigationController?.pushViewController(setRateVC, animated: true)
+    private func makeList(menuList: [String], selectedList: [Bool]) {
+        for i in 0..<menuList.count {
+            if selectedList[i] {
+                self.selectedList.append(menuList[i])
+            }
+        }
     }
     
     @objc
-    func checkButtonTapped(_ sender: UIButton){
-        sender.isSelected.toggle()
+    func nextButtonTapped() {
+        makeList(menuList: menuDummy, selectedList: isMenuSelected)
+        let setRateVC = SetRateViewController()
+        setRateVC.dataBind(list: self.selectedList)
+        self.navigationController?.pushViewController(setRateVC, animated: true)
     }
     
     func menuDataBind(menuList: [String]) {
         menuDummy = menuList
+        for _ in 0..<menuDummy.count {
+            isMenuSelected.append(false)
+        }
     }
-    
-//    func setReviewMenuList(index: Int) {
-//        isMenuSelected.append(<#T##newElement: Bool##Bool#>)
-//    }
 }
 
 extension ChoiceMenuViewController: UITableViewDelegate {}
 
 extension ChoiceMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        for _ in 0..<menuDummy.count {
-            isMenuSelected.append(false)
-        }
         return menuDummy.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChoiceMenuTableViewCell.identifier) as? ChoiceMenuTableViewCell else {return UITableViewCell()}
         cell.selectionStyle = .none
-        cell.dataBind(menu: menuDummy[indexPath.row])
-        cell.checkButton.addTarget(self, action: #selector(checkButtonTapped(_:)), for: .touchUpInside)
+        cell.dataBind(menu: menuDummy[indexPath.row], isTapped: isMenuSelected[indexPath.row])
+        cell.handler = { [weak self] in
+            guard let self else { return }
+            cell.isChecked.toggle()
+            self.isMenuSelected[indexPath.row].toggle()
+        }
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let touchedCell = tableView.cellForRow(at: indexPath) as! ChoiceMenuTableViewCell
-        touchedCell.checkButton.isSelected.toggle()
-//        isMenuSelected[indexPath.row].toggle()
     }
 }
