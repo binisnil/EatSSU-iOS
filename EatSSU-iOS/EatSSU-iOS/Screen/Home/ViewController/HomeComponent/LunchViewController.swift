@@ -15,14 +15,12 @@ class LunchViewController: BaseViewController {
     //MARK: - Properties
     
     let morningTableProvider = MoyaProvider<HomeRouter>()
+    let tabBarHeight: CGFloat = 50
     
     //MARK: - UI Components
     
     private let contentView = UIView()
-    private let morningView = MorningView()
-    let tabBarHeight: CGFloat = 50
-
-
+    let lunchView = HomeRestaurantView()
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .systemBackground
         $0.showsVerticalScrollIndicator = false
@@ -32,10 +30,14 @@ class LunchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setButtonEvent()
-//        preferredContentSize = CGSize(width: 300, height: 400)
-        morningView.backgroundColor = .yellow
         
+        setButtonEvent()        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fixedMenuAPI()
     }
     
     //MARK: - Functions
@@ -43,7 +45,7 @@ class LunchViewController: BaseViewController {
     override func configureUI() {
         view.addSubviews(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(morningView)
+        contentView.addSubviews(lunchView)
     }
 
     override func setLayout() {
@@ -58,13 +60,25 @@ class LunchViewController: BaseViewController {
             $0.edges.width.equalToSuperview()
         }
 
-        morningView.snp.makeConstraints {
+        lunchView.snp.makeConstraints {
             $0.top.leading.bottom.trailing.equalToSuperview()
         }
     }
     
     override func setButtonEvent() {
-        morningView.dormitoryCoordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
+        lunchView.dormitoryCoordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
+    }
+    
+    func lunchMenuAPI(date: String) {
+        lunchView.getChangeMenuTableResponse(date: date, restaurant: "DOMITORY", time: "LUNCH")
+        lunchView.getChangeMenuTableResponse(date: date, restaurant: "DODAM", time: "LUNCH")
+        lunchView.getChangeMenuTableResponse(date: date, restaurant: "HAKSIK", time: "LUNCH")
+    }
+    
+    func fixedMenuAPI() {
+        lunchView.getFixedMenuTableResponse(restaurant: "FOOD_COURT")
+        lunchView.getFixedMenuTableResponse(restaurant: "SNACK_CORNER")
+        lunchView.getFixedMenuTableResponse(restaurant: "THE_KITCHEN")
     }
     
     @objc
@@ -80,3 +94,4 @@ class LunchViewController: BaseViewController {
         present(mapVC, animated: true, completion: nil)
     }
 }
+

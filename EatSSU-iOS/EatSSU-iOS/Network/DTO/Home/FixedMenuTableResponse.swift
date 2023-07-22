@@ -8,7 +8,12 @@
 import Foundation
 
 struct FixedMenuTableResponse: Codable {
-    let menuInfoList: [MenuInfoList]?
+    let fixMenuInfoList: [FixedMenuInfo]?
 }
 
-
+struct FixedMenuInfo: Codable {
+    let menuId: Int
+    let name: String
+    let mainGrade: Double
+    let price: Int
+}

@@ -15,7 +15,7 @@ class RestaurantMapViewController: BaseViewController {
     
     // MARK: - Properties
 
-    private var restaurantInfoData: RestaurantInfoData? {
+    var restaurantInfoData: RestaurantInfoData? {
         didSet {
             configureRestaurantInfo()
         }

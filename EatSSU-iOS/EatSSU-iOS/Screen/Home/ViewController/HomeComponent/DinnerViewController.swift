@@ -15,14 +15,12 @@ class DinnerViewController: BaseViewController {
     //MARK: - Properties
     
     let morningTableProvider = MoyaProvider<HomeRouter>()
+    let tabBarHeight: CGFloat = 50
     
     //MARK: - UI Components
     
     private let contentView = UIView()
-    private let morningView = MorningView()
-    let tabBarHeight: CGFloat = 50
-
-
+    let dinnerView = HomeRestaurantView()
     let scrollView = UIScrollView().then {
         $0.backgroundColor = .systemBackground
         $0.showsVerticalScrollIndicator = false
@@ -32,9 +30,8 @@ class DinnerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setButtonEvent()
-        morningView.backgroundColor = .yellow
         
+        setButtonEvent()
     }
     
     //MARK: - Functions
@@ -42,7 +39,7 @@ class DinnerViewController: BaseViewController {
     override func configureUI() {
         view.addSubviews(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(morningView)
+        contentView.addSubviews(dinnerView)
     }
 
     override func setLayout() {
@@ -57,13 +54,19 @@ class DinnerViewController: BaseViewController {
             $0.edges.width.equalToSuperview()
         }
 
-        morningView.snp.makeConstraints {
+        dinnerView.snp.makeConstraints {
             $0.top.leading.bottom.trailing.equalToSuperview()
         }
     }
     
     override func setButtonEvent() {
-        morningView.dormitoryCoordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
+        dinnerView.dormitoryCoordinateButton.addTarget(self, action: #selector(didTappedMapViewButton), for: .touchUpInside)
+    }
+    
+    func dinnerMenuAPI(date: String) {
+        dinnerView.getChangeMenuTableResponse(date: date, restaurant: "DOMITORY", time: "DINNER")
+        dinnerView.getChangeMenuTableResponse(date: date, restaurant: "DODAM", time: "DINNER")
+        dinnerView.getChangeMenuTableResponse(date: date, restaurant: "HAKSIK", time: "DINNER")
     }
     
     @objc
