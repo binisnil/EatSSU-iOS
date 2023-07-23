@@ -14,7 +14,11 @@ import Then
 class RestaurantInfoView: BaseUIView {
     
     // MARK: - Properties
-
+    var restaurantInfoInputData: RestaurantInfoResponse? {
+        didSet {
+            configureRestaurantInfo()
+        }
+    }
     
     // MARK: - UI Components
     
@@ -32,7 +36,6 @@ class RestaurantInfoView: BaseUIView {
         $0.font = .semiBold(size: 18)
     }
     private var locationLabel = UILabel().then {
-        $0.text = "도담관"
         $0.font = .medium(size: 16)
     }
     private let lineView1 = UIView().then {
@@ -155,5 +158,9 @@ class RestaurantInfoView: BaseUIView {
 
         // Add the annotation to the map view
         mapView.addAnnotation(annotation)
+    }
+    
+    func configureRestaurantInfo() {
+        self.locationLabel.text = restaurantInfoInputData?.location
     }
 }

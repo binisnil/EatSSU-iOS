@@ -30,5 +30,5 @@ enum TextLiteral {
     static let foodCourt: String = "푸드 코트"
     static let snackCorner: String = "스낵 코너"
     static let theKitchen: String = "더 키친"
-    
+        
 }

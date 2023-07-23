@@ -8,18 +8,15 @@
 import UIKit
 
 import MapKit
+import Moya
 import SnapKit
 import Then
 
 class RestaurantInfoViewController: BaseViewController {
     
     // MARK: - Properties
-
-//    var restaurantInfoData: RestaurantInfoData? {
-//        didSet {
-//            configureRestaurantInfo()
-//        }
-//    }
+    
+    let restaurantInfoProvider = MoyaProvider<RestaurantInfoRouter>()
 
     // MARK: - UI Components
     
@@ -35,8 +32,7 @@ class RestaurantInfoViewController: BaseViewController {
     //MARK: - Functions
     
     override func configureUI() {
-        view.addSubviews(restaurantInfoView
-                         )
+        view.addSubviews(restaurantInfoView)
     }
     
     override func setLayout() {
@@ -44,42 +40,38 @@ class RestaurantInfoViewController: BaseViewController {
             $0.edges.equalToSuperview()
         }
     }
-    
-//    func setMapView() {
-//        // Set the region on the map view
-//        mapView.setRegion(region, animated: true)
-//
-//        // Create a point annotation for the dormitory (Assuming the dormitory is located at these coordinates)
-//        let annotation = MKPointAnnotation()
-//
-//        // Set the coordinate of the annotation to be the location of the dormitory
-//        annotation.coordinate = CLLocationCoordinate2D(latitude: 37.495941, longitude: 126.957899)
-//
-//        // Optionally, add a title to the annotation
-//        annotation.title = "기숙사 식당"
-//
-//        // Add the annotation to the map view
-//        mapView.addAnnotation(annotation)
-//    }
-//
-//    func loadRestaurantInfo() {
-//        restaurantInfoData = RestaurantInfoData.dummy()
-//    }
-//
-//    func configureRestaurantInfo() {
-//        guard let data = restaurantInfoData else {return}
-//        self.locationLabel.text = "\(data.location)"
-//        self.dayTypeLabel.text = "\(data.openHours[0].dayType)"
-//        self.timepartLabel.text = "\(data.openHours[0].timePart)"
-//        self.timeLabel.text = "\(data.openHours[0].time)"
-//    }
 }
 
 // MARK: - RestaurantInfoDelegate
+
 extension RestaurantInfoViewController: RestaurantInfoDelegate {
     func didTappedRestaurantInfo(restaurantName: String) {
         restaurantInfoView.restaurantNameLabel.text = restaurantName
         print(restaurantName)
     }
     
+}
+
+// MARK: - Network
+
+extension RestaurantInfoViewController {
+     
+    func getRestaurantInfoResponse(restaurantName: String) {
+        self.restaurantInfoProvider.request(.getRestaurantInfoResponse(restaurantName: restaurantName)) { response in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                    
+                    let responseDate = try moyaResponse.map(RestaurantInfoResponse.self)
+                    self.restaurantInfoView.restaurantInfoInputData = responseDate
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
+    }
 }

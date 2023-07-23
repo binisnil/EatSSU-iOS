@@ -29,9 +29,8 @@ extension HomeRouter: TargetType {
 
     var method: Moya.Method {
         switch self {
-        case .getChangeMenuTableResponse:
-            return .get
-        case .getFixedMenuTableResponse:
+        case .getChangeMenuTableResponse,
+                .getFixedMenuTableResponse:
             return .get
         }
     }
