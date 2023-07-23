@@ -19,6 +19,12 @@ class HomeViewController: BaseViewController {
     // MARK: - Properties
     
     weak var delegate: RestaurantInfoDelegate?
+    let restaurantButtonTitleToName = [ TextLiteral.dormitoryRestaurant: "DOMITORY",
+                                        TextLiteral.dodamRestaurant: "DODAM",
+                                        TextLiteral.studentRestaurant: "HAKSIK",
+                                        TextLiteral.foodCourt: "FOOD_COURT",
+                                        TextLiteral.snackCorner: "SNACK_CORNER",
+                                        TextLiteral.theKitchen: "THE_KITCHEN"]
     
     var currentDate: Date = Date() {
         didSet {
@@ -114,11 +120,14 @@ class HomeViewController: BaseViewController {
     
     @objc
     func didTappedRestaurantInfoButton(_ sender: UIButton) {
-        let mapVC = RestaurantInfoViewController()
-        self.delegate = mapVC
-        mapVC.modalPresentationStyle = .popover
-        present(mapVC, animated: true) {
-            self.delegate?.didTappedRestaurantInfo(restaurantName: sender.currentTitle ?? "식당")
+        let restaurantInfoViewController = RestaurantInfoViewController()
+        restaurantInfoViewController.modalPresentationStyle = .popover
+        self.delegate = restaurantInfoViewController
+        
+        let currentTitle = sender.currentTitle
+        present(restaurantInfoViewController, animated: true) {
+            self.delegate?.didTappedRestaurantInfo(restaurantName: currentTitle ?? "식당")
+            restaurantInfoViewController.getRestaurantInfoResponse(restaurantName: self.restaurantButtonTitleToName[currentTitle ?? "DODAM"] ?? "DODAM")
         }
     }
 }
