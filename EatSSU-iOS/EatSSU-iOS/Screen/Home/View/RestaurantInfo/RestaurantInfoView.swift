@@ -14,11 +14,18 @@ import Then
 class RestaurantInfoView: BaseUIView {
     
     // MARK: - Properties
+    static let tableViewCellHeight = 10.0
     var restaurantInfoInputData: RestaurantInfoResponse? {
         didSet {
             configureRestaurantInfo()
         }
     }
+    
+    var times: [TimeData] = [
+        TimeData(timepart: "조식", time: "08:30-15:00"),
+        TimeData(timepart: "중식", time: "12:00-13:00"),
+        TimeData(timepart: "석식", time: "11:30-13:30")
+    ]
     
     // MARK: - UI Components
     
@@ -56,6 +63,12 @@ class RestaurantInfoView: BaseUIView {
         $0.text = "주말, 공휴일"
         $0.font = .medium(size: 16)
     }
+    private let timeTableView = UITableView().then {
+        $0.separatorStyle = .none
+        $0.isScrollEnabled = false
+        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = 100
+    }
 
     // Define a region for Soongsil University (Latitude and longitude for Soongsil University)
     let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
@@ -66,6 +79,9 @@ class RestaurantInfoView: BaseUIView {
         super.init(frame: frame)
         
         setMapView()
+        setDelegate()
+        registerCell()
+        
     }
     
     //MARK: - Functions
@@ -82,7 +98,7 @@ class RestaurantInfoView: BaseUIView {
                          weekdayRestaurantOpeningTimeView,
                          lineView2,
                          weekendTitleLabel,
-                         weekendRestaurantOpeningTimeView
+                         timeTableView
                          )
     }
     
@@ -136,10 +152,11 @@ class RestaurantInfoView: BaseUIView {
             $0.top.equalTo(lineView2.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(26)
         }
-        weekendRestaurantOpeningTimeView.snp.makeConstraints {
+        timeTableView.snp.makeConstraints {
             $0.top.equalTo(weekendTitleLabel)
             $0.trailing.equalToSuperview().inset(26)
-            $0.height.equalTo(70)
+            $0.width.equalTo(200)
+            $0.bottom.equalToSuperview().inset(30)
         }
     }
     
@@ -160,7 +177,36 @@ class RestaurantInfoView: BaseUIView {
         mapView.addAnnotation(annotation)
     }
     
+    func setDelegate() {
+        timeTableView.dataSource = self
+    }
+    
+    func registerCell() {
+        timeTableView.register(TimeDataTableViewCell.self, forCellReuseIdentifier: TimeDataTableViewCell.identifier)
+    }
     func configureRestaurantInfo() {
         self.locationLabel.text = restaurantInfoInputData?.location
+        
     }
 }
+
+extension RestaurantInfoView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return times.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TimeDataTableViewCell.identifier, for: indexPath) as? TimeDataTableViewCell else { return TimeDataTableViewCell() }
+        cell.bind(timeData: times[indexPath.row])
+        return cell
+        
+    }
+    
+}
+
+extension RestaurantInfoView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}
+

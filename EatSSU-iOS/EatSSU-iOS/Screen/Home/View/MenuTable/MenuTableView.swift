@@ -25,8 +25,8 @@ final class MenuTableView: UITableView {
     }
     
     override func layoutSubviews() {
-        self.invalidateIntrinsicContentSize()
         super.layoutSubviews()
+        self.invalidateIntrinsicContentSize()
     }
 
     private func setupTableView() {

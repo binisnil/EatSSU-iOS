@@ -78,6 +78,8 @@
 		7BBD4CA42A6C40C000515F67 /* RestaurantOperatingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA32A6C40C000515F67 /* RestaurantOperatingTimeView.swift */; };
 		7BBD4CA62A6D275B00515F67 /* RestaurantInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */; };
 		7BBD4CA82A6D2A6600515F67 /* RestaurantInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA72A6D2A6600515F67 /* RestaurantInfoResponse.swift */; };
+		7BBD4CAA2A6D3B7A00515F67 /* TimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */; };
+		7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
@@ -163,6 +165,8 @@
 		7BBD4CA32A6C40C000515F67 /* RestaurantOperatingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantOperatingTimeView.swift; sourceTree = "<group>"; };
 		7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoRouter.swift; sourceTree = "<group>"; };
 		7BBD4CA72A6D2A6600515F67 /* RestaurantInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoResponse.swift; sourceTree = "<group>"; };
+		7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeData.swift; sourceTree = "<group>"; };
+		7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDataTableViewCell.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
@@ -470,6 +474,7 @@
 				7B51C5A22A63268A0016B418 /* RestaurantInfoModel.swift */,
 				7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */,
 				7B51C5BC2A654FB40016B418 /* FixedMenuInfoModel.swift */,
+				7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 			children = (
 				7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */,
 				7BBD4CA32A6C40C000515F67 /* RestaurantOperatingTimeView.swift */,
+				7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */,
 			);
 			path = RestaurantInfo;
 			sourceTree = "<group>";
@@ -741,6 +747,7 @@
 				7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
 				7B51C5932A628FB30016B418 /* HomeViewController.swift in Sources */,
+				7BBD4CAA2A6D3B7A00515F67 /* TimeData.swift in Sources */,
 				7BBD4C972A67DAEF00515F67 /* ChangeMenuTableResponse.swift in Sources */,
 				058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
@@ -768,6 +775,7 @@
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				0583266A2A4DC891004A295F /* RateNumberView.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
+				7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */,
 				7B51C5BD2A654FB40016B418 /* FixedMenuInfoModel.swift in Sources */,
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,

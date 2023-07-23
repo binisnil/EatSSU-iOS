@@ -47,7 +47,6 @@ class RestaurantInfoViewController: BaseViewController {
 extension RestaurantInfoViewController: RestaurantInfoDelegate {
     func didTappedRestaurantInfo(restaurantName: String) {
         restaurantInfoView.restaurantNameLabel.text = restaurantName
-        print(restaurantName)
     }
     
 }
