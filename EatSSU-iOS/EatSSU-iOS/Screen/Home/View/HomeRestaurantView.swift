@@ -15,8 +15,9 @@ class HomeRestaurantView: BaseUIView {
     
     //MARK: - Properties
     
-    private var currentRestaurant = ""
     let menuProvider = MoyaProvider<HomeRouter>()
+    private var currentRestaurant = ""
+    lazy var restaurantInfoButton = [dormitoryCoordinateButton, dodamCoordinateButton, studentCoordinateButton, foodCourtCoordinateButton, snackCornerCoordinateButton, theKitchenCoordinateButton]
     private var changedMenuData: [ChangeMenuTableResponse] = [] {
         didSet {
             switch currentRestaurant {
@@ -193,7 +194,6 @@ class HomeRestaurantView: BaseUIView {
                 $0.width.equalToSuperview()
             }
         }
-        
         [dormitoryStackView, dodamStackView, studentStackView, foodCourtStackView, snackCornerStackView, theKitchenStackView].forEach {
             $0.snp.makeConstraints {
                 $0.horizontalEdges.equalToSuperview().inset(16)

@@ -10,11 +10,16 @@ import UIKit
 import SnapKit
 import Tabman
 
+protocol RestaurantInfoDelegate: AnyObject {
+    func didTappedRestaurantInfo(restaurantName: String)
+}
+
 class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
-    var isPreview = true
+    weak var delegate: RestaurantInfoDelegate?
+    
     var currentDate: Date = Date() {
         didSet {
             tabmanController.morningViewController.morningMenuAPI(date: changeDateFormat(date: currentDate))
@@ -61,16 +66,20 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    override func setButtonEvent() {
+        tabmanController.morningViewController.morningView.restaurantInfoButton.forEach {
+            $0.addTarget(self, action: #selector(didTappedRestaurantInfoButton(_:)), for: .touchUpInside) }
+        tabmanController.lunchViewController.lunchView.restaurantInfoButton.forEach {
+            $0.addTarget(self, action: #selector(didTappedRestaurantInfoButton(_:)), for: .touchUpInside) }
+        tabmanController.dinnerViewController.dinnerView.restaurantInfoButton.forEach {
+            $0.addTarget(self, action: #selector(didTappedRestaurantInfoButton(_:)), for: .touchUpInside) }
+    }
+    
     func setnavigation() {
             navigationItem.titleView = UIImageView(image: ImageLiteral.EatSSULogo)
             navigationController?.isNavigationBarHidden = false
-            if isPreview {
-                let rightButton = UIBarButtonItem(image: ImageLiteral.myPageIcon, style: .plain, target: self, action: #selector(didTappedRightBarButton))
-                rightButton.tintColor = .primary
-                navigationItem.rightBarButtonItem = rightButton
-            } else {
-                navigationItem.hidesBackButton = true
-            }
+            let rightButton = UIBarButtonItem(image: ImageLiteral.myPageIcon, style: .plain, target: self, action: #selector(didTappedRightBarButton))
+            navigationItem.rightBarButtonItem = rightButton
         }
     
     func registerTabman() {
@@ -103,14 +112,19 @@ class HomeViewController: BaseViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    func isPreviewButtonTapped(preview: Bool) {
-        isPreview = preview
+    @objc
+    func didTappedRestaurantInfoButton(_ sender: UIButton) {
+        let mapVC = RestaurantInfoViewController()
+        self.delegate = mapVC
+        mapVC.modalPresentationStyle = .popover
+        present(mapVC, animated: true) {
+            self.delegate?.didTappedRestaurantInfo(restaurantName: sender.currentTitle ?? "식당")
+        }
     }
 }
 
 // MARK: Calendar Selection
 extension HomeViewController: CalendarSeletionDelegate {
-
     func didSelectCalendar(date: Date) {
         self.currentDate = date
     }

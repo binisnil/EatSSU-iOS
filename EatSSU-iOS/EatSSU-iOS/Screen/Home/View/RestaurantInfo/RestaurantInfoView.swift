@@ -15,18 +15,13 @@ class RestaurantInfoView: BaseUIView {
     
     // MARK: - Properties
 
-//    var restaurantInfoData: RestaurantInfoData? {
-//        didSet {
-//            configureRestaurantInfo()
-//        }
-//    }
     
     // MARK: - UI Components
     
+    let mapView = MKMapView()
     private var weekdayRestaurantOpeningTimeView = RestaurantOperatingTimeView()
     private var weekendRestaurantOpeningTimeView = RestaurantOperatingTimeView()
-    private let restaurantNameLabel = UILabel().then {
-        $0.text = "숭실 도담 식당"
+    var restaurantNameLabel = UILabel().then {
         $0.font = .bold(size: 22)
     }
     private let lineView = UIView().then {
@@ -58,14 +53,8 @@ class RestaurantInfoView: BaseUIView {
         $0.text = "주말, 공휴일"
         $0.font = .medium(size: 16)
     }
-    
-    
-    // Create a map view
-    // let mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: 317, height: 256))
-    let mapView = MKMapView()
 
     // Define a region for Soongsil University (Latitude and longitude for Soongsil University)
-
     let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
 
     // MARK: - Life Cycles
@@ -73,10 +62,7 @@ class RestaurantInfoView: BaseUIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-//        loadRestaurantInfo()
         setMapView()
-        configureUI()
-        setLayout()
     }
     
     //MARK: - Functions
@@ -170,16 +156,4 @@ class RestaurantInfoView: BaseUIView {
         // Add the annotation to the map view
         mapView.addAnnotation(annotation)
     }
-    
-//    func loadRestaurantInfo() {
-//        restaurantInfoData = RestaurantInfoData.dummy()
-//    }
-    
-//    func configureRestaurantInfo() {
-//        guard let data = restaurantInfoData else {return}
-//        self.locationLabel.text = "\(data.location)"
-//        self.dayTypeLabel.text = "\(data.openHours[0].dayType)"
-//        self.timepartLabel.text = "\(data.openHours[0].timePart)"
-//        self.timeLabel.text = "\(data.openHours[0].time)"
-//    }
 }

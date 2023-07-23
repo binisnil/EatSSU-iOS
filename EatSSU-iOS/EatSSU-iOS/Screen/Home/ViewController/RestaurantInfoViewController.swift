@@ -74,3 +74,12 @@ class RestaurantInfoViewController: BaseViewController {
 //        self.timeLabel.text = "\(data.openHours[0].time)"
 //    }
 }
+
+// MARK: - RestaurantInfoDelegate
+extension RestaurantInfoViewController: RestaurantInfoDelegate {
+    func didTappedRestaurantInfo(restaurantName: String) {
+        restaurantInfoView.restaurantNameLabel.text = restaurantName
+        print(restaurantName)
+    }
+    
+}

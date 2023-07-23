@@ -12,6 +12,14 @@ import Then
 
 class RestaurantOperatingTimeView: BaseUIView {
     
+    // MARK: - Properties
+
+//    var restaurantInfoData: RestaurantInfoData? {
+//        didSet {
+//            configureRestaurantInfo()
+//        }
+//    }
+    
     // MARK: - UI Components
     
     private let morningTitleLabel = UILabel().then {
@@ -81,4 +89,16 @@ class RestaurantOperatingTimeView: BaseUIView {
             $0.height.equalTo(15)
         }
     }
+    
+//    func loadRestaurantInfo() {
+//        restaurantInfoData = RestaurantInfoData.dummy()
+//    }
+    
+//    func configureRestaurantInfo() {
+//        guard let data = restaurantInfoData else {return}
+//        self.locationLabel.text = "\(data.location)"
+//        self.dayTypeLabel.text = "\(data.openHours[0].dayType)"
+//        self.timepartLabel.text = "\(data.openHours[0].timePart)"
+//        self.timeLabel.text = "\(data.openHours[0].time)"
+//    }
 }
