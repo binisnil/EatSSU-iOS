@@ -195,7 +195,7 @@ class SignUpViewController: BaseViewController {
     
     private func pushToHome() {
         let homeVC = HomeViewController()
-        homeVC.isPreviewButtonTapped(preview: false)
+//        homeVC.isPreviewButtonTapped(preview: false)
         navigationController?.pushViewController(homeVC, animated: true)
     }
 }
