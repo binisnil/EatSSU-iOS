@@ -21,11 +21,8 @@ class RestaurantInfoView: BaseUIView {
         }
     }
     
-    var times: [TimeData] = [
-        TimeData(timepart: "조식", time: "11:30-13:30(식사제공), 14:00-17:00(공간 개방)"),
-        TimeData(timepart: "중식", time: "12:00-13:00"),
-        TimeData(timepart: "석식", time: "11:30-13:30")
-    ]
+    var weekdayTimes: [TimeData] = []
+    var weekendTimes: [TimeData] = []
     
     // MARK: - UI Components
     
@@ -64,16 +61,12 @@ class RestaurantInfoView: BaseUIView {
         $0.text = "주말, 공휴일"
         $0.font = .medium(size: 16)
     }
-    
-    // Define a region for Soongsil University (Latitude and longitude for Soongsil University)
-    let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
 
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setMapView()
         setDelegate()
         registerCell()        
     }
@@ -153,23 +146,6 @@ class RestaurantInfoView: BaseUIView {
         }
     }
     
-    func setMapView() {
-        // Set the region on the map view
-        mapView.setRegion(region, animated: true)
-
-        // Create a point annotation for the dormitory (Assuming the dormitory is located at these coordinates)
-        let annotation = MKPointAnnotation()
-
-        // Set the coordinate of the annotation to be the location of the dormitory
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 37.495941, longitude: 126.957899)
-
-        // Optionally, add a title to the annotation
-        annotation.title = "기숙사 식당"
-
-        // Add the annotation to the map view
-        mapView.addAnnotation(annotation)
-    }
-    
     func setDelegate() {
         weekdayTimeTableView.dataSource = self
         weekendTimeTableView.dataSource = self
@@ -183,18 +159,33 @@ class RestaurantInfoView: BaseUIView {
     func configureRestaurantInfo() {
         self.locationLabel.text = restaurantInfoInputData?.location
         
+        
+        restaurantInfoInputData?.openHours.forEach {
+            if ($0).dayType == "주중" {
+                weekdayTimes.append(TimeData(timepart: $0.timepart, time: $0.time))
+        }}
+        weekdayTimeTableView.reloadData()
+
+        restaurantInfoInputData?.openHours.forEach {
+            if ($0).dayType == "주말, 공휴일" {
+                weekendTimes.append(TimeData(timepart: $0.timepart, time: $0.time))
+        }}
+        weekendTimeTableView.reloadData()
     }
 }
 
 extension RestaurantInfoView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return times.count
+        let count = tableView == weekdayTimeTableView ? weekdayTimes.count : weekendTimes.count
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TimeDataTableViewCell.identifier, for: indexPath) as? TimeDataTableViewCell else { return TimeDataTableViewCell() }
         cell.selectionStyle = .none
-        cell.bind(timeData: times[indexPath.row])
+        
+        let timeData = tableView == weekdayTimeTableView ? weekdayTimes[indexPath.row] : weekendTimes[indexPath.row]
+        cell.bind(timeData: timeData)
         return cell
     }
 }

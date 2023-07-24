@@ -80,6 +80,7 @@
 		7BBD4CAA2A6D3B7A00515F67 /* TimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */; };
 		7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */; };
 		7BBD4CAE2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAD2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift */; };
+		7BBD4CB02A6E722A00515F67 /* RestaurantLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAF2A6E722A00515F67 /* RestaurantLocation.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
@@ -167,6 +168,7 @@
 		7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeData.swift; sourceTree = "<group>"; };
 		7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDataTableViewCell.swift; sourceTree = "<group>"; };
 		7BBD4CAD2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoTimeTableView.swift; sourceTree = "<group>"; };
+		7BBD4CAF2A6E722A00515F67 /* RestaurantLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLocation.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */,
 				7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */,
 				7BBD4CAD2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift */,
+				7BBD4CAF2A6E722A00515F67 /* RestaurantLocation.swift */,
 			);
 			path = RestaurantInfo;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				7B51C59E2A6321700016B418 /* DummyModel.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
+				7BBD4CB02A6E722A00515F67 /* RestaurantLocation.swift in Sources */,
 				0583266A2A4DC891004A295F /* RateNumberView.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
 				7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */,

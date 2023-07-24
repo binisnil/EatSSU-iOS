@@ -28,16 +28,7 @@ class RestaurantInfoViewController: BaseViewController {
         super.viewDidLoad()
     
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        // 업데이트 된 높이 제약 조건을 사용하여 테이블 뷰 높이 제약 조건 설정
-//        tableViewHeightConstraint.constant = restaurantInfoView.weekdayTimeTableView.contentSize.height
-//        restaurantInfoView.weekdayTimeTableView.layoutIfNeeded()
-    }
 
-    
     //MARK: - Functions
     
     override func configureUI() {
@@ -56,6 +47,22 @@ class RestaurantInfoViewController: BaseViewController {
 extension RestaurantInfoViewController: RestaurantInfoDelegate {
     func didTappedRestaurantInfo(restaurantName: String) {
         restaurantInfoView.restaurantNameLabel.text = restaurantName
+        switch restaurantName {
+        case TextLiteral.dormitoryRestaurant:
+            setMapView(mapView: restaurantInfoView.mapView, for: .dormitory)
+        case TextLiteral.dodamRestaurant:
+            setMapView(mapView: restaurantInfoView.mapView, for: .dodam)
+        case TextLiteral.studentRestaurant:
+            setMapView(mapView: restaurantInfoView.mapView, for: .studentRestaurant)
+        case TextLiteral.foodCourt:
+            setMapView(mapView: restaurantInfoView.mapView, for: .foodCourt)
+        case TextLiteral.snackCorner:
+            setMapView(mapView: restaurantInfoView.mapView, for: .snackCorner)
+        case TextLiteral.theKitchen:
+            setMapView(mapView: restaurantInfoView.mapView, for: .theKitchen)
+        default:
+            setMapView(mapView: restaurantInfoView.mapView, for: .soongsil)
+        }
     }
 }
 
