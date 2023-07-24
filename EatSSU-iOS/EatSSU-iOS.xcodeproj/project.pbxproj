@@ -75,11 +75,11 @@
 		7B9899C32A154F9800D1A076 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899C22A154F9800D1A076 /* Config.swift */; };
 		7BBD4C972A67DAEF00515F67 /* ChangeMenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4C962A67DAEF00515F67 /* ChangeMenuTableResponse.swift */; };
 		7BBD4CA22A6C406C00515F67 /* RestaurantInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */; };
-		7BBD4CA42A6C40C000515F67 /* RestaurantOperatingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA32A6C40C000515F67 /* RestaurantOperatingTimeView.swift */; };
 		7BBD4CA62A6D275B00515F67 /* RestaurantInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */; };
 		7BBD4CA82A6D2A6600515F67 /* RestaurantInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA72A6D2A6600515F67 /* RestaurantInfoResponse.swift */; };
 		7BBD4CAA2A6D3B7A00515F67 /* TimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */; };
 		7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */; };
+		7BBD4CAE2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAD2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
@@ -162,11 +162,11 @@
 		7B9899C22A154F9800D1A076 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7BBD4C962A67DAEF00515F67 /* ChangeMenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMenuTableResponse.swift; sourceTree = "<group>"; };
 		7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoView.swift; sourceTree = "<group>"; };
-		7BBD4CA32A6C40C000515F67 /* RestaurantOperatingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantOperatingTimeView.swift; sourceTree = "<group>"; };
 		7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoRouter.swift; sourceTree = "<group>"; };
 		7BBD4CA72A6D2A6600515F67 /* RestaurantInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoResponse.swift; sourceTree = "<group>"; };
 		7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeData.swift; sourceTree = "<group>"; };
 		7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDataTableViewCell.swift; sourceTree = "<group>"; };
+		7BBD4CAD2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoTimeTableView.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
@@ -616,8 +616,8 @@
 			isa = PBXGroup;
 			children = (
 				7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */,
-				7BBD4CA32A6C40C000515F67 /* RestaurantOperatingTimeView.swift */,
 				7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */,
+				7BBD4CAD2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift */,
 			);
 			path = RestaurantInfo;
 			sourceTree = "<group>";
@@ -751,7 +751,6 @@
 				7BBD4C972A67DAEF00515F67 /* ChangeMenuTableResponse.swift in Sources */,
 				058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
-				7BBD4CA42A6C40C000515F67 /* RestaurantOperatingTimeView.swift in Sources */,
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,
 				056956B829C0D6DC002E8CF2 /* UIView+.swift in Sources */,
 				7BBD4CA22A6C406C00515F67 /* RestaurantInfoView.swift in Sources */,
@@ -780,6 +779,7 @@
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
 				057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */,
+				7BBD4CAE2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift in Sources */,
 				7B9899AA2A0B98E700D1A076 /* RestaurantInfoViewController.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,
 				7BFD09C12A21EE3E00B40054 /* HomeRouter.swift in Sources */,

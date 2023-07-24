@@ -22,7 +22,7 @@ class RestaurantInfoView: BaseUIView {
     }
     
     var times: [TimeData] = [
-        TimeData(timepart: "조식", time: "08:30-15:00"),
+        TimeData(timepart: "조식", time: "11:30-13:30(식사제공), 14:00-17:00(공간 개방)"),
         TimeData(timepart: "중식", time: "12:00-13:00"),
         TimeData(timepart: "석식", time: "11:30-13:30")
     ]
@@ -30,8 +30,9 @@ class RestaurantInfoView: BaseUIView {
     // MARK: - UI Components
     
     let mapView = MKMapView()
-    private var weekdayRestaurantOpeningTimeView = RestaurantOperatingTimeView()
-    private var weekendRestaurantOpeningTimeView = RestaurantOperatingTimeView()
+    let weekdayTimeTableView = RestaurantInfoTimeTableView()
+    let weekendTimeTableView = RestaurantInfoTimeTableView()
+
     var restaurantNameLabel = UILabel().then {
         $0.font = .bold(size: 22)
     }
@@ -63,13 +64,7 @@ class RestaurantInfoView: BaseUIView {
         $0.text = "주말, 공휴일"
         $0.font = .medium(size: 16)
     }
-    private let timeTableView = UITableView().then {
-        $0.separatorStyle = .none
-        $0.isScrollEnabled = false
-        $0.rowHeight = UITableView.automaticDimension
-        $0.estimatedRowHeight = 100
-    }
-
+    
     // Define a region for Soongsil University (Latitude and longitude for Soongsil University)
     let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.496311, longitude: 126.957676), span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003))
 
@@ -80,8 +75,7 @@ class RestaurantInfoView: BaseUIView {
         
         setMapView()
         setDelegate()
-        registerCell()
-        
+        registerCell()        
     }
     
     //MARK: - Functions
@@ -95,10 +89,10 @@ class RestaurantInfoView: BaseUIView {
                          openingTimeTitleLabel,
                          lineView1,
                          weekdayTitleLabel,
-                         weekdayRestaurantOpeningTimeView,
+                         weekdayTimeTableView,
                          lineView2,
                          weekendTitleLabel,
-                         timeTableView
+                         weekendTimeTableView
                          )
     }
     
@@ -138,13 +132,13 @@ class RestaurantInfoView: BaseUIView {
             $0.top.equalTo(lineView1.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(26)
         }
-        weekdayRestaurantOpeningTimeView.snp.makeConstraints {
+        weekdayTimeTableView.snp.makeConstraints {
             $0.top.equalTo(weekdayTitleLabel)
             $0.trailing.equalToSuperview().inset(26)
-            $0.height.equalTo(70)
+            $0.width.equalTo(200)
         }
         lineView2.snp.makeConstraints {
-            $0.top.equalTo(weekdayRestaurantOpeningTimeView.snp.bottom).offset(20)
+            $0.top.equalTo(weekdayTimeTableView.snp.bottom).offset(20)
             $0.horizontalEdges.equalToSuperview().inset(28)
             $0.height.equalTo(2)
         }
@@ -152,11 +146,10 @@ class RestaurantInfoView: BaseUIView {
             $0.top.equalTo(lineView2.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(26)
         }
-        timeTableView.snp.makeConstraints {
+        weekendTimeTableView.snp.makeConstraints {
             $0.top.equalTo(weekendTitleLabel)
             $0.trailing.equalToSuperview().inset(26)
             $0.width.equalTo(200)
-            $0.bottom.equalToSuperview().inset(30)
         }
     }
     
@@ -178,12 +171,15 @@ class RestaurantInfoView: BaseUIView {
     }
     
     func setDelegate() {
-        timeTableView.dataSource = self
+        weekdayTimeTableView.dataSource = self
+        weekendTimeTableView.dataSource = self
     }
     
     func registerCell() {
-        timeTableView.register(TimeDataTableViewCell.self, forCellReuseIdentifier: TimeDataTableViewCell.identifier)
+        weekdayTimeTableView.register(TimeDataTableViewCell.self, forCellReuseIdentifier: TimeDataTableViewCell.identifier)
+        weekendTimeTableView.register(TimeDataTableViewCell.self, forCellReuseIdentifier: TimeDataTableViewCell.identifier)
     }
+    
     func configureRestaurantInfo() {
         self.locationLabel.text = restaurantInfoInputData?.location
         
@@ -197,16 +193,9 @@ extension RestaurantInfoView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TimeDataTableViewCell.identifier, for: indexPath) as? TimeDataTableViewCell else { return TimeDataTableViewCell() }
+        cell.selectionStyle = .none
         cell.bind(timeData: times[indexPath.row])
         return cell
-        
-    }
-    
-}
-
-extension RestaurantInfoView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
 }
 
