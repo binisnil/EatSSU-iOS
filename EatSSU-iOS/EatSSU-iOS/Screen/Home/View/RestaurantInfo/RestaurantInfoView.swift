@@ -25,7 +25,6 @@ class RestaurantInfoView: BaseUIView {
     var weekendTimes: [TimeData] = []
     
     // MARK: - UI Components
-    
     let mapView = MKMapView()
     let weekdayTimeTableView = RestaurantInfoTimeTableView()
     let weekendTimeTableView = RestaurantInfoTimeTableView()

@@ -81,6 +81,9 @@
 		7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */; };
 		7BBD4CAE2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAD2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift */; };
 		7BBD4CB02A6E722A00515F67 /* RestaurantLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CAF2A6E722A00515F67 /* RestaurantLocation.swift */; };
+		7BBD4CBB2A6FED4800515F67 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CBA2A6FED4800515F67 /* MyPageView.swift */; };
+		7BBD4CBE2A6FF89000515F67 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CBD2A6FF89000515F67 /* MyPageModel.swift */; };
+		7BBD4CC12A6FFE0400515F67 /* MyPageServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CC02A6FFE0400515F67 /* MyPageServiceCell.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
@@ -169,6 +172,9 @@
 		7BBD4CAB2A6D3E4600515F67 /* TimeDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDataTableViewCell.swift; sourceTree = "<group>"; };
 		7BBD4CAD2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoTimeTableView.swift; sourceTree = "<group>"; };
 		7BBD4CAF2A6E722A00515F67 /* RestaurantLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLocation.swift; sourceTree = "<group>"; };
+		7BBD4CBA2A6FED4800515F67 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		7BBD4CBD2A6FF89000515F67 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
+		7BBD4CC02A6FFE0400515F67 /* MyPageServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageServiceCell.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
@@ -524,7 +530,9 @@
 		7B906AF02A1B847700E4B6A9 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				7B906AF22A1B849800E4B6A9 /* View */,
+				7BBD4CBF2A6FFDF400515F67 /* Cell */,
+				7BBD4CBC2A6FF83E00515F67 /* Model */,
+				7BBD4CB92A6FED3D00515F67 /* View */,
 				7B906AF12A1B849100E4B6A9 /* ViewController */,
 			);
 			name = MyPage;
@@ -537,13 +545,6 @@
 				7B906AF32A1B849D00E4B6A9 /* MyPageViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		7B906AF22A1B849800E4B6A9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7B9798AD2A24E66F0069F027 /* MenuTable */ = {
@@ -623,6 +624,30 @@
 				7BBD4CAF2A6E722A00515F67 /* RestaurantLocation.swift */,
 			);
 			path = RestaurantInfo;
+			sourceTree = "<group>";
+		};
+		7BBD4CB92A6FED3D00515F67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BBD4CBA2A6FED4800515F67 /* MyPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BBD4CBC2A6FF83E00515F67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BBD4CBD2A6FF89000515F67 /* MyPageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BBD4CBF2A6FFDF400515F67 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7BBD4CC02A6FFE0400515F67 /* MyPageServiceCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7BFD09BD2A21E6CA00B40054 /* Home */ = {
@@ -745,6 +770,8 @@
 				7B9899A42A0B902C00D1A076 /* MenuTableView.swift in Sources */,
 				7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
+				7BBD4CBB2A6FED4800515F67 /* MyPageView.swift in Sources */,
+				7BBD4CBE2A6FF89000515F67 /* MyPageModel.swift in Sources */,
 				7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */,
 				7B51C5972A62A51D0016B418 /* HomeCalendarView.swift in Sources */,
 				7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */,
@@ -779,6 +806,7 @@
 				0583266A2A4DC891004A295F /* RateNumberView.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
 				7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */,
+				7BBD4CC12A6FFE0400515F67 /* MyPageServiceCell.swift in Sources */,
 				7B51C5BD2A654FB40016B418 /* FixedMenuInfoModel.swift in Sources */,
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,

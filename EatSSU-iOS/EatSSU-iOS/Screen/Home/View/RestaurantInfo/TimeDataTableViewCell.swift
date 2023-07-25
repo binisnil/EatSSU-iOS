@@ -30,8 +30,8 @@ class TimeDataTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.addSubviews(timepartLabel,
-                                timeLabel)
+        
+        configureUI()
         setLayout()
     }
     
@@ -40,6 +40,11 @@ class TimeDataTableViewCell: UITableViewCell {
     }
 
     // MARK: - Functions
+    
+    func configureUI() {
+        self.addSubviews(timepartLabel,
+                            timeLabel)
+    }
     
     func setLayout() {
         timepartLabel.snp.makeConstraints {
