@@ -17,7 +17,7 @@ class HomeRestaurantView: BaseUIView {
     
     private var currentRestaurant = ""
     let menuProvider = MoyaProvider<HomeRouter>()
-    private var changedMenuData: [ChangeMenuTableResponse] = [] {
+    private var changedMenuData: [String: [ChangeMenuTableResponse]] = [:] {
         didSet {
             switch currentRestaurant {
             case "DODAM":
@@ -253,7 +253,7 @@ class HomeRestaurantView: BaseUIView {
 extension HomeRestaurantView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag < 4 {
-            return changedMenuData.count
+            return changedMenuData[currentRestaurant]?.count ?? 0
         } else {
             return fixedMenuData?.fixMenuInfoList?.count ?? 0
         }
@@ -267,7 +267,7 @@ extension HomeRestaurantView: UITableViewDataSource {
             if(indexPath.row > changedMenuData.count-1) {
                 return MenuTableViewCell()
             } else {
-                cell.bind(menuData: changedMenuData[indexPath.row])
+                cell.bind(menuData: changedMenuData[currentRestaurant]?[indexPath.row])
             }
             
         } else {
@@ -314,7 +314,7 @@ extension HomeRestaurantView {
                     print(moyaResponse.statusCode)
             
                     let responseDetailDto = try moyaResponse.map([ChangeMenuTableResponse].self)
-                    self.changedMenuData = responseDetailDto
+                    self.changedMenuData[restaurant] = responseDetailDto
                 } catch(let err) {
                     print(err.localizedDescription)
                 }
