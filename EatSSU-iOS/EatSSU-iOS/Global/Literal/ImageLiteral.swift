@@ -26,6 +26,7 @@ enum ImageLiteral {
     static var uncheckedIcon: UIImage {.load(name: "uncheckedIcon")}
     static var coordinate: UIImage {.load(name: "coordinate")}
     static var myPageIcon: UIImage {.load(name: "myPageIcon")}
+    static var profileIcon: UIImage {.load(name: "profileIcon")}
     
 }
 
