@@ -1,13 +1,13 @@
 //
-//  MenuTableView.swift
+//  RestaurantInfoTimeTableView.swift
 //  EatSSU-iOS
 //
-//  Created by 최지우 on 2023/05/10.
+//  Created by 최지우 on 2023/07/24.
 //
 
 import UIKit
 
-final class MenuTableView: UITableView {
+final class RestaurantInfoTimeTableView: UITableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -15,7 +15,7 @@ final class MenuTableView: UITableView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
         setupTableView()
     }
     
@@ -30,9 +30,7 @@ final class MenuTableView: UITableView {
     }
 
     private func setupTableView() {
-        self.showsVerticalScrollIndicator = false
-        self.layer.cornerRadius = 15.0
+        self.separatorStyle = .none
         self.isScrollEnabled = false
     }
 }
-

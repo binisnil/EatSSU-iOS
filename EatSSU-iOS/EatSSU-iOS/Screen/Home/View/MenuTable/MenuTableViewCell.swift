@@ -34,7 +34,6 @@ class MenuTableViewCell: UITableViewCell {
         contentView.addSubviews(nameLabel,
                                priceLabel,
                                ratingLabel)
-        
         setLabel()
         setLayout()
     }

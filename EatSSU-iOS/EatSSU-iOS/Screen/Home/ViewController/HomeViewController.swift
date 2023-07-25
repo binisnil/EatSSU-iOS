@@ -10,11 +10,22 @@ import UIKit
 import SnapKit
 import Tabman
 
+protocol RestaurantInfoDelegate: AnyObject {
+    func didTappedRestaurantInfo(restaurantName: String)
+}
+
 class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
-    var isPreview = true
+    weak var delegate: RestaurantInfoDelegate?
+    let restaurantButtonTitleToName = [ TextLiteral.dormitoryRestaurant: "DOMITORY",
+                                        TextLiteral.dodamRestaurant: "DODAM",
+                                        TextLiteral.studentRestaurant: "HAKSIK",
+                                        TextLiteral.foodCourt: "FOOD_COURT",
+                                        TextLiteral.snackCorner: "SNACK_CORNER",
+                                        TextLiteral.theKitchen: "THE_KITCHEN"]
+    
     var currentDate: Date = Date() {
         didSet {
             tabmanController.morningViewController.morningMenuAPI(date: changeDateFormat(date: currentDate))
@@ -61,16 +72,20 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    override func setButtonEvent() {
+        tabmanController.morningViewController.morningView.restaurantInfoButton.forEach {
+            $0.addTarget(self, action: #selector(didTappedRestaurantInfoButton(_:)), for: .touchUpInside) }
+        tabmanController.lunchViewController.lunchView.restaurantInfoButton.forEach {
+            $0.addTarget(self, action: #selector(didTappedRestaurantInfoButton(_:)), for: .touchUpInside) }
+        tabmanController.dinnerViewController.dinnerView.restaurantInfoButton.forEach {
+            $0.addTarget(self, action: #selector(didTappedRestaurantInfoButton(_:)), for: .touchUpInside) }
+    }
+    
     func setnavigation() {
             navigationItem.titleView = UIImageView(image: ImageLiteral.EatSSULogo)
             navigationController?.isNavigationBarHidden = false
-            if isPreview {
-                let rightButton = UIBarButtonItem(image: ImageLiteral.myPageIcon, style: .plain, target: self, action: #selector(didTappedRightBarButton))
-                rightButton.tintColor = .primary
-                navigationItem.rightBarButtonItem = rightButton
-            } else {
-                navigationItem.hidesBackButton = true
-            }
+            let rightButton = UIBarButtonItem(image: ImageLiteral.myPageIcon, style: .plain, target: self, action: #selector(didTappedRightBarButton))
+            navigationItem.rightBarButtonItem = rightButton
         }
     
     func registerTabman() {
@@ -103,14 +118,22 @@ class HomeViewController: BaseViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    func isPreviewButtonTapped(preview: Bool) {
-        isPreview = preview
+    @objc
+    func didTappedRestaurantInfoButton(_ sender: UIButton) {
+        let restaurantInfoViewController = RestaurantInfoViewController()
+        restaurantInfoViewController.modalPresentationStyle = .popover
+        self.delegate = restaurantInfoViewController
+        
+        let currentTitle = sender.currentTitle
+        present(restaurantInfoViewController, animated: true) {
+            self.delegate?.didTappedRestaurantInfo(restaurantName: currentTitle ?? "식당")
+            restaurantInfoViewController.getRestaurantInfoResponse(restaurantName: self.restaurantButtonTitleToName[currentTitle ?? "DODAM"] ?? "DODAM")
+        }
     }
 }
 
 // MARK: Calendar Selection
 extension HomeViewController: CalendarSeletionDelegate {
-
     func didSelectCalendar(date: Date) {
         self.currentDate = date
     }

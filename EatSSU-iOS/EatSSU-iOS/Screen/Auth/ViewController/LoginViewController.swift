@@ -79,7 +79,7 @@ class LoginViewController: BaseViewController {
     @objc
     func didTappedPreviewBtn() {
         let homeVC = HomeViewController()
-        homeVC.isPreviewButtonTapped(preview: true)
+//        homeVC.isPreviewButtonTapped(preview: true)
         self.navigationController?.pushViewController(homeVC, animated: true)
     }
     
@@ -124,7 +124,7 @@ class LoginViewController: BaseViewController {
     
     private func pushToHomeVC() {
         let homeVC = HomeViewController()
-        homeVC.isPreviewButtonTapped(preview: false)
+//        homeVC.isPreviewButtonTapped(preview: false)
         navigationController?.pushViewController(homeVC, animated: true)
     }
     
