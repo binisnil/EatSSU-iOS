@@ -34,5 +34,9 @@ enum TextLiteral {
     // MARK: - Mypage
     
     static let linkedAccount: String = "연결된 계정"
+    static let myReview: String = "내가 쓴 리뷰"
+    static let logout: String = "로그아웃"
+    static let withdraw: String = "탈퇴하기"
+    static let appVersion: String = "앱 버전"
         
 }

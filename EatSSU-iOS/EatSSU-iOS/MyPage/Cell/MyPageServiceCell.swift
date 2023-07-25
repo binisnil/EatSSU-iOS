@@ -20,6 +20,11 @@ class MyPageServiceCell: UITableViewCell {
         $0.textColor = .black
     }
     
+    var rightItemLabel = UILabel().then {
+        $0.font = .regular(size: 16)
+        $0.textColor = .gray700
+    }
+    
     // MARK: - init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,12 +43,16 @@ class MyPageServiceCell: UITableViewCell {
     // MARK: - Functions
     
     func configureUI() {
-        self.addSubviews(serviceLabel)
+        self.addSubviews(serviceLabel,
+                         rightItemLabel)
     }
     
     func setLayout() {
         serviceLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
+        }
+        rightItemLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
         }
     }
 }

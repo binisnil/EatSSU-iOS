@@ -12,10 +12,10 @@ struct MyPageLocalData: AppData {
 }
 
 extension MyPageLocalData {
-    static let myPageServiceLabelList = [MyPageLocalData(titleLabel: "내가 쓴 리뷰"),
-                                         MyPageLocalData(titleLabel: "로그아웃"),
-                                         MyPageLocalData(titleLabel: "탈퇴하기"),
-                                         MyPageLocalData(titleLabel: "앱 버전")]
+    static let myPageServiceLabelList = [MyPageLocalData(titleLabel: TextLiteral.myReview),
+                                         MyPageLocalData(titleLabel: TextLiteral.logout),
+                                         MyPageLocalData(titleLabel: TextLiteral.withdraw),
+                                         MyPageLocalData(titleLabel: TextLiteral.appVersion)]
 }
 
 struct MyPageRightItemData: AppData {
@@ -24,5 +24,5 @@ struct MyPageRightItemData: AppData {
 }
 
 extension MyPageRightItemData {
-    static let myPageRightItemDate = [MyPageRightItemData(rightArrow: ">", appVersion: "1.0.0")]
+    static let myPageRightItemList = [MyPageRightItemData(rightArrow: ">", appVersion: "1.0.0")]
 }
