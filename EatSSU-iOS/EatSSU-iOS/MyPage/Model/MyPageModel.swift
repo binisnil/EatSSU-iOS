@@ -17,3 +17,12 @@ extension MyPageLocalData {
                                          MyPageLocalData(titleLabel: "탈퇴하기"),
                                          MyPageLocalData(titleLabel: "앱 버전")]
 }
+
+struct MyPageRightItemData: AppData {
+    let rightArrow: String
+    let appVersion: String
+}
+
+extension MyPageRightItemData {
+    static let myPageRightItemDate = [MyPageRightItemData(rightArrow: ">", appVersion: "1.0.0")]
+}
