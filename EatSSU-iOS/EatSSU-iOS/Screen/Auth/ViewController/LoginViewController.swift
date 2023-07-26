@@ -33,7 +33,7 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
         
         /// 자동 로그인 풀고 싶을 때 한번 실행시켜주기
-//        self.realm.resetDB()
+        self.realm.resetDB()
         
         /// 자동 로그인
         if checkRealmToken() {
