@@ -12,6 +12,9 @@ import Then
 
 class SetNickNameView: BaseUIView {
     
+    // MARK: - Properties
+    private var userNickname: String = ""
+    
     // MARK: - UI Components
     
     private let nickNameLabel = UILabel().then {
@@ -94,6 +97,7 @@ class SetNickNameView: BaseUIView {
         if let text = textField.text, (text.count>1 && text.count<9) {
             doubleCheckButton.isEnabled = true
             completeSettingNickNameButton.isEnabled = true
+            userNickname = text
         } else {
             doubleCheckButton.isEnabled = false
             completeSettingNickNameButton.isEnabled = false
