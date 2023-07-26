@@ -11,6 +11,12 @@ import SnapKit
 
 class PostUIButton: UIButton {
     
+    override var isEnabled: Bool{
+        didSet {
+            isEnabled ? setEnableButton() : setDisableButton()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
@@ -18,6 +24,16 @@ class PostUIButton: UIButton {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setEnableButton() {
+        isUserInteractionEnabled = true
+        backgroundColor = .primary
+    }
+    
+    private func setDisableButton() {
+        isUserInteractionEnabled = false
+        backgroundColor = .gray500
     }
     
     func setupButton() {
