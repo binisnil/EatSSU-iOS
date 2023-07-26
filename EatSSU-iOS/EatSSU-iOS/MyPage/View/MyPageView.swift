@@ -34,6 +34,8 @@ class MyPageView: BaseUIView {
         $0.font = .regular(size: 14)
     }
     
+    var accountImage = UIImageView().then { $0.image = ImageLiteral.signInWithApple }
+    
     private let myPageTableView = UITableView().then {
         $0.separatorStyle = .none
         $0.rowHeight = 55
@@ -54,6 +56,7 @@ class MyPageView: BaseUIView {
         self.addSubviews(userNicknameButton,
                          accountTitleLabel,
                          accountLabel,
+                         accountImage,
                          myPageTableView)
     }
     override func setLayout() {
@@ -70,6 +73,10 @@ class MyPageView: BaseUIView {
         accountLabel.snp.makeConstraints {
             $0.top.equalTo(accountTitleLabel)
             $0.leading.equalTo(accountTitleLabel.snp.trailing).offset(20)
+        }
+        accountImage.snp.makeConstraints {
+            $0.top.equalTo(accountTitleLabel)
+            $0.trailing.equalTo(userNicknameButton)
         }
         myPageTableView.snp.makeConstraints {
             $0.top.equalTo(accountTitleLabel.snp.bottom).offset(71)
