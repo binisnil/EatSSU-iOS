@@ -84,6 +84,7 @@
 		7BBD4CBB2A6FED4800515F67 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CBA2A6FED4800515F67 /* MyPageView.swift */; };
 		7BBD4CBE2A6FF89000515F67 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CBD2A6FF89000515F67 /* MyPageModel.swift */; };
 		7BBD4CC12A6FFE0400515F67 /* MyPageServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CC02A6FFE0400515F67 /* MyPageServiceCell.swift */; };
+		7BBD4CC32A70FA4A00515F67 /* ChangeNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CC22A70FA4A00515F67 /* ChangeNicknameViewController.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
@@ -175,6 +176,7 @@
 		7BBD4CBA2A6FED4800515F67 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		7BBD4CBD2A6FF89000515F67 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		7BBD4CC02A6FFE0400515F67 /* MyPageServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageServiceCell.swift; sourceTree = "<group>"; };
+		7BBD4CC22A70FA4A00515F67 /* ChangeNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameViewController.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				7B906AF32A1B849D00E4B6A9 /* MyPageViewController.swift */,
+				7BBD4CC22A70FA4A00515F67 /* ChangeNicknameViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
 				057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */,
+				7BBD4CC32A70FA4A00515F67 /* ChangeNicknameViewController.swift in Sources */,
 				7BBD4CAE2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift in Sources */,
 				7B9899AA2A0B98E700D1A076 /* RestaurantInfoViewController.swift in Sources */,
 				7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */,

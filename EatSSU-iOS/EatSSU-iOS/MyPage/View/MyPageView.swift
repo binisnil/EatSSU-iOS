@@ -13,6 +13,7 @@ import Then
 class MyPageView: BaseUIView {
     
     // MARK: - Properties
+    
     private let myPageServiceLabelList = MyPageLocalData.myPageServiceLabelList
     private let myPageRightItemListDate = MyPageRightItemData.myPageRightItemList
     
