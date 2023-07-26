@@ -33,7 +33,7 @@ class PostUIButton: UIButton {
     
     private func setDisableButton() {
         isUserInteractionEnabled = false
-        backgroundColor = .gray500
+        backgroundColor = .gray300
     }
     
     func setupButton() {
