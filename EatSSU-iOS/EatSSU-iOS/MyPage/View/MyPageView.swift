@@ -99,7 +99,9 @@ extension MyPageView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageServiceCell.identifier, for: indexPath) as? MyPageServiceCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageServiceCell.identifier,
+                                                       for: indexPath)
+                as? MyPageServiceCell else {
             return MyPageServiceCell()
         }
         let title = myPageServiceLabelList[indexPath.row].titleLabel
