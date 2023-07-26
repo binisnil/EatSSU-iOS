@@ -29,11 +29,11 @@ class SetNickNameView: BaseUIView {
         
     }
     
-    lazy var doubleCheckButton = UIButton().then {
+    lazy var doubleCheckButton = PostUIButton().then {
         $0.addTitleAttribute(title: TextLiteral.doubleCheckNickName, titleColor: .white, fontName: .regular(size: 14))
-        $0.setBackgroundColor(.gray300, for: .normal)
         $0.setRoundBorder(borderColor: .gray300, borderWidth: 0.0, cornerRadius: 10.0)
         $0.contentEdgeInsets = .init(top: 12.0, left: 12.0, bottom: 12.0, right: 12.0)
+        $0.isEnabled = false
     }
 
     private let hintInputNickNameLabel = UILabel().then {
@@ -92,8 +92,10 @@ class SetNickNameView: BaseUIView {
     @objc
     func textFieldChanged(_ textField: UITextField) {
         if let text = textField.text, (text.count>1 && text.count<9) {
+            doubleCheckButton.isEnabled = true
             completeSettingNickNameButton.isEnabled = true
         } else {
+            doubleCheckButton.isEnabled = false
             completeSettingNickNameButton.isEnabled = false
         }
     }
