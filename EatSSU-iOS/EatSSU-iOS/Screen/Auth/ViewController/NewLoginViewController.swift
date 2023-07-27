@@ -5,6 +5,7 @@
 //  Created by 최지우 on 2023/06/26.
 //
 
+import AuthenticationServices
 import UIKit
 
 import KakaoSDKUser
@@ -45,6 +46,7 @@ final class NewLoginViewController: BaseViewController {
     
     override func setButtonEvent() {
         loginView.kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonDidTapped), for: .touchUpInside)
+        loginView.appleLoginButton.addTarget(self, action: #selector(appleLoginButtonDidTapped), for: .touchUpInside)
     }
     
     private func getUserInfo() {
@@ -80,13 +82,25 @@ final class NewLoginViewController: BaseViewController {
     
     private func checkUser() {
         /// 자동 로그인 풀고 싶을 때 한번 실행시켜주기
-//        self.realm.resetDB()
+        self.realm.resetDB()
         
         /// 자동 로그인
         if checkRealmToken() {
             print(self.realm.getToken())
             pushToHomeVC()
         }
+    }
+    
+    /// 요청으로 얻을 수 있는 값들: 이름, 이메일로 설정
+    private func appleLoginRequest() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
     
     // MARK: - Action Methods
@@ -103,6 +117,11 @@ final class NewLoginViewController: BaseViewController {
                 }
             }
         }
+    }
+    
+    @objc
+    private func appleLoginButtonDidTapped() {
+        appleLoginRequest()
     }
 }
 
@@ -132,3 +151,38 @@ extension NewLoginViewController {
         }
     }
 }
+
+extension NewLoginViewController: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+    
+    // Apple ID 연동 성공 시
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+            // Apple ID
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            
+            // 계정 정보 가져오기
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            let idToken = appleIDCredential.identityToken!
+            let tokeStr = String(data: idToken, encoding: .utf8)
+            
+            print("User ID : \(userIdentifier)")
+            print("User Email : \(email ?? "")")
+            print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
+            print("token : \(String(describing: tokeStr))")
+            
+        default:
+            break
+        }
+    }
+    
+    // Apple ID 연동 실패 시
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Login in Fail.")
+    }
+}
+

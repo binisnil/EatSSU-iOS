@@ -16,7 +16,7 @@ class NewLoginView: BaseUIView {
     
     private let logoImage = UIImageView().then { $0.image = ImageLiteral.signInImage }
     
-    private let appleLoginButton = UIButton().then {
+    lazy var appleLoginButton = UIButton().then {
         $0.addTitleAttribute(title: TextLiteral.signInWithApple, titleColor: .black, fontName: .regular(size: 18))
         $0.setImage(ImageLiteral.appleIcon, for: .normal)
         $0.setRoundBorder(borderColor: .black, borderWidth: 1.0, cornerRadius: 5.0)
