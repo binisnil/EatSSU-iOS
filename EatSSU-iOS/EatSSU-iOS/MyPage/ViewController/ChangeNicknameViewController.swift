@@ -12,7 +12,11 @@ import Then
 
 class ChangeNicknameViewController: BaseViewController {
     
+    // MARK: - UI Components
+    
     let changeNicknameView = SetNickNameView()
+    
+    // MARK: - Functions
     
     override func customNavigationBar() {
         super.customNavigationBar()
