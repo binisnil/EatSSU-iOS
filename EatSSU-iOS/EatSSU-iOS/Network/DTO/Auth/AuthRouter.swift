@@ -11,6 +11,7 @@ import Foundation
 enum AuthRouter {
     case signUp(param: SignUpRequest)
     case signIn(param: SignInRequest)
+    case kakaoLogin(param: KakaoLoginRequest)
 }
 
 extension AuthRouter: TargetType {
@@ -24,7 +25,9 @@ extension AuthRouter: TargetType {
         return "/user/join"
     case .signIn:
         return "/user/login"
-      }
+    case .kakaoLogin:
+        return "/oauth/kakao"
+    }
   }
   
   var method: Moya.Method {
@@ -32,6 +35,8 @@ extension AuthRouter: TargetType {
     case .signUp:
       return .post
     case .signIn:
+        return .post
+    case .kakaoLogin:
         return .post
     }
   }
@@ -41,6 +46,8 @@ extension AuthRouter: TargetType {
     case .signUp(let param):
         return .requestJSONEncodable(param)
     case .signIn(let param):
+        return .requestJSONEncodable(param)
+    case .kakaoLogin(param: let param):
         return .requestJSONEncodable(param)
     }
   }

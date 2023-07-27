@@ -24,7 +24,7 @@ class NewLoginView: BaseUIView {
         $0.contentEdgeInsets = .init(top: 0, left: -16, bottom: -4, right: 0)
     }
     
-    private let kakaoLoginButton = UIButton().then {
+    lazy var kakaoLoginButton = UIButton().then {
         $0.addTitleAttribute(title: TextLiteral.signInWithKakao, titleColor: .black, fontName: .regular(size: 18))
         $0.backgroundColor = .kakaoYellow
         $0.contentEdgeInsets = .init(top: 10, left: 0, bottom: 10, right: 0)
