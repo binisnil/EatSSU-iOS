@@ -27,6 +27,7 @@ enum ImageLiteral {
     static var coordinate: UIImage {.load(name: "coordinate")}
     static var myPageIcon: UIImage {.load(name: "myPageIcon")}
     static var profileIcon: UIImage {.load(name: "profileIcon")}
+    static var signInWithApple: UIImage {.load(name: "signInWithApple")}
     
 }
 

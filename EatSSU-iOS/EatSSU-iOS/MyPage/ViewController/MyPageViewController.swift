@@ -4,6 +4,7 @@
 //
 //  Created by 최지우 on 2023/05/22.
 //
+import Foundation
 
 import SnapKit
 import Then
@@ -14,7 +15,7 @@ class MyPageViewController: BaseViewController {
     
     override func customNavigationBar() {
         super.customNavigationBar()
-        navigationItem.title = "마이페이지"
+        navigationItem.title = TextLiteral.myPage
     }
     
     override func configureUI() {
@@ -25,5 +26,15 @@ class MyPageViewController: BaseViewController {
         mypageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    override func setButtonEvent() {
+        mypageView.userNicknameButton.addTarget(self, action: #selector(didTappedChangeNicknameButton), for: .touchUpInside)
+    }
+    
+    @objc
+    func didTappedChangeNicknameButton() {
+        let changeNickNameVC = ChangeNicknameViewController()
+        self.navigationController?.pushViewController(changeNickNameVC, animated: true)
     }
 }

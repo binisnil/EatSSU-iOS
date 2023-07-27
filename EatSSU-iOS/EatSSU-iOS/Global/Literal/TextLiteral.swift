@@ -33,10 +33,14 @@ enum TextLiteral {
     
     // MARK: - Mypage
     
+    static let myPage: String = "마이페이지"
     static let linkedAccount: String = "연결된 계정"
     static let myReview: String = "내가 쓴 리뷰"
     static let logout: String = "로그아웃"
     static let withdraw: String = "탈퇴하기"
     static let appVersion: String = "앱 버전"
+    static let changeNickname: String = "닉네임 변경"
+    static let newNickname: String = "새로운 닉네임"
+    static let existingNickname: String = "기존 닉네임"
         
 }
