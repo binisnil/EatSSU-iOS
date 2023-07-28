@@ -12,7 +12,9 @@ import Moya
 class ReviewViewController: BaseViewController {
     
     // MARK: - Properties
-    let reviewProvider = MoyaProvider<ReviewRouter>()
+    let reviewProvider = MoyaProvider<ReviewRouter>(plugins: [MoyaLoggingPlugin()])
+    var menuID: Int = Int()
+    var type = "CHANGE"
     private let menuDummy = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
     private var reviewList = [DataList]()
     
@@ -49,11 +51,17 @@ class ReviewViewController: BaseViewController {
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         getMenuReview(menuId: 35)
-        getTotalReview(menuId: 35)
+//        getTotalReview(menuId: 35)
         view.backgroundColor = .systemBackground
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getReviewRate()
+    }
+    
     // MARK: - Functions
+    
     override func configureUI() {
         topReviewView.backgroundColor = .white
         reviewTableView.backgroundColor = .white
@@ -93,6 +101,12 @@ class ReviewViewController: BaseViewController {
         super.customNavigationBar()
         navigationItem.title = "리뷰"
     }
+    
+    func bindMenuID(id: Int) {
+        menuID = id
+    }
+    
+    // MARK: - Action Method
     
     @objc
     func userTapReviewButton() {
@@ -138,16 +152,45 @@ extension ReviewViewController: UITableViewDataSource {
 
 extension ReviewViewController {
     
-    func getTotalReview(menuId: Int) {
-        self.reviewProvider.request(.totalReview(menuId)) { response in
+//    func getTotalReview(menuId: Int) {
+//        self.reviewProvider.request(.totalReview(menuId)) { response in
+//            switch response {
+//            case .success(let moyaResponse):
+//                do {
+//                    print(moyaResponse.statusCode)
+//                    let responseData = try moyaResponse.map(TotalReviewResponse.self)
+//                    self.topReviewView.dataBind(menuName: responseData.menuName,
+//                                                reviewCount: responseData.totalReviewCount,
+//                                                totalGrade: responseData.grade,
+//                                                fiveCnt: responseData.reviewGradeCnt.fiveCnt,
+//                                                fourCnt: responseData.reviewGradeCnt.fourCnt,
+//                                                threeCnt: responseData.reviewGradeCnt.threeCnt,
+//                                                twoCnt: responseData.reviewGradeCnt.twoCnt,
+//                                                oneCnt: responseData.reviewGradeCnt.oneCnt)
+//
+//                    print(responseData)
+//
+//                } catch(let err) {
+//                    print(err.localizedDescription)
+//                }
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+//    }
+    
+    func getReviewRate() {
+        self.reviewProvider.request(.reviewRate(type, 6)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
                     print(moyaResponse.statusCode)
-                    let responseData = try moyaResponse.map(TotalReviewResponse.self)
+                    let responseData = try moyaResponse.map(ReviewRateResponse.self)
                     self.topReviewView.dataBind(menuName: responseData.menuName,
                                                 reviewCount: responseData.totalReviewCount,
-                                                totalGrade: responseData.grade,
+                                                totalGrade: responseData.mainGrade,
+                                                tasteGrade: responseData.tasteGrade,
+                                                amountGrade: responseData.amountGrade,
                                                 fiveCnt: responseData.reviewGradeCnt.fiveCnt,
                                                 fourCnt: responseData.reviewGradeCnt.fourCnt,
                                                 threeCnt: responseData.reviewGradeCnt.threeCnt,
@@ -155,7 +198,6 @@ extension ReviewViewController {
                                                 oneCnt: responseData.reviewGradeCnt.oneCnt)
                     
                     print(responseData)
-                    
                 } catch(let err) {
                     print(err.localizedDescription)
                 }

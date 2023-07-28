@@ -35,6 +35,8 @@ class ReviewRateView: BaseUIView {
         label.text = "김치볶음밥 & 계란국"
         label.font = .semiBold(size: 20)
         label.textColor = .black
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
@@ -284,23 +286,10 @@ class ReviewRateView: BaseUIView {
     }
     
     override func setLayout() {
-//        reviewLabel.snp.makeConstraints { make in
-//            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
-//            make.centerX.equalToSuperview()
-//        }
-//
-//        progressView.snp.makeConstraints { make in
-//            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
-//            make.leading.equalToSuperview().offset(28)
-//            make.trailing.equalToSuperview().offset(-28)
-//            make.height.equalTo(2)
-//
-//        }
-
         menuLabel.snp.makeConstraints { make in
-//            make.top.equalTo(progressView.snp.bottom).offset(10)
             make.top.equalTo(safeAreaLayoutGuide.snp.topMargin)
             make.centerX.equalToSuperview()
+            make.width.equalTo(290)
         }
         
         totalRateStackView.snp.makeConstraints { make in
@@ -310,12 +299,12 @@ class ReviewRateView: BaseUIView {
         
         tasteStackView.snp.makeConstraints { make in
             make.top.equalTo(totalRateStackView.snp.bottom).offset(8)
-            make.leading.equalTo(totalRateStackView)
+            make.leading.equalTo(totalRateStackView).offset(-5)
         }
         
         quantityStackView.snp.makeConstraints { make in
             make.top.equalTo(tasteStackView)
-            make.trailing.equalTo(totalRateStackView)
+            make.leading.equalTo(tasteStackView.snp.trailing).offset(5)
         }
         
         yAxisStackView.snp.makeConstraints { make in
@@ -379,26 +368,49 @@ class ReviewRateView: BaseUIView {
 }
 
 extension ReviewRateView {
-    func dataBind(menuName: String, reviewCount: Int, totalGrade: Double, fiveCnt: Int, fourCnt: Int, threeCnt: Int, twoCnt: Int, oneCnt: Int) {
-        menuLabel.text = menuName
+    func dataBind(menuName: [String], reviewCount: Int, totalGrade: Double, tasteGrade: Double, amountGrade: Double, fiveCnt: Int, fourCnt: Int, threeCnt: Int, twoCnt: Int, oneCnt: Int) {
+        menuLabel.text = menuName.joined(separator: ", ")
         totalReviewCount.text = "\(reviewCount)"
         let total = String(format: "%.1f", totalGrade)
         rateNumLabel.text = "\(total)"
         totalRate = totalGrade
+        tasteRateLabel.text = "\(tasteGrade)"
+        quantityRateLabel.text = "\(amountGrade)"
+        
         fiveChartBar.snp.makeConstraints {
-            $0.width.equalTo(126/reviewCount*fiveCnt)
+            if fiveCnt == 0 {
+                $0.width.equalTo(0)
+            } else {
+                $0.width.equalTo(126/reviewCount*fiveCnt)
+            }
         }
         fourChartBar.snp.makeConstraints {
-            $0.width.equalTo((126/reviewCount)*fourCnt)
+            if fourCnt == 0 {
+                $0.width.equalTo(0)
+            } else {
+                $0.width.equalTo(126/reviewCount*fourCnt)
+            }
         }
         threeChartBar.snp.makeConstraints {
-            $0.width.equalTo(126/reviewCount*threeCnt)
+            if threeCnt == 0 {
+                $0.width.equalTo(0)
+            } else {
+                $0.width.equalTo(126/reviewCount*threeCnt)
+            }
         }
         twoChartBar.snp.makeConstraints {
-            $0.width.equalTo(126/reviewCount*twoCnt)
+            if twoCnt == 0 {
+                $0.width.equalTo(0)
+            } else {
+                $0.width.equalTo(126/reviewCount*twoCnt)
+            }
         }
         oneChartBar.snp.makeConstraints {
-            $0.width.equalTo(126/reviewCount*oneCnt)
+            if oneCnt == 0 {
+                $0.width.equalTo(0)
+            } else {
+                $0.width.equalTo(126/reviewCount*oneCnt)
+            }
         }
     }
 }
