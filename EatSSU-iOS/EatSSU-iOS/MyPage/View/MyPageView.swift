@@ -14,8 +14,8 @@ class MyPageView: BaseUIView {
     
     // MARK: - Properties
     
-    private let myPageServiceLabelList = MyPageLocalData.myPageServiceLabelList
-    private let myPageRightItemListDate = MyPageRightItemData.myPageRightItemList
+    let myPageServiceLabelList = MyPageLocalData.myPageServiceLabelList
+    let myPageRightItemListDate = MyPageRightItemData.myPageRightItemList
     
     // MARK: - UI Components
     
@@ -37,7 +37,7 @@ class MyPageView: BaseUIView {
     
     var accountImage = UIImageView().then { $0.image = ImageLiteral.signInWithApple }
     
-    private let myPageTableView = UITableView().then {
+    let myPageTableView = UITableView().then {
         $0.separatorStyle = .none
         $0.rowHeight = 55
     }
@@ -47,7 +47,6 @@ class MyPageView: BaseUIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setDelegate()
         register()
     }
     
@@ -85,34 +84,10 @@ class MyPageView: BaseUIView {
             $0.height.equalTo(215)
         }
     }
-    func setDelegate() {
-        myPageTableView.dataSource = self
-    }
+    
     func register() {
         myPageTableView.register(MyPageServiceCell.self, forCellReuseIdentifier: MyPageServiceCell.identifier)
     }
     
 }
 
-extension MyPageView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myPageServiceLabelList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageServiceCell.identifier,
-                                                       for: indexPath)
-                as? MyPageServiceCell else {
-            return MyPageServiceCell()
-        }
-        let title = myPageServiceLabelList[indexPath.row].titleLabel
-        cell.serviceLabel.text = title
-        if title == TextLiteral.myReview {
-            cell.rightItemLabel.text = myPageRightItemListDate[0].rightArrow
-        } else if title == TextLiteral.appVersion {
-            cell.rightItemLabel.text = myPageRightItemListDate[0].appVersion
-        }
-        return cell
-    }
-    
-}

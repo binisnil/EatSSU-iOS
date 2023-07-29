@@ -87,6 +87,8 @@
 		7BBD4CBE2A6FF89000515F67 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CBD2A6FF89000515F67 /* MyPageModel.swift */; };
 		7BBD4CC12A6FFE0400515F67 /* MyPageServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CC02A6FFE0400515F67 /* MyPageServiceCell.swift */; };
 		7BBD4CC32A70FA4A00515F67 /* ChangeNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CC22A70FA4A00515F67 /* ChangeNicknameViewController.swift */; };
+		7BBD4CCB2A72541500515F67 /* MyReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CCA2A72541500515F67 /* MyReviewViewController.swift */; };
+		7BBD4CCD2A72544E00515F67 /* MyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CCC2A72544E00515F67 /* MyReviewView.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
@@ -180,6 +182,8 @@
 		7BBD4CBD2A6FF89000515F67 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		7BBD4CC02A6FFE0400515F67 /* MyPageServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageServiceCell.swift; sourceTree = "<group>"; };
 		7BBD4CC22A70FA4A00515F67 /* ChangeNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameViewController.swift; sourceTree = "<group>"; };
+		7BBD4CCA2A72541500515F67 /* MyReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewViewController.swift; sourceTree = "<group>"; };
+		7BBD4CCC2A72544E00515F67 /* MyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewView.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
@@ -551,6 +555,7 @@
 			children = (
 				7B906AF32A1B849D00E4B6A9 /* MyPageViewController.swift */,
 				7BBD4CC22A70FA4A00515F67 /* ChangeNicknameViewController.swift */,
+				7BBD4CCA2A72541500515F67 /* MyReviewViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -638,6 +643,7 @@
 			isa = PBXGroup;
 			children = (
 				7BBD4CBA2A6FED4800515F67 /* MyPageView.swift */,
+				7BBD4CCC2A72544E00515F67 /* MyReviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -799,6 +805,7 @@
 				7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */,
 				057A0B232A22279B00F10B85 /* Token.swift in Sources */,
 				7B51C5992A630C890016B418 /* HomeTabmanController.swift in Sources */,
+				7BBD4CCD2A72544E00515F67 /* MyReviewView.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */,
 				7BF5CC0C2A497AD800E4EE11 /* NewLoginView.swift in Sources */,
@@ -809,6 +816,7 @@
 				057A0ACF2A1D3EEF00F10B85 /* WriteReviewRequest.swift in Sources */,
 				057A0AC92A1B498300F10B85 /* ReviewRouter.swift in Sources */,
 				057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */,
+				7BBD4CCB2A72541500515F67 /* MyReviewViewController.swift in Sources */,
 				7B51C59E2A6321700016B418 /* DummyModel.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
