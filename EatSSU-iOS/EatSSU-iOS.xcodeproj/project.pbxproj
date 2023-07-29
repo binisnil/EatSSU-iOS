@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051F7E612A7059B700CE9F87 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 051F7E602A7059B700CE9F87 /* KakaoSDK */; };
+		051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */; };
 		0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559705A2A16646B00868C42 /* MenuReviewResponse.swift */; };
 		0559705D2A16670600868C42 /* MenuInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559705C2A16670600868C42 /* MenuInfoResponse.swift */; };
 		0569565C29B25D40002E8CF2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 0569565B29B25D40002E8CF2 /* Tabman */; };
@@ -102,6 +104,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequest.swift; sourceTree = "<group>"; };
 		0559705A2A16646B00868C42 /* MenuReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuReviewResponse.swift; sourceTree = "<group>"; };
 		0559705C2A16670600868C42 /* MenuInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInfoResponse.swift; sourceTree = "<group>"; };
 		056956B729C0D6DC002E8CF2 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				057A0B1E2A22272D00F10B85 /* RealmSwift in Frameworks */,
+				051F7E612A7059B700CE9F87 /* KakaoSDK in Frameworks */,
 				7BD73CD429D208940076DC77 /* Then in Frameworks */,
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
@@ -308,6 +312,7 @@
 				057A0B182A22254500F10B85 /* SignUpRequest.swift */,
 				057A0B242A22284400F10B85 /* SignResponse.swift */,
 				057A0B282A222F7E00F10B85 /* SignInRequest.swift */,
+				051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -693,6 +698,7 @@
 				057A0B1B2A22272D00F10B85 /* Realm */,
 				057A0B1D2A22272D00F10B85 /* RealmSwift */,
 				7B51C5902A628F7E0016B418 /* FSCalendar */,
+				051F7E602A7059B700CE9F87 /* KakaoSDK */,
 			);
 			productName = "EatSSU-iOS";
 			productReference = 7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */;
@@ -729,6 +735,7 @@
 				7BD73CD229D208940076DC77 /* XCRemoteSwiftPackageReference "Then" */,
 				057A0B1A2A22272D00F10B85 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				7B51C58F2A628F7E0016B418 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				051F7E5F2A7059B700CE9F87 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 7B2BBF93299A1AC400EE0F1F /* Products */;
 			projectDirPath = "";
@@ -817,6 +824,7 @@
 				0583266A2A4DC891004A295F /* RateNumberView.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
 				7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */,
+				051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */,
 				7BBD4CC12A6FFE0400515F67 /* MyPageServiceCell.swift in Sources */,
 				7B51C5BD2A654FB40016B418 /* FixedMenuInfoModel.swift in Sources */,
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
@@ -984,7 +992,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HZ8WU7PA4J;
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -1017,7 +1025,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = HZ8WU7PA4J;
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -1065,6 +1073,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		051F7E5F2A7059B700CE9F87 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		0569565A29B25D40002E8CF2 /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman.git";
@@ -1116,6 +1132,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		051F7E602A7059B700CE9F87 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 051F7E5F2A7059B700CE9F87 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
 		0569565B29B25D40002E8CF2 /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0569565A29B25D40002E8CF2 /* XCRemoteSwiftPackageReference "Tabman" */;

@@ -4,11 +4,22 @@
 <dict>
 	<key>BASE_URL</key>
 	<string>$(BASE_URL)</string>
-
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>test</string>
-	<key>NSCameraUsageDescription</key>
-	<string>test</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao41a721f1c0c4362069a309bc70a428ed</string>
+			</array>
+		</dict>
+	</array>
+    <key>LSApplicationQueriesSchemes</key>
+      <array>
+          <string>kakaokompassauth</string>
+          <string>kakaolink</string>
+      </array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
