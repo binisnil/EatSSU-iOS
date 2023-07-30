@@ -30,6 +30,7 @@ class DinnerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dinnerView.delegate = self
         
         setButtonEvent()
     }
@@ -80,5 +81,12 @@ class DinnerViewController: BaseViewController {
         ppc?.sourceView = self.view
         ppc?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
         present(mapVC, animated: true, completion: nil)
+    }
+}
+
+extension DinnerViewController: TableViewCellSelectionDelegate {
+    func didSelectCell() {
+        let reviewViewController = ReviewViewController()
+        self.navigationController?.pushViewController(reviewViewController, animated: true)
     }
 }

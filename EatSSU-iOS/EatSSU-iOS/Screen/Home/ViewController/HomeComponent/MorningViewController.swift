@@ -31,6 +31,7 @@ class MorningViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        morningView.delegate = self
         
         setButtonEvent()
     }
@@ -65,4 +66,13 @@ class MorningViewController: BaseViewController {
         morningView.getChangeMenuTableResponse(date: date, restaurant: "DODAM", time: "MORNING")
         morningView.getChangeMenuTableResponse(date: date, restaurant: "HAKSIK", time: "MORNING")
     }
+}
+
+extension MorningViewController: TableViewCellSelectionDelegate {
+    func didSelectCell() {
+        let reviewViewController = ReviewViewController()
+        self.navigationController?.pushViewController(reviewViewController, animated: true)
+    }
+    
+    
 }
