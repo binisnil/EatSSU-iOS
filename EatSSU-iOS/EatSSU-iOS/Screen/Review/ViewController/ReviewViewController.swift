@@ -15,7 +15,7 @@ class ReviewViewController: BaseViewController {
     let reviewProvider = MoyaProvider<ReviewRouter>(plugins: [MoyaLoggingPlugin()])
     var menuID: Int = Int()
     var type = "CHANGE"
-    private let menuDummy = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
+    private var menuDummy = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
     private var reviewList = [DataList]()
     
     // MARK: - UI Component
@@ -151,34 +151,6 @@ extension ReviewViewController: UITableViewDataSource {
 // MARK: - Server Setting
 
 extension ReviewViewController {
-    
-//    func getTotalReview(menuId: Int) {
-//        self.reviewProvider.request(.totalReview(menuId)) { response in
-//            switch response {
-//            case .success(let moyaResponse):
-//                do {
-//                    print(moyaResponse.statusCode)
-//                    let responseData = try moyaResponse.map(TotalReviewResponse.self)
-//                    self.topReviewView.dataBind(menuName: responseData.menuName,
-//                                                reviewCount: responseData.totalReviewCount,
-//                                                totalGrade: responseData.grade,
-//                                                fiveCnt: responseData.reviewGradeCnt.fiveCnt,
-//                                                fourCnt: responseData.reviewGradeCnt.fourCnt,
-//                                                threeCnt: responseData.reviewGradeCnt.threeCnt,
-//                                                twoCnt: responseData.reviewGradeCnt.twoCnt,
-//                                                oneCnt: responseData.reviewGradeCnt.oneCnt)
-//
-//                    print(responseData)
-//
-//                } catch(let err) {
-//                    print(err.localizedDescription)
-//                }
-//            case .failure(let err):
-//                print(err.localizedDescription)
-//            }
-//        }
-//    }
-    
     func getReviewRate() {
         self.reviewProvider.request(.reviewRate(type, 6)) { response in
             switch response {
@@ -196,7 +168,7 @@ extension ReviewViewController {
                                                 threeCnt: responseData.reviewGradeCnt.threeCnt,
                                                 twoCnt: responseData.reviewGradeCnt.twoCnt,
                                                 oneCnt: responseData.reviewGradeCnt.oneCnt)
-                    
+                    self.menuDummy = responseData.menuName
                     print(responseData)
                 } catch(let err) {
                     print(err.localizedDescription)
