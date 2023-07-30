@@ -8,6 +8,6 @@
 import Foundation
 
 struct MenuTypeInfo {
-    let menuType: String
-    let menuID: Int
+    var menuType: String
+    var menuID: Int
 }
