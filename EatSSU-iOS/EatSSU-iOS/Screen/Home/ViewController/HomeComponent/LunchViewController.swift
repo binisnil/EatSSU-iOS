@@ -30,6 +30,7 @@ class LunchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        lunchView.delegate = self
         
         setButtonEvent()        
     }
@@ -76,3 +77,11 @@ class LunchViewController: BaseViewController {
     }
 }
 
+extension LunchViewController: TableViewCellSelectionDelegate {
+    func didSelectCell() {
+        let reviewViewController = ReviewViewController()
+        self.navigationController?.pushViewController(reviewViewController, animated: true)
+        lunchView.delegateMenu = reviewViewController
+    }
+    
+}

@@ -89,6 +89,7 @@
 		7BBD4CC32A70FA4A00515F67 /* ChangeNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CC22A70FA4A00515F67 /* ChangeNicknameViewController.swift */; };
 		7BBD4CCB2A72541500515F67 /* MyReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CCA2A72541500515F67 /* MyReviewViewController.swift */; };
 		7BBD4CCD2A72544E00515F67 /* MyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CCC2A72544E00515F67 /* MyReviewView.swift */; };
+		7BBD4CF52A765A3000515F67 /* MenuTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CF42A765A3000515F67 /* MenuTypeInfo.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
 		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
@@ -184,6 +185,7 @@
 		7BBD4CC22A70FA4A00515F67 /* ChangeNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNicknameViewController.swift; sourceTree = "<group>"; };
 		7BBD4CCA2A72541500515F67 /* MyReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewViewController.swift; sourceTree = "<group>"; };
 		7BBD4CCC2A72544E00515F67 /* MyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewView.swift; sourceTree = "<group>"; };
+		7BBD4CF42A765A3000515F67 /* MenuTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypeInfo.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */,
 				7B51C5BC2A654FB40016B418 /* FixedMenuInfoModel.swift */,
 				7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */,
+				7BBD4CF42A765A3000515F67 /* MenuTypeInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				7B51C5932A628FB30016B418 /* HomeViewController.swift in Sources */,
 				7BBD4CAA2A6D3B7A00515F67 /* TimeData.swift in Sources */,
 				7BBD4C972A67DAEF00515F67 /* ChangeMenuTableResponse.swift in Sources */,
+				7BBD4CF52A765A3000515F67 /* MenuTypeInfo.swift in Sources */,
 				058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */,
 				7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */,
 				056956BF29C0DB1A002E8CF2 /* BaseViewController.swift in Sources */,

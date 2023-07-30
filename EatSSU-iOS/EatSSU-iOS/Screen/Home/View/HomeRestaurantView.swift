@@ -11,10 +11,20 @@ import Moya
 import SnapKit
 import Then
 
+protocol TableViewCellSelectionDelegate: AnyObject {
+    func didSelectCell()
+}
+
+protocol BindCellMenuTypeInfoDelegate: AnyObject {
+    func didBindMenuTypeInfo(menuTypeInfo: MenuTypeInfo)
+}
+
 class HomeRestaurantView: BaseUIView {
     
     //MARK: - Properties
     
+    var delegate: TableViewCellSelectionDelegate?
+    var delegateMenu: BindCellMenuTypeInfoDelegate?
     let menuProvider = MoyaProvider<HomeRouter>()
     private var currentRestaurant = ""
     lazy var restaurantInfoButton = [dormitoryCoordinateButton, dodamCoordinateButton, studentCoordinateButton, foodCourtCoordinateButton, snackCornerCoordinateButton, theKitchenCoordinateButton]
@@ -278,9 +288,6 @@ extension HomeRestaurantView: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
-    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = MenuHeaderView()
@@ -288,7 +295,23 @@ extension HomeRestaurantView: UITableViewDataSource {
     }
 }
 
-extension HomeRestaurantView: UITableViewDelegate {}
+extension HomeRestaurantView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /// push VC
+        delegate?.didSelectCell()
+        
+        /// bind Data
+        var menuTypeInfo: MenuTypeInfo = MenuTypeInfo(menuType: "", menuID: 0)
+        if tableView.tag < 4 {  // "CHANGE"
+            menuTypeInfo.menuType = "CHANGE"
+            menuTypeInfo.menuID = changedMenuData["DODAM"]?[indexPath.row].mealId ?? 0
+        } else {    // "FIX"
+            menuTypeInfo.menuType = "FIX"
+            menuTypeInfo.menuID = fixedMenuData?.fixMenuInfoList?[indexPath.row].menuId ?? 0
+        }
+        delegateMenu?.didBindMenuTypeInfo(menuTypeInfo: menuTypeInfo)
+    }
+}
 
 extension HomeRestaurantView: UISheetPresentationControllerDelegate {
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
