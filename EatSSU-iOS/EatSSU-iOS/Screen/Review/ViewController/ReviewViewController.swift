@@ -184,3 +184,10 @@ extension ReviewViewController {
         }
     }
 }
+
+extension ReviewViewController: BindCellMenuTypeInfoDelegate {
+    func didBindMenuTypeInfo(menuTypeInfo: MenuTypeInfo) {
+        print(menuTypeInfo)
+    }
+    
+}
