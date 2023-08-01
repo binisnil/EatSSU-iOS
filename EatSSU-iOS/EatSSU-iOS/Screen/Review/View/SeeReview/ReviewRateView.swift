@@ -369,13 +369,15 @@ class ReviewRateView: BaseUIView {
 
 extension ReviewRateView {
     func dataBind(menuName: [String], reviewCount: Int, totalGrade: Double, tasteGrade: Double, amountGrade: Double, fiveCnt: Int, fourCnt: Int, threeCnt: Int, twoCnt: Int, oneCnt: Int) {
+        let total = String(format: "%.1f", totalGrade)
+        let taste = String(format: "%.1f", tasteGrade)
+        let amount = String(format: "%.1f", amountGrade)
         menuLabel.text = menuName.joined(separator: ", ")
         totalReviewCount.text = "\(reviewCount)"
-        let total = String(format: "%.1f", totalGrade)
         rateNumLabel.text = "\(total)"
         totalRate = totalGrade
-        tasteRateLabel.text = "\(tasteGrade)"
-        quantityRateLabel.text = "\(amountGrade)"
+        tasteRateLabel.text = "\(taste)"
+        quantityRateLabel.text = "\(amount)"
         
         fiveChartBar.snp.makeConstraints {
             if fiveCnt == 0 {

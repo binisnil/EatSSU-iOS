@@ -10,7 +10,7 @@ import UIKit
 import Moya
 
 enum WriteReviewRouter {
-    case writeReview(param: WriteReviewRequest, menuId: Int)
+    case writeReview(param: WriteReviewRequest, image: [UIImage?], menuId: Int)
 }
 
 extension WriteReviewRouter: TargetType, AccessTokenAuthorizable {
@@ -20,9 +20,8 @@ extension WriteReviewRouter: TargetType, AccessTokenAuthorizable {
     
     var path: String {
         switch self {
-        case .writeReview(param: _, menuId: let menuId):
-            return "/review/\(menuId)/detail"
-
+        case .writeReview(param: _, image: _, menuId: let menuId):
+            return "/review/\(menuId)"
         }
     }
     
@@ -35,56 +34,36 @@ extension WriteReviewRouter: TargetType, AccessTokenAuthorizable {
     
     var task: Moya.Task {
         switch self {
-        case.writeReview(param: let param, menuId: _):
-            var multipartFormDatas: [MultipartFormData] = []
-            if param.multipartFileList != nil {
-                
-            multipartFormDatas.append(MultipartFormData(provider: .data("\(param.reviewCreate.grade)".data(using: .utf8) ?? Data()),
-                                                        name: "grade",
-                                                        mimeType: "application/json"))
-            for reviewTags in param.reviewCreate.reviewTags {
-                multipartFormDatas.append(MultipartFormData(provider: .data(reviewTags.data(using: .utf8) ?? Data()),
-                                                            name: "reviewTags",
-                                                            mimeType: "application/json"))
+        case .writeReview(param: let param, image: let imageList ,menuId: _):
+            let jsonData: Data
+            var multipartFileList: [MultipartFormData] = []
+            do {
+                jsonData = try JSONEncoder().encode(param)
+                let formData = MultipartFormData(provider: .data(jsonData), name: "reviewCreate", mimeType: "application/json")
+                multipartFileList.append(formData)
+            } catch {
+                print("Error encoding ReviewRequest: \(error)")
+                return .requestPlain
             }
-            multipartFormDatas.append(MultipartFormData(provider: .data("\(param.reviewCreate.content)".data(using: .utf8) ?? Data()),
-                                                        name: "content",
-                                                        mimeType: "application/json"))
             
-            if let multipartFileList = param.multipartFileList {
-                for image in multipartFileList {
-                        multipartFormDatas.append(MultipartFormData(provider: .data(image),
-                                                                    name: "multipartFileList",
-                                                                    fileName: "userImage.jpeg",
-                                                                    mimeType: "image/jpeg"))
-                    }
+            if imageList.count != 0 {
+                for fileData in imageList {
+                    let imageData = fileData?.jpegData(compressionQuality: 0.5) ?? Data()
+                    let formData = MultipartFormData(provider: .data(imageData), name: "multipartFileList", fileName: "image.jpg", mimeType: "image/jpeg")
+                    multipartFileList.append(formData)
+                }
             }
-                return .uploadMultipart(multipartFormDatas)
-        } else {
-                return .requestJSONEncodable(param)
-            }
+            return .uploadMultipart(multipartFileList)
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .writeReview(param: let param, menuId: _):
-            if param.multipartFileList == nil {
-                let realm = RealmService()
-                let token = realm.getToken()
-                return ["Content-Type":"multipart/form-data",
-                        "Authorization": "Bearer \(token)"]
-            } else {
-                let realm = RealmService()
-                let token = realm.getToken()
-                return ["Content-Type":"application/json",
-                        "Authorization": "Bearer \(token)"]
-            }
-//        default:
-//            let realm = RealmService()
-//            let token = realm.getToken()
-//            return ["Content-Type":"multipart/form-data",
-//                    "Authorization": "Bearer \(token)"]
+        default:
+            let realm = RealmService()
+            let token = realm.getToken()
+            return ["Content-Type":"multipart/form-data",
+                    "Authorization": "Bearer \(token)"]
         }
     }
     

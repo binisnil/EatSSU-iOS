@@ -10,6 +10,9 @@
 		051F7E612A7059B700CE9F87 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 051F7E602A7059B700CE9F87 /* KakaoSDK */; };
 		051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */; };
 		051F7E672A742FA500CE9F87 /* ReviewRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */; };
+		051F7E692A78F48000CE9F87 /* ReviewListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E682A78F48000CE9F87 /* ReviewListResponse.swift */; };
+		051F7E6B2A78FD3700CE9F87 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E6A2A78FD3700CE9F87 /* UIImageView+.swift */; };
+		051F7E6E2A78FD8500CE9F87 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 051F7E6D2A78FD8500CE9F87 /* Kingfisher */; };
 		0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559705A2A16646B00868C42 /* MenuReviewResponse.swift */; };
 		0559705D2A16670600868C42 /* MenuInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0559705C2A16670600868C42 /* MenuInfoResponse.swift */; };
 		0569565C29B25D40002E8CF2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 0569565B29B25D40002E8CF2 /* Tabman */; };
@@ -108,6 +111,8 @@
 /* Begin PBXFileReference section */
 		051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequest.swift; sourceTree = "<group>"; };
 		051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRateResponse.swift; sourceTree = "<group>"; };
+		051F7E682A78F48000CE9F87 /* ReviewListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListResponse.swift; sourceTree = "<group>"; };
+		051F7E6A2A78FD3700CE9F87 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		0559705A2A16646B00868C42 /* MenuReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuReviewResponse.swift; sourceTree = "<group>"; };
 		0559705C2A16670600868C42 /* MenuInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInfoResponse.swift; sourceTree = "<group>"; };
 		056956B729C0D6DC002E8CF2 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -209,6 +214,7 @@
 				057A0B1E2A22272D00F10B85 /* RealmSwift in Frameworks */,
 				051F7E612A7059B700CE9F87 /* KakaoSDK in Frameworks */,
 				7BD73CD429D208940076DC77 /* Then in Frameworks */,
+				051F7E6E2A78FD8500CE9F87 /* Kingfisher in Frameworks */,
 				7B2BBFB0299A291A00EE0F1F /* SnapKit in Frameworks */,
 				056956C229C0DB55002E8CF2 /* Moya in Frameworks */,
 				0569565C29B25D40002E8CF2 /* Tabman in Frameworks */,
@@ -228,6 +234,7 @@
 				057A0AC62A1B488B00F10B85 /* TotalReviewResponse.swift */,
 				057A0ACE2A1D3EEF00F10B85 /* WriteReviewRequest.swift */,
 				051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */,
+				051F7E682A78F48000CE9F87 /* ReviewListResponse.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -429,6 +436,7 @@
 				7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */,
 				058326652A4D97BC004A295F /* UICollectionViewCell+.swift */,
 				7B51C5942A62A0B10016B418 /* CALayer.swift */,
+				051F7E6A2A78FD3700CE9F87 /* UIImageView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -705,6 +713,7 @@
 				057A0B1D2A22272D00F10B85 /* RealmSwift */,
 				7B51C5902A628F7E0016B418 /* FSCalendar */,
 				051F7E602A7059B700CE9F87 /* KakaoSDK */,
+				051F7E6D2A78FD8500CE9F87 /* Kingfisher */,
 			);
 			productName = "EatSSU-iOS";
 			productReference = 7B2BBF92299A1AC400EE0F1F /* EatSSU-iOS.app */;
@@ -742,6 +751,7 @@
 				057A0B1A2A22272D00F10B85 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				7B51C58F2A628F7E0016B418 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				051F7E5F2A7059B700CE9F87 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				051F7E6C2A78FD8500CE9F87 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7B2BBF93299A1AC400EE0F1F /* Products */;
 			projectDirPath = "";
@@ -831,8 +841,10 @@
 				0583266A2A4DC891004A295F /* RateNumberView.swift in Sources */,
 				7B2C9E9D29DF3C020007603D /* FontLiteral.swift in Sources */,
 				7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */,
+				051F7E692A78F48000CE9F87 /* ReviewListResponse.swift in Sources */,
 				051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */,
 				7BBD4CC12A6FFE0400515F67 /* MyPageServiceCell.swift in Sources */,
+				051F7E6B2A78FD3700CE9F87 /* UIImageView+.swift in Sources */,
 				7B51C5BD2A654FB40016B418 /* FixedMenuInfoModel.swift in Sources */,
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
@@ -1089,6 +1101,14 @@
 				kind = branch;
 			};
 		};
+		051F7E6C2A78FD8500CE9F87 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		0569565A29B25D40002E8CF2 /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman.git";
@@ -1144,6 +1164,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 051F7E5F2A7059B700CE9F87 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
+		};
+		051F7E6D2A78FD8500CE9F87 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 051F7E6C2A78FD8500CE9F87 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		0569565B29B25D40002E8CF2 /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;

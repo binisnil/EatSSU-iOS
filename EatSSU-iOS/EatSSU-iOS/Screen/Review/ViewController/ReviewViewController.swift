@@ -16,7 +16,7 @@ class ReviewViewController: BaseViewController {
     var menuID: Int = Int()
     var type = "CHANGE"
     private var menuDummy = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
-    private var reviewList = [DataList]()
+    private var reviewList = [MenuDataList]()
     
     // MARK: - UI Component
     
@@ -50,14 +50,13 @@ class ReviewViewController: BaseViewController {
         reviewTableView.register(ReviewTableCell.self, forCellReuseIdentifier: ReviewTableCell.identifier)
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
-        getMenuReview(menuId: 35)
-//        getTotalReview(menuId: 35)
         view.backgroundColor = .systemBackground
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getReviewRate()
+        getReviewList(type: type, menuId: menuID)
     }
     
     // MARK: - Functions
@@ -112,8 +111,9 @@ class ReviewViewController: BaseViewController {
     func userTapReviewButton() {
         
         /// 메뉴가 여러개면 리뷰할 메뉴를 선택할 VC로 넘어가고, 그렇지 않다면 별점 설정 VC로 넘어갑니다.
-        if menuDummy.count == 0 {
+        if menuDummy.count == 1 {
             let setRateViewController = SetRateViewController()
+            setRateViewController.dataBind(list: menuDummy)
             self.navigationController?.pushViewController(setRateViewController, animated: true)
         } else {
             let choiceMenuViewController = ChoiceMenuViewController()
@@ -137,12 +137,7 @@ extension ReviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableCell.identifier, for: indexPath) as? ReviewTableCell ?? ReviewTableCell()
 
-        let cellReview: DataList = reviewList[indexPath.row]
-        cell.dataBind(nickname: cellReview.writerNickname,
-                      grade: cellReview.grade,
-                      content: cellReview.content,
-                      date: cellReview.writeDate,
-                      tagList: cellReview.tagList)
+        cell.dataBind(response: reviewList[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
@@ -152,7 +147,8 @@ extension ReviewViewController: UITableViewDataSource {
 
 extension ReviewViewController {
     func getReviewRate() {
-        self.reviewProvider.request(.reviewRate(type, 6)) { response in
+        self.reviewProvider.request(.reviewRate(type, 3)) { response in
+//        self.reviewProvider.request(.reviewRate(type, menuID)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
@@ -179,16 +175,15 @@ extension ReviewViewController {
         }
     }
     
-    func getMenuReview(menuId: Int) {
-        self.reviewProvider.request(.menuReview(menuId)) { response in
+    func getReviewList(type: String, menuId: Int) {
+        self.reviewProvider.request(.reviewList(type, 3)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
                     print(moyaResponse.statusCode)
-                    let responseData = try moyaResponse.map(MenuReviewResponse.self)
-                    self.reviewList = responseData.dataList ?? []
+                    let responseData = try moyaResponse.map(ReviewListResponse.self)
+                    self.reviewList = responseData.dataList
                     self.reviewTableView.reloadData()
-//                    print(responseData)
                 } catch(let err) {
                     print(err.localizedDescription)
                 }
@@ -201,7 +196,7 @@ extension ReviewViewController {
 
 extension ReviewViewController: BindCellMenuTypeInfoDelegate {
     func didBindMenuTypeInfo(menuTypeInfo: MenuTypeInfo) {
-        print(menuTypeInfo)
+        type = menuTypeInfo.menuType
+        menuID = menuTypeInfo.menuID
     }
-    
 }

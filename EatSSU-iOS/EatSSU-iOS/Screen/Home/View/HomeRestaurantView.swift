@@ -309,6 +309,7 @@ extension HomeRestaurantView: UITableViewDelegate {
             menuTypeInfo.menuType = "FIX"
             menuTypeInfo.menuID = fixedMenuData?.fixMenuInfoList?[indexPath.row].menuId ?? 0
         }
+        print("여기서 델리게이트함수 실행!")
         delegateMenu?.didBindMenuTypeInfo(menuTypeInfo: menuTypeInfo)
     }
 }

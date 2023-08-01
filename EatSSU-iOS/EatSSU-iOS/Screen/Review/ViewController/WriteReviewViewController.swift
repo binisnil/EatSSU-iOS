@@ -229,11 +229,11 @@ class WriteReviewViewController: BaseViewController, UIImagePickerControllerDele
     @objc
     func userTappedNextButton() {
         if userReviewTextView.text != "" {
-            postWriteReviewRequest(menuId: 35,
-                                   grade: grade,
-                                   reviewTag: ["GOOD"],
-                                   content: userReviewTextView.text,
-                                   image: userReviewImageView.image ?? UIImage())
+//            postWriteReviewRequest(menuId: 35,
+//                                   grade: grade,
+//                                   reviewTag: ["GOOD"],
+//                                   content: userReviewTextView.text,
+//                                   image: userReviewImageView.image ?? UIImage())
             if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
                 self.navigationController?.popToViewController(reviewViewController, animated: true)
             }
@@ -271,20 +271,20 @@ extension WriteReviewViewController: UITextViewDelegate {
 
 extension WriteReviewViewController {
     
-    func postWriteReviewRequest(menuId: Int, grade: Int, reviewTag:[String], content: String, image: UIImage) {
-        let imageData = image.jpegData(compressionQuality: 0.5) ?? Data()
-        let reviewContent = ReviewContent.init(grade: grade, reviewTags: reviewTag, content: content)
-        let param = WriteReviewRequest.init(reviewCreate: reviewContent, multipartFileList: [imageData])
-        
-        self.writeReviewProvider.request(.writeReview(param: param, menuId: menuId)) { response in
-            switch response {
-            case.success(let moyaResponse):
-                do {
-                    print(moyaResponse.statusCode)
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
-        }
-    }
+//    func postWriteReviewRequest(menuId: Int, grade: Int, reviewTag:[String], content: String, image: UIImage) {
+//        let imageData = image.jpegData(compressionQuality: 0.5) ?? Data()
+//        let reviewContent = ReviewContent.init(mainGrade: 3, amountGrade: 3, tasteGrade: 3, content: "음.....")
+//        let param = WriteReviewRequest.init(reviewCreate: reviewContent, multipartFileList: [imageData])
+//
+//        self.writeReviewProvider.request(.writeReview(param: param, menuId: menuId)) { response in
+//            switch response {
+//            case.success(let moyaResponse):
+//                do {
+//                    print(moyaResponse.statusCode)
+//                }
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+//    }
 }

@@ -76,14 +76,6 @@ class ReviewTableCell: UITableViewCell {
         return button
     }()
     
-    private var reviewContentLabel: UILabel = {
-        let label = UILabel()
-        label.text = "여기 계란국 맛집임... 김치볶음밥에 계란후라이 없어서 아쉽 다음에 또 먹어야지"
-        label.font = .regular(size: 16)
-        label.textColor = .black
-        return label
-    }()
-    
     var reviewTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor.black
@@ -98,7 +90,7 @@ class ReviewTableCell: UITableViewCell {
     var foodImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "logo.png")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.isHidden = true
         return imageView
     }()
@@ -214,10 +206,26 @@ class ReviewTableCell: UITableViewCell {
 // FIXME: - ImageURL 하나만 오도록 수정되면 고쳐주기
 
 extension ReviewTableCell {
-    func dataBind(nickname: String, grade: Int, content: String, date: String, tagList: [String]) {
-        userNameLabel.text = nickname
-        personalRate = grade
-        reviewTextView.text = content
-        dateLabel.text = date
+//    func dataBind(nickname: String, grade: Int, content: String, date: String, tagList: [String]) {
+//        userNameLabel.text = nickname
+//        personalRate = grade
+//        reviewTextView.text = content
+//        dateLabel.text = date
+//    }
+    
+    func dataBind(response: MenuDataList) {
+        menuNameLabel.text = response.menu
+        userNameLabel.text = response.writerNickname
+        totalRateView.rateNumberLabel.text = "\(response.mainGrade)"
+        quantityRateView.rateNumberLabel.text = "\(response.amountGrade)"
+        tasteRateView.rateNumberLabel.text = "\(response.tasteGrade)"
+        dateLabel.text = response.writeDate
+        reviewTextView.text = response.content
+        if response.imgURLList.count != 0 {
+            foodImageView.isHidden = false
+            foodImageView.kfSetImage(url: response.imgURLList[0])
+        } else {
+            foodImageView.isHidden = true
+        }
     }
 }

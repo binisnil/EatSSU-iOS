@@ -8,23 +8,15 @@
 import UIKit
 
 struct WriteReviewRequest: Codable {
-    let reviewCreate: ReviewContent
-    let multipartFileList: [Data]?
-    
-    init(reviewCreate: ReviewContent, multipartFileList: [Data]) {
-        self.reviewCreate = reviewCreate
-        self.multipartFileList = multipartFileList
-    }
-}
-
-struct ReviewContent: Codable {
-    let grade: Int
-    let reviewTags: [String]
+    let mainGrade: Int
+    let amountGrade: Int
+    let tasteGrade: Int
     let content: String
-    
-    init(grade: Int, reviewTags: [String], content: String) {
-        self.grade = grade
-        self.reviewTags = reviewTags
+
+    init(mainGrade: Int, amountGrade: Int, tasteGrade: Int, content: String) {
+        self.mainGrade = mainGrade
+        self.amountGrade = amountGrade
+        self.tasteGrade = tasteGrade
         self.content = content
     }
 }
