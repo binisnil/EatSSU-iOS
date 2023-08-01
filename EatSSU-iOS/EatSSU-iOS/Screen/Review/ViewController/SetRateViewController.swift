@@ -9,11 +9,13 @@ import UIKit
 
 import SnapKit
 import Then
+import Moya
 
 class SetRateViewController: BaseViewController {
     
     // MARK: - Properties
 
+    private let writeReviewProvider = MoyaProvider<WriteReviewRouter>(plugins: [MoyaLoggingPlugin()])
     private var selectedList: [String] = [] {
         didSet {
             menuLabel.text = "\(selectedList[0]) 을 추천하시겠어요?"
@@ -250,6 +252,7 @@ class SetRateViewController: BaseViewController {
             self.navigationController?.isNavigationBarHidden = false
             if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
                 self.navigationController?.popToViewController(reviewViewController, animated: true)
+                postWriteReview(mainGrade: rateView.currentStar, amountGrade: quantityRateView.currentStar, tasteGrade: tasteRateView.currentStar, content: userReviewTextView.text, image: [], menuId: 3)
             }
         } else {
             selectedList.remove(at: 0)
@@ -302,5 +305,26 @@ class SetRateViewController: BaseViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification , object: nil)
         // 키보드가 사라질 때 앱에게 알리는 메서드 제거
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+}
+
+extension SetRateViewController {
+    private func postWriteReview(mainGrade: Int, amountGrade: Int, tasteGrade: Int, content: String, image: [UIImage?], menuId: Int) {
+        let param = WriteReviewRequest.init(mainGrade: mainGrade,
+                                               amountGrade: amountGrade,
+                                               tasteGrade: tasteGrade,
+                                               content: content
+        )
+        self.writeReviewProvider.request(.writeReview(param: param, image: image, menuId: menuId)) { response in
+            
+            switch response {
+            case.success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
     }
 }
