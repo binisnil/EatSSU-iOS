@@ -25,7 +25,7 @@ class HomeRestaurantView: BaseUIView {
     
     var delegate: TableViewCellSelectionDelegate?
     var delegateMenu: BindCellMenuTypeInfoDelegate?
-    let menuProvider = MoyaProvider<HomeRouter>()
+    let menuProvider = MoyaProvider<HomeRouter>(plugins: [MoyaLoggingPlugin()])
     private var currentRestaurant = ""
     lazy var restaurantInfoButton = [dormitoryCoordinateButton, dodamCoordinateButton, studentCoordinateButton, foodCourtCoordinateButton, snackCornerCoordinateButton, theKitchenCoordinateButton]
     private var changedMenuData: [String: [ChangeMenuTableResponse]] = [:] {
@@ -301,15 +301,19 @@ extension HomeRestaurantView: UITableViewDelegate {
         delegate?.didSelectCell()
         
         /// bind Data
-        var menuTypeInfo: MenuTypeInfo = MenuTypeInfo(menuType: "", menuID: 0)
+        var menuTypeInfo: MenuTypeInfo = MenuTypeInfo(menuType: "", menuID: 0, menuIDList: [])
         if tableView.tag < 4 {  // "CHANGE"
             menuTypeInfo.menuType = "CHANGE"
             menuTypeInfo.menuID = changedMenuData["DODAM"]?[indexPath.row].mealId ?? 0
+            for i in 0..<((changedMenuData["DODAM"]?[indexPath.row].changeMenuInfoList.count)!) {
+                menuTypeInfo.menuIDList?.append((changedMenuData["DODAM"]?[indexPath.row].changeMenuInfoList[i].menuId)!)
+            }
+            // FIXME: - 여기에 menuIdList 넘기는 코드 추가!
         } else {    // "FIX"
             menuTypeInfo.menuType = "FIX"
             menuTypeInfo.menuID = fixedMenuData?.fixMenuInfoList?[indexPath.row].menuId ?? 0
         }
-        print("여기서 델리게이트함수 실행!")
+        
         delegateMenu?.didBindMenuTypeInfo(menuTypeInfo: menuTypeInfo)
     }
 }

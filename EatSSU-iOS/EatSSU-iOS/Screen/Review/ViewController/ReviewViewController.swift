@@ -15,7 +15,8 @@ class ReviewViewController: BaseViewController {
     let reviewProvider = MoyaProvider<ReviewRouter>(plugins: [MoyaLoggingPlugin()])
     var menuID: Int = Int()
     var type = "CHANGE"
-    private var menuDummy = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
+    private var menuNameList = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
+    private var menuIDList: [Int] = [Int]()
     private var reviewList = [MenuDataList]()
     
     // MARK: - UI Component
@@ -111,13 +112,14 @@ class ReviewViewController: BaseViewController {
     func userTapReviewButton() {
         
         /// 메뉴가 여러개면 리뷰할 메뉴를 선택할 VC로 넘어가고, 그렇지 않다면 별점 설정 VC로 넘어갑니다.
-        if menuDummy.count == 1 {
+        if menuNameList.count == 1 {
             let setRateViewController = SetRateViewController()
-            setRateViewController.dataBind(list: menuDummy)
+            menuIDList = [menuID]
+            setRateViewController.dataBind(list: menuNameList, idList: menuIDList)
             self.navigationController?.pushViewController(setRateViewController, animated: true)
         } else {
             let choiceMenuViewController = ChoiceMenuViewController()
-            choiceMenuViewController.menuDataBind(menuList: menuDummy)
+            choiceMenuViewController.menuDataBind(menuList: menuNameList, idList: menuIDList)
             self.navigationController?.pushViewController(choiceMenuViewController, animated: true)
         }
     }
@@ -147,8 +149,7 @@ extension ReviewViewController: UITableViewDataSource {
 
 extension ReviewViewController {
     func getReviewRate() {
-        self.reviewProvider.request(.reviewRate(type, 3)) { response in
-//        self.reviewProvider.request(.reviewRate(type, menuID)) { response in
+        self.reviewProvider.request(.reviewRate(type, menuID)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
@@ -164,7 +165,7 @@ extension ReviewViewController {
                                                 threeCnt: responseData.reviewGradeCnt.threeCnt,
                                                 twoCnt: responseData.reviewGradeCnt.twoCnt,
                                                 oneCnt: responseData.reviewGradeCnt.oneCnt)
-                    self.menuDummy = responseData.menuName
+                    self.menuNameList = responseData.menuName
                     print(responseData)
                 } catch(let err) {
                     print(err.localizedDescription)
@@ -176,7 +177,7 @@ extension ReviewViewController {
     }
     
     func getReviewList(type: String, menuId: Int) {
-        self.reviewProvider.request(.reviewList(type, 3)) { response in
+        self.reviewProvider.request(.reviewList(type, menuID)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
@@ -198,5 +199,6 @@ extension ReviewViewController: BindCellMenuTypeInfoDelegate {
     func didBindMenuTypeInfo(menuTypeInfo: MenuTypeInfo) {
         type = menuTypeInfo.menuType
         menuID = menuTypeInfo.menuID
+        menuIDList = menuTypeInfo.menuIDList ?? []
     }
 }
