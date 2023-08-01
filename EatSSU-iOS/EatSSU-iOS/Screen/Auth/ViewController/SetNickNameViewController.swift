@@ -7,10 +7,15 @@
 
 import UIKit
 
+import Moya
 import SnapKit
 import Then
 
 class SetNickNameViewController: BaseViewController {
+    
+    // MARK: - Properties
+    
+    private let setNicknameProvider = MoyaProvider<UserNicknameRouter>(plugins: [MoyaLoggingPlugin()])
     
     // MARK: - UI Components
     
@@ -41,7 +46,26 @@ class SetNickNameViewController: BaseViewController {
     
     @objc
     func tappedCompleteNickNameButton() {
-        print("complete")
+        print(setNickNameView.inputNickNameTextField.text)
+        setUserNickname(nickname: setNickNameView.inputNickNameTextField.text ?? "")
     }
 
+}
+
+extension SetNickNameViewController {
+    private func setUserNickname(nickname: String) {
+        let param = UserNicknameRequest.init(nickname)
+        self.setNicknameProvider.request(.setNickname(nickname: nickname)) {
+            response in
+            
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
 }

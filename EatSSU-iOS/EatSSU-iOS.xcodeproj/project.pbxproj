@@ -79,6 +79,8 @@
 		7B9899A42A0B902C00D1A076 /* MenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A32A0B902C00D1A076 /* MenuTableView.swift */; };
 		7B9899AA2A0B98E700D1A076 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899A92A0B98E700D1A076 /* RestaurantInfoViewController.swift */; };
 		7B9899C32A154F9800D1A076 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9899C22A154F9800D1A076 /* Config.swift */; };
+		7B9998B82A793FB50043C592 /* UserNicknameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9998B72A793FB50043C592 /* UserNicknameRouter.swift */; };
+		7B9998BA2A7944FD0043C592 /* UserNicknameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9998B92A7944FD0043C592 /* UserNicknameRequest.swift */; };
 		7BBD4C972A67DAEF00515F67 /* ChangeMenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4C962A67DAEF00515F67 /* ChangeMenuTableResponse.swift */; };
 		7BBD4CA22A6C406C00515F67 /* RestaurantInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */; };
 		7BBD4CA62A6D275B00515F67 /* RestaurantInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */; };
@@ -96,7 +98,6 @@
 		7BBD4CF52A765A3000515F67 /* MenuTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CF42A765A3000515F67 /* MenuTypeInfo.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
 		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
-		7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE729D2F9D10076DC77 /* LoginView.swift */; };
 		7BF5CC0C2A497AD800E4EE11 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */; };
 		7BF5CC0E2A497D3100E4EE11 /* NewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0D2A497D3100E4EE11 /* NewLoginViewController.swift */; };
 		7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */; };
@@ -178,6 +179,8 @@
 		7B9899A32A0B902C00D1A076 /* MenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableView.swift; sourceTree = "<group>"; };
 		7B9899A92A0B98E700D1A076 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
 		7B9899C22A154F9800D1A076 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		7B9998B72A793FB50043C592 /* UserNicknameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNicknameRouter.swift; sourceTree = "<group>"; };
+		7B9998B92A7944FD0043C592 /* UserNicknameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNicknameRequest.swift; sourceTree = "<group>"; };
 		7BBD4C962A67DAEF00515F67 /* ChangeMenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMenuTableResponse.swift; sourceTree = "<group>"; };
 		7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoView.swift; sourceTree = "<group>"; };
 		7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoRouter.swift; sourceTree = "<group>"; };
@@ -194,7 +197,6 @@
 		7BBD4CCC2A72544E00515F67 /* MyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewView.swift; sourceTree = "<group>"; };
 		7BBD4CF42A765A3000515F67 /* MenuTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypeInfo.swift; sourceTree = "<group>"; };
 		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7BD73CE729D2F9D10076DC77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
 		7BF5CC0D2A497D3100E4EE11 /* NewLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginViewController.swift; sourceTree = "<group>"; };
 		7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				057A0B242A22284400F10B85 /* SignResponse.swift */,
 				057A0B282A222F7E00F10B85 /* SignInRequest.swift */,
 				051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */,
+				7B9998B92A7944FD0043C592 /* UserNicknameRequest.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -453,7 +456,6 @@
 		7B2C9E6329DAC6B70007603D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BD73CE729D2F9D10076DC77 /* LoginView.swift */,
 				7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */,
 				7BF5CC372A53168000E4EE11 /* SetNickNameView.swift */,
 			);
@@ -613,6 +615,7 @@
 				057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */,
 				7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */,
 				7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */,
+				7B9998B72A793FB50043C592 /* UserNicknameRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -783,14 +786,12 @@
 				7BF5CC122A49F65400E4EE11 /* TextLiteral.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
-				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				7BF5CC3C2A53DD0600E4EE11 /* PostUIButton.swift in Sources */,
 				7B51C5A32A63268A0016B418 /* RestaurantInfoModel.swift in Sources */,
 				058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7B51C5A72A63C7230016B418 /* ChangeMenuInfoModel.swift in Sources */,
-				7BD73CE829D2F9D10076DC77 /* LoginView.swift in Sources */,
 				057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */,
 				057A0B252A22284400F10B85 /* SignResponse.swift in Sources */,
 				7B51C5A12A6322D60016B418 /* DataTypeProtocol.swift in Sources */,
@@ -808,6 +809,7 @@
 				7B51C5972A62A51D0016B418 /* HomeCalendarView.swift in Sources */,
 				7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
+				7B9998BA2A7944FD0043C592 /* UserNicknameRequest.swift in Sources */,
 				7B51C5932A628FB30016B418 /* HomeViewController.swift in Sources */,
 				7BBD4CAA2A6D3B7A00515F67 /* TimeData.swift in Sources */,
 				7BBD4C972A67DAEF00515F67 /* ChangeMenuTableResponse.swift in Sources */,
@@ -825,6 +827,7 @@
 				7BBD4CCD2A72544E00515F67 /* MyReviewView.swift in Sources */,
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */,
+				7B9998B82A793FB50043C592 /* UserNicknameRouter.swift in Sources */,
 				7BF5CC0C2A497AD800E4EE11 /* NewLoginView.swift in Sources */,
 				7B51C5952A62A0B10016B418 /* CALayer.swift in Sources */,
 				056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */,
