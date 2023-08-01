@@ -10,4 +10,5 @@ import Foundation
 struct MenuTypeInfo {
     var menuType: String
     var menuID: Int
+    var menuIDList: [Int]?
 }

@@ -16,6 +16,8 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     // MARK: - Properties
 
     private let writeReviewProvider = MoyaProvider<WriteReviewRouter>(plugins: [MoyaLoggingPlugin()])
+    private var userPickedImage = UIImage()
+    private var selectedIDList: [Int] = []
     private var selectedList: [String] = [] {
         didSet {
             menuLabel.text = "\(selectedList[0]) 을 추천하시겠어요?"
@@ -288,8 +290,9 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
         navigationItem.title = "리뷰 남기기"
     }
     
-    func dataBind(list: [String]) {
+    func dataBind(list: [String], idList: [Int]) {
         self.selectedList = list
+        self.selectedIDList = idList
     }
     
     func setImagePickerDelegate() {
@@ -304,14 +307,25 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     func tappedNextButton() {
         if selectedList.count == 1 {
             self.navigationController?.isNavigationBarHidden = false
-            if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
-                self.navigationController?.popToViewController(reviewViewController, animated: true)
-                postWriteReview(mainGrade: rateView.currentStar, amountGrade: quantityRateView.currentStar, tasteGrade: tasteRateView.currentStar, content: userReviewTextView.text, image: [], menuId: 3)
-            }
+            postWriteReview(mainGrade: rateView.currentStar,
+                            amountGrade: quantityRateView.currentStar,
+                            tasteGrade: tasteRateView.currentStar,
+                            content: userReviewTextView.text,
+                            image: [userPickedImage],
+                            menuId: selectedIDList[0]
+            )
         } else {
+            postWriteReview(mainGrade: rateView.currentStar,
+                            amountGrade: quantityRateView.currentStar,
+                            tasteGrade: tasteRateView.currentStar,
+                            content: userReviewTextView.text,
+                            image: [userPickedImage],
+                            menuId: selectedIDList[0]
+            )
             selectedList.remove(at: 0)
+            selectedIDList.remove(at: 0)
             let setRateVC = SetRateViewController()
-            setRateVC.dataBind(list: selectedList)
+            setRateVC.dataBind(list: selectedList, idList: selectedIDList)
             navigationController?.pushViewController(setRateVC, animated: true)
         }
     }
@@ -385,6 +399,11 @@ extension SetRateViewController {
             switch response {
             case.success(let moyaResponse):
                 do {
+                    if self.selectedList.count == 1 {
+                        if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
+                            self.navigationController?.popToViewController(reviewViewController, animated: true)
+                        }
+                    }
                     print(moyaResponse.statusCode)
                 }
             case .failure(let err):
@@ -398,6 +417,7 @@ extension SetRateViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             userReviewImageView.image = image
+            userPickedImage = image
         }
         picker.dismiss(animated: true, completion: nil)
     }

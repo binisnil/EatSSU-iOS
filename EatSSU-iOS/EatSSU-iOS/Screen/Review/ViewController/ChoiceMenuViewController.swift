@@ -15,6 +15,7 @@ class ChoiceMenuViewController: BaseViewController {
     // MARK: - Properties
     
     var menuDummy: [String] = []
+    var menuIDList: [Int] = []
     var isMenuSelected: [Bool] = []
         {
             didSet {
@@ -130,12 +131,13 @@ class ChoiceMenuViewController: BaseViewController {
     func nextButtonTapped() {
         makeList(menuList: menuDummy, selectedList: isMenuSelected)
         let setRateVC = SetRateViewController()
-        setRateVC.dataBind(list: self.selectedList)
+        setRateVC.dataBind(list: self.selectedList, idList: menuIDList)
         self.navigationController?.pushViewController(setRateVC, animated: true)
     }
     
-    func menuDataBind(menuList: [String]) {
+    func menuDataBind(menuList: [String], idList: [Int]) {
         menuDummy = menuList
+        menuIDList = idList
         for _ in 0..<menuDummy.count {
             isMenuSelected.append(false)
         }
