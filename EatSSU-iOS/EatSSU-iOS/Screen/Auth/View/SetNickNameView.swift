@@ -22,7 +22,7 @@ class SetNickNameView: BaseUIView {
         $0.font = .semiBold(size: 18)
     }
     
-    private let inputNickNameTextField = UITextField().then {
+    let inputNickNameTextField = UITextField().then {
         $0.placeholder = TextLiteral.inputNickName
         $0.font = .regular(size: 12)
         $0.textColor = .black
