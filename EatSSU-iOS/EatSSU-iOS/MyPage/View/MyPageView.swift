@@ -19,10 +19,11 @@ class MyPageView: BaseUIView {
     
     // MARK: - UI Components
     
+    var userImage = UIImageView().then {
+        $0.image = ImageLiteral.profileIcon
+    }
     var userNicknameButton = UIButton().then {
-        $0.setImage(ImageLiteral.profileIcon, for: .normal)
         $0.addTitleAttribute(title: "hellosoongsil1234 >", titleColor: .black, fontName: .semiBold(size: 20))
-        $0.alignTextBelow()
     }
     
     let accountTitleLabel = UILabel().then {
@@ -31,11 +32,19 @@ class MyPageView: BaseUIView {
     }
     
     var accountLabel = UILabel().then {
-        $0.text = "Apple"
+        $0.text = "카카오"
         $0.font = .regular(size: 14)
     }
     
-    var accountImage = UIImageView().then { $0.image = ImageLiteral.signInWithApple }
+    var accountImage = UIImageView().then { $0.image = ImageLiteral.kakaoIcon }
+    
+    lazy var accountStackView = UIStackView(arrangedSubviews: [accountTitleLabel,
+                                                               accountLabel,
+                                                               accountImage]).then {
+        $0.alignment = .center
+        $0.axis = .horizontal
+        $0.spacing = 20
+    }
     
     let myPageTableView = UITableView().then {
         $0.separatorStyle = .none
@@ -53,30 +62,38 @@ class MyPageView: BaseUIView {
     // MARK: - Functions
     
     override func configureUI() {
-        self.addSubviews(userNicknameButton,
-                         accountTitleLabel,
-                         accountLabel,
-                         accountImage,
+        self.addSubviews(userImage,
+                         userNicknameButton,
+                         accountStackView,
                          myPageTableView)
     }
     override func setLayout() {
-        userNicknameButton.snp.makeConstraints {
+        userImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(127)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(150)
-            $0.width.equalTo(170)
+            $0.height.width.equalTo(100)
         }
-        accountTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(userNicknameButton.snp.bottom).offset(10)
-            $0.leading.equalTo(userNicknameButton)
+        userNicknameButton.snp.makeConstraints {
+            $0.top.equalTo(userImage.snp.bottom).offset(6)
+            $0.centerX.equalTo(userImage)
+            $0.height.equalTo(40)
         }
-        accountLabel.snp.makeConstraints {
-            $0.top.equalTo(accountTitleLabel)
-            $0.leading.equalTo(accountTitleLabel.snp.trailing).offset(20)
-        }
+//        accountTitleLabel.snp.makeConstraints {
+//            $0.top.equalTo(userNicknameButton.snp.bottom).offset(10)
+//            $0.leading.equalTo(userImage)
+//        }
+//        accountLabel.snp.makeConstraints {
+//            $0.top.equalTo(accountTitleLabel)
+//            $0.leading.equalTo(accountTitleLabel.snp.trailing).offset(20)
+//        }
         accountImage.snp.makeConstraints {
-            $0.top.equalTo(accountTitleLabel)
-            $0.trailing.equalTo(userNicknameButton)
+            $0.height.width.equalTo(20)
+            
+        }
+        
+        accountStackView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(userNicknameButton.snp.bottom).offset(10)
         }
         myPageTableView.snp.makeConstraints {
             $0.top.equalTo(accountTitleLabel.snp.bottom).offset(71)

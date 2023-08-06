@@ -43,10 +43,7 @@ extension UserNicknameRouter: TargetType, AccessTokenAuthorizable {
         switch self {
         default:
             let realm = RealmService()
-//            let token = realm.getToken()
-            let token = """
-2023-08-01 19:25:22.576  8652-8796  okhttp.OkHttpClient     com.eatssu.android                   I  {"accessToken":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJlbWFpbFwiOlwicWxkbHMwMzA3QG5hdmVyLmNvbVwifSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2OTM0Nzc1MjV9.9ObUmDMj-e7vsfLh_qBgj8QFcWmyALl9TkyzSOGJ0r6nfT0SscJl-LbiomKYBsDWnuSfKQjz2DHzir3_SEoL3w","refreshToken":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJlbWFpbFwiOlwicWxkbHMwMzA3QG5hdmVyLmNvbVwifSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2OTE0OTAzMjV9.o_RePOtEqfzRHywz70q7Rq5JMK884d-e7NxBiEoHEmKimfNp40SIonIL7Cc4Rxp70k0KvbM1_EBfQqws46q3uw"}
-"""
+            let token = realm.getToken()
             return ["Content-Type":"application/json",
                     "Authorization": "Bearer \(token)"]
         }

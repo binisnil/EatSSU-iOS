@@ -8,6 +8,7 @@
 import RealmSwift
 import Realm
 
+/// 나중에
 class Token:Object{
     @Persisted(primaryKey: true) var _id: ObjectId
     

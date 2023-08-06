@@ -24,6 +24,7 @@ class RealmService{
         try! localRealm?.write{
             localRealm?.add(token)
         }
+        
     }
 
     func getToken()->String{
@@ -52,6 +53,13 @@ class RealmService{
           } catch {
             // handle error
           }
+        }
+    }
+    
+    func addUser(token: String, nickName: String) {
+        let nickName = NickName(token: token, nickName: nickName)
+        try! localRealm?.write {
+            localRealm?.add(nickName)
         }
     }
     

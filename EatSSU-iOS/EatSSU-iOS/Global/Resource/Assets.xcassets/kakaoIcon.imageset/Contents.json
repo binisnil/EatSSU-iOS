@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "카카오톡 로고 엣지 1.svg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "카카오톡 로고 엣지 2.svg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "카카오톡 로고 엣지 3.svg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
