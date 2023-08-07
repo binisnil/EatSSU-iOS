@@ -18,6 +18,7 @@ enum ImageLiteral {
     
     static var signInImage: UIImage { .load(name: "signInImage")}
     static var appleIcon: UIImage { .load(name: "appleIcon")}
+    static var kakaoIcon: UIImage { .load(name: "kakaoIcon")}
     
     // MARK: - icon
     

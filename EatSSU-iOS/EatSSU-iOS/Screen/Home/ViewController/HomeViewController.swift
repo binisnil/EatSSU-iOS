@@ -19,6 +19,7 @@ class HomeViewController: BaseViewController {
     // MARK: - Properties
     
     weak var delegate: RestaurantInfoDelegate?
+    var nickName: String = ""
     let restaurantButtonTitleToName = [ TextLiteral.dormitoryRestaurant: "DOMITORY",
                                         TextLiteral.dodamRestaurant: "DODAM",
                                         TextLiteral.studentRestaurant: "HAKSIK",
@@ -115,6 +116,7 @@ class HomeViewController: BaseViewController {
     @objc
     func didTappedRightBarButton() {
         let nextVC = MyPageViewController()
+        nextVC.mypageView.userNicknameButton.setTitle("\(nickName) >", for: .normal)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

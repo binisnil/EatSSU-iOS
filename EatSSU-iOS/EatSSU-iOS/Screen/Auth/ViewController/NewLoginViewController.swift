@@ -21,7 +21,7 @@ final class NewLoginViewController: BaseViewController {
     private let loginView = NewLoginView()
     private let realm = RealmService()
     private let authProvider = MoyaProvider<AuthRouter>(plugins: [MoyaLoggingPlugin()])
-    
+
     // MARK: - Life Cycles
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +82,7 @@ final class NewLoginViewController: BaseViewController {
     
     private func checkUser() {
         /// 자동 로그인 풀고 싶을 때 한번 실행시켜주기
-//        self.realm.resetDB()
+        self.realm.resetDB()
         
         /// 자동 로그인
         if checkRealmToken() {
@@ -138,8 +138,9 @@ extension NewLoginViewController {
                     let responseData = try moyaResponse.map(SignResponse.self)
                     self.addTokenInRealm(accessToken: responseData.accessToken,
                                          refreshToken: responseData.refreshToken)
-                    self.pushToHomeVC()
-                    print(responseData)
+                    
+                    let setNicknameViewController = SetNickNameViewController()
+                    self.navigationController?.pushViewController(setNicknameViewController, animated: true)
                 } catch(let err) {
                     self.presentBottomAlert(err.localizedDescription)
                     print(err.localizedDescription)
@@ -169,7 +170,7 @@ extension NewLoginViewController: ASAuthorizationControllerPresentationContextPr
             let email = appleIDCredential.email
             let idToken = appleIDCredential.identityToken!
             let tokeStr = String(data: idToken, encoding: .utf8)
-            
+            // FIXME: - 여기에 애플로그인 기능 추가
             print("User ID : \(userIdentifier)")
             print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
