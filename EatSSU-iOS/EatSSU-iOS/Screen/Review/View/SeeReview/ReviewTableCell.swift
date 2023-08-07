@@ -206,13 +206,6 @@ class ReviewTableCell: UITableViewCell {
 // FIXME: - ImageURL 하나만 오도록 수정되면 고쳐주기
 
 extension ReviewTableCell {
-//    func dataBind(nickname: String, grade: Int, content: String, date: String, tagList: [String]) {
-//        userNameLabel.text = nickname
-//        personalRate = grade
-//        reviewTextView.text = content
-//        dateLabel.text = date
-//    }
-    
     func dataBind(response: MenuDataList) {
         menuNameLabel.text = response.menu
         userNameLabel.text = response.writerNickname
@@ -227,5 +220,29 @@ extension ReviewTableCell {
         } else {
             foodImageView.isHidden = true
         }
+        
+        if response.isWriter {
+            sideButton.setImage(ImageLiteral.greySideButton, for: .normal)
+        } else {
+            sideButton.setTitle("신고", for: .normal)
+        }
+    }
+    
+    func myPageDataBind(response: MyDataList) {
+        userNameLabel.text = "닉네임넣기"
+        menuNameLabel.text = response.menuName
+        totalRateView.rateNumberLabel.text = "\(response.mainGrade)"
+        quantityRateView.rateNumberLabel.text = "\(response.amountGrade)"
+        tasteRateView.rateNumberLabel.text = "\(response.tasteGrade)"
+        dateLabel.text = response.writeDate
+        reviewTextView.text = response.content
+        if response.imgURLList.count != 0 {
+            foodImageView.isHidden = false
+            foodImageView.kfSetImage(url: response.imgURLList[0])
+        } else {
+            foodImageView.isHidden = true
+        }
+        sideButton.setImage(ImageLiteral.greySideButton, for: .normal)
+        sideButton.setTitle("", for: .normal)
     }
 }
