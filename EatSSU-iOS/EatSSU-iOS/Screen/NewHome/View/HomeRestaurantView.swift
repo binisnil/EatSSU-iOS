@@ -2,7 +2,7 @@
 //  HomeRestaurantView.swift
 //  EatSSU-iOS
 //
-//  Created by 최지우 on 2023/05/29.
+//  Created by 최지우 on 2023/08/08.
 //
 
 import UIKit
@@ -11,54 +11,10 @@ import Moya
 import SnapKit
 import Then
 
-protocol TableViewCellSelectionDelegate: AnyObject {
-    func didSelectCell()
-}
-
-protocol BindCellMenuTypeInfoDelegate: AnyObject {
-    func didBindMenuTypeInfo(menuTypeInfo: MenuTypeInfo)
-}
-
 class HomeRestaurantView: BaseUIView {
     
     //MARK: - Properties
-    
-    var delegate: TableViewCellSelectionDelegate?
-    var delegateMenu: BindCellMenuTypeInfoDelegate?
-    let menuProvider = MoyaProvider<HomeRouter>(plugins: [MoyaLoggingPlugin()])
-    private var currentRestaurant = ""
-    lazy var restaurantInfoButton = [dormitoryCoordinateButton, dodamCoordinateButton, studentCoordinateButton, foodCourtCoordinateButton, snackCornerCoordinateButton, theKitchenCoordinateButton]
-    private var changedMenuData: [String: [ChangeMenuTableResponse]] = [:] {
-        didSet {
-            switch currentRestaurant {
-            case "DODAM":
-                dodamTableView.reloadData()
-                break
-            case "DOMITORY":
-                dormitoryTableView.reloadData()
-                break
-            case "HAKSIK":
-                studentTableView.reloadData()
-            default:
-                break
-            }
-        }
-    }
-    private var fixedMenuData: FixedMenuTableResponse? {
-        didSet {
-            switch currentRestaurant {
-            case "SNACK_CORNER":
-                snackCornerTableView.reloadData()
-                break
-            case "FOOD_COURT":
-                foodCourtTableView.reloadData()
-            case "THE_KITCHEN":
-                theKitchenTableView.reloadData()
-            default:
-                break
-            }
-        }
-    }
+
   
     // MARK: - UI Components
     
@@ -367,3 +323,4 @@ extension HomeRestaurantView {
         }
     }
 }
+

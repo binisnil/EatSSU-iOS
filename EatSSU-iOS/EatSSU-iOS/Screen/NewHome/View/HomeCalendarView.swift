@@ -2,7 +2,7 @@
 //  HomeCalendarView.swift
 //  EatSSU-iOS
 //
-//  Created by 최지우 on 2023/07/15.
+//  Created by 최지우 on 2023/08/08.
 //
 
 import UIKit
@@ -103,3 +103,4 @@ extension HomeCalendarView: FSCalendarDataSource, FSCalendarDelegate {
         self.delegate?.didSelectCalendar(date: date)
     }
 }
+

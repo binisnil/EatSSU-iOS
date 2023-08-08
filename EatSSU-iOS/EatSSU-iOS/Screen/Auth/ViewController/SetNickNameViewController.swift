@@ -63,7 +63,7 @@ class SetNickNameViewController: BaseViewController {
             self.navigationController?.popToViewController(myPageViewController, animated: true)
         } else {
             let homeViewController = HomeViewController()
-            homeViewController.nickName = setNickNameView.inputNickNameTextField.text ?? ""
+//            homeViewController.nickName = setNickNameView.inputNickNameTextField.text ?? ""
             self.navigationController?.pushViewController(homeViewController, animated: true)
         }
         
