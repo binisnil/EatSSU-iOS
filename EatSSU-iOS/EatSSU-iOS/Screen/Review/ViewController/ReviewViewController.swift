@@ -181,7 +181,6 @@ extension ReviewViewController {
             switch response {
             case .success(let moyaResponse):
                 do {
-                    print(moyaResponse.statusCode)
                     let responseData = try moyaResponse.map(ReviewListResponse.self)
                     self.reviewList = responseData.dataList
                     self.reviewTableView.reloadData()

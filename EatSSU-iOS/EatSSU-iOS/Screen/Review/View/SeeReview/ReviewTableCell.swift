@@ -70,7 +70,6 @@ class ReviewTableCell: UITableViewCell {
     
     private var sideButton: UIButton = {
         let button = UIButton()
-        button.setTitle("신고하기", for: .normal)
         button.setTitleColor(.gray500, for: .normal)
         button.titleLabel?.font = .regular(size: 14)
         return button
@@ -177,6 +176,12 @@ class ReviewTableCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        sideButton.setTitle("", for: .normal)
     }
     
     func setLayout() {
