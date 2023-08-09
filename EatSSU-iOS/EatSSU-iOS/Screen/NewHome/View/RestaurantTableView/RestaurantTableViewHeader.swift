@@ -12,12 +12,11 @@ import SnapKit
 class RestaurantTableViewHeader: BaseTableViewHeaderView {
     
     let restaurantTitleButton = UIButton().then {
-        $0.addTitleAttribute(title: "기숙사 식당", titleColor: .black, fontName: .bold(size: 18))
-        $0.titleLabel?.adjustsFontSizeToFitWidth = true
-        $0.setImage(ImageLiteral.coordinate, for: .normal)
-//        $0.configuration?.imagePadding = 7
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 7)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 0)
+        var config = UIButton.Configuration.plain()
+        config.image = ImageLiteral.coordinate
+        config.titlePadding = 7
+        config.imagePadding = 7
+        $0.configuration = config
     }
     
     //MARK: - Functions
