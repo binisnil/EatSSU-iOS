@@ -1,5 +1,5 @@
 //
-//  HomeRestaurantTableViewHeader.swift
+//  RestaurantTableViewHeader.swift
 //  EatSSU-iOS
 //
 //  Created by 최지우 on 2023/08/09.
@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class HomeRestaurantTableViewHeader: BaseTableViewHeaderView {
+class RestaurantTableViewHeader: BaseTableViewHeaderView {
     
     let restaurantTitleButton = UIButton().then {
         $0.addTitleAttribute(title: "기숙사 식당", titleColor: .black, fontName: .bold(size: 18))
