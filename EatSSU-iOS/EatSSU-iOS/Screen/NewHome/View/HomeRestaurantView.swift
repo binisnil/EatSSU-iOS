@@ -37,17 +37,13 @@ class HomeRestaurantView: BaseUIView {
 //    }()
     
     // dormitory
-    
     // dodam
-  
     // student
-   
     // foodcourt
-    
     // snackcorner
-    
     // thekitchen
    
+    lazy var restaurantTableView = UITableView(frame: .zero, style: .insetGrouped)
     
     // MARK: - init
 
@@ -55,18 +51,21 @@ class HomeRestaurantView: BaseUIView {
         super.init(frame: frame)
 
         self.backgroundColor = .background
+//        restaurantTableView.backgroundColor = .yellow
     }
     
     // MARK: - Functions
     
     override func configureUI() {
-        self.addSubviews()
+        self.addSubviews(restaurantTableView)
     }
     
     override func setLayout() {
-        
-       
+        restaurantTableView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(47)
+            $0.leading.bottom.trailing.equalToSuperview()
+        }
     }
-    
+
 }
 
