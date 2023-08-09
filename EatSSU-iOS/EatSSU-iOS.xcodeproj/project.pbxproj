@@ -89,6 +89,7 @@
 		7B9998F12A827B590043C592 /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9998F02A827B590043C592 /* HomeCalendarView.swift */; };
 		7B9998F32A836E660043C592 /* HomeRestaurantTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9998F22A836E660043C592 /* HomeRestaurantTableViewHeader.swift */; };
 		7B9998F52A837D9C0043C592 /* BaseTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9998F42A837D9C0043C592 /* BaseTableViewHeaderView.swift */; };
+		7B9998F72A838EF70043C592 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9998F62A838EF70043C592 /* BaseTableViewCell.swift */; };
 		7BBD4C972A67DAEF00515F67 /* ChangeMenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4C962A67DAEF00515F67 /* ChangeMenuTableResponse.swift */; };
 		7BBD4CA22A6C406C00515F67 /* RestaurantInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */; };
 		7BBD4CA62A6D275B00515F67 /* RestaurantInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */; };
@@ -197,6 +198,7 @@
 		7B9998F02A827B590043C592 /* HomeCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
 		7B9998F22A836E660043C592 /* HomeRestaurantTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRestaurantTableViewHeader.swift; sourceTree = "<group>"; };
 		7B9998F42A837D9C0043C592 /* BaseTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderView.swift; sourceTree = "<group>"; };
+		7B9998F62A838EF70043C592 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		7BBD4C962A67DAEF00515F67 /* ChangeMenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMenuTableResponse.swift; sourceTree = "<group>"; };
 		7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoView.swift; sourceTree = "<group>"; };
 		7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoRouter.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				056956C829C0E51F002E8CF2 /* BaseUIView.swift */,
 				7BF5CC3B2A53DD0600E4EE11 /* PostUIButton.swift */,
 				7B9998F42A837D9C0043C592 /* BaseTableViewHeaderView.swift */,
+				7B9998F62A838EF70043C592 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */,
 				7B51C5972A62A51D0016B418 /* oHomeCalendarView.swift in Sources */,
 				7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */,
+				7B9998F72A838EF70043C592 /* BaseTableViewCell.swift in Sources */,
 				7B63C45929C100D70070C588 /* LunchViewController.swift in Sources */,
 				051F7E702A7992CA00CE9F87 /* NickName.swift in Sources */,
 				7B9998BA2A7944FD0043C592 /* UserNicknameRequest.swift in Sources */,
