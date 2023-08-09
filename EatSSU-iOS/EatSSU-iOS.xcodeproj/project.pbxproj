@@ -40,6 +40,7 @@
 		057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B282A222F7E00F10B85 /* SignInRequest.swift */; };
 		057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */; };
 		057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */; };
+		057C5B332A837BD5007EDE06 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C5B322A837BD5007EDE06 /* BaseButton.swift */; };
 		058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326602A4D9422004A295F /* ChoiceMenuViewController.swift */; };
 		058326642A4D9597004A295F /* ChoiceMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326632A4D9597004A295F /* ChoiceMenuTableViewCell.swift */; };
 		058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326652A4D97BC004A295F /* UICollectionViewCell+.swift */; };
@@ -140,6 +141,7 @@
 		057A0B282A222F7E00F10B85 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WriteReviewRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/WriteReviewRouter.swift"; sourceTree = SOURCE_ROOT; };
 		057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPluggin.swift; sourceTree = "<group>"; };
+		057C5B322A837BD5007EDE06 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		058326602A4D9422004A295F /* ChoiceMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceMenuViewController.swift; sourceTree = "<group>"; };
 		058326632A4D9597004A295F /* ChoiceMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceMenuTableViewCell.swift; sourceTree = "<group>"; };
 		058326652A4D97BC004A295F /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */,
 				056956C829C0E51F002E8CF2 /* BaseUIView.swift */,
 				7BF5CC3B2A53DD0600E4EE11 /* PostUIButton.swift */,
+				057C5B322A837BD5007EDE06 /* BaseButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */,
 				051F7E692A78F48000CE9F87 /* ReviewListResponse.swift in Sources */,
 				051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */,
+				057C5B332A837BD5007EDE06 /* BaseButton.swift in Sources */,
 				7BBD4CC12A6FFE0400515F67 /* MyPageServiceCell.swift in Sources */,
 				051F7E6B2A78FD3700CE9F87 /* UIImageView+.swift in Sources */,
 				7B51C5BD2A654FB40016B418 /* FixedMenuInfoModel.swift in Sources */,

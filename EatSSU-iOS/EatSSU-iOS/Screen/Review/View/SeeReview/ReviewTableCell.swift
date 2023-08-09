@@ -14,7 +14,7 @@ class ReviewTableCell: UITableViewCell {
     // MARK: - Properties
     
     static let identifier = "ReviewTableCell"
-    private lazy var personalRate = 4 ///dummy Data
+    var handler: (() -> (Void))?
     
     // MARK: - UI Components
     
@@ -68,8 +68,8 @@ class ReviewTableCell: UITableViewCell {
         return imageView
     }()
     
-    private var sideButton: UIButton = {
-        let button = UIButton()
+    private var sideButton: BaseButton = {
+        let button = BaseButton()
         button.setTitleColor(.gray500, for: .normal)
         button.titleLabel?.font = .regular(size: 14)
         return button
@@ -206,9 +206,19 @@ class ReviewTableCell: UITableViewCell {
             make.height.width.equalTo(358)
         }
     }
+    
+//    @objc
+//    func touchedReportButtonEvent() {
+//        handler?()
+//    }
+    
+    @objc
+    func touchedSideButtonEvent() {
+        handler?()
+    }
 }
 
-// FIXME: - ImageURL 하나만 오도록 수정되면 고쳐주기
+// MARK: - Data Bind
 
 extension ReviewTableCell {
     func dataBind(response: MenuDataList) {
@@ -228,8 +238,11 @@ extension ReviewTableCell {
         
         if response.isWriter {
             sideButton.setImage(ImageLiteral.greySideButton, for: .normal)
+            sideButton.addTarget(self, action: #selector(touchedSideButtonEvent), for: .touchUpInside)
+
         } else {
             sideButton.setTitle("신고", for: .normal)
+            sideButton.addTarget(self, action: #selector(touchedSideButtonEvent), for: .touchUpInside)
         }
     }
     
