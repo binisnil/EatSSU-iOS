@@ -60,8 +60,6 @@ extension UIButton {
             NSAttributedString.Key.font: titleLabel.font as Any
         ])
 
-        titleEdgeInsets = UIEdgeInsets(top: spacing, left: -image.size.width, bottom: -image.size.height, right: 0)
-        imageEdgeInsets = UIEdgeInsets(top: -(titleSize.height + spacing), left: 0, bottom: 0, right: -titleSize.width)
     }
     
 }
