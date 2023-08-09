@@ -55,7 +55,7 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
             $0.centerY.equalTo(nameLabel)
         }
         ratingLabel.snp.makeConstraints {
-            $0.trailing.equalTo(contentView.snp.trailing).offset(-27)
+            $0.trailing.equalTo(contentView.snp.trailing).offset(-20)
             $0.width.equalTo(30)
             $0.centerY.equalTo(nameLabel)
         }
