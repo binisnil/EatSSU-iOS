@@ -14,8 +14,10 @@ import Then
 class HomeRestaurantViewController: BaseViewController {
     
     //MARK: - Properties
-    
-    let tabBarHeight: CGFloat = 50
+    private let changeDummy = ChangeMenuInfoData.Dummy()
+    private let fixedDummy = FixedMenuInfoData.Dummy()
+    private let restaurantTableViewMenuTitleCellCount = 1
+    private let sectionHeaderRestaurant = [TextLiteral.dormitoryRestaurant, TextLiteral.dodamRestaurant, TextLiteral.studentRestaurant, TextLiteral.foodCourt, TextLiteral.snackCorner, TextLiteral.theKitchen]
     
     //MARK: - UI Components
     
@@ -54,11 +56,15 @@ class HomeRestaurantViewController: BaseViewController {
 extension HomeRestaurantViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return sectionHeaderRestaurant.count
     }
     
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return sectionHeaderRestaurant[section]
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return changeDummy.count+restaurantTableViewMenuTitleCellCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +72,8 @@ extension HomeRestaurantViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuTitleCell.identifier, for: indexPath)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuCell.identifier, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuCell.identifier, for: indexPath) as! RestaurantTableViewMenuCell
+            cell.model = .change(changeDummy[indexPath.row-restaurantTableViewMenuTitleCellCount])
             return cell
         }
     }
@@ -79,7 +86,18 @@ extension HomeRestaurantViewController: UITableViewDataSource {
 //        }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let homeRestaurantTableViewHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HomeRestaurantTableViewHeader")
+        guard let homeRestaurantTableViewHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HomeRestaurantTableViewHeader") as? RestaurantTableViewHeader else {
+                return nil
+            }
+        if let currentConfig = homeRestaurantTableViewHeader.restaurantTitleButton.configuration {
+            var updatedConfig = currentConfig
+            var titleAttr = AttributedString.init(sectionHeaderRestaurant[section])
+            titleAttr.font = UIFont.bold(size: 18)
+            titleAttr.foregroundColor = UIColor.black
+            updatedConfig.attributedTitle = titleAttr
+
+            homeRestaurantTableViewHeader.restaurantTitleButton.configuration = updatedConfig
+        }
         return homeRestaurantTableViewHeader
     }
     
