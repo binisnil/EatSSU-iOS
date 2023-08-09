@@ -44,6 +44,7 @@ class RestaurantTableViewMenuTitleCell: BaseTableViewCell {
     // MARK: - Functions
     
     override func configureUI() {
+        super.configureUI()
         contentView.addSubviews(infoTableStackView,
                                 lineView)
     }
@@ -58,6 +59,8 @@ class RestaurantTableViewMenuTitleCell: BaseTableViewCell {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(334)
             $0.height.equalTo(2)
+            $0.bottom.equalToSuperview()
         }
+
     }
 }
