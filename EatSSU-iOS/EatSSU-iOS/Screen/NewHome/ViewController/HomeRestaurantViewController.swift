@@ -27,7 +27,7 @@ class HomeRestaurantViewController: BaseViewController {
         super.viewDidLoad()
         
         setDelegate()
-        restaurantView.restaurantTableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
+        restaurantView.restaurantTableView.register(RestaurantTableViewMenuCell.self, forCellReuseIdentifier: RestaurantTableViewMenuCell.identifier)
         restaurantView.restaurantTableView.register(HomeRestaurantTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "HomeRestaurantTableViewHeader")
     }
     
@@ -61,7 +61,7 @@ extension HomeRestaurantViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuCell.identifier, for: indexPath)
         return cell
     }
     

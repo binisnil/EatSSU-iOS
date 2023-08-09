@@ -1,5 +1,5 @@
 //
-//  MenuTableView.swift
+//  RestaurantTableView.swift
 //  EatSSU-iOS
 //
 //  Created by 최지우 on 2023/05/10.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MenuTableView: UITableView {
+final class RestaurantTableView: UITableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -30,9 +30,7 @@ final class MenuTableView: UITableView {
     }
 
     private func setupTableView() {
-        self.showsVerticalScrollIndicator = false
-        self.layer.cornerRadius = 15.0
-        self.isScrollEnabled = false
+        separatorStyle = .none
     }
 }
 

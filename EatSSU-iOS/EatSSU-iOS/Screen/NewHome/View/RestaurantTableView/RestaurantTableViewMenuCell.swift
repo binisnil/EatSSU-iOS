@@ -18,18 +18,18 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
     // MARK: - UI Components
     
     lazy var menuIDLabel = UILabel()
-    
     lazy var nameLabel = UILabel().then {
+        $0.text = "콩나물국+쌀밥+돈까스+케찹+무말랭이무침+구이김+배추김치+계란후라이"
         $0.font = .medium(size: 14)
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping // 단어 단위 줄바꿈
     }
-    
     lazy var priceLabel = UILabel().then {
+        $0.text = "5000"
         $0.font = .medium(size: 14)
     }
-    
     lazy var ratingLabel = UILabel().then {
+        $0.text = "5.0"
         $0.font = .medium(size: 14)
     }
     
@@ -47,7 +47,7 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
             $0.leading.equalTo(contentView.snp.leading).offset(16)
             $0.top.equalTo(contentView.snp.top).offset(11)
             $0.width.equalTo(210)
-            $0.bottom.greaterThanOrEqualTo(contentView.snp.bottom).offset(-5)  // bottom constraint 추가
+            $0.bottom.equalTo(contentView.snp.bottom).offset(-5)  // bottom constraint 추가
         }
         priceLabel.snp.makeConstraints {
             $0.leading.equalTo(nameLabel.snp.trailing).offset(5)

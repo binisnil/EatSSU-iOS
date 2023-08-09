@@ -18,24 +18,6 @@ class HomeRestaurantView: BaseUIView {
   
     // MARK: - UI Components
     
-//    let dormitoryCoordinateButton = UIButton().then {
-//        $0.setImage(ImageLiteral.coordinate, for: .normal)
-//        $0.addTitleAttribute(title: TextLiteral.dormitoryRestaurant, titleColor: .black, fontName: .bold(size: 20))
-//        $0.titleLabel?.adjustsFontSizeToFitWidth = true
-//        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 7)
-//        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 0)
-//    }
-//
-//    lazy var dormitoryTableView = MenuTableView()
-//
-//    lazy var dormitoryStackView: UIStackView = {
-//        let stackView = UIStackView(arrangedSubviews: [dormitoryCoordinateButton, dormitoryTableView])
-//        stackView.axis = .vertical
-//        stackView.alignment = .leading
-//        stackView.spacing = 10.0
-//        return stackView
-//    }()
-    
     // dormitory
     // dodam
     // student
@@ -43,7 +25,9 @@ class HomeRestaurantView: BaseUIView {
     // snackcorner
     // thekitchen
    
-    lazy var restaurantTableView = UITableView(frame: .zero, style: .insetGrouped)
+    lazy var restaurantTableView = UITableView(frame: .zero, style: .insetGrouped).then {
+        $0.separatorStyle = .none
+    }
     
     // MARK: - init
 
