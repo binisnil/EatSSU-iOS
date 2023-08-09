@@ -19,44 +19,69 @@ class HomeRestaurantViewController: BaseViewController {
     
     //MARK: - UI Components
     
-    private let contentView = UIView()
     let restaurantView = HomeRestaurantView()
-    let scrollView = UIScrollView().then {
-        $0.backgroundColor = .systemBackground
-        $0.showsVerticalScrollIndicator = false
-    }
     
     //MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setButtonEvent()
+        setDelegate()
+        restaurantView.restaurantTableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
+        restaurantView.restaurantTableView.register(HomeRestaurantTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "HomeRestaurantTableViewHeader")
     }
     
     //MARK: - Functions
     
     override func configureUI() {
-        view.addSubviews(scrollView)
-        scrollView.addSubview(contentView)
-        contentView.addSubviews(restaurantView)
+        view.addSubviews(restaurantView)
     }
 
     override func setLayout() {
-        scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(tabBarHeight)
-            $0.horizontalEdges.bottom.equalToSuperview()
-            $0.bottom.equalToSuperview()
-        }
-
-        contentView.snp.makeConstraints {
-            $0.edges.width.equalToSuperview()
-        }
-
         restaurantView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
+    
+    func setDelegate() {
+        restaurantView.restaurantTableView.dataSource = self
+        restaurantView.restaurantTableView.delegate = self
+    }
 
 }
 
+extension HomeRestaurantViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath)
+        return cell
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//            // Header 영역 크기 = 140(separator 상단) + 12(separator 하단)
+//
+////            return section == 0 ? 152 : 0
+//        return 100
+//        }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let homeRestaurantTableViewHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HomeRestaurantTableViewHeader")
+        return homeRestaurantTableViewHeader
+    }
+    
+    
+}
+
+extension HomeRestaurantViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 35
+    }
+}
