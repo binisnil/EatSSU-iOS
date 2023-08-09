@@ -27,8 +27,9 @@ class HomeRestaurantViewController: BaseViewController {
         super.viewDidLoad()
         
         setDelegate()
+        restaurantView.restaurantTableView.register(RestaurantTableViewMenuTitleCell.self, forCellReuseIdentifier: RestaurantTableViewMenuTitleCell.identifier)
         restaurantView.restaurantTableView.register(RestaurantTableViewMenuCell.self, forCellReuseIdentifier: RestaurantTableViewMenuCell.identifier)
-        restaurantView.restaurantTableView.register(HomeRestaurantTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "HomeRestaurantTableViewHeader")
+        restaurantView.restaurantTableView.register(RestaurantTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "HomeRestaurantTableViewHeader")
     }
     
     //MARK: - Functions
@@ -61,8 +62,13 @@ extension HomeRestaurantViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuCell.identifier, for: indexPath)
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuTitleCell.identifier, for: indexPath)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuCell.identifier, for: indexPath)
+            return cell
+        }
     }
     
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -76,7 +82,6 @@ extension HomeRestaurantViewController: UITableViewDataSource {
         let homeRestaurantTableViewHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HomeRestaurantTableViewHeader")
         return homeRestaurantTableViewHeader
     }
-    
     
 }
 
