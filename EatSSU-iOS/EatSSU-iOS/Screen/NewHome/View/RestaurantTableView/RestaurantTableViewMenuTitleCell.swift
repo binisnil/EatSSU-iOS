@@ -35,7 +35,9 @@ class RestaurantTableViewMenuTitleCell: BaseTableViewCell {
     }
     
     lazy var infoTableStackView = UIStackView().then {
-        $0.addArrangedSubviews([nameLabel, priceLabel, rateLabel])
+        $0.addArrangedSubviews([nameLabel, 
+                                priceLabel, 
+                                rateLabel])
         $0.axis = .horizontal
         $0.setCustomSpacing(170, after: nameLabel)
         $0.setCustomSpacing(38, after: priceLabel)
