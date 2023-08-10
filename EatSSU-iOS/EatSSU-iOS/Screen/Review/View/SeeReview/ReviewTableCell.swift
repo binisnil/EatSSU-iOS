@@ -182,6 +182,7 @@ class ReviewTableCell: UITableViewCell {
         super.prepareForReuse()
         
         sideButton.setTitle("", for: .normal)
+        sideButton.setImage(UIImage(), for: .normal)
     }
     
     func setLayout() {

@@ -140,8 +140,8 @@ class ReviewViewController: BaseViewController {
                                          style: .cancel,
                                          handler: nil)
         
-        let deleteAction = UIAlertAction(title: "삭제",
-                                         style: .destructive,
+        let deleteAction = UIAlertAction(title: "신고",
+                                         style: .default,
                                          handler: { okAction in
         })
         
