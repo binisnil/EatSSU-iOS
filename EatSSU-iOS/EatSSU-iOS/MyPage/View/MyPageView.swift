@@ -49,6 +49,7 @@ class MyPageView: BaseUIView {
     let myPageTableView = UITableView().then {
         $0.separatorStyle = .none
         $0.rowHeight = 55
+        $0.isScrollEnabled = false
     }
     
     // MARK: - init
@@ -78,14 +79,6 @@ class MyPageView: BaseUIView {
             $0.centerX.equalTo(userImage)
             $0.height.equalTo(40)
         }
-//        accountTitleLabel.snp.makeConstraints {
-//            $0.top.equalTo(userNicknameButton.snp.bottom).offset(10)
-//            $0.leading.equalTo(userImage)
-//        }
-//        accountLabel.snp.makeConstraints {
-//            $0.top.equalTo(accountTitleLabel)
-//            $0.leading.equalTo(accountTitleLabel.snp.trailing).offset(20)
-//        }
         accountImage.snp.makeConstraints {
             $0.height.width.equalTo(20)
             
@@ -98,7 +91,7 @@ class MyPageView: BaseUIView {
         myPageTableView.snp.makeConstraints {
             $0.top.equalTo(accountTitleLabel.snp.bottom).offset(71)
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(215)
+            $0.bottom.equalToSuperview()
         }
     }
     

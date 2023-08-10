@@ -106,6 +106,50 @@ class ReviewViewController: BaseViewController {
         menuID = id
     }
     
+    private func showFixOrDeleteAlert() {
+        let alert = UIAlertController(title: "리뷰 수정 혹은 삭제",
+                                      message: "작성하신 리뷰를 수정 또는 삭제하시겠습니까?",
+                                      preferredStyle: UIAlertController.Style.actionSheet
+        )
+        
+        let fixAction = UIAlertAction(title: "수정하기",
+                                      style: .default,
+                                      handler: { okAction in })
+        
+        let deleteAction = UIAlertAction(title: "삭제하기",
+                                      style: .default,
+                                      handler: { okAction in })
+        
+        let cancelAction = UIAlertAction(title: "취소하기",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        alert.addAction(fixAction)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showDeleteAlert() {
+        let alert = UIAlertController(title: "리뷰 신고하기",
+                                      message: "해당 리뷰를 신고하시겠습니까?",
+                                      preferredStyle: UIAlertController.Style.alert
+        )
+
+        let cancelAction = UIAlertAction(title: "취소",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        let deleteAction = UIAlertAction(title: "신고",
+                                         style: .default,
+                                         handler: { okAction in
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - Action Method
     
     @objc
@@ -140,6 +184,10 @@ extension ReviewViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableCell.identifier, for: indexPath) as? ReviewTableCell ?? ReviewTableCell()
 
         cell.dataBind(response: reviewList[indexPath.row])
+        cell.handler = { [weak self] in
+            guard let self else { return }
+            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert() : showDeleteAlert()
+        }
         cell.selectionStyle = .none
         return cell
     }
@@ -181,7 +229,6 @@ extension ReviewViewController {
             switch response {
             case .success(let moyaResponse):
                 do {
-                    print(moyaResponse.statusCode)
                     let responseData = try moyaResponse.map(ReviewListResponse.self)
                     self.reviewList = responseData.dataList
                     self.reviewTableView.reloadData()

@@ -40,10 +40,13 @@
 		057A0B292A222F7E00F10B85 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B282A222F7E00F10B85 /* SignInRequest.swift */; };
 		057A0B2D2A250C1E00F10B85 /* WriteReviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */; };
 		057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */; };
+		057C5B332A837BD5007EDE06 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057C5B322A837BD5007EDE06 /* BaseButton.swift */; };
 		058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326602A4D9422004A295F /* ChoiceMenuViewController.swift */; };
 		058326642A4D9597004A295F /* ChoiceMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326632A4D9597004A295F /* ChoiceMenuTableViewCell.swift */; };
 		058326662A4D97BC004A295F /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326652A4D97BC004A295F /* UICollectionViewCell+.swift */; };
 		0583266A2A4DC891004A295F /* RateNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058326692A4DC891004A295F /* RateNumberView.swift */; };
+		0588407D2A80E2A90007AA98 /* MyReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588407C2A80E2A90007AA98 /* MyReviewResponse.swift */; };
+		0588407F2A80E3ED0007AA98 /* MyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588407E2A80E3EC0007AA98 /* MyRouter.swift */; };
 		05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4C88329DFE42A004B9A81 /* UIStackView+.swift */; };
 		05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */; };
 		7B2BBF96299A1AC400EE0F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBF95299A1AC400EE0F1F /* AppDelegate.swift */; };
@@ -138,10 +141,13 @@
 		057A0B282A222F7E00F10B85 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		057A0B2C2A250C1E00F10B85 /* WriteReviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WriteReviewRouter.swift; path = "EatSSU-iOS/Network/DTO/Auth/WriteReviewRouter.swift"; sourceTree = SOURCE_ROOT; };
 		057A0B302A273DDF00F10B85 /* MoyaPluggin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPluggin.swift; sourceTree = "<group>"; };
+		057C5B322A837BD5007EDE06 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		058326602A4D9422004A295F /* ChoiceMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceMenuViewController.swift; sourceTree = "<group>"; };
 		058326632A4D9597004A295F /* ChoiceMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceMenuTableViewCell.swift; sourceTree = "<group>"; };
 		058326652A4D97BC004A295F /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		058326692A4DC891004A295F /* RateNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateNumberView.swift; sourceTree = "<group>"; };
+		0588407C2A80E2A90007AA98 /* MyReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewResponse.swift; sourceTree = "<group>"; };
+		0588407E2A80E3EC0007AA98 /* MyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRouter.swift; sourceTree = "<group>"; };
 		05A4C88329DFE42A004B9A81 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		05C5EC002A0BCF2300CC6A58 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		05EC82FB2A0BD17F00851B55 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -279,6 +285,7 @@
 				056956BE29C0DB1A002E8CF2 /* BaseViewController.swift */,
 				056956C829C0E51F002E8CF2 /* BaseUIView.swift */,
 				7BF5CC3B2A53DD0600E4EE11 /* PostUIButton.swift */,
+				057C5B322A837BD5007EDE06 /* BaseButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -350,6 +357,14 @@
 				058326632A4D9597004A295F /* ChoiceMenuTableViewCell.swift */,
 			);
 			path = ChoiceMenuView;
+			sourceTree = "<group>";
+		};
+		0588407B2A80E2840007AA98 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				0588407C2A80E2A90007AA98 /* MyReviewResponse.swift */,
+			);
+			path = My;
 			sourceTree = "<group>";
 		};
 		05C5EC022A0BCFCD00CC6A58 /* Model */ = {
@@ -619,6 +634,7 @@
 				7BFD09C02A21EE3E00B40054 /* HomeRouter.swift */,
 				7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */,
 				7B9998B72A793FB50043C592 /* UserNicknameRouter.swift */,
+				0588407E2A80E3EC0007AA98 /* MyRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -626,6 +642,7 @@
 		7B9899BF2A154F0D00D1A076 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				0588407B2A80E2840007AA98 /* My */,
 				057A0B172A22252000F10B85 /* Auth */,
 				7BFD09BD2A21E6CA00B40054 /* Home */,
 				055970592A16643600868C42 /* Review */,
@@ -793,6 +810,7 @@
 				7B51C5A32A63268A0016B418 /* RestaurantInfoModel.swift in Sources */,
 				058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
+				0588407D2A80E2A90007AA98 /* MyReviewResponse.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7B51C5A72A63C7230016B418 /* ChangeMenuInfoModel.swift in Sources */,
 				057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */,
@@ -850,12 +868,14 @@
 				7BBD4CAC2A6D3E4600515F67 /* TimeDataTableViewCell.swift in Sources */,
 				051F7E692A78F48000CE9F87 /* ReviewListResponse.swift in Sources */,
 				051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */,
+				057C5B332A837BD5007EDE06 /* BaseButton.swift in Sources */,
 				7BBD4CC12A6FFE0400515F67 /* MyPageServiceCell.swift in Sources */,
 				051F7E6B2A78FD3700CE9F87 /* UIImageView+.swift in Sources */,
 				7B51C5BD2A654FB40016B418 /* FixedMenuInfoModel.swift in Sources */,
 				7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */,
 				057A0B272A222D4A00F10B85 /* AuthRouter.swift in Sources */,
 				057A0B192A22254500F10B85 /* SignUpRequest.swift in Sources */,
+				0588407F2A80E3ED0007AA98 /* MyRouter.swift in Sources */,
 				7BBD4CC32A70FA4A00515F67 /* ChangeNicknameViewController.swift in Sources */,
 				7BBD4CAE2A6E5CE600515F67 /* RestaurantInfoTimeTableView.swift in Sources */,
 				7B9899AA2A0B98E700D1A076 /* RestaurantInfoViewController.swift in Sources */,
