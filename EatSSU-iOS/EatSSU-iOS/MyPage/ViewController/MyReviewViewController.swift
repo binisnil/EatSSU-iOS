@@ -14,6 +14,7 @@ import Moya
 class MyReviewViewController: BaseViewController {
     
     // MARK: - Properties
+    
     private let myProvider = MoyaProvider<MyRouter>(plugins: [MoyaLoggingPlugin()])
     private var reviewList = [MyDataList]()
     
