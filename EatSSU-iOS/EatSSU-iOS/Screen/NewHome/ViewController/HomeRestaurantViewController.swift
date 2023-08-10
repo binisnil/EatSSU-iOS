@@ -14,10 +14,16 @@ import Then
 class HomeRestaurantViewController: BaseViewController {
     
     //MARK: - Properties
+    
     private let changeDummy = ChangeMenuInfoData.Dummy()
     private let fixedDummy = FixedMenuInfoData.Dummy()
     private let restaurantTableViewMenuTitleCellCount = 1
-    private let sectionHeaderRestaurant = [TextLiteral.dormitoryRestaurant, TextLiteral.dodamRestaurant, TextLiteral.studentRestaurant, TextLiteral.foodCourt, TextLiteral.snackCorner, TextLiteral.theKitchen]
+    private let sectionHeaderRestaurant = [TextLiteral.dormitoryRestaurant, 
+                                           TextLiteral.dodamRestaurant, 
+                                           TextLiteral.studentRestaurant, 
+                                           TextLiteral.foodCourt, 
+                                           TextLiteral.snackCorner, 
+                                           TextLiteral.theKitchen]
     
     //MARK: - UI Components
     
