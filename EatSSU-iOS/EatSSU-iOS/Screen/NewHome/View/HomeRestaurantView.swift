@@ -18,12 +18,12 @@ class HomeRestaurantView: BaseUIView {
   
     // MARK: - UI Components
     
-    // dormitory
-    // dodam
-    // student
-    // foodcourt
-    // snackcorner
-    // thekitchen
+    /// dormitory
+    /// dodam
+    /// student
+    /// foodcourt
+    /// snackcorner
+    /// thekitchen
    
     lazy var restaurantTableView = UITableView(frame: .zero, style: .insetGrouped).then {
         $0.separatorStyle = .none
@@ -35,7 +35,6 @@ class HomeRestaurantView: BaseUIView {
         super.init(frame: frame)
 
         self.backgroundColor = .background
-//        restaurantTableView.backgroundColor = .yellow
     }
     
     // MARK: - Functions
