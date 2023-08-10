@@ -1,8 +1,8 @@
 //
-//  HomeTabmanController.swift
+//  HomeTimeTabmanController.swift
 //  EatSSU-iOS
 //
-//  Created by 최지우 on 2023/07/16.
+//  Created by 최지우 on 2023/08/08.
 //
 
 import UIKit
@@ -18,9 +18,9 @@ class HomeTabmanController: TabmanViewController {
     // MARK: - UI Components
     
     let bar = TMBar.ButtonBar()
-    lazy var morningViewController = MorningViewController()
-    lazy var lunchViewController = LunchViewController()
-    lazy var dinnerViewController = DinnerViewController()
+    lazy var morningViewController = HomeRestaurantViewController()
+    lazy var lunchViewController = HomeRestaurantViewController()
+    lazy var dinnerViewController = HomeRestaurantViewController()
     private lazy var viewControllers = [morningViewController, lunchViewController, dinnerViewController]
     
     //MARK: - Life Cycles
@@ -90,3 +90,4 @@ extension HomeTabmanController: PageboyViewControllerDataSource, TMBarDataSource
         ctBar.layout.transitionStyle = .snap
     }
 }
+
