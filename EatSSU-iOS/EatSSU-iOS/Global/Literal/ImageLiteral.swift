@@ -30,6 +30,10 @@ enum ImageLiteral {
     static var profileIcon: UIImage {.load(name: "profileIcon")}
     static var signInWithApple: UIImage {.load(name: "signInWithApple")}
     
+    // MARK: - My
+
+    static var greySideButton: UIImage { .load(name: "greySideButton")}
+    
 }
 
 extension UIImage {

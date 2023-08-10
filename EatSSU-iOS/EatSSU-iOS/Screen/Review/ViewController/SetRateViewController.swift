@@ -18,11 +18,12 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     private let writeReviewProvider = MoyaProvider<WriteReviewRouter>(plugins: [MoyaLoggingPlugin()])
     private var userPickedImage = UIImage()
     private var selectedIDList: [Int] = []
+    private var lastID: Int = Int()
     private var selectedList: [String] = [] {
         didSet {
             menuLabel.text = "\(selectedList[0]) 을 추천하시겠어요?"
             if selectedList.count == 1 {
-                nextButton.setTitle("리뷰 남기기", for: .normal)
+                self.nextButton.setTitle("리뷰 남기기", for: .normal)
             }
         }
     }
@@ -293,6 +294,7 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     func dataBind(list: [String], idList: [Int]) {
         self.selectedList = list
         self.selectedIDList = idList
+        self.lastID = idList.last ?? 0
     }
     
     func setImagePickerDelegate() {
@@ -322,11 +324,6 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
                             image: [userPickedImage],
                             menuId: selectedIDList[0]
             )
-            selectedList.remove(at: 0)
-            selectedIDList.remove(at: 0)
-            let setRateVC = SetRateViewController()
-            setRateVC.dataBind(list: selectedList, idList: selectedIDList)
-            navigationController?.pushViewController(setRateVC, animated: true)
         }
     }
     
@@ -385,6 +382,20 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     func didTappedimageView() {
         userReviewImageView.image = nil // 이미지 삭제
     }
+    
+    private func prepareForNextReview() {
+        selectedList.remove(at: 0)
+        selectedIDList.remove(at: 0)
+        let setRateVC = SetRateViewController()
+        setRateVC.dataBind(list: selectedList, idList: selectedIDList)
+        navigationController?.pushViewController(setRateVC, animated: true)
+    }
+    
+    private func moveToReviewVC() {
+        if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
+            self.navigationController?.popToViewController(reviewViewController, animated: true)
+        }
+    }
 }
 
 extension SetRateViewController {
@@ -395,16 +406,14 @@ extension SetRateViewController {
                                                content: content
         )
         self.writeReviewProvider.request(.writeReview(param: param, image: image, menuId: menuId)) { response in
-            
             switch response {
-            case.success(let moyaResponse):
+            case.success(_):
                 do {
                     if self.selectedList.count == 1 {
-                        if let reviewViewController = self.navigationController?.viewControllers.first(where: { $0 is ReviewViewController }) {
-                            self.navigationController?.popToViewController(reviewViewController, animated: true)
-                        }
+                        self.moveToReviewVC()
+                    } else {
+                        self.prepareForNextReview()
                     }
-                    print(moyaResponse.statusCode)
                 }
             case .failure(let err):
                 print(err.localizedDescription)

@@ -75,6 +75,7 @@ extension MyPageViewController: UITableViewDataSource {
                 as? MyPageServiceCell else {
             return MyPageServiceCell()
         }
+        cell.selectionStyle = .none
         let title = mypageView.myPageServiceLabelList[indexPath.row].titleLabel
         cell.serviceLabel.text = title
         if title == TextLiteral.myReview {

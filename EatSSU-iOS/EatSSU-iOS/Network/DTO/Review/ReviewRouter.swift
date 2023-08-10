@@ -86,7 +86,10 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
     var headers: [String : String]? {
         switch self {
         default:
-            return ["Content-Type":"application/json"]
+            let realm = RealmService()
+            let token = realm.getToken()
+            return ["Content-Type":"application/json",
+                    "Authorization": "Bearer \(token)"]
         }
     }
     
