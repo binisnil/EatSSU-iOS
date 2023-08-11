@@ -37,9 +37,7 @@ class HomeRestaurantViewController: BaseViewController {
         super.viewDidLoad()
         
         setDelegate()
-        restaurantView.restaurantTableView.register(RestaurantTableViewMenuTitleCell.self, forCellReuseIdentifier: RestaurantTableViewMenuTitleCell.identifier)
-        restaurantView.restaurantTableView.register(RestaurantTableViewMenuCell.self, forCellReuseIdentifier: RestaurantTableViewMenuCell.identifier)
-        restaurantView.restaurantTableView.register(RestaurantTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "HomeRestaurantTableViewHeader")
+        
     }
     
     //MARK: - Functions
@@ -57,6 +55,15 @@ class HomeRestaurantViewController: BaseViewController {
     func setDelegate() {
         restaurantView.restaurantTableView.dataSource = self
         restaurantView.restaurantTableView.delegate = self
+    }
+    
+    func setTableView() {
+        restaurantView.restaurantTableView.register(RestaurantTableViewMenuTitleCell.self,
+                                                    forCellReuseIdentifier: RestaurantTableViewMenuTitleCell.identifier)
+        restaurantView.restaurantTableView.register(RestaurantTableViewMenuCell.self,
+                                                    forCellReuseIdentifier: RestaurantTableViewMenuCell.identifier)
+        restaurantView.restaurantTableView.register(RestaurantTableViewHeader.self,
+                                                    forHeaderFooterViewReuseIdentifier: "HomeRestaurantTableViewHeader")
     }
 
 }
