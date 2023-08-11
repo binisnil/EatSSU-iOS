@@ -15,9 +15,11 @@ class HomeRestaurantViewController: BaseViewController {
     
     //MARK: - Properties
     
+    private let restaurantTableViewMenuTitleCellCount = 1
+    private let headerHeight: CGFloat = 35
+    
     private let changeDummy = ChangeMenuInfoData.Dummy()
     private let fixedDummy = FixedMenuInfoData.Dummy()
-    private let restaurantTableViewMenuTitleCellCount = 1
     private let sectionHeaderRestaurant = [TextLiteral.dormitoryRestaurant, 
                                            TextLiteral.dodamRestaurant, 
                                            TextLiteral.studentRestaurant, 
@@ -65,10 +67,6 @@ extension HomeRestaurantViewController: UITableViewDataSource {
         return sectionHeaderRestaurant.count
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return sectionHeaderRestaurant[section]
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return changeDummy.count+restaurantTableViewMenuTitleCellCount
     }
@@ -84,17 +82,11 @@ extension HomeRestaurantViewController: UITableViewDataSource {
         }
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//            // Header 영역 크기 = 140(separator 상단) + 12(separator 하단)
-//
-////            return section == 0 ? 152 : 0
-//        return 100
-//        }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let homeRestaurantTableViewHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HomeRestaurantTableViewHeader") as? RestaurantTableViewHeader else {
                 return nil
             }
+        /// section header 타이틀 속성 지정
         if let currentConfig = homeRestaurantTableViewHeader.restaurantTitleButton.configuration {
             var updatedConfig = currentConfig
             var titleAttr = AttributedString.init(sectionHeaderRestaurant[section])
@@ -111,6 +103,6 @@ extension HomeRestaurantViewController: UITableViewDataSource {
 
 extension HomeRestaurantViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35
+        return headerHeight
     }
 }
