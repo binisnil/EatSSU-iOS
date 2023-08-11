@@ -72,9 +72,11 @@ extension HomeRestaurantViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        /// Menu Title Cell
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuTitleCell.identifier, for: indexPath)
             return cell
+        /// Menu Cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuCell.identifier, for: indexPath) as! RestaurantTableViewMenuCell
             cell.model = .change(changeDummy[indexPath.row-restaurantTableViewMenuTitleCellCount])
