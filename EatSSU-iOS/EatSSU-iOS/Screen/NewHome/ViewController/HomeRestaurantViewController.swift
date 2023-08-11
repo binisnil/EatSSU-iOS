@@ -37,7 +37,7 @@ class HomeRestaurantViewController: BaseViewController {
         super.viewDidLoad()
         
         setDelegate()
-        
+        setTableView()
     }
     
     //MARK: - Functions

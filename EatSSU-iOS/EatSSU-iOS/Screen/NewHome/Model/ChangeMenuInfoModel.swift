@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChangeMenuInfoData: AppData {
+struct ChangeMenuInfoData: MenuType {
     let mealId: Int
     let price: Int
     let mainGrage: Double
