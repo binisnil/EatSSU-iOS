@@ -75,7 +75,13 @@ extension HomeRestaurantViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return changeDummy.count+restaurantTableViewMenuTitleCellCount
+        if [0, 1, 2].contains(section) {
+            return changeDummy.count + restaurantTableViewMenuTitleCellCount
+        } else if [3, 4, 5].contains(section) {
+            return fixedDummy.count + restaurantTableViewMenuTitleCellCount
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,7 +92,12 @@ extension HomeRestaurantViewController: UITableViewDataSource {
         /// Menu Cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewMenuCell.identifier, for: indexPath) as! RestaurantTableViewMenuCell
-            cell.model = .change(changeDummy[indexPath.row-restaurantTableViewMenuTitleCellCount])
+            if [0, 1, 2].contains(indexPath.section) {
+                cell.model = .change(changeDummy[indexPath.row-restaurantTableViewMenuTitleCellCount])
+            } else if [3, 4, 5].contains(indexPath.section) {
+                cell.model = .fix(fixedDummy[indexPath.row-restaurantTableViewMenuTitleCellCount])
+            }
+
             return cell
         }
     }
