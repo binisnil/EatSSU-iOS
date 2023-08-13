@@ -70,13 +70,13 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
         switch model {
         case .change(let data):
             priceLabel.text = String(data.price)
-            ratingLabel.text = String(data.mainGrage)
+            ratingLabel.text = String(data.mainGrade ?? 0)
             nameLabel.text = data.changeMenuInfoList.map { $0.name }.joined(separator: "+")
         
         case .fix(let data):
-            priceLabel.text = String(data.price)
-            ratingLabel.text = String(data.mainGrade)
-            nameLabel.text = data.name
+            priceLabel.text = String(data.fixMenuInfoList[0].price)
+            ratingLabel.text = String(data.fixMenuInfoList[0].mainGrade)
+            nameLabel.text = data.fixMenuInfoList[0].name
         }
     }
 }

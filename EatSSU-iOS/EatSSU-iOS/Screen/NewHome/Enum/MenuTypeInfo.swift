@@ -8,15 +8,15 @@
 import Foundation
 
 enum MenuTypeInfo {
-    case change(ChangeMenuInfoData)
-    case fix(FixedMenuInfoData)
+    case change(ChangeMenuTableResponse)
+    case fix(FixedMenuTableResponse)
     
-    var menuData: MenuType {
-        switch self {
-        case .change(let menuData):
-            return menuData
-        case .fix(let menuData):
-            return menuData
-        }
-    }
+//    var menuData: MenuType {
+//        switch self {
+//        case .change(let menuData):
+//            return menuData
+//        case .fix(let menuData):
+//            return menuData
+//        }
+//    }
 }
