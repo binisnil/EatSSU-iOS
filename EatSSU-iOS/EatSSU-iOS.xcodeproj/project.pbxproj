@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051CFA5E2A8A3EAF0023B3C6 /* MyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051CFA5D2A8A3EAF0023B3C6 /* MyInfoResponse.swift */; };
 		051F7E612A7059B700CE9F87 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 051F7E602A7059B700CE9F87 /* KakaoSDK */; };
 		051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */; };
 		051F7E672A742FA500CE9F87 /* ReviewRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */; };
@@ -124,6 +125,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		051CFA5D2A8A3EAF0023B3C6 /* MyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponse.swift; sourceTree = "<group>"; };
 		051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequest.swift; sourceTree = "<group>"; };
 		051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRateResponse.swift; sourceTree = "<group>"; };
 		051F7E682A78F48000CE9F87 /* ReviewListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListResponse.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				0588407C2A80E2A90007AA98 /* MyReviewResponse.swift */,
+				051CFA5D2A8A3EAF0023B3C6 /* MyInfoResponse.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 			files = (
 				05A4C88429DFE42A004B9A81 /* UIStackView+.swift in Sources */,
 				7BF5CC122A49F65400E4EE11 /* TextLiteral.swift in Sources */,
+				051CFA5E2A8A3EAF0023B3C6 /* MyInfoResponse.swift in Sources */,
 				7B9998E92A8277B40043C592 /* HomeViewController.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
@@ -1119,7 +1123,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -1152,7 +1156,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3DGF5D388H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "EatSSU-iOS/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";

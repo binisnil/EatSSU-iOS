@@ -33,6 +33,7 @@ enum ImageLiteral {
     // MARK: - My
 
     static var greySideButton: UIImage { .load(name: "greySideButton")}
+    static var kakaoLogo: UIImage { .load(name: "kakaoLogo")}
     
 }
 
