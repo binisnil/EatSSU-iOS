@@ -59,13 +59,6 @@ class MyPageViewController: BaseViewController {
     func didTappedChangeNicknameButton() {
         
         let setNickNameVC = SetNickNameViewController()
-        setNickNameVC.completionHandler = { [weak self] text in
-            guard let self else { return }
-            self.mypageView.userNicknameButton.addTitleAttribute(title: "\(text) >",
-                                                                 titleColor: .black,
-                                                                 fontName: .semiBold(size: 20)
-            )
-        }
         self.navigationController?.pushViewController(setNickNameVC, animated: true)
     }
     

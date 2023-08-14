@@ -13,6 +13,7 @@ import Then
 class SetNickNameView: BaseUIView {
     
     // MARK: - Properties
+    
     private var userNickname: String = ""
     
     // MARK: - UI Components
@@ -66,7 +67,7 @@ class SetNickNameView: BaseUIView {
     
     override func setLayout() {
         setNickNameStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(113)
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.topMargin).offset(31)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         completeSettingNickNameButton.snp.makeConstraints {
@@ -92,5 +93,4 @@ class SetNickNameView: BaseUIView {
             completeSettingNickNameButton.isEnabled = false
         }
     }
-
 }
