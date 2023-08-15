@@ -18,7 +18,9 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
     var model: MenuTypeInfo? {
         didSet {
             if let model = model {
+                print("🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊model bind start")
                 bind(model)
+                print("🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊model bind end")
             }
         }
     }
@@ -69,14 +71,17 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
     func bind(_ model: MenuTypeInfo) {
         switch model {
         case .change(let data):
+            print(String(data.price))
+            print(String(data.mainGrade ?? 0))
+            print(data.changeMenuInfoList.map { $0.name }.joined(separator: "+"))
             priceLabel.text = String(data.price)
             ratingLabel.text = String(data.mainGrade ?? 0)
             nameLabel.text = data.changeMenuInfoList.map { $0.name }.joined(separator: "+")
         
         case .fix(let data):
-            priceLabel.text = String(data.fixMenuInfoList[0].price)
-            ratingLabel.text = String(data.fixMenuInfoList[0].mainGrade)
-            nameLabel.text = data.fixMenuInfoList[0].name
+            priceLabel.text = String(data.price)
+            ratingLabel.text = String(data.mainGrade)
+            nameLabel.text = data.name
         }
     }
 }

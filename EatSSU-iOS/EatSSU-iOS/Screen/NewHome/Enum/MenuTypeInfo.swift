@@ -9,7 +9,7 @@ import Foundation
 
 enum MenuTypeInfo {
     case change(ChangeMenuTableResponse)
-    case fix(FixedMenuTableResponse)
+    case fix(FixedMenuInfo)
     
 //    var menuData: MenuType {
 //        switch self {
