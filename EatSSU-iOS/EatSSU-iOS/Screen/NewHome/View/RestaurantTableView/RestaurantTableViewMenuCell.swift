@@ -40,6 +40,16 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
         $0.font = .medium(size: 14)
     }
     
+    // MARK: - Life Cycle
+    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//
+//        nameLabel.text = nil
+//        priceLabel.text = nil
+//        ratingLabel.text = nil
+//    }
+    
     // MARK: - Functions
     
     override func configureUI() {
