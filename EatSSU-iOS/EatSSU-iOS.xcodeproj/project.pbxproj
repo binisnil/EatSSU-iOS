@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		051CFA5E2A8A3EAF0023B3C6 /* MyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051CFA5D2A8A3EAF0023B3C6 /* MyInfoResponse.swift */; };
 		051CFA602A8B5A040023B3C6 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051CFA5F2A8B5A040023B3C6 /* ReportViewController.swift */; };
+		051CFA632A8BEA120023B3C6 /* ReportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051CFA622A8BEA110023B3C6 /* ReportRequest.swift */; };
 		051F7E612A7059B700CE9F87 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 051F7E602A7059B700CE9F87 /* KakaoSDK */; };
 		051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */; };
 		051F7E672A742FA500CE9F87 /* ReviewRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */; };
@@ -129,6 +130,7 @@
 /* Begin PBXFileReference section */
 		051CFA5D2A8A3EAF0023B3C6 /* MyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponse.swift; sourceTree = "<group>"; };
 		051CFA5F2A8B5A040023B3C6 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		051CFA622A8BEA110023B3C6 /* ReportRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRequest.swift; sourceTree = "<group>"; };
 		051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequest.swift; sourceTree = "<group>"; };
 		051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRateResponse.swift; sourceTree = "<group>"; };
 		051F7E682A78F48000CE9F87 /* ReviewListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListResponse.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				057A0ACE2A1D3EEF00F10B85 /* WriteReviewRequest.swift */,
 				051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */,
 				051F7E682A78F48000CE9F87 /* ReviewListResponse.swift */,
+				051CFA622A8BEA110023B3C6 /* ReportRequest.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				7B2BBF98299A1AC400EE0F1F /* SceneDelegate.swift in Sources */,
 				0559705B2A16646B00868C42 /* MenuReviewResponse.swift in Sources */,
 				7BBD4CA82A6D2A6600515F67 /* RestaurantInfoResponse.swift in Sources */,
+				051CFA632A8BEA120023B3C6 /* ReportRequest.swift in Sources */,
 				0569570A29CCBC41002E8CF2 /* RateView.swift in Sources */,
 				0559705D2A16670600868C42 /* MenuInfoResponse.swift in Sources */,
 				051F7E672A742FA500CE9F87 /* ReviewRateResponse.swift in Sources */,

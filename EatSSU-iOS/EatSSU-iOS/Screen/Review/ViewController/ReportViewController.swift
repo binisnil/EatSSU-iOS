@@ -270,3 +270,9 @@ class ReportViewController: BaseViewController {
         }
     }
 }
+
+// MARK: - Server
+
+extension ReportViewController {
+    
+}
