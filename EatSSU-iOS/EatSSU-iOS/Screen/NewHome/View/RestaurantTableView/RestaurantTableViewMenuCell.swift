@@ -42,13 +42,13 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
     
     // MARK: - Life Cycle
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//
-//        nameLabel.text = nil
-//        priceLabel.text = nil
-//        ratingLabel.text = nil
-//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        nameLabel.text = nil
+        priceLabel.text = nil
+        ratingLabel.text = nil
+    }
     
     // MARK: - Functions
     
