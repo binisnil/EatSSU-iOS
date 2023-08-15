@@ -242,10 +242,9 @@ extension ReviewViewController {
     }
 }
 
-//extension ReviewViewController: BindCellMenuTypeInfoDelegate {
-//    func didBindMenuTypeInfo(menuTypeInfo: MenuTypeInfo) {
-//        type = menuTypeInfo.menuType
-//        menuID = menuTypeInfo.menuID
-//        menuIDList = menuTypeInfo.menuIDList ?? []
-//    }
-//}
+extension ReviewViewController: ReviewMenuTypeInfoDelegate {
+    func didDelegateReviewMenuTypeInfo(for menuTypeData: ReviewMenuTypeInfo) {
+        var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType, menuID: menuTypeData.menuID)
+        print("reviewMenuTypeInfo: \(reviewMenuTypeInfo)")
+    }
+}

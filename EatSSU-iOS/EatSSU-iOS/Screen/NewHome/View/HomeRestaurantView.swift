@@ -27,6 +27,7 @@ class HomeRestaurantView: BaseUIView {
    
     lazy var restaurantTableView = UITableView(frame: .zero, style: .insetGrouped).then {
         $0.separatorStyle = .none
+        $0.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
     
     // MARK: - init
@@ -45,10 +46,9 @@ class HomeRestaurantView: BaseUIView {
     
     override func setLayout() {
         restaurantTableView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(47)
+            $0.top.equalToSuperview()
             $0.leading.bottom.trailing.equalToSuperview()
         }
     }
 
 }
-

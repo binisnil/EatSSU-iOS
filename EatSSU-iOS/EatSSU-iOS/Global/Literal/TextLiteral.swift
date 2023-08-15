@@ -30,7 +30,13 @@ enum TextLiteral {
     static let foodCourt: String = "푸드 코트"
     static let snackCorner: String = "스낵 코너"
     static let theKitchen: String = "더 키친"
-    
+    static let dormitoryRawValue: String = "DOMITORY"
+    static let dodamRawValue: String = "DODAM"
+    static let studentRestaurantRawValue: String = "HAKSIK"
+    static let foodCourtRawValue: String = "FOOD_COURT"
+    static let snackCornerRawValue: String = "SNACK_CORNER"
+    static let theKitchenRawValue: String = "THE_KITCHEN"
+
     // MARK: - Mypage
     
     static let myPage: String = "마이페이지"

@@ -8,7 +8,7 @@
 import Foundation
 
 struct FixedMenuTableResponse: Codable {
-    let fixMenuInfoList: [FixedMenuInfo]?
+    let fixMenuInfoList: [FixedMenuInfo]
 }
 
 struct FixedMenuInfo: Codable {

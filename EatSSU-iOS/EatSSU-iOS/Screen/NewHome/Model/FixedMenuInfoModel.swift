@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FixedMenuInfoData: AppData {
+struct FixedMenuInfoData: MenuType {
     let menuID: Int
     let name: String
     let mainGrade: Double
