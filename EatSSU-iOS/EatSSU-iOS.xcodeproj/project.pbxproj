@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		051CFA5E2A8A3EAF0023B3C6 /* MyInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051CFA5D2A8A3EAF0023B3C6 /* MyInfoResponse.swift */; };
+		051CFA602A8B5A040023B3C6 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051CFA5F2A8B5A040023B3C6 /* ReportViewController.swift */; };
 		051F7E612A7059B700CE9F87 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 051F7E602A7059B700CE9F87 /* KakaoSDK */; };
 		051F7E632A70E4F700CE9F87 /* KakaoLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */; };
 		051F7E672A742FA500CE9F87 /* ReviewRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */; };
@@ -127,6 +128,7 @@
 
 /* Begin PBXFileReference section */
 		051CFA5D2A8A3EAF0023B3C6 /* MyInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoResponse.swift; sourceTree = "<group>"; };
+		051CFA5F2A8B5A040023B3C6 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		051F7E622A70E4F700CE9F87 /* KakaoLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRequest.swift; sourceTree = "<group>"; };
 		051F7E662A742FA500CE9F87 /* ReviewRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRateResponse.swift; sourceTree = "<group>"; };
 		051F7E682A78F48000CE9F87 /* ReviewListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListResponse.swift; sourceTree = "<group>"; };
@@ -260,6 +262,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051CFA612A8B5F310023B3C6 /* ReportView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReportView;
+			sourceTree = "<group>";
+		};
 		055970592A16643600868C42 /* Review */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +333,7 @@
 				0569570B29CE1A71002E8CF2 /* WriteReviewViewController.swift */,
 				7B98992D29E04F1300D1A076 /* ReviewViewController.swift */,
 				058326602A4D9422004A295F /* ChoiceMenuViewController.swift */,
+				051CFA5F2A8B5A040023B3C6 /* ReportViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -331,6 +341,7 @@
 		056956C529C0E2C7002E8CF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				051CFA612A8B5F310023B3C6 /* ReportView */,
 				058326622A4D956D004A295F /* ChoiceMenuView */,
 				0569570129CB837A002E8CF2 /* RateReview */,
 				0569570029CB834C002E8CF2 /* SeeReview */,
@@ -946,6 +957,7 @@
 				7BBD4CCB2A72541500515F67 /* MyReviewViewController.swift in Sources */,
 				7B9998ED2A827A6A0043C592 /* HomeRestaurantViewController.swift in Sources */,
 				7B51C59E2A6321700016B418 /* DummyModel.swift in Sources */,
+				051CFA602A8B5A040023B3C6 /* ReportViewController.swift in Sources */,
 				056956FD29CB7958002E8CF2 /* ReviewTableCell.swift in Sources */,
 				056956FF29CB81E2002E8CF2 /* SetRateViewController.swift in Sources */,
 				7B9998EB2A8279FC0043C592 /* HomeTimeTabmanController.swift in Sources */,
