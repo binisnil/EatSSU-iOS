@@ -558,7 +558,6 @@
 			children = (
 				7B51C5A22A63268A0016B418 /* RestaurantInfoModel.swift */,
 				7BBD4CA92A6D3B7A00515F67 /* TimeData.swift */,
-				7BBD4CF42A765A3000515F67 /* ReviewMenuTypeInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -733,6 +732,7 @@
 			children = (
 				7B51C5A62A63C7230016B418 /* ChangeMenuInfoModel.swift */,
 				7B51C5BC2A654FB40016B418 /* FixedMenuInfoModel.swift */,
+				7BBD4CF42A765A3000515F67 /* ReviewMenuTypeInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
