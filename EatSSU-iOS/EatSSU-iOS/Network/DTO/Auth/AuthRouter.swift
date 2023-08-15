@@ -12,6 +12,7 @@ enum AuthRouter {
     case signUp(param: SignUpRequest)
     case signIn(param: SignInRequest)
     case kakaoLogin(param: KakaoLoginRequest)
+    case appleLogin(param: AppleLoginRequest)
 }
 
 extension AuthRouter: TargetType {
@@ -27,6 +28,8 @@ extension AuthRouter: TargetType {
         return "/user/login"
     case .kakaoLogin:
         return "/oauth/kakao"
+    case .appleLogin:
+        return "/oauth/apple"
     }
   }
   
@@ -37,6 +40,8 @@ extension AuthRouter: TargetType {
     case .signIn:
         return .post
     case .kakaoLogin:
+        return .post
+    case .appleLogin:
         return .post
     }
   }
@@ -49,6 +54,8 @@ extension AuthRouter: TargetType {
         return .requestJSONEncodable(param)
     case .kakaoLogin(param: let param):
         return .requestJSONEncodable(param)
+    case .appleLogin(param: let param):
+        return .requestJSONEncodable(param)
     }
   }
 
@@ -59,4 +66,3 @@ extension AuthRouter: TargetType {
     }
   }
 }
-

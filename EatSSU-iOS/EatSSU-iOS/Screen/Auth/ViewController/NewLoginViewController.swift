@@ -181,6 +181,29 @@ extension NewLoginViewController {
             }
         }
     }
+  
+    func postAppleLoginRequest(token: String) {
+        self.authProvider.request(.appleLogin(param: AppleLoginRequest(identityToken: token))) { response in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    print(moyaResponse.statusCode)
+                    let responseData = try moyaResponse.map(SignResponse.self)
+                    self.addTokenInRealm(accessToken: responseData.accessToken,
+                                         refreshToken: responseData.refreshToken)
+                    
+                    let setNicknameViewController = SetNickNameViewController()
+                    self.navigationController?.pushViewController(setNicknameViewController, animated: true)
+                } catch(let err) {
+                    self.presentBottomAlert(err.localizedDescription)
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                self.presentBottomAlert(err.localizedDescription)
+                print(err.localizedDescription)
+            }
+        }
+    }
 }
 
 extension NewLoginViewController: ASAuthorizationControllerPresentationContextProviding, ASAuthorizationControllerDelegate {
@@ -200,7 +223,8 @@ extension NewLoginViewController: ASAuthorizationControllerPresentationContextPr
             let email = appleIDCredential.email
             let idToken = appleIDCredential.identityToken!
             let tokeStr = String(data: idToken, encoding: .utf8)
-            // FIXME: - 여기에 애플로그인 기능 추가
+    
+            postAppleLoginRequest(token: tokeStr ?? "")
             print("User ID : \(userIdentifier)")
             print("User Email : \(email ?? "")")
             print("User Name : \((fullName?.givenName ?? "") + (fullName?.familyName ?? ""))")
