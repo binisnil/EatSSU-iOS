@@ -61,8 +61,6 @@ class HomeRestaurantViewController: BaseViewController {
         
         setDelegate()
         setTableView()
-        
-        fetchData()
 
     }
     
@@ -112,13 +110,16 @@ class HomeRestaurantViewController: BaseViewController {
         return restaurantRawValue[section]
     }
 
-    func fetchData() {
-        getChageMenuData(date: "20230714", restaurant: "DOMITORY", time: "LUNCH") {}
-        getChageMenuData(date: "20230714", restaurant: "DODAM", time: "LUNCH") {}
-        getChageMenuData(date: "20230714", restaurant: "HAKSIK", time: "LUNCH") {}
+    func fetchData(date: String, time: String) {
+        print("🎒 \(time)")
+        getChageMenuData(date: date, restaurant: "DOMITORY", time: time) {}
+        getChageMenuData(date: date, restaurant: "DODAM", time: time) {}
+        getChageMenuData(date: date, restaurant: "HAKSIK", time: time) {}
         getFixMenuData(restaurant: "FOOD_COURT") {}
         getFixMenuData(restaurant: "SNACK_CORNER") {}
         getFixMenuData(restaurant: "THE_KITCHEN") {}
+        
+//        restaurantView.restaurantTableView.reloadData()
     }
 }
 

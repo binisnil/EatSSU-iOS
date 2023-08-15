@@ -99,6 +99,7 @@
 		7B9998FC2A839BF90043C592 /* RestaurantTableViewMenuTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9998FB2A839BF90043C592 /* RestaurantTableViewMenuTitleCell.swift */; };
 		7B9999092A8627540043C592 /* MenuTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9999082A8627540043C592 /* MenuTypeInfo.swift */; };
 		7B99990C2A86313E0043C592 /* MenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99990B2A86313E0043C592 /* MenuType.swift */; };
+		7B9999252A8C03320043C592 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9999242A8C03320043C592 /* String.swift */; };
 		7BBD4C972A67DAEF00515F67 /* ChangeMenuTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4C962A67DAEF00515F67 /* ChangeMenuTableResponse.swift */; };
 		7BBD4CA22A6C406C00515F67 /* RestaurantInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */; };
 		7BBD4CA62A6D275B00515F67 /* RestaurantInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */; };
@@ -217,6 +218,7 @@
 		7B9998FB2A839BF90043C592 /* RestaurantTableViewMenuTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewMenuTitleCell.swift; sourceTree = "<group>"; };
 		7B9999082A8627540043C592 /* MenuTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypeInfo.swift; sourceTree = "<group>"; };
 		7B99990B2A86313E0043C592 /* MenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuType.swift; sourceTree = "<group>"; };
+		7B9999242A8C03320043C592 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7BBD4C962A67DAEF00515F67 /* ChangeMenuTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMenuTableResponse.swift; sourceTree = "<group>"; };
 		7BBD4CA12A6C406C00515F67 /* RestaurantInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoView.swift; sourceTree = "<group>"; };
 		7BBD4CA52A6D275B00515F67 /* RestaurantInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoRouter.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				058326652A4D97BC004A295F /* UICollectionViewCell+.swift */,
 				7B51C5942A62A0B10016B418 /* CALayer.swift */,
 				051F7E6A2A78FD3700CE9F87 /* UIImageView+.swift */,
+				7B9999242A8C03320043C592 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */,
 				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				0588407D2A80E2A90007AA98 /* MyReviewResponse.swift in Sources */,
+				7B9999252A8C03320043C592 /* String.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7B51C5A72A63C7230016B418 /* ChangeMenuInfoModel.swift in Sources */,
 				057A0B312A273DDF00F10B85 /* MoyaPluggin.swift in Sources */,

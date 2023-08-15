@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    let tabmanController = HomeTabmanController()
+    let tabmanController = HomeTimeTabmanController()
     let homeCalendarView = HomeCalendarView()
         
     //MARK: - Life Cycles
