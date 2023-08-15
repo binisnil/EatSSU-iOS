@@ -79,9 +79,6 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
     func bind(_ model: MenuTypeInfo) {
         switch model {
         case .change(let data):
-            print(String(data.price))
-            print(String(data.mainGrade ?? 0))
-            print(data.changeMenuInfoList.map { $0.name }.joined(separator: "+"))
             priceLabel.text = String(data.price)
             ratingLabel.text = String(data.mainGrade ?? 0)
             nameLabel.text = data.changeMenuInfoList.map { $0.name }.joined(separator: "+")
