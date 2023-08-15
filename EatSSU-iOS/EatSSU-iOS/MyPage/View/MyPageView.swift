@@ -16,6 +16,27 @@ class MyPageView: BaseUIView {
     
     let myPageServiceLabelList = MyPageLocalData.myPageServiceLabelList
     let myPageRightItemListDate = MyPageRightItemData.myPageRightItemList
+    private var dataModel: MyInfoResponse? {
+        didSet {
+            if let nickname = dataModel?.nickname {
+                userNicknameButton.addTitleAttribute(title: "\(nickname) >",
+                                                     titleColor: .black,
+                                                     fontName: .semiBold(size: 20)
+                )
+            }
+            
+            switch dataModel?.accountFrom {
+            case "KAKAO":
+                accountLabel.text = "카카오"
+                accountImage.image = ImageLiteral.kakaoLogo
+            case "APPLE":
+                accountLabel.text = "Apple"
+                accountImage.image = ImageLiteral.appleIcon
+            default:
+                return
+            }
+        }
+    }
     
     // MARK: - UI Components
     
@@ -99,5 +120,8 @@ class MyPageView: BaseUIView {
         myPageTableView.register(MyPageServiceCell.self, forCellReuseIdentifier: MyPageServiceCell.identifier)
     }
     
+    func dataBind(model: MyInfoResponse) {
+        dataModel = model
+    }
 }
 

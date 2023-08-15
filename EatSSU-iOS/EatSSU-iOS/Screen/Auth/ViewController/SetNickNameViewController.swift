@@ -16,9 +16,7 @@ class SetNickNameViewController: BaseViewController {
     
     // MARK: - Properties
     
-    typealias handler = ((String) -> (Void))
     private let setNicknameProvider = MoyaProvider<UserNicknameRouter>(plugins: [MoyaLoggingPlugin()])
-    var completionHandler: handler?
 
     // MARK: - UI Components
     
@@ -57,28 +55,22 @@ class SetNickNameViewController: BaseViewController {
     
     @objc
     func tappedCompleteNickNameButton() {
-        setUserNickname(nickname: setNickNameView.inputNickNameTextField.text ?? "")
-        completionHandler?(setNickNameView.inputNickNameTextField.text ?? "")
-        if let myPageViewController = self.navigationController?.viewControllers.first(where: { $0 is MyPageViewController }) {
-            self.navigationController?.popToViewController(myPageViewController, animated: true)
-        } else {
-            let homeViewController = HomeViewController()
-//            homeViewController.nickName = setNickNameView.inputNickNameTextField.text ?? ""
-            self.navigationController?.pushViewController(homeViewController, animated: true)
-        }
-        
+        self.setUserNickname(nickname: self.setNickNameView.inputNickNameTextField.text ?? "")
     }
 }
 
 extension SetNickNameViewController {
     private func setUserNickname(nickname: String) {
-        let param = UserNicknameRequest.init(nickname)
-        self.setNicknameProvider.request(.setNickname(nickname: nickname)) {
-            response in
-            
+        self.setNicknameProvider.request(.setNickname(nickname: nickname)) { response in
             switch response {
             case .success(let moyaResponse):
                 do {
+                    if let myPageViewController = self.navigationController?.viewControllers.first(where: { $0 is MyPageViewController }) {
+                        self.navigationController?.popToViewController(myPageViewController, animated: true)
+                    } else {
+                        let homeViewController = HomeViewController()
+                        self.navigationController?.pushViewController(homeViewController, animated: true)
+                    }
                     print(moyaResponse.statusCode)
                 }
             case .failure(let err):

@@ -13,6 +13,7 @@ import Then
 class SetNickNameView: BaseUIView {
     
     // MARK: - Properties
+    
     private var userNickname: String = ""
     
     // MARK: - UI Components
@@ -31,13 +32,6 @@ class SetNickNameView: BaseUIView {
         $0.clearButtonMode = .whileEditing
         
     }
-    
-    lazy var doubleCheckButton = PostUIButton().then {
-        $0.addTitleAttribute(title: TextLiteral.doubleCheckNickName, titleColor: .white, fontName: .regular(size: 14))
-        $0.setRoundBorder(borderColor: .gray300, borderWidth: 0.0, cornerRadius: 10.0)
-        $0.contentEdgeInsets = .init(top: 12.0, left: 12.0, bottom: 12.0, right: 12.0)
-        $0.isEnabled = false
-    }
 
     private let hintInputNickNameLabel = UILabel().then {
         $0.text = TextLiteral.hintInputNickName
@@ -45,13 +39,8 @@ class SetNickNameView: BaseUIView {
         $0.font = .semiBold(size: 12)
     }
     
-    private lazy var userInputNickNameStackView: UIStackView = UIStackView(arrangedSubviews: [inputNickNameTextField, doubleCheckButton]).then {
-        $0.axis = .horizontal
-        $0.spacing = 5.0
-    }
-    
     private lazy var setNickNameStackView: UIStackView = UIStackView(arrangedSubviews: [nickNameLabel, 
-                                                                                        userInputNickNameStackView, 
+                                                                                        inputNickNameTextField,
                                                                                         hintInputNickNameLabel]).then {
         $0.axis = .vertical
         $0.spacing = 8.0
@@ -78,13 +67,16 @@ class SetNickNameView: BaseUIView {
     
     override func setLayout() {
         setNickNameStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(113)
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.topMargin).offset(31)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         completeSettingNickNameButton.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(61)
             $0.height.equalTo(40)
+        }
+        inputNickNameTextField.snp.makeConstraints {
+            $0.height.equalTo(43.9)
         }
     }
     
@@ -95,13 +87,10 @@ class SetNickNameView: BaseUIView {
     @objc
     func textFieldChanged(_ textField: UITextField) {
         if let text = textField.text, (text.count>1 && text.count<9) {
-            doubleCheckButton.isEnabled = true
             completeSettingNickNameButton.isEnabled = true
             userNickname = text
         } else {
-            doubleCheckButton.isEnabled = false
             completeSettingNickNameButton.isEnabled = false
         }
     }
-
 }

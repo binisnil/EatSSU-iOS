@@ -8,17 +8,30 @@ import Foundation
 
 import SnapKit
 import UIKit
+import Moya
 
 class MyPageViewController: BaseViewController {
+    
+    // MARK: - Properties
+    
+    private let myProvider = MoyaProvider<MyRouter>(plugins: [MoyaLoggingPlugin()])
     
     // MARK: - UI Components
     
     let mypageView = MyPageView()
     
+    // MARK: - Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setDelegate()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getMyInfo()
     }
     
     // MARK: - Functions
@@ -46,13 +59,6 @@ class MyPageViewController: BaseViewController {
     func didTappedChangeNicknameButton() {
         
         let setNickNameVC = SetNickNameViewController()
-        setNickNameVC.completionHandler = { [weak self] text in
-            guard let self else { return }
-            self.mypageView.userNicknameButton.addTitleAttribute(title: "\(text) >",
-                                                                 titleColor: .black,
-                                                                 fontName: .semiBold(size: 20)
-            )
-        }
         self.navigationController?.pushViewController(setNickNameVC, animated: true)
     }
     
@@ -62,6 +68,25 @@ class MyPageViewController: BaseViewController {
     }
 }
 
+// MARK: - Server
+
+extension MyPageViewController {
+    private func getMyInfo() {
+        self.myProvider.request(.myInfo) { response in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    let responseData = try moyaResponse.map(MyInfoResponse.self)
+                    self.mypageView.dataBind(model: responseData)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+}
 
 extension MyPageViewController: UITableViewDataSource {
     

@@ -11,6 +11,7 @@ import Moya
 
 enum MyRouter {
     case myReview
+    case myInfo
 }
 
 extension MyRouter: TargetType, AccessTokenAuthorizable {
@@ -22,6 +23,8 @@ extension MyRouter: TargetType, AccessTokenAuthorizable {
         switch self {
         case .myReview:
             return "/mypage/myreview"
+        case .myInfo:
+            return "/mypage/info"
         }
     }
     
@@ -29,6 +32,8 @@ extension MyRouter: TargetType, AccessTokenAuthorizable {
         switch self {
         case .myReview:
             return .post
+        case .myInfo:
+            return .get
         }
     }
     
@@ -41,6 +46,8 @@ extension MyRouter: TargetType, AccessTokenAuthorizable {
                                                   ],
                                       encoding: URLEncoding.queryString
             )
+        case .myInfo:
+            return .requestPlain
         }
     }
     
