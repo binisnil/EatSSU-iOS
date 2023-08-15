@@ -11,7 +11,7 @@ import SnapKit
 import Tabman
 import Pageboy
 
-class HomeTabmanController: TabmanViewController {
+class HomeTimeTabmanController: TabmanViewController {
     
     // MARK: - Properties
     
@@ -21,7 +21,9 @@ class HomeTabmanController: TabmanViewController {
     lazy var morningViewController = HomeRestaurantViewController()
     lazy var lunchViewController = HomeRestaurantViewController()
     lazy var dinnerViewController = HomeRestaurantViewController()
-    private lazy var viewControllers = [morningViewController, lunchViewController, dinnerViewController]
+    private lazy var viewControllers = [morningViewController,
+                                        lunchViewController,
+                                        dinnerViewController]
     
     //MARK: - Life Cycles
     
@@ -29,6 +31,7 @@ class HomeTabmanController: TabmanViewController {
         super.viewDidLoad()
 
         registerTabBar()
+        dateFetchData(for: "yyyyMMdd".stringFromDate())
     }
  
     //MARK: - Functions
@@ -39,11 +42,23 @@ class HomeTabmanController: TabmanViewController {
         setLayoutTabBar(ctBar: bar)
         addBar(bar, dataSource: self, at: .top)
     }
+    
+    func dateFetchData(for date: String) {
+        morningViewController.fetchData(date: date, time: "MORNING")
+        lunchViewController.fetchData(date: date, time: "LUNCH")
+        dinnerViewController.fetchData(date: date, time: "DINNER")
+    }
+    
+    func changeDateFormat(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        return dateFormatter.string(from: date)
+    }
 }
 
 // MARK: - PageBoy Extension
 
-extension HomeTabmanController: PageboyViewControllerDataSource, TMBarDataSource {
+extension HomeTimeTabmanController: PageboyViewControllerDataSource, TMBarDataSource {
     
     func numberOfViewControllers(in pageboyViewController: Pageboy.PageboyViewController) -> Int {
         return viewControllers.count
@@ -88,6 +103,13 @@ extension HomeTabmanController: PageboyViewControllerDataSource, TMBarDataSource
         ctBar.indicator.overscrollBehavior = .compress
         ctBar.layout.contentMode = .fit
         ctBar.layout.transitionStyle = .snap
+    }
+}
+
+extension HomeTimeTabmanController: CalendarSeletionDelegate {
+    func didSelectCalendar(date: Date) {
+        print("🐯\(date)")
+        dateFetchData(for: changeDateFormat(date: date))
     }
 }
 
