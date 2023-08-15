@@ -61,7 +61,6 @@ class SetNickNameViewController: BaseViewController {
 
 extension SetNickNameViewController {
     private func setUserNickname(nickname: String) {
-        let param = UserNicknameRequest.init(nickname)
         self.setNicknameProvider.request(.setNickname(nickname: nickname)) { response in
             switch response {
             case .success(let moyaResponse):
