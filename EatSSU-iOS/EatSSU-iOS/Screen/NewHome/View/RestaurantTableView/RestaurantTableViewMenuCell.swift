@@ -18,9 +18,7 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
     var model: MenuTypeInfo? {
         didSet {
             if let model = model {
-                print("🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊model bind start")
                 bind(model)
-                print("🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊model bind end")
             }
         }
     }
