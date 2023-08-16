@@ -20,9 +20,9 @@ extension HomeRouter: TargetType {
 
     var path: String {
         switch self {
-        case .getChangeMenuTableResponse(let date, let restaurant, let time):
+        case .getChangeMenuTableResponse(_, _, _):
             return "/menu/today-meal"
-        case .getFixedMenuTableResponse(let restaurant):
+        case .getFixedMenuTableResponse(_):
             return "/menu/fix-menu"
         }
     }

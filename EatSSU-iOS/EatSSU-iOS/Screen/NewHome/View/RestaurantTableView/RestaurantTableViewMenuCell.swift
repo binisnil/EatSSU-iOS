@@ -9,18 +9,13 @@ import UIKit
 
 import SnapKit
 
-enum MenuData {
-    case change(ChangeMenuInfoData)
-    case fix(FixedMenuInfoData)
-}
-
 class RestaurantTableViewMenuCell: BaseTableViewCell {
     
     // MARK: - Properties
     
     static let identifier = "RestaurantTableViewMenuCell"
     
-    var model: MenuData? {
+    var model: MenuTypeInfo? {
         didSet {
             if let model = model {
                 bind(model)
@@ -32,18 +27,25 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
     
     lazy var menuIDLabel = UILabel()
     lazy var nameLabel = UILabel().then {
-//        $0.text = "콩나물국+쌀밥+돈까스+케찹+무말랭이무침+구이김+배추김치+계란후라이"
         $0.font = .medium(size: 14)
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping // 단어 단위 줄바꿈
     }
     lazy var priceLabel = UILabel().then {
-//        $0.text = "5000"
         $0.font = .medium(size: 14)
     }
     lazy var ratingLabel = UILabel().then {
-//        $0.text = "5.0"
         $0.font = .medium(size: 14)
+    }
+    
+    // MARK: - Life Cycle
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        nameLabel.text = nil
+        priceLabel.text = nil
+        ratingLabel.text = nil
     }
     
     // MARK: - Functions
@@ -74,11 +76,11 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
         }
     }
     
-    func bind(_ model: MenuData) {
+    func bind(_ model: MenuTypeInfo) {
         switch model {
         case .change(let data):
             priceLabel.text = String(data.price)
-            ratingLabel.text = String(data.mainGrage)
+            ratingLabel.text = String(data.mainGrade ?? 0)
             nameLabel.text = data.changeMenuInfoList.map { $0.name }.joined(separator: "+")
         
         case .fix(let data):
