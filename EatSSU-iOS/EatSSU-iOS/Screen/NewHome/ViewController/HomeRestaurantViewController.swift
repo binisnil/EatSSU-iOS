@@ -214,6 +214,9 @@ extension HomeRestaurantViewController: UITableViewDelegate {
         if [0, 1, 2].contains(indexPath.section) {
             reviewMenuTypeInfo.menuType = "CHANGE"
             reviewMenuTypeInfo.menuID = changeMenuTableViewData[restaurant]?[indexPath.row - restaurantTableViewMenuTitleCellCount].mealId ?? 100
+            if let list = changeMenuTableViewData[restaurant]?[indexPath.row - restaurantTableViewMenuTitleCellCount].changeMenuInfoList {
+                reviewMenuTypeInfo.changeMenuIDList = list.compactMap { $0.menuId }
+            }
         } else if [3, 4, 5].contains(indexPath.section) {
             reviewMenuTypeInfo.menuType = "FIX"
             reviewMenuTypeInfo.menuID = fixMenuTableViewData[restaurant]?.fixMenuInfoList[indexPath.row - restaurantTableViewMenuTitleCellCount].menuId ?? 100

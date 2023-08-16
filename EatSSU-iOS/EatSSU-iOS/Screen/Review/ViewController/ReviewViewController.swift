@@ -244,7 +244,7 @@ extension ReviewViewController {
 
 extension ReviewViewController: ReviewMenuTypeInfoDelegate {
     func didDelegateReviewMenuTypeInfo(for menuTypeData: ReviewMenuTypeInfo) {
-        var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType, menuID: menuTypeData.menuID)
+        var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType, menuID: menuTypeData.menuID, changeMenuIDList: menuTypeData.changeMenuIDList)
         type = reviewMenuTypeInfo.menuType
         menuID = reviewMenuTypeInfo.menuID
         print("👍reviewMenuTypeInfo: \(reviewMenuTypeInfo)")
