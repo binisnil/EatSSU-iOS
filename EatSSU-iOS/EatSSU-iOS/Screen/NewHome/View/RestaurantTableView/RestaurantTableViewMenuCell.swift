@@ -80,12 +80,16 @@ class RestaurantTableViewMenuCell: BaseTableViewCell {
         switch model {
         case .change(let data):
             priceLabel.text = String(data.price)
-            ratingLabel.text = String(data.mainGrade ?? 0)
+            if let ratingValue = data.mainGrade {
+                ratingLabel.text = String(format: "%.1f", ratingValue)
+            } else {
+                ratingLabel.text = "-"
+            }
             nameLabel.text = data.changeMenuInfoList.map { $0.name }.joined(separator: "+")
         
         case .fix(let data):
             priceLabel.text = String(data.price)
-            ratingLabel.text = String(data.mainGrade)
+            ratingLabel.text = String(format: "%.1f", data.mainGrade)
             nameLabel.text = data.name
         }
     }
