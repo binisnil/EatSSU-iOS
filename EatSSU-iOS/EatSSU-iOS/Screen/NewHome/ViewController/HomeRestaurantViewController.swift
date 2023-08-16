@@ -118,8 +118,10 @@ class HomeRestaurantViewController: BaseViewController {
         getFixMenuData(restaurant: "FOOD_COURT") {}
         getFixMenuData(restaurant: "SNACK_CORNER") {}
         getFixMenuData(restaurant: "THE_KITCHEN") {}
+        print("✅ fetchData 끝")
         
-//        restaurantView.restaurantTableView.reloadData()
+        /// 스크롤 최상단 이동
+        restaurantView.restaurantTableView.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
     }
 }
 
