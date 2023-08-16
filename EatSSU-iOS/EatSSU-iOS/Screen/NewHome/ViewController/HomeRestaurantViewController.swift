@@ -112,12 +112,16 @@ class HomeRestaurantViewController: BaseViewController {
 
     func fetchData(date: String, time: String) {
         print("🎒 \(time)")
-        getChageMenuData(date: date, restaurant: "DOMITORY", time: time) {}
-        getChageMenuData(date: date, restaurant: "DODAM", time: time) {}
-        getChageMenuData(date: date, restaurant: "HAKSIK", time: time) {}
-        getFixMenuData(restaurant: "FOOD_COURT") {}
-        getFixMenuData(restaurant: "SNACK_CORNER") {}
-        getFixMenuData(restaurant: "THE_KITCHEN") {}
+        getChageMenuData(date: date, restaurant: TextLiteral.dormitoryRawValue, time: time) {}
+        getChageMenuData(date: date, restaurant: TextLiteral.dodamRawValue, time: time) {}
+        getChageMenuData(date: date, restaurant: TextLiteral.studentRestaurantRawValue, time: time) {}
+        
+        if time == TextLiteral.lunchRawValue {
+            getFixMenuData(restaurant: "FOOD_COURT") {}
+            getFixMenuData(restaurant: "SNACK_CORNER") {}
+            getFixMenuData(restaurant: "THE_KITCHEN") {}
+        }
+        
         print("✅ fetchData 끝")
         
         /// 스크롤 최상단 이동
