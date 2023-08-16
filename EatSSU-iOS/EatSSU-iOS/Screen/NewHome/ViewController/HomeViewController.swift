@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    let tabmanController = HomeTabmanController()
+    let tabmanController = HomeTimeTabmanController()
     let homeCalendarView = HomeCalendarView()
         
     //MARK: - Life Cycles
@@ -29,7 +29,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        homeCalendarView.delegate = self
+        homeCalendarView.delegate = tabmanController
         
         registerTabman()
         setnavigation()

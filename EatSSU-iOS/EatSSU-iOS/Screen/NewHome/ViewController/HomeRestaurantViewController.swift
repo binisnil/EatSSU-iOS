@@ -61,8 +61,6 @@ class HomeRestaurantViewController: BaseViewController {
         
         setDelegate()
         setTableView()
-        
-        fetchData()
 
     }
     
@@ -112,13 +110,22 @@ class HomeRestaurantViewController: BaseViewController {
         return restaurantRawValue[section]
     }
 
-    func fetchData() {
-        getChageMenuData(date: "20230714", restaurant: "DOMITORY", time: "LUNCH") {}
-        getChageMenuData(date: "20230714", restaurant: "DODAM", time: "LUNCH") {}
-        getChageMenuData(date: "20230714", restaurant: "HAKSIK", time: "LUNCH") {}
-        getFixMenuData(restaurant: "FOOD_COURT") {}
-        getFixMenuData(restaurant: "SNACK_CORNER") {}
-        getFixMenuData(restaurant: "THE_KITCHEN") {}
+    func fetchData(date: String, time: String) {
+        print("🎒 \(time)")
+        getChageMenuData(date: date, restaurant: TextLiteral.dormitoryRawValue, time: time) {}
+        getChageMenuData(date: date, restaurant: TextLiteral.dodamRawValue, time: time) {}
+        getChageMenuData(date: date, restaurant: TextLiteral.studentRestaurantRawValue, time: time) {}
+        
+        if time == TextLiteral.lunchRawValue {
+            getFixMenuData(restaurant: "FOOD_COURT") {}
+            getFixMenuData(restaurant: "SNACK_CORNER") {}
+            getFixMenuData(restaurant: "THE_KITCHEN") {}
+        }
+        
+        print("✅ fetchData 끝")
+        
+        /// 스크롤 최상단 이동
+        restaurantView.restaurantTableView.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
     }
 }
 

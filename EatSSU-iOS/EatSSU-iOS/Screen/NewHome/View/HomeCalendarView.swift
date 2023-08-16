@@ -91,9 +91,7 @@ extension HomeCalendarView: FSCalendarDataSource, FSCalendarDelegate {
         
         // 오늘 날짜 Select
         calendar.select(Date())
-        
-        // 캘린더 숫자와 subtitle간의 간격 조정
-//        calendar.appearance.subtitleOffset = CGPoint(x: 0, y: 10)
+
     }
     
         // 날짜를 선택했을 때 할일을 지정
