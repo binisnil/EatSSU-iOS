@@ -247,6 +247,7 @@ extension ReviewViewController: ReviewMenuTypeInfoDelegate {
         var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType, menuID: menuTypeData.menuID, changeMenuIDList: menuTypeData.changeMenuIDList)
         type = reviewMenuTypeInfo.menuType
         menuID = reviewMenuTypeInfo.menuID
+        menuIDList = reviewMenuTypeInfo.changeMenuIDList ?? []
         print("👍reviewMenuTypeInfo: \(reviewMenuTypeInfo)")
     }
 }
