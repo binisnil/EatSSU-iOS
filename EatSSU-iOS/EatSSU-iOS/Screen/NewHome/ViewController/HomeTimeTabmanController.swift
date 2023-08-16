@@ -45,11 +45,9 @@ class HomeTimeTabmanController: TabmanViewController {
     
     func dateFetchData(for date: String) {
         morningViewController.fetchData(date: date, time: "MORNING")
-        morningViewController.restaurantView.restaurantTableView.reloadData()
         lunchViewController.fetchData(date: date, time: "LUNCH")
-        lunchViewController.restaurantView.restaurantTableView.reloadData()
         dinnerViewController.fetchData(date: date, time: "DINNER")
-        dinnerViewController.restaurantView.restaurantTableView.reloadData()
+    
     }
     
     func changeDateFormat(date: Date) -> String {
@@ -113,6 +111,11 @@ extension HomeTimeTabmanController: CalendarSeletionDelegate {
     func didSelectCalendar(date: Date) {
         print("🐯\(date)")
         dateFetchData(for: changeDateFormat(date: date))
+        
+        morningViewController.restaurantView.restaurantTableView.reloadData()
+        lunchViewController.restaurantView.restaurantTableView.reloadData()
+        dinnerViewController.restaurantView.restaurantTableView.reloadData()
+        print("✅ reload 끝 ")
     }
 }
 

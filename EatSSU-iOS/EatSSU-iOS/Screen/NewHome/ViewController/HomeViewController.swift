@@ -29,7 +29,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        homeCalendarView.delegate = self
+        homeCalendarView.delegate = tabmanController
         
         registerTabman()
         setnavigation()
