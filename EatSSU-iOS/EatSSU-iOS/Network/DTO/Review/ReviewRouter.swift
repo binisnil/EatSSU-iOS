@@ -14,6 +14,7 @@ enum ReviewRouter {
     case reviewRate(_ type: String, _ id: Int)
     case reviewList(_ type: String, _ id: Int)
     case report(param: ReportRequest)
+    case deleteReview(_ menuId: Int, _ reviewId: Int)
 }
 
 extension ReviewRouter: TargetType, AccessTokenAuthorizable {
@@ -33,6 +34,8 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
             return "/review/list"
         case .report:
             return "/report/"
+        case .deleteReview(let menuId, let reviewId):
+            return "/review/\(menuId)/detail/\(reviewId)"
         }
     }
     
@@ -46,6 +49,8 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
             return .get
         case .report:
             return .post
+        case .deleteReview:
+            return .delete
         }
     }
     
@@ -87,6 +92,8 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
             }
         case .report(param: let param):
             return .requestJSONEncodable(param)
+        case .deleteReview:
+            return .requestPlain
         }
     }
     

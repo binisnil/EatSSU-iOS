@@ -15,6 +15,8 @@ class ReviewTableCell: UITableViewCell {
     
     static let identifier = "ReviewTableCell"
     var handler: (() -> (Void))?
+    var reviewId: Int = Int()
+    var menuName: String = String()
     
     // MARK: - UI Components
     
@@ -224,12 +226,14 @@ class ReviewTableCell: UITableViewCell {
 extension ReviewTableCell {
     func dataBind(response: MenuDataList) {
         menuNameLabel.text = response.menu
+        menuName = response.menu
         userNameLabel.text = response.writerNickname
         totalRateView.rateNumberLabel.text = "\(response.mainGrade)"
         quantityRateView.rateNumberLabel.text = "\(response.amountGrade)"
         tasteRateView.rateNumberLabel.text = "\(response.tasteGrade)"
         dateLabel.text = response.writeDate
         reviewTextView.text = response.content
+        reviewId = response.reviewID
         if response.imgURLList.count != 0 {
             foodImageView.isHidden = false
             foodImageView.kfSetImage(url: response.imgURLList[0])
@@ -263,5 +267,6 @@ extension ReviewTableCell {
         }
         sideButton.setImage(ImageLiteral.greySideButton, for: .normal)
         sideButton.setTitle("", for: .normal)
+        reviewId = response.reviewID
     }
 }

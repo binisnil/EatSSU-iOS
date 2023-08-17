@@ -17,6 +17,7 @@ class ReviewViewController: BaseViewController {
     var type = "CHANGE"
     private var menuNameList = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
     private var menuIDList: [Int] = [Int]()
+    private var menuDictionary: [String: Int] = [:]
     private var reviewList = [MenuDataList]()
     
     // MARK: - UI Component
@@ -106,7 +107,7 @@ class ReviewViewController: BaseViewController {
         menuID = id
     }
     
-    private func showFixOrDeleteAlert() {
+    private func showFixOrDeleteAlert(menuID: Int, reviewID: Int) {
         let alert = UIAlertController(title: "리뷰 수정 혹은 삭제",
                                       message: "작성하신 리뷰를 수정 또는 삭제하시겠습니까?",
                                       preferredStyle: UIAlertController.Style.actionSheet
@@ -118,7 +119,9 @@ class ReviewViewController: BaseViewController {
         
         let deleteAction = UIAlertAction(title: "삭제하기",
                                       style: .default,
-                                      handler: { okAction in })
+                                      handler: { okAction in
+            self.deleteReview(menuID: menuID, reviewID: reviewID)
+        })
         
         let cancelAction = UIAlertAction(title: "취소하기",
                                          style: .cancel,
@@ -167,6 +170,15 @@ class ReviewViewController: BaseViewController {
             self.navigationController?.pushViewController(choiceMenuViewController, animated: true)
         }
     }
+    
+    func makeDictionary() {
+        if menuIDList != [] {
+            for (index, string) in menuNameList.enumerated() {
+                let idValue = menuIDList[index]
+                menuDictionary[string] = idValue
+            }
+        }
+    }
 }
 
 extension ReviewViewController: UITableViewDelegate {
@@ -186,7 +198,7 @@ extension ReviewViewController: UITableViewDataSource {
         cell.dataBind(response: reviewList[indexPath.row])
         cell.handler = { [weak self] in
             guard let self else { return }
-            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert() : showDeleteAlert()
+            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert(menuID: menuDictionary[cell.menuName] ?? 0, reviewID: cell.reviewId) : showDeleteAlert()
         }
         cell.selectionStyle = .none
         return cell
@@ -214,6 +226,8 @@ extension ReviewViewController {
                                                 twoCnt: responseData.reviewGradeCnt.twoCnt,
                                                 oneCnt: responseData.reviewGradeCnt.oneCnt)
                     self.menuNameList = responseData.menuName
+                    self.makeDictionary()
+                    print(self.menuDictionary, "😂😂😂😂😂")
                     print(responseData)
                 } catch(let err) {
                     print(err.localizedDescription)
@@ -240,6 +254,19 @@ extension ReviewViewController {
             }
         }
     }
+    
+    func deleteReview(menuID: Int, reviewID: Int) {
+        self.reviewProvider.request(.deleteReview(menuID, reviewID)) { response in
+            switch response {
+            case .success(let moyaResponse):
+                print("😍😍")
+                self.reviewTableView.reloadData()
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+
 }
 
 extension ReviewViewController: ReviewMenuTypeInfoDelegate {
@@ -247,7 +274,7 @@ extension ReviewViewController: ReviewMenuTypeInfoDelegate {
         var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType, menuID: menuTypeData.menuID, changeMenuIDList: menuTypeData.changeMenuIDList)
         type = reviewMenuTypeInfo.menuType
         menuID = reviewMenuTypeInfo.menuID
-        menuIDList = reviewMenuTypeInfo.changeMenuIDList ?? []
+        menuIDList = reviewMenuTypeInfo.changeMenuIDList ?? [menuID]
         print("👍reviewMenuTypeInfo: \(reviewMenuTypeInfo)")
     }
 }
