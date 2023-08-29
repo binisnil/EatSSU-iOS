@@ -12,7 +12,7 @@ import Moya
 import SnapKit
 import Then
 
-class RestaurantInfoViewController: BaseViewController {
+class oRestaurantInfoViewController: BaseViewController {
     
     // MARK: - Properties
     

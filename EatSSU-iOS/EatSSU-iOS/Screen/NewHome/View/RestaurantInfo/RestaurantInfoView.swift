@@ -14,6 +14,7 @@ import Then
 class RestaurantInfoView: BaseUIView {
     
     // MARK: - Properties
+    
     static let tableViewCellHeight = 10.0
     var restaurantInfoInputData: RestaurantInfoResponse? {
         didSet {
@@ -25,10 +26,11 @@ class RestaurantInfoView: BaseUIView {
     var weekendTimes: [TimeData] = []
     
     // MARK: - UI Components
+    
     let mapView = MKMapView()
     let weekdayTimeTableView = RestaurantInfoTimeTableView()
     let weekendTimeTableView = RestaurantInfoTimeTableView()
-
+    
     var restaurantNameLabel = UILabel().then {
         $0.font = .bold(size: 22)
     }
