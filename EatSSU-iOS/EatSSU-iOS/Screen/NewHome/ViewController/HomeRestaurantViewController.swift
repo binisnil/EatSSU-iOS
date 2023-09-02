@@ -139,6 +139,10 @@ class HomeRestaurantViewController: BaseViewController {
         restaurantView.restaurantTableView.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
     }
     
+    func deleteEmptyTableRestaurant() {
+        
+    }
+    
     @objc
     func tap(_ sender: UIButton) {
         let restaurantInfoViewController = RestaurantInfoViewController()
@@ -191,7 +195,7 @@ extension HomeRestaurantViewController: UITableViewDataSource {
             } else if indexPath.section == 1 {
                 if let data = changeMenuTableViewData[TextLiteral.dodamRawValue]?[indexPath.row - restaurantTableViewMenuTitleCellCount] {
                     cell.model = .change(data)
-                }
+                } 
             } else if indexPath.section == 2 {
                 if let data = changeMenuTableViewData[TextLiteral.studentRestaurantRawValue]?[indexPath.row - restaurantTableViewMenuTitleCellCount] {
                     cell.model = .change(data)
