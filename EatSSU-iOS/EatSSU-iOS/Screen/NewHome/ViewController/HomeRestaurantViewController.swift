@@ -195,7 +195,7 @@ extension HomeRestaurantViewController: UITableViewDataSource {
             } else if indexPath.section == 1 {
                 if let data = changeMenuTableViewData[TextLiteral.dodamRawValue]?[indexPath.row - restaurantTableViewMenuTitleCellCount] {
                     cell.model = .change(data)
-                } 
+                }
             } else if indexPath.section == 2 {
                 if let data = changeMenuTableViewData[TextLiteral.studentRestaurantRawValue]?[indexPath.row - restaurantTableViewMenuTitleCellCount] {
                     cell.model = .change(data)
