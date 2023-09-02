@@ -15,6 +15,10 @@ protocol ReviewMenuTypeInfoDelegate: AnyObject {
     func didDelegateReviewMenuTypeInfo(for menuTypeData: ReviewMenuTypeInfo)
 }
 
+protocol RestaurantInfoDelegate: AnyObject {
+    func didTappedRestaurantInfo(restaurantName: String)
+}
+
 class HomeRestaurantViewController: BaseViewController {
     
     //MARK: - Properties
@@ -22,6 +26,7 @@ class HomeRestaurantViewController: BaseViewController {
     private let restaurantTableViewMenuTitleCellCount = 1
     private let headerHeight: CGFloat = 35
     
+    weak var infoDelegate: RestaurantInfoDelegate?
     var delegate: ReviewMenuTypeInfoDelegate?
     private let changeDummy = ChangeMenuInfoData.Dummy()
     private let fixedDummy = FixedMenuInfoData.Dummy()
@@ -31,6 +36,12 @@ class HomeRestaurantViewController: BaseViewController {
                                            TextLiteral.foodCourt, 
                                            TextLiteral.snackCorner, 
                                            TextLiteral.theKitchen]
+    let restaurantButtonTitleToName = [TextLiteral.dormitoryRestaurant: "DOMITORY",
+                                        TextLiteral.dodamRestaurant: "DODAM",
+                                        TextLiteral.studentRestaurant: "HAKSIK",
+                                        TextLiteral.foodCourt: "FOOD_COURT",
+                                        TextLiteral.snackCorner: "SNACK_CORNER",
+                                        TextLiteral.theKitchen: "THE_KITCHEN"]
     var currentRestaurant = ""
     var changeMenuTableViewData: [String: [ChangeMenuTableResponse]] = [:] {
         didSet {
@@ -127,6 +138,21 @@ class HomeRestaurantViewController: BaseViewController {
         /// 스크롤 최상단 이동
         restaurantView.restaurantTableView.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
     }
+    
+    @objc
+    func tap(_ sender: UIButton) {
+        let restaurantInfoViewController = RestaurantInfoViewController()
+        restaurantInfoViewController.modalPresentationStyle = .pageSheet
+        restaurantInfoViewController.sheetPresentationController?.prefersGrabberVisible = true
+        
+        self.infoDelegate = restaurantInfoViewController
+
+        let currentTitle = sender.configuration?.title
+        present(restaurantInfoViewController, animated: true) {
+            self.infoDelegate?.didTappedRestaurantInfo(restaurantName: currentTitle ?? "식당")
+            restaurantInfoViewController.getRestaurantInfoResponse(restaurantName: self.restaurantButtonTitleToName[currentTitle ?? "DODAM"] ?? "DODAM")
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -200,6 +226,8 @@ extension HomeRestaurantViewController: UITableViewDataSource {
             updatedConfig.attributedTitle = titleAttr
             
             homeRestaurantTableViewHeader.restaurantTitleButton.configuration = updatedConfig
+//            print("🅿️🅿️🅿️🅿️\(homeRestaurantTableViewHeader.restaurantTitleButton.configuration?.title)")
+            homeRestaurantTableViewHeader.restaurantTitleButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
         }
         return homeRestaurantTableViewHeader
     }
