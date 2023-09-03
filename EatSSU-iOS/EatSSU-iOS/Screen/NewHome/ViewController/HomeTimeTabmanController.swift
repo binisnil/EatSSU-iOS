@@ -12,9 +12,7 @@ import Tabman
 import Pageboy
 
 class HomeTimeTabmanController: TabmanViewController {
-    
-    // MARK: - Properties
-    
+        
     // MARK: - UI Components
     
     let bar = TMBar.ButtonBar()
@@ -47,7 +45,6 @@ class HomeTimeTabmanController: TabmanViewController {
         morningViewController.fetchData(date: date, time: "MORNING")
         lunchViewController.fetchData(date: date, time: "LUNCH")
         dinnerViewController.fetchData(date: date, time: "DINNER")
-    
     }
     
     func changeDateFormat(date: Date) -> String {

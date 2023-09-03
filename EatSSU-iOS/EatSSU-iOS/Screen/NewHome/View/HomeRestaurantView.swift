@@ -12,18 +12,8 @@ import SnapKit
 import Then
 
 class HomeRestaurantView: BaseUIView {
-    
-    //MARK: - Properties
-
   
     // MARK: - UI Components
-    
-    /// dormitory
-    /// dodam
-    /// student
-    /// foodcourt
-    /// snackcorner
-    /// thekitchen
    
     lazy var restaurantTableView = UITableView(frame: .zero, style: .insetGrouped).then {
         $0.separatorStyle = .none
