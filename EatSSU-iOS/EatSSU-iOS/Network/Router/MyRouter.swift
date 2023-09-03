@@ -31,7 +31,7 @@ extension MyRouter: TargetType, AccessTokenAuthorizable {
     var method: Moya.Method {
         switch self {
         case .myReview:
-            return .post
+            return .get
         case .myInfo:
             return .get
         }
