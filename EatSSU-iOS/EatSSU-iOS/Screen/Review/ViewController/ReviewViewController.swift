@@ -258,20 +258,21 @@ extension ReviewViewController {
     func deleteReview(menuID: Int, reviewID: Int) {
         self.reviewProvider.request(.deleteReview(menuID, reviewID)) { response in
             switch response {
-            case .success(let moyaResponse):
-                print("😍😍")
-                self.reviewTableView.reloadData()
+            case .success(_):
+                self.getReviewList(type: self.type, menuId: self.menuID)
+                self.reviewTableView.showToast(message: "삭제되었어요 !")
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
     }
-
 }
 
 extension ReviewViewController: ReviewMenuTypeInfoDelegate {
     func didDelegateReviewMenuTypeInfo(for menuTypeData: ReviewMenuTypeInfo) {
-        var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType, menuID: menuTypeData.menuID, changeMenuIDList: menuTypeData.changeMenuIDList)
+        var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType,
+                                                    menuID: menuTypeData.menuID,
+                                                    changeMenuIDList: menuTypeData.changeMenuIDList)
         type = reviewMenuTypeInfo.menuType
         menuID = reviewMenuTypeInfo.menuID
         menuIDList = reviewMenuTypeInfo.changeMenuIDList ?? [menuID]
