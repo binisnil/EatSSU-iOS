@@ -127,7 +127,7 @@ class ReviewViewController: BaseViewController {
         let deleteAction = UIAlertAction(title: "삭제하기",
                                       style: .default,
                                       handler: { okAction in
-            self.deleteReview(menuID: menuID, reviewID: reviewID)
+            self.deleteReview(reviewID: reviewID)
         })
         
         let cancelAction = UIAlertAction(title: "취소하기",
@@ -268,7 +268,7 @@ extension ReviewViewController {
         }
     }
     
-    func deleteReview(menuID: Int, reviewID: Int) {
+    func deleteReview(reviewID: Int) {
         self.reviewProvider.request(.deleteReview(reviewID)) { response in
             switch response {
             case .success(_):

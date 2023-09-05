@@ -36,7 +36,7 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
         case .report:
             return "/report/"
         case .deleteReview(let reviewId):
-            return "/review/detail/\(reviewId)"
+            return "/review/\(reviewId)"
         case .fixReview(let reviewId, _):
             return "/review/\(reviewId)"
         }
