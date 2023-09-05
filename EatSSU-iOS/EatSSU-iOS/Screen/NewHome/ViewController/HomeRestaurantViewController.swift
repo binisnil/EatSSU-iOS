@@ -59,7 +59,9 @@ class HomeRestaurantViewController: BaseViewController {
         }
     }
     
-    let menuProvider = MoyaProvider<HomeRouter>(plugins: [MoyaLoggingPlugin()])
+//    let menuProvider = MoyaProvider<HomeRouter>(plugins: [MoyaLoggingPlugin()])
+    let menuProvider = MoyaProvider<HomeRouter>()
+
     
     //MARK: - UI Components
     
@@ -132,7 +134,7 @@ class HomeRestaurantViewController: BaseViewController {
             getFixMenuData(restaurant: "SNACK_CORNER") {}
             getFixMenuData(restaurant: "THE_KITCHEN") {}
         }
-        
+                
         print("✅ fetchData 끝")
         
         /// 스크롤 최상단 이동

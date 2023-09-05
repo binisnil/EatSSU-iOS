@@ -109,10 +109,10 @@ extension HomeTimeTabmanController: CalendarSeletionDelegate {
     func didSelectCalendar(date: Date) {
         print("🐯\(date)")
         dateFetchData(for: changeDateFormat(date: date))
-        
-        morningViewController.restaurantView.restaurantTableView.reloadData()
-        lunchViewController.restaurantView.restaurantTableView.reloadData()
-        dinnerViewController.restaurantView.restaurantTableView.reloadData()
+//
+//        morningViewController.restaurantView.restaurantTableView.reloadData()
+//        lunchViewController.restaurantView.restaurantTableView.reloadData()
+//        dinnerViewController.restaurantView.restaurantTableView.reloadData()
         print("✅ reload 끝 ")
     }
 }
