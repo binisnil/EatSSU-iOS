@@ -61,7 +61,6 @@
 		7B2BBFB2299A29AF00EE0F1F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBFB1299A29AF00EE0F1F /* UIColor+.swift */; };
 		7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */; };
 		7B2C9E9129DAF6270007603D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9029DAF6270007603D /* MainButton.swift */; };
-		7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */; };
 		7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9429DB359A0007603D /* MainTextField.swift */; };
 		7B2C9E9729DEE7B20007603D /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9629DEE7B20007603D /* UITextField+.swift */; };
 		7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C9E9A29DF3B4A0007603D /* ImageLiteral.swift */; };
@@ -119,9 +118,8 @@
 		7BBD4CCD2A72544E00515F67 /* MyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CCC2A72544E00515F67 /* MyReviewView.swift */; };
 		7BBD4CF52A765A3000515F67 /* ReviewMenuTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD4CF42A765A3000515F67 /* ReviewMenuTypeInfo.swift */; };
 		7BD73CD429D208940076DC77 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 7BD73CD329D208940076DC77 /* Then */; };
-		7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */; };
-		7BF5CC0C2A497AD800E4EE11 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */; };
-		7BF5CC0E2A497D3100E4EE11 /* NewLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0D2A497D3100E4EE11 /* NewLoginViewController.swift */; };
+		7BF5CC0C2A497AD800E4EE11 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0B2A497AD800E4EE11 /* LoginView.swift */; };
+		7BF5CC0E2A497D3100E4EE11 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0D2A497D3100E4EE11 /* LoginViewController.swift */; };
 		7BF5CC102A49F24F00E4EE11 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */; };
 		7BF5CC122A49F65400E4EE11 /* TextLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC112A49F65400E4EE11 /* TextLiteral.swift */; };
 		7BF5CC382A53168000E4EE11 /* SetNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5CC372A53168000E4EE11 /* SetNickNameView.swift */; };
@@ -184,7 +182,6 @@
 		7B2BBFB1299A29AF00EE0F1F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		7B2BBFB3299A29DC00EE0F1F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		7B2C9E9029DAF6270007603D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
-		7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7B2C9E9429DB359A0007603D /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		7B2C9E9629DEE7B20007603D /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		7B2C9E9A29DF3B4A0007603D /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
@@ -240,9 +237,8 @@
 		7BBD4CCA2A72541500515F67 /* MyReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewViewController.swift; sourceTree = "<group>"; };
 		7BBD4CCC2A72544E00515F67 /* MyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewView.swift; sourceTree = "<group>"; };
 		7BBD4CF42A765A3000515F67 /* ReviewMenuTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewMenuTypeInfo.swift; sourceTree = "<group>"; };
-		7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
-		7BF5CC0D2A497D3100E4EE11 /* NewLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginViewController.swift; sourceTree = "<group>"; };
+		7BF5CC0B2A497AD800E4EE11 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7BF5CC0D2A497D3100E4EE11 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BF5CC0F2A49F24F00E4EE11 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		7BF5CC112A49F65400E4EE11 /* TextLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLiteral.swift; sourceTree = "<group>"; };
 		7BF5CC372A53168000E4EE11 /* SetNickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNickNameView.swift; sourceTree = "<group>"; };
@@ -526,7 +522,7 @@
 		7B2C9E6329DAC6B70007603D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BF5CC0B2A497AD800E4EE11 /* NewLoginView.swift */,
+				7BF5CC0B2A497AD800E4EE11 /* LoginView.swift */,
 				7BF5CC372A53168000E4EE11 /* SetNickNameView.swift */,
 			);
 			path = View;
@@ -535,9 +531,7 @@
 		7B2C9E6429DAC6BD0007603D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7B2C9E9229DAF9A70007603D /* SignUpViewController.swift */,
-				7BD73CE529D2F9C60076DC77 /* LoginViewController.swift */,
-				7BF5CC0D2A497D3100E4EE11 /* NewLoginViewController.swift */,
+				7BF5CC0D2A497D3100E4EE11 /* LoginViewController.swift */,
 				7BF5CC392A531ED100E4EE11 /* SetNickNameViewController.swift */,
 			);
 			path = ViewController;
@@ -933,13 +927,11 @@
 				7BF5CC122A49F65400E4EE11 /* TextLiteral.swift in Sources */,
 				051CFA5E2A8A3EAF0023B3C6 /* MyInfoResponse.swift in Sources */,
 				7B9998E92A8277B40043C592 /* HomeViewController.swift in Sources */,
-				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
 				7BF5CC3C2A53DD0600E4EE11 /* PostUIButton.swift in Sources */,
 				7B9998F12A827B590043C592 /* HomeCalendarView.swift in Sources */,
 				7B51C5A32A63268A0016B418 /* RestaurantInfoModel.swift in Sources */,
 				058326612A4D9422004A295F /* ChoiceMenuViewController.swift in Sources */,
-				7BD73CE629D2F9C60076DC77 /* LoginViewController.swift in Sources */,
 				0588407D2A80E2A90007AA98 /* MyReviewResponse.swift in Sources */,
 				7B9999252A8C03320043C592 /* String.swift in Sources */,
 				7B63C45B29C100DE0070C588 /* DinnerViewController.swift in Sources */,
@@ -951,7 +943,6 @@
 				057A0B212A22278800F10B85 /* RealmService.swift in Sources */,
 				05EC82FC2A0BD17F00851B55 /* NoticeModel.swift in Sources */,
 				058326642A4D9597004A295F /* ChoiceMenuTableViewCell.swift in Sources */,
-				7B2C9E9329DAF9A70007603D /* SignUpViewController.swift in Sources */,
 				7B9899A42A0B902C00D1A076 /* RestaurantTableView.swift in Sources */,
 				7B2C9E9529DB359A0007603D /* MainTextField.swift in Sources */,
 				056956BB29C0D8BF002E8CF2 /* UIFont+.swift in Sources */,
@@ -987,7 +978,7 @@
 				7B2BBFB4299A29DC00EE0F1F /* UIViewController+.swift in Sources */,
 				7B2C9E9B29DF3B4A0007603D /* ImageLiteral.swift in Sources */,
 				7B9998B82A793FB50043C592 /* UserNicknameRouter.swift in Sources */,
-				7BF5CC0C2A497AD800E4EE11 /* NewLoginView.swift in Sources */,
+				7BF5CC0C2A497AD800E4EE11 /* LoginView.swift in Sources */,
 				7B51C5952A62A0B10016B418 /* CALayer.swift in Sources */,
 				056956C929C0E51F002E8CF2 /* BaseUIView.swift in Sources */,
 				7B9798AF2A24E6A70069F027 /* oHomeRestaurantView.swift in Sources */,
@@ -1037,7 +1028,7 @@
 				0559705D2A16670600868C42 /* MenuInfoResponse.swift in Sources */,
 				051F7E672A742FA500CE9F87 /* ReviewRateResponse.swift in Sources */,
 				7BF5CC3A2A531ED100E4EE11 /* SetNickNameViewController.swift in Sources */,
-				7BF5CC0E2A497D3100E4EE11 /* NewLoginViewController.swift in Sources */,
+				7BF5CC0E2A497D3100E4EE11 /* LoginViewController.swift in Sources */,
 				7B98992E29E04F1300D1A076 /* ReviewViewController.swift in Sources */,
 				7B9899A22A0B8FCF00D1A076 /* MenuHeaderView.swift in Sources */,
 				7BBD4CA62A6D275B00515F67 /* RestaurantInfoRouter.swift in Sources */,
