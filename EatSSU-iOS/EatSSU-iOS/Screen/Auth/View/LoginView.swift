@@ -1,5 +1,5 @@
 //
-//  newLoginView.swift
+//  LoginView.swift
 //  EatSSU-iOS
 //
 //  Created by 최지우 on 2023/06/26.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class NewLoginView: BaseUIView {
+class LoginView: BaseUIView {
     
     // MARK: - UI Components
     

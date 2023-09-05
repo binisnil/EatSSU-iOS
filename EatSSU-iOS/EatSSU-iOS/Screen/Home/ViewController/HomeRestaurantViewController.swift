@@ -21,7 +21,7 @@ protocol RestaurantInfoDelegate: AnyObject {
 
 class HomeRestaurantViewController: BaseViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     private let restaurantTableViewMenuTitleCellCount = 1
     private let headerHeight: CGFloat = 35
@@ -59,13 +59,13 @@ class HomeRestaurantViewController: BaseViewController {
         }
     }
     
-    let menuProvider = MoyaProvider<HomeRouter>(plugins: [MoyaLoggingPlugin()])
+    let menuProvider = MoyaProvider<HomeRouter>()
     
-    //MARK: - UI Components
+    // MARK: - UI Components
     
     let restaurantView = HomeRestaurantView()
     
-    //MARK: - Life Cycles
+    // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +75,7 @@ class HomeRestaurantViewController: BaseViewController {
 
     }
     
-    //MARK: - Functions
+    // MARK: - Functions
     
     override func configureUI() {
         view.addSubviews(restaurantView)
@@ -132,15 +132,11 @@ class HomeRestaurantViewController: BaseViewController {
             getFixMenuData(restaurant: "SNACK_CORNER") {}
             getFixMenuData(restaurant: "THE_KITCHEN") {}
         }
-        
+                
         print("✅ fetchData 끝")
         
         /// 스크롤 최상단 이동
         restaurantView.restaurantTableView.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
-    }
-    
-    func deleteEmptyTableRestaurant() {
-        
     }
     
     @objc
@@ -231,7 +227,6 @@ extension HomeRestaurantViewController: UITableViewDataSource {
             updatedConfig.attributedTitle = titleAttr
             
             homeRestaurantTableViewHeader.restaurantTitleButton.configuration = updatedConfig
-//            print("🅿️🅿️🅿️🅿️\(homeRestaurantTableViewHeader.restaurantTitleButton.configuration?.title)")
             homeRestaurantTableViewHeader.restaurantTitleButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
         }
         return homeRestaurantTableViewHeader

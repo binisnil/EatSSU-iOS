@@ -67,7 +67,7 @@ extension HomeTimeTabmanController: PageboyViewControllerDataSource, TMBarDataSo
     }
     
     func defaultPage(for pageboyViewController: Pageboy.PageboyViewController) -> Pageboy.PageboyViewController.Page? {
-        nil
+        return .first
     }
     
     func barItem(for bar: Tabman.TMBar, at index: Int) -> Tabman.TMBarItemable {
@@ -102,16 +102,13 @@ extension HomeTimeTabmanController: PageboyViewControllerDataSource, TMBarDataSo
         ctBar.layout.contentMode = .fit
         ctBar.layout.transitionStyle = .snap
     }
+    
 }
 
 extension HomeTimeTabmanController: CalendarSeletionDelegate {
     func didSelectCalendar(date: Date) {
         print("🐯\(date)")
         dateFetchData(for: changeDateFormat(date: date))
-        
-        morningViewController.restaurantView.restaurantTableView.reloadData()
-        lunchViewController.restaurantView.restaurantTableView.reloadData()
-        dinnerViewController.restaurantView.restaurantTableView.reloadData()
         print("✅ reload 끝 ")
     }
 }
