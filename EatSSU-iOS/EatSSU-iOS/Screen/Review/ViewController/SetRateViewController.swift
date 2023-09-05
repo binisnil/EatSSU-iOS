@@ -16,9 +16,11 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     // MARK: - Properties
 
     private let writeReviewProvider = MoyaProvider<WriteReviewRouter>(plugins: [MoyaLoggingPlugin()])
+    private let reviewProvider = MoyaProvider<ReviewRouter>(plugins: [MoyaLoggingPlugin()])
     private var userPickedImage = UIImage()
     private var selectedIDList: [Int] = []
     private var lastID: Int = Int()
+    private var reviewId: Int?
     private var selectedList: [String] = [] {
         didSet {
             menuLabel.text = "\(selectedList[0]) 을 추천하시겠어요?"
@@ -288,13 +290,27 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     
     override func customNavigationBar() {
         super.customNavigationBar()
-        navigationItem.title = "리뷰 남기기"
+        if reviewId != nil {
+            navigationItem.title = "리뷰 수정하기"
+        } else {
+            navigationItem.title = "리뷰 남기기"
+        }
     }
     
     func dataBind(list: [String], idList: [Int]) {
         self.selectedList = list
         self.selectedIDList = idList
         self.lastID = idList.last ?? 0
+    }
+    
+    func dataBindForFix(list: [String], idList: [Int], reivewId: Int) {
+        self.selectedList = list
+        self.selectedIDList = idList
+        self.lastID = idList.last ?? 0
+        self.reviewId = reivewId
+        selectImageButton.isHidden = true
+        deleteMethodLabel.isHidden = true
+        nextButton.setTitle("리뷰 수정 완료하기", for: .normal)
     }
     
     func setImagePickerDelegate() {
@@ -307,23 +323,26 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     
     @objc
     func tappedNextButton() {
-        if selectedList.count == 1 {
-            self.navigationController?.isNavigationBarHidden = false
-            postWriteReview(mainGrade: rateView.currentStar,
-                            amountGrade: quantityRateView.currentStar,
-                            tasteGrade: tasteRateView.currentStar,
-                            content: userReviewTextView.text,
-                            image: [userPickedImage],
-                            menuId: selectedIDList[0]
-            )
-        } else {
-            postWriteReview(mainGrade: rateView.currentStar,
-                            amountGrade: quantityRateView.currentStar,
-                            tasteGrade: tasteRateView.currentStar,
-                            content: userReviewTextView.text,
-                            image: [userPickedImage],
-                            menuId: selectedIDList[0]
-            )
+        let param = WriteReviewRequest.init(mainGrade: rateView.currentStar,
+                                            amountGrade: quantityRateView.currentStar,
+                                            tasteGrade: tasteRateView.currentStar,
+                                            content: userReviewTextView.text)
+        switch reviewId {
+        case .none:
+            if selectedList.count == 1 {
+                self.navigationController?.isNavigationBarHidden = false
+                postWriteReview(param: param,
+                                image: [userPickedImage],
+                                menuId: selectedIDList[0]
+                )
+            } else {
+                postWriteReview(param: param,
+                                image: [userPickedImage],
+                                menuId: selectedIDList[0]
+                )
+            }
+        case .some(let reviewID):
+            patchFixedReview(reviewId: reviewID, param: param)
         }
     }
     
@@ -398,13 +417,12 @@ class SetRateViewController: BaseViewController, UINavigationControllerDelegate 
     }
 }
 
+// MARK: - Server
+
 extension SetRateViewController {
-    private func postWriteReview(mainGrade: Int, amountGrade: Int, tasteGrade: Int, content: String, image: [UIImage?], menuId: Int) {
-        let param = WriteReviewRequest.init(mainGrade: mainGrade,
-                                               amountGrade: amountGrade,
-                                               tasteGrade: tasteGrade,
-                                               content: content
-        )
+    private func postWriteReview(param: WriteReviewRequest,
+                                 image: [UIImage?],
+                                 menuId: Int) {
         self.writeReviewProvider.request(.writeReview(param: param, image: image, menuId: menuId)) { response in
             switch response {
             case.success(_):
@@ -414,6 +432,20 @@ extension SetRateViewController {
                     } else {
                         self.prepareForNextReview()
                     }
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    private func patchFixedReview(reviewId: Int, param: WriteReviewRequest) {
+        self.reviewProvider.request(.fixReview(reviewId, param)) { response in
+            switch response {
+            case.success(let moyaResponse):
+                do {
+                    print(moyaResponse)
+                    self.navigationController?.popViewController(animated: true)
                 }
             case .failure(let err):
                 print(err.localizedDescription)

@@ -14,7 +14,8 @@ enum ReviewRouter {
     case reviewRate(_ type: String, _ id: Int)
     case reviewList(_ type: String, _ id: Int)
     case report(param: ReportRequest)
-    case deleteReview(_ menuId: Int, _ reviewId: Int)
+    case deleteReview(_ reviewId: Int)
+    case fixReview(_ reviewId: Int, _ param: WriteReviewRequest)
 }
 
 extension ReviewRouter: TargetType, AccessTokenAuthorizable {
@@ -34,8 +35,10 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
             return "/review/list"
         case .report:
             return "/report/"
-        case .deleteReview(let menuId, let reviewId):
-            return "/review/\(menuId)/detail/\(reviewId)"
+        case .deleteReview(let reviewId):
+            return "/review/detail/\(reviewId)"
+        case .fixReview(let reviewId, _):
+            return "/review/\(reviewId)"
         }
     }
     
@@ -51,6 +54,8 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
             return .post
         case .deleteReview:
             return .delete
+        case .fixReview:
+            return .patch
         }
     }
     
@@ -80,13 +85,15 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
                                                        "mealId": id,
                                                        "page": 0,
                                                        "size": 20,
-                                                       "sort": "date,DESC"], encoding: URLEncoding.queryString)
+                                                       "sort": "date,DESC"],
+                                          encoding: URLEncoding.queryString)
             case "FIX":
                 return .requestParameters(parameters: ["menuType": type,
                                                        "menuId": id,
                                                        "page": 0,
                                                        "size": 20,
-                                                       "sort": "date,DESC"], encoding: URLEncoding.queryString)
+                                                       "sort": "date,DESC"],
+                                          encoding: URLEncoding.queryString)
             default:
                 return .requestPlain
             }
@@ -94,6 +101,8 @@ extension ReviewRouter: TargetType, AccessTokenAuthorizable {
             return .requestJSONEncodable(param)
         case .deleteReview:
             return .requestPlain
+        case .fixReview(_, let param):
+            return .requestJSONEncodable(param)
         }
     }
     

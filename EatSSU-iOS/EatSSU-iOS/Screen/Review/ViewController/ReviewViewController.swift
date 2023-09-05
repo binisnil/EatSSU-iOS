@@ -12,12 +12,13 @@ import Moya
 class ReviewViewController: BaseViewController {
     
     // MARK: - Properties
+    
     typealias handler = ((String) -> (Void))
     let reviewProvider = MoyaProvider<ReviewRouter>(plugins: [MoyaLoggingPlugin()])
     var menuID: Int = Int()
     var type = "CHANGE"
     var completionHandler: handler?
-    private var menuNameList = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
+    private var menuNameList: [String] = []
     private var menuIDList: [Int] = [Int]()
     private var menuDictionary: [String: Int] = [:]
     private var reviewList = [MenuDataList]()
@@ -109,7 +110,7 @@ class ReviewViewController: BaseViewController {
         menuID = id
     }
     
-    private func showFixOrDeleteAlert(menuID: Int, reviewID: Int) {
+    private func showFixOrDeleteAlert(menuID: Int, reviewID: Int, menuName: String) {
         let alert = UIAlertController(title: "리뷰 수정 혹은 삭제",
                                       message: "작성하신 리뷰를 수정 또는 삭제하시겠습니까?",
                                       preferredStyle: UIAlertController.Style.actionSheet
@@ -117,7 +118,11 @@ class ReviewViewController: BaseViewController {
         
         let fixAction = UIAlertAction(title: "수정하기",
                                       style: .default,
-                                      handler: { okAction in })
+                                      handler: { okAction in
+            let setRateViewController = SetRateViewController()
+            setRateViewController.dataBindForFix(list: [menuName], idList: [menuID], reivewId: reviewID)
+            self.navigationController?.pushViewController(setRateViewController, animated: true)
+        })
         
         let deleteAction = UIAlertAction(title: "삭제하기",
                                       style: .default,
@@ -203,7 +208,10 @@ extension ReviewViewController: UITableViewDataSource {
         cell.dataBind(response: reviewList[indexPath.row])
         cell.handler = { [weak self] in
             guard let self else { return }
-            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert(menuID: menuDictionary[cell.menuName] ?? 0, reviewID: cell.reviewId) : showReportAlert(reviewID: cell.reviewId)
+            
+            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert(menuID: menuDictionary[cell.menuName] ?? 0,
+                                                                      reviewID: cell.reviewId,
+                                                                      menuName: cell.menuName) : showReportAlert(reviewID: cell.reviewId)
         }
         cell.selectionStyle = .none
         return cell
@@ -261,7 +269,7 @@ extension ReviewViewController {
     }
     
     func deleteReview(menuID: Int, reviewID: Int) {
-        self.reviewProvider.request(.deleteReview(menuID, reviewID)) { response in
+        self.reviewProvider.request(.deleteReview(reviewID)) { response in
             switch response {
             case .success(_):
                 self.getReviewList(type: self.type, menuId: self.menuID)
