@@ -12,10 +12,13 @@ import Moya
 class ReviewViewController: BaseViewController {
     
     // MARK: - Properties
+    
+    typealias handler = ((String) -> (Void))
     let reviewProvider = MoyaProvider<ReviewRouter>(plugins: [MoyaLoggingPlugin()])
     var menuID: Int = Int()
     var type = "CHANGE"
-    private var menuNameList = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
+    var completionHandler: handler?
+    private var menuNameList: [String] = []
     private var menuIDList: [Int] = [Int]()
     private var menuDictionary: [String: Int] = [:]
     private var reviewList = [MenuDataList]()
@@ -107,7 +110,7 @@ class ReviewViewController: BaseViewController {
         menuID = id
     }
     
-    private func showFixOrDeleteAlert(menuID: Int, reviewID: Int) {
+    private func showFixOrDeleteAlert(menuID: Int, reviewID: Int, menuName: String) {
         let alert = UIAlertController(title: "리뷰 수정 혹은 삭제",
                                       message: "작성하신 리뷰를 수정 또는 삭제하시겠습니까?",
                                       preferredStyle: UIAlertController.Style.actionSheet
@@ -115,12 +118,16 @@ class ReviewViewController: BaseViewController {
         
         let fixAction = UIAlertAction(title: "수정하기",
                                       style: .default,
-                                      handler: { okAction in })
+                                      handler: { okAction in
+            let setRateViewController = SetRateViewController()
+            setRateViewController.dataBindForFix(list: [menuName], idList: [menuID], reivewId: reviewID)
+            self.navigationController?.pushViewController(setRateViewController, animated: true)
+        })
         
         let deleteAction = UIAlertAction(title: "삭제하기",
                                       style: .default,
                                       handler: { okAction in
-            self.deleteReview(menuID: menuID, reviewID: reviewID)
+            self.deleteReview(reviewID: reviewID)
         })
         
         let cancelAction = UIAlertAction(title: "취소하기",
@@ -133,7 +140,7 @@ class ReviewViewController: BaseViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showDeleteAlert() {
+    private func showReportAlert(reviewID: Int) {
         let alert = UIAlertController(title: "리뷰 신고하기",
                                       message: "해당 리뷰를 신고하시겠습니까?",
                                       preferredStyle: UIAlertController.Style.alert
@@ -146,6 +153,9 @@ class ReviewViewController: BaseViewController {
         let deleteAction = UIAlertAction(title: "신고",
                                          style: .default,
                                          handler: { okAction in
+            let reportViewController = ReportViewController()
+            reportViewController.bindData(reviewID: reviewID)
+            self.navigationController?.pushViewController(reportViewController, animated: true)
         })
         
         alert.addAction(cancelAction)
@@ -198,7 +208,10 @@ extension ReviewViewController: UITableViewDataSource {
         cell.dataBind(response: reviewList[indexPath.row])
         cell.handler = { [weak self] in
             guard let self else { return }
-            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert(menuID: menuDictionary[cell.menuName] ?? 0, reviewID: cell.reviewId) : showDeleteAlert()
+            
+            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert(menuID: menuDictionary[cell.menuName] ?? 0,
+                                                                      reviewID: cell.reviewId,
+                                                                      menuName: cell.menuName) : showReportAlert(reviewID: cell.reviewId)
         }
         cell.selectionStyle = .none
         return cell
@@ -255,23 +268,24 @@ extension ReviewViewController {
         }
     }
     
-    func deleteReview(menuID: Int, reviewID: Int) {
-        self.reviewProvider.request(.deleteReview(menuID, reviewID)) { response in
+    func deleteReview(reviewID: Int) {
+        self.reviewProvider.request(.deleteReview(reviewID)) { response in
             switch response {
-            case .success(let moyaResponse):
-                print("😍😍")
-                self.reviewTableView.reloadData()
+            case .success(_):
+                self.getReviewList(type: self.type, menuId: self.menuID)
+                self.reviewTableView.showToast(message: "삭제되었어요 !")
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
     }
-
 }
 
 extension ReviewViewController: ReviewMenuTypeInfoDelegate {
     func didDelegateReviewMenuTypeInfo(for menuTypeData: ReviewMenuTypeInfo) {
-        var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType, menuID: menuTypeData.menuID, changeMenuIDList: menuTypeData.changeMenuIDList)
+        var reviewMenuTypeInfo = ReviewMenuTypeInfo(menuType: menuTypeData.menuType,
+                                                    menuID: menuTypeData.menuID,
+                                                    changeMenuIDList: menuTypeData.changeMenuIDList)
         type = reviewMenuTypeInfo.menuType
         menuID = reviewMenuTypeInfo.menuID
         menuIDList = reviewMenuTypeInfo.changeMenuIDList ?? [menuID]

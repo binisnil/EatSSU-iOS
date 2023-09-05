@@ -251,8 +251,8 @@ extension ReviewTableCell {
         }
     }
     
-    func myPageDataBind(response: MyDataList) {
-        userNameLabel.text = "닉네임넣기"
+    func myPageDataBind(response: MyDataList, nickname: String) {
+        userNameLabel.text = "\(nickname)"
         menuNameLabel.text = response.menuName
         totalRateView.rateNumberLabel.text = "\(response.mainGrade)"
         quantityRateView.rateNumberLabel.text = "\(response.amountGrade)"

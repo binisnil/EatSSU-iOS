@@ -17,6 +17,7 @@ class MyReviewViewController: BaseViewController {
     
     private let myProvider = MoyaProvider<MyRouter>(plugins: [MoyaLoggingPlugin()])
     private var reviewList = [MyDataList]()
+    var nickname: String = String()
     
     // MARK: - UI Components
     
@@ -58,6 +59,10 @@ class MyReviewViewController: BaseViewController {
         myReviewView.myReviewTableView.delegate = self
         myReviewView.myReviewTableView.dataSource = self
     }
+    
+    func dataBind(nikcname: String) {
+        self.nickname = nikcname
+    }
 }
 
 extension MyReviewViewController: UITableViewDelegate {}
@@ -69,7 +74,7 @@ extension MyReviewViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableCell.identifier, for: indexPath) as? ReviewTableCell ?? ReviewTableCell()
-        cell.myPageDataBind(response: reviewList[indexPath.row])
+        cell.myPageDataBind(response: reviewList[indexPath.row], nickname: nickname)
         cell.selectionStyle = .none
         return cell
     }
