@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import Then
+import Moya
 
 class ReportViewController: BaseViewController {
 
@@ -17,8 +18,13 @@ class ReportViewController: BaseViewController {
     private var isChecked = false
     private var status: Int = Int()
     private var buttonArray: [UIButton] = []
+    private var contentArray: [String?] = []
+    var reviewID: Int = Int()
+    private let reviewProvider = MoyaProvider<ReviewRouter>(plugins: [MoyaLoggingPlugin()])
+
     
     // MARK: - UI Components
+    
     private let alertDeclarationLabel = UILabel().then {
         $0.text = "리뷰를 신고하는 이유를 선택해주세요."
         $0.font = .semiBold(size: 18)
@@ -166,6 +172,14 @@ class ReportViewController: BaseViewController {
         setButtonEvent()
         customNavigationBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.addKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.removeKeyboardNotifications()
+    }
 
     //MARK: - Functions
     
@@ -219,6 +233,7 @@ class ReportViewController: BaseViewController {
         [report1Button, report2Button, report3Button, report4Button, report5Button, report6Button].forEach {
             $0.addTarget(self, action: #selector(checkButtonIsTapped(_:)), for: .touchUpInside)
         }
+        sendButton.addTarget(self, action: #selector(sendButtonIsTapped), for: .touchUpInside)
     }
 
     override func customNavigationBar() {
@@ -249,6 +264,15 @@ class ReportViewController: BaseViewController {
          report6Button].forEach {
             buttonArray.append($0)
         }
+        
+        [report1Label.text,
+         report2Label.text,
+         report3Label.text,
+         report4Label.text,
+         report5Label.text,
+         report6Label.text].forEach {
+            contentArray.append($0)
+        }
     }
     
     @objc
@@ -269,10 +293,123 @@ class ReportViewController: BaseViewController {
             userReportTextView.isEditable = false
         }
     }
+    
+    func bindData(reviewID: Int) {
+        self.reviewID = reviewID
+    }
+    
+    @objc
+    private func sendButtonIsTapped() {
+        postReport(reviewID: reviewID, content: contentArray[status] ?? "")
+    }
+    
+    // 키보드가 나타났다는 알림을 받으면 실행할 메서드
+    @objc func keyboardWillShow(_ noti: NSNotification){
+        // 키보드의 높이만큼 화면을 올려준다.
+        if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            let buttonHeight = sendButton.frame.size.height + 77
+            self.view.frame.origin.y -= (keyboardHeight - buttonHeight)
+            self.navigationController?.isNavigationBarHidden = true
+        }
+    }
+
+    // 키보드가 사라졌다는 알림을 받으면 실행할 메서드
+    @objc func keyboardWillHide(_ noti: NSNotification){
+        // 키보드의 높이만큼 화면을 내려준다.
+        if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            let buttonHeight = sendButton.frame.size.height + 77
+            self.view.frame.origin.y += (keyboardHeight - buttonHeight)
+            self.navigationController?.isNavigationBarHidden = false
+        }
+    }
+    
+    // 노티피케이션을 추가하는 메서드
+    func addKeyboardNotifications(){
+        // 키보드가 나타날 때 앱에게 알리는 메서드 추가
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        // 키보드가 사라질 때 앱에게 알리는 메서드 추가
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+
+    // 노티피케이션을 제거하는 메서드
+    func removeKeyboardNotifications(){
+        // 키보드가 나타날 때 앱에게 알리는 메서드 제거
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification , object: nil)
+        // 키보드가 사라질 때 앱에게 알리는 메서드 제거
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func showSuccessAlert() {
+        let alert = UIAlertController(title: "리뷰 신고 성공",
+                                      message: "신고가 성공적으로 접수되었어요!",
+                                      preferredStyle: UIAlertController.Style.alert
+        )
+        
+        let okAction = UIAlertAction(title: "리뷰 화면으로 돌아가기",
+                                         style: .default,
+                                         handler: { okAction in
+            self.navigationController?.popViewController(animated: true)
+        })
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Server
 
 extension ReportViewController {
-    
+    private func postReport(reviewID: Int, content: String) {
+        var reportType: String = String()
+        var reportContent: String = String()
+        switch content {
+        case "메뉴와 관련없는 내용":
+            reportType = "CONTENT"
+            reportContent = content
+        case "음란성, 욕설 등 부적절한 내용":
+            reportType = "BAD_WORD"
+            reportContent = content
+        case "부적절한 홍보 또는 광고":
+            reportType = "AD"
+            reportContent = content
+        case "리뷰 작성 취지에 맞지 않는 내용 (복사글 등)":
+            reportType = "COPY"
+            reportContent = content
+        case "저작권 도용 의심 (사진 등)":
+            reportType = "COPYRIGHT"
+            reportContent = content
+        case "기타 (하단 내용 작성)":
+            reportType = "ETC"
+            reportContent = userReportTextView.text
+        default:
+            reportType = ""
+            reportContent = ""
+        }
+        
+        let param = ReportRequest(reviewId: reviewID,
+                                  reportType: reportType,
+                                  content: reportContent
+        )
+        
+        self.reviewProvider.request(.report(param: param)) { response in
+            switch response {
+            case.success(_):
+                do {
+                    self.showSuccessAlert()
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+                self.view.showToast(message: "잠시후 다시 시도해주세요.")
+            }
+        }
+    }
 }

@@ -12,9 +12,11 @@ import Moya
 class ReviewViewController: BaseViewController {
     
     // MARK: - Properties
+    typealias handler = ((String) -> (Void))
     let reviewProvider = MoyaProvider<ReviewRouter>(plugins: [MoyaLoggingPlugin()])
     var menuID: Int = Int()
     var type = "CHANGE"
+    var completionHandler: handler?
     private var menuNameList = ["김치찌개", "단무지", "깍두기", "요구르트", "칼국수"]
     private var menuIDList: [Int] = [Int]()
     private var menuDictionary: [String: Int] = [:]
@@ -133,7 +135,7 @@ class ReviewViewController: BaseViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    private func showDeleteAlert() {
+    private func showReportAlert(reviewID: Int) {
         let alert = UIAlertController(title: "리뷰 신고하기",
                                       message: "해당 리뷰를 신고하시겠습니까?",
                                       preferredStyle: UIAlertController.Style.alert
@@ -146,6 +148,9 @@ class ReviewViewController: BaseViewController {
         let deleteAction = UIAlertAction(title: "신고",
                                          style: .default,
                                          handler: { okAction in
+            let reportViewController = ReportViewController()
+            reportViewController.bindData(reviewID: reviewID)
+            self.navigationController?.pushViewController(reportViewController, animated: true)
         })
         
         alert.addAction(cancelAction)
@@ -198,7 +203,7 @@ extension ReviewViewController: UITableViewDataSource {
         cell.dataBind(response: reviewList[indexPath.row])
         cell.handler = { [weak self] in
             guard let self else { return }
-            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert(menuID: menuDictionary[cell.menuName] ?? 0, reviewID: cell.reviewId) : showDeleteAlert()
+            reviewList[indexPath.row].isWriter ? showFixOrDeleteAlert(menuID: menuDictionary[cell.menuName] ?? 0, reviewID: cell.reviewId) : showReportAlert(reviewID: cell.reviewId)
         }
         cell.selectionStyle = .none
         return cell
