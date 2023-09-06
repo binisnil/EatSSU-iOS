@@ -29,6 +29,9 @@ class HomeTimeTabmanController: TabmanViewController {
         super.viewDidLoad()
 
         registerTabBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         dateFetchData(for: "yyyyMMdd".stringFromDate())
     }
  
